@@ -1,0 +1,39 @@
+yadism package
+==============
+
+Subpackages
+-----------
+
+.. toctree::
+
+   yadism.benchmarks
+   yadism.structure_functions
+   yadism.tests
+
+Submodules
+----------
+
+yadism.basis\_rotation module
+-----------------------------
+
+.. automodule:: yadism.basis_rotation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.runner module
+--------------------
+
+.. automodule:: yadism.runner
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: yadism
+   :members:
+   :undoc-members:
+   :show-inheritance:

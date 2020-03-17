@@ -1,0 +1,10 @@
+yadism.benchmarks package
+=========================
+
+Module contents
+---------------
+
+.. automodule:: yadism.benchmarks
+   :members:
+   :undoc-members:
+   :show-inheritance:

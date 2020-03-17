@@ -1,0 +1,38 @@
+yadism.tests package
+====================
+
+Submodules
+----------
+
+yadism.tests.apfel\_import module
+---------------------------------
+
+.. automodule:: yadism.tests.apfel_import
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.tests.test\_LO module
+----------------------------
+
+.. automodule:: yadism.tests.test_LO
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.tests.toyLH module
+-------------------------
+
+.. automodule:: yadism.tests.toyLH
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: yadism.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

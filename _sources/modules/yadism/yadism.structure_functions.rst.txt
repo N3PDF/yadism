@@ -1,0 +1,30 @@
+yadism.structure\_functions package
+===================================
+
+Submodules
+----------
+
+yadism.structure\_functions.LO module
+-------------------------------------
+
+.. automodule:: yadism.structure_functions.LO
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.NLO module
+--------------------------------------
+
+.. automodule:: yadism.structure_functions.NLO
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: yadism.structure_functions
+   :members:
+   :undoc-members:
+   :show-inheritance:
