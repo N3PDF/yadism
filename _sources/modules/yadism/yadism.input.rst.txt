@@ -1,0 +1,22 @@
+yadism.input package
+====================
+
+Submodules
+----------
+
+yadism.input.inspector module
+-----------------------------
+
+.. automodule:: yadism.input.inspector
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: yadism.input
+   :members:
+   :undoc-members:
+   :show-inheritance:

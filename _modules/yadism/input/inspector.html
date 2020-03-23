@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>yadism.input.inspector &mdash; DIS  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> DIS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Physics.html">Physics documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">DIS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>yadism.input.inspector</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for yadism.input.inspector</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The purpose of this module is to provide a runner that implements the semantics</span>
+<span class="sd">for the input restrictions defined in the following files:</span>
+<span class="sd">    * ``domains.yaml``: in which all the domains restrictions are defined</span>
+<span class="sd">    * ``cross_constraints.yaml``: in which further restrictions are defined,</span>
+<span class="sd">        each one involving more than one input field</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+<span class="c1"># ┌───────────────────┐</span>
+<span class="c1"># │ Arguments Classes │</span>
+<span class="c1"># └───────────────────┘</span>
+
+
+<div class="viewcode-block" id="DomainError"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.DomainError">[docs]</a><span class="k">class</span> <span class="nc">DomainError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Error raised while checking inputs (single argument violation).</span>
+
+<span class="sd">    .. todo::</span>
+<span class="sd">        format domain properly according the type, this should be done by</span>
+<span class="sd">        error Argument subclasses before raising.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Name of the input variable.</span>
+<span class="sd">    description : str</span>
+<span class="sd">        Domain description provided.</span>
+<span class="sd">    domain : list, optional</span>
+<span class="sd">        The set of rules used to provide .</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">known_as</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generates the error message to be included in the Traceback.</span>
+
+<span class="sd">        It formats the provided fields in a single string, and stores it as</span>
+<span class="sd">        first element of ``args`` attribute.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">known_as</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;Following argument outside the domain:</span>
+<span class="s2">               name: </span><span class="si">{</span><span class="n">known_as</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               description:</span>
+<span class="s2">               DESCRIPTION</span>
+<span class="s2">               type: </span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               domain:</span>
+<span class="s2">               DOMAIN</span>
+<span class="s2">               value provided: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               &quot;&quot;&quot;</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\t\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">description</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="mi">66</span><span class="p">,</span> <span class="n">break_long_words</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> *&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;DOMAIN&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;DESCRIPTION&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">description</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;   &quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">msg</span><span class="p">,)</span></div>
+        <span class="c1"># raise ValueError</span>
+
+
+<div class="viewcode-block" id="Argument"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.Argument">[docs]</a><span class="k">class</span> <span class="nc">Argument</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base Class for input variables&#39; domains semantics definition.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **kwargs</span>
+<span class="sd">        Domain specification, with the syntax defined in ``domains.yaml``.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Load ``kwargs`` as object attributes.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Argument.check_value"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.Argument.check_value">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">check_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check if ``value`` belongs to the domain.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        value : type</span>
+<span class="sd">            Description of parameter `value`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_raise_error</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Raise the error, preprocessing the message.&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="EnumArgument"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.EnumArgument">[docs]</a><span class="k">class</span> <span class="nc">EnumArgument</span><span class="p">(</span><span class="n">Argument</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Argument definition for ``enum`` type.</span>
+
+<span class="sd">    ``enum`` type is just a domain defined by enumerating all the possible</span>
+<span class="sd">    values.</span>
+<span class="sd">    There is no hard-coded restrictions in having in the same enum domain values</span>
+<span class="sd">    from different default types (e.g. integers and strings may be mixed).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="EnumArgument.check_value"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.EnumArgument.check_value">[docs]</a>    <span class="k">def</span> <span class="nf">check_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks if `value` belongs to the domain.</span>
+
+<span class="sd">        It checks if `value` is in the list of the enumerated values available</span>
+<span class="sd">        for the ``type``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        DomainError</span>
+<span class="sd">            If `value` is not in the domain of the ``type``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_raise_error</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_raise_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wrapper for DomainError, pretty print `domain`.</span>
+
+<span class="sd">        The domain is formatted as a dashed list.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dom</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;- &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">- &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dom</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">DomainError</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RealArgument"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.RealArgument">[docs]</a><span class="k">class</span> <span class="nc">RealArgument</span><span class="p">(</span><span class="n">Argument</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Argument definition for ``real`` type.</span>
+
+<span class="sd">    Actually just a real with restrictions on the domain, so an interval or the</span>
+<span class="sd">    union of more disconnected intervals.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="RealArgument.check_value"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.RealArgument.check_value">[docs]</a>    <span class="k">def</span> <span class="nf">check_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks if `value` belongs to the domain.</span>
+
+<span class="sd">        It checks if `value` belongs to any interval available for the domain.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        DomainError</span>
+<span class="sd">            If `value` is not in the domain of the ``type``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># load the value in the namespace with the name used in rules</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;metavar&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">metavar</span><span class="p">:</span>
+            <span class="n">var_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metavar</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">var_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+        <span class="n">exec</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">var_name</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># determine to which intervals value belongs to</span>
+        <span class="n">intervals</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">:</span>
+            <span class="n">intervals</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">eval</span><span class="p">(</span><span class="n">rule</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">intervals</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_raise_error</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_raise_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wrapper for DomainError, pretty print `domain`.</span>
+
+<span class="sd">        The domain is formatted as a dashed list of rules.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dom</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;- &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">- &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dom</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">DomainError</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="IntegerArgument"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.IntegerArgument">[docs]</a><span class="k">class</span> <span class="nc">IntegerArgument</span><span class="p">(</span><span class="n">RealArgument</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Short summary.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="IntegerArgument.check_value"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.IntegerArgument.check_value">[docs]</a>    <span class="k">def</span> <span class="nf">check_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">value_or</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">value_or</span> <span class="o">-</span> <span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_raise_error</span><span class="p">(</span><span class="n">value_or</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">IntegerArgument</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">check_value</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_raise_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;INTEGER&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">IntegerArgument</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_raise_error</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<span class="n">type_class_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="n">EnumArgument</span><span class="p">,</span>
+    <span class="s2">&quot;real&quot;</span><span class="p">:</span> <span class="n">RealArgument</span><span class="p">,</span>
+    <span class="s2">&quot;integer&quot;</span><span class="p">:</span> <span class="n">IntegerArgument</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># ┌───────────────────────────┐</span>
+<span class="c1"># │ Cross Constraints Classes │</span>
+<span class="c1"># └───────────────────────────┘</span>
+
+
+<div class="viewcode-block" id="CrossConstraintError"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.CrossConstraintError">[docs]</a><span class="k">class</span> <span class="nc">CrossConstraintError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Error raised while checking inputs (more arguments involved).&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate the error message to be included in the Traceback.</span>
+
+<span class="sd">        It formats the provided fields in a single string, and stores it as</span>
+<span class="sd">        first element of ``args`` attribute.</span>
+
+<span class="sd">        ..todo::</span>
+<span class="sd">            * define the arguments involved</span>
+<span class="sd">            * define the actual format</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="CrossConstraint"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.CrossConstraint">[docs]</a><span class="k">class</span> <span class="nc">CrossConstraint</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<span class="c1"># ╔═══════════╗</span>
+<span class="c1"># ║ Inspector ║</span>
+<span class="c1"># ╚═══════════╝</span>
+
+
+<div class="viewcode-block" id="Inspector"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.Inspector">[docs]</a><span class="k">class</span> <span class="nc">Inspector</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Instantiate the runner that goes through all constraints.</span>
+
+<span class="sd">    Use :func:`check_domains` and :func:`check_cross_constraints` to run the</span>
+<span class="sd">    check defined respectively in ``domains.yaml`` and</span>
+<span class="sd">    ``cross_constraints.yaml``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_inputs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Short summary.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        type</span>
+<span class="sd">            Description of returned object.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_inputs</span> <span class="o">=</span> <span class="n">user_inputs</span>
+
+<div class="viewcode-block" id="Inspector.check_domains"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.Inspector.check_domains">[docs]</a>    <span class="k">def</span> <span class="nf">check_domains</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Short summary.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        type</span>
+<span class="sd">            Description of returned object.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">domain_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_dir</span><span class="p">,</span> <span class="s2">&quot;domains.yaml&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">domain_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">domains</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">dom_def</span> <span class="ow">in</span> <span class="n">domains</span><span class="p">:</span>
+            <span class="c1"># load checker with domain definition</span>
+            <span class="n">checker</span> <span class="o">=</span> <span class="n">type_class_map</span><span class="p">[</span><span class="n">dom_def</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]](</span><span class="o">**</span><span class="n">dom_def</span><span class="p">)</span>
+            <span class="c1"># check value provided by user</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">checker</span><span class="o">.</span><span class="n">check_value</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_inputs</span><span class="p">[</span><span class="n">dom_def</span><span class="p">[</span><span class="s2">&quot;known_as&quot;</span><span class="p">]])</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="c1"># @todo `try` to be replaced by an actual error: all the</span>
+                <span class="c1"># arguments must by supplied</span>
+                <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Inspector.check_cross_constraints"><a class="viewcode-back" href="../../../modules/yadism/yadism.input.html#yadism.input.inspector.Inspector.check_cross_constraints">[docs]</a>    <span class="k">def</span> <span class="nf">check_cross_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Short summary.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        type</span>
+<span class="sd">            Description of returned object.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, the N3PDF team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
