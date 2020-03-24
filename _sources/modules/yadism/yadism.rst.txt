@@ -6,9 +6,7 @@ Subpackages
 
 .. toctree::
 
-   yadism.benchmarks
    yadism.structure_functions
-   yadism.tests
 
 Submodules
 ----------
