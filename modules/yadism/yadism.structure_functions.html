@@ -149,14 +149,50 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="yadism-structure-functions-lo-module">
-<h2>yadism.structure_functions.LO module<a class="headerlink" href="#yadism-structure-functions-lo-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-yadism.structure_functions.LO">
+<span id="yadism-structure-functions-lo-module"></span><h2>yadism.structure_functions.LO module<a class="headerlink" href="#module-yadism.structure_functions.LO" title="Permalink to this headline">¶</a></h2>
+<p>This file contains the implementation of the DIS structure functions at LO.</p>
+<dl class="function">
+<dt id="yadism.structure_functions.LO.f2_light_LO_quark">
+<code class="sig-prename descclassname">yadism.structure_functions.LO.</code><code class="sig-name descname">f2_light_LO_quark</code><span class="sig-paren">(</span><em class="sig-param">x: float</em>, <em class="sig-param">Q2: float</em>, <em class="sig-param">polynomial_f</em><span class="sig-paren">)</span> &#x2192; float<a class="reference internal" href="../../_modules/yadism/structure_functions/LO.html#f2_light_LO_quark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.LO.f2_light_LO_quark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the singlet part of the leading order F2 structure function.</p>
+<p>Implements equation 4.2 of <a class="bibtex reference internal" href="../../Physics.html#vermaseren-2005qc" id="id1">[VVM05]</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Bjorken x</p></li>
+<li><p><strong>Q2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – squared(!) momentum transfer</p></li>
+<li><p><strong>polynom_f</strong> (<em>func</em>) – interpolation polynomial</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>F2(x,Q^2)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="yadism-structure-functions-nlo-module">
-<h2>yadism.structure_functions.NLO module<a class="headerlink" href="#yadism-structure-functions-nlo-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-yadism.structure_functions.NLO">
+<span id="yadism-structure-functions-nlo-module"></span><h2>yadism.structure_functions.NLO module<a class="headerlink" href="#module-yadism.structure_functions.NLO" title="Permalink to this headline">¶</a></h2>
+<p>This file contains the implementation of the DIS structure functions at NLO.</p>
+<dl class="function">
+<dt id="yadism.structure_functions.NLO.f2_light_NLO">
+<code class="sig-prename descclassname">yadism.structure_functions.NLO.</code><code class="sig-name descname">f2_light_NLO</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/yadism/structure_functions/NLO.html#f2_light_NLO"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.NLO.f2_light_NLO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="yadism.structure_functions.NLO.fL_light_NLO">
+<code class="sig-prename descclassname">yadism.structure_functions.NLO.</code><code class="sig-name descname">fL_light_NLO</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/yadism/structure_functions/NLO.html#fL_light_NLO"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.NLO.fL_light_NLO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-yadism.structure_functions">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yadism.structure_functions" title="Permalink to this headline">¶</a></h2>
+<p>This subpackage contains the implementation of the DIS structure functions.</p>
+<p>The 3-loop reference is <a class="bibtex reference internal" href="../../Physics.html#vermaseren-2005qc" id="id2">[VVM05]</a> which includes also the lower order results.</p>
 </div>
 </div>
 
