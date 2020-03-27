@@ -146,30 +146,20 @@
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This file contains the main loop for the DIS calculations.</span>
+
+<span class="sd">.. todo::</span>
+<span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">copy</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">eko.interpolation</span> <span class="kn">import</span> <span class="n">InterpolatorDispatcher</span>
-<span class="kn">from</span> <span class="nn">yadism.structure_functions.LO</span> <span class="kn">import</span> <span class="n">f2_light_LO_quark</span>
+
+<span class="kn">from</span> <span class="nn">.output</span> <span class="kn">import</span> <span class="n">Output</span>
+<span class="kn">from</span> <span class="nn">.structure_functions</span> <span class="kn">import</span> <span class="n">F2</span><span class="p">,</span> <span class="n">FL</span>
 
 
-<div class="viewcode-block" id="get_configurations"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.get_configurations">[docs]</a><span class="k">def</span> <span class="nf">get_configurations</span><span class="p">(</span><span class="n">observable</span><span class="p">,</span> <span class="n">sq_charge_av</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">singlet</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Q2</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">polynom_f</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="n">pref_f2_singlet</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">sq_charge_av</span>
-        <span class="k">return</span> <span class="n">pref_f2_singlet</span> <span class="o">*</span> <span class="n">f2_light_LO_quark</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">polynom_f</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">gluon</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Q2</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">polynom_coeff</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">None</span>
-
-    <span class="k">def</span> <span class="nf">nonsinglet</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Q2</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">polynom_coeff</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">None</span>
-
-    <span class="k">return</span> <span class="p">[(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="n">singlet</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;NS&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span></div>
-
-
-<div class="viewcode-block" id="run_dis"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.run_dis">[docs]</a><span class="k">def</span> <span class="nf">run_dis</span><span class="p">(</span><span class="n">theory</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">dis_observables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<div class="viewcode-block" id="Runner"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.Runner">[docs]</a><span class="k">class</span> <span class="nc">Runner</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Wrapper to compute a process</span>
 
 <span class="sd">    Parameters</span>
@@ -179,61 +169,119 @@
 <span class="sd">    dis_observables : dict</span>
 <span class="sd">        Description of parameter `dis_observables`.</span>
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    dict</span>
-<span class="sd">        dictionary with all computed processes</span>
-
+<span class="sd">    .. todo::</span>
+<span class="sd">        docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># GLOBAL</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">theory</span><span class="p">,</span> <span class="n">dis_observables</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_theory</span> <span class="o">=</span> <span class="n">theory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span> <span class="o">=</span> <span class="n">dis_observables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_f</span> <span class="o">=</span> <span class="n">theory</span><span class="p">[</span><span class="s2">&quot;NfFF&quot;</span><span class="p">]</span>
 
-    <span class="c1"># reading theory parameters</span>
-    <span class="n">n_f</span> <span class="o">=</span> <span class="n">theory</span><span class="p">[</span><span class="s2">&quot;NfFF&quot;</span><span class="p">]</span>
+        <span class="n">polynomial_degree</span> <span class="o">=</span> <span class="n">dis_observables</span><span class="p">[</span><span class="s2">&quot;polynomial_degree&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span> <span class="o">=</span> <span class="n">InterpolatorDispatcher</span><span class="p">(</span>
+            <span class="n">dis_observables</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">],</span>
+            <span class="n">polynomial_degree</span><span class="p">,</span>
+            <span class="n">log</span><span class="o">=</span><span class="n">dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_log_interpolation&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+            <span class="n">mode_N</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
 
-    <span class="c1"># compute charge factors</span>
-    <span class="n">charges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="n">sq_charge_av</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">charges</span><span class="p">[:</span><span class="n">n_f</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f2</span> <span class="o">=</span> <span class="n">F2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fL</span> <span class="o">=</span> <span class="n">FL</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="p">)</span>
 
-    <span class="c1"># OBSERVABLES</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_output</span> <span class="o">=</span> <span class="n">Output</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="o">.</span><span class="n">xgrid</span>
 
-    <span class="c1"># compute input grid</span>
-    <span class="n">is_log_interpolation</span> <span class="o">=</span> <span class="n">dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_log_interpolation&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-    <span class="n">xgrid</span> <span class="o">=</span> <span class="n">dis_observables</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">]</span>
-    <span class="n">polynomial_degree</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="n">interpolator</span> <span class="o">=</span> <span class="n">InterpolatorDispatcher</span><span class="p">(</span>
-        <span class="n">xgrid</span><span class="p">,</span> <span class="n">polynomial_degree</span><span class="p">,</span> <span class="n">is_log_interpolation</span><span class="p">,</span> <span class="n">mode_N</span><span class="o">=</span><span class="kc">False</span>
-    <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f2</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fL</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;FL&quot;</span><span class="p">,</span> <span class="p">[]))</span>
 
-    <span class="c1"># setup parameters</span>
+<div class="viewcode-block" id="Runner.get_output"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.Runner.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f2</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="s2">&quot;FL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fL</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span>
 
-    <span class="c1"># prepare the output</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;xgrid&quot;</span><span class="p">:</span> <span class="n">xgrid</span><span class="p">}</span>
-    <span class="n">empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xgrid</span><span class="p">))</span>
-    <span class="n">output_vectors</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">S</span><span class="o">=</span><span class="n">empty</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">NS</span><span class="o">=</span><span class="n">empty</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">g</span><span class="o">=</span><span class="n">empty</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
-    <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="s2">&quot;FL&quot;</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="n">obs</span> <span class="ow">in</span> <span class="n">dis_observables</span><span class="p">:</span>
-            <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">output</span><span class="p">,</span> <span class="n">obs</span><span class="p">:</span> <span class="p">[]}</span>
-            <span class="k">for</span> <span class="n">kinematics</span> <span class="ow">in</span> <span class="n">dis_observables</span><span class="p">[</span><span class="n">obs</span><span class="p">]:</span>
-                <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kinematics &#39;x&#39; must be in the range (0,1)&quot;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kinematics &#39;Q2&#39; must be in the range (0,∞)&quot;</span><span class="p">)</span>
-                <span class="n">output</span><span class="p">[</span><span class="n">obs</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="o">**</span><span class="n">kinematics</span><span class="p">,</span> <span class="o">**</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">output_vectors</span><span class="p">)})</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output</span></div>
 
-    <span class="c1"># iterate all polynomials</span>
-    <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">poly_f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">interpolator</span><span class="p">):</span>
-        <span class="c1"># iterate F2 configurations</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">kinematics</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="p">[])):</span>
-            <span class="c1"># iterate contributions</span>
-            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">get_configurations</span><span class="p">(</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="n">sq_charge_av</span><span class="p">):</span>
-                <span class="c1"># skip zeros</span>
-                <span class="k">if</span> <span class="kc">None</span> <span class="o">==</span> <span class="n">f</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="n">output</span><span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">],</span> <span class="n">poly_f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdfs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            dictionary with all computed processes</span>
 
-    <span class="c1"># TODO implement all other processes: FL, sigma, ?</span>
-    <span class="k">return</span> <span class="n">output</span></div>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">get_charged_sum</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">Q2</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Short summary.</span>
+
+<span class="sd">            d/9 + db/9 + s/9 + sb/9 + 4*u/9 + 4*ub/9</span>
+
+<span class="sd">            .. todo::</span>
+<span class="sd">                docs</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">pdf_fl</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">pdfs</span><span class="o">.</span><span class="n">xfxQ2</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">Q2</span><span class="p">)</span>  <span class="c1"># / x</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">pdf_fl</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">pdf_fl</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">pdf_fl</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">pdf_fl</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="mi">9</span> <span class="o">+</span> <span class="p">(</span>
+                <span class="n">pdf_fl</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">pdf_fl</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+            <span class="p">)</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">9</span>
+
+        <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;F2&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="k">for</span> <span class="n">kin</span> <span class="ow">in</span> <span class="n">output</span><span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">]:</span>
+            <span class="c1"># collect pdfs</span>
+            <span class="n">fq</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="o">.</span><span class="n">xgrid</span><span class="p">:</span>
+                <span class="n">fq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_charged_sum</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]))</span>
+
+            <span class="c1"># contract with coefficient functions</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fq</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">])</span>
+            <span class="n">ret</span><span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">kin</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">Q2</span><span class="o">=</span><span class="n">kin</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">],</span> <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">ret</span>
+
+<div class="viewcode-block" id="Runner.apply"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.Runner.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdfs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            - implement</span>
+<span class="sd">            - docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">(</span><span class="n">pdfs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Runner.clear"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.Runner.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Or &#39;restart&#39; or whatever</span>
+
+<span class="sd">        .. todo::</span>
+<span class="sd">            - implement</span>
+<span class="sd">            - docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Runner.dump"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.Runner.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If any output available (&#39;computed&#39;) dump the current output on file</span>
+
+<span class="sd">        .. todo::</span>
+<span class="sd">            - implement</span>
+<span class="sd">            - docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+
+<div class="viewcode-block" id="run_dis"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.run_dis">[docs]</a><span class="k">def</span> <span class="nf">run_dis</span><span class="p">(</span><span class="n">theory</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">dis_observables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    .. todo::</span>
+<span class="sd">        - decide the purpose</span>
+<span class="sd">        - implement</span>
+<span class="sd">        - docs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">runner</span> <span class="o">=</span> <span class="n">Runner</span><span class="p">(</span><span class="n">theory</span><span class="p">,</span> <span class="n">dis_observables</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">runner</span></div>
 </pre></div>
 
            </div>

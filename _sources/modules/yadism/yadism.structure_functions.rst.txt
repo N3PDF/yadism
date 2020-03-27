@@ -4,18 +4,26 @@ yadism.structure\_functions package
 Submodules
 ----------
 
-yadism.structure\_functions.LO module
--------------------------------------
+yadism.structure\_functions.EvaluatedStructureFunction module
+-------------------------------------------------------------
 
-.. automodule:: yadism.structure_functions.LO
+.. automodule:: yadism.structure_functions.EvaluatedStructureFunction
    :members:
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.NLO module
---------------------------------------
+yadism.structure\_functions.F2 module
+-------------------------------------
 
-.. automodule:: yadism.structure_functions.NLO
+.. automodule:: yadism.structure_functions.F2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.FL module
+-------------------------------------
+
+.. automodule:: yadism.structure_functions.FL
    :members:
    :undoc-members:
    :show-inheritance:

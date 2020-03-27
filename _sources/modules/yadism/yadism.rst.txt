@@ -19,6 +19,14 @@ yadism.basis\_rotation module
    :undoc-members:
    :show-inheritance:
 
+yadism.output module
+--------------------
+
+.. automodule:: yadism.output
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadism.runner module
 --------------------
 
