@@ -157,7 +157,10 @@
 <span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="kn">from</span> <span class="nn">.EvaluatedStructureFunction</span> <span class="kn">import</span> <span class="n">EvaluatedStructureFunction</span> <span class="k">as</span> <span class="n">ESF</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">splitting_functions</span> <span class="k">as</span> <span class="n">split</span><span class="p">,</span> <span class="n">convolution</span> <span class="k">as</span> <span class="n">conv</span>
 
 
 <div class="viewcode-block" id="ESF_F2"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2.ESF_F2">[docs]</a><span class="k">class</span> <span class="nc">ESF_F2</span><span class="p">(</span><span class="n">ESF</span><span class="p">):</span>
@@ -166,8 +169,8 @@
 <span class="sd">        docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interpolator</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ESF_F2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">interpolator</span><span class="o">=</span><span class="n">interpolator</span><span class="p">,</span> <span class="n">kinematics</span><span class="o">=</span><span class="n">kinematics</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ESF_F2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ESF_F2.light_LO_quark"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2.ESF_F2.light_LO_quark">[docs]</a>    <span class="k">def</span> <span class="nf">light_LO_quark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Computes the singlet part of the leading order F2 structure function.</span>
@@ -193,7 +196,71 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># leading order is just a delta function</span>
-        <span class="k">return</span> <span class="n">polynomial_f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">polynomial_f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ESF_F2.light_LO_gluon"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2.ESF_F2.light_LO_gluon">[docs]</a>    <span class="k">def</span> <span class="nf">light_LO_gluon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="ESF_F2.light_NLO_quark"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2.ESF_F2.light_NLO_quark">[docs]</a>    <span class="k">def</span> <span class="nf">light_NLO_quark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        regular</span>
+<span class="sd">        delta</span>
+<span class="sd">        1/(1-x)_+</span>
+<span class="sd">        log(x)/(1-x)_+</span>
+
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">CF</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="o">.</span><span class="n">CF</span>
+        <span class="n">zeta_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">6</span>
+
+        <span class="k">def</span> <span class="nf">cq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="c1"># fmt: off</span>
+            <span class="k">return</span> <span class="n">CF</span><span class="o">*</span><span class="p">(</span>
+                <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span>
+                <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+                <span class="o">+</span> <span class="mi">6</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">z</span>
+            <span class="p">)</span>
+            <span class="c1"># fmt: on</span>
+
+        <span class="k">def</span> <span class="nf">cq_delta</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="o">-</span><span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">zeta_2</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">cq_omx</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">CF</span>
+
+        <span class="k">def</span> <span class="nf">cq_logomx</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">CF</span>
+
+        <span class="n">cq_dvec</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">cq_reg</span><span class="p">,</span> <span class="n">cq_delta</span><span class="p">,</span> <span class="n">cq_omx</span><span class="p">,</span> <span class="n">cq_logomx</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">conv</span><span class="o">.</span><span class="n">convnd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="n">cq_dvec</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ESF_F2.light_NLO_gluon"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2.ESF_F2.light_NLO_gluon">[docs]</a>    <span class="k">def</span> <span class="nf">light_NLO_gluon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        vogt page 21</span>
+
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">TR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="o">.</span><span class="n">TF</span>
+
+        <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="mi">2</span>
+                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_f</span>
+                <span class="o">*</span> <span class="p">(</span>
+                    <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">TR</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="n">cg_dvec</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">cg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">conv</span><span class="o">.</span><span class="n">convnd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="n">cg_dvec</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div></div>
 </pre></div>
 
            </div>

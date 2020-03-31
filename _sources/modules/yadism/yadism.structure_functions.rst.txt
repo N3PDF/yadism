@@ -28,6 +28,22 @@ yadism.structure\_functions.FL module
    :undoc-members:
    :show-inheritance:
 
+yadism.structure\_functions.convolution module
+----------------------------------------------
+
+.. automodule:: yadism.structure_functions.convolution
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.splitting\_functions module
+-------------------------------------------------------
+
+.. automodule:: yadism.structure_functions.splitting_functions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

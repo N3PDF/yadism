@@ -165,17 +165,19 @@
 <span class="sd">        docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interpolator</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
         <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kinematics &#39;x&#39; must be in the range (0,1)&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kinematics &#39;Q2&#39; must be in the range (0,∞)&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span> <span class="o">=</span> <span class="n">interpolator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span> <span class="o">=</span> <span class="n">SF</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cgv</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_a_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_alpha_s</span><span class="o">.</span><span class="n">a_s</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_threshold</span><span class="o">.</span><span class="n">get_areas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">nf</span>
 
     <span class="k">def</span> <span class="nf">_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -183,13 +185,27 @@
 <span class="sd">            docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># something to do?</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span><span class="p">:</span>
-            <span class="c1"># nothing to do</span>
-            <span class="k">return</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span><span class="p">:</span>
+            <span class="c1"># yes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">light_LO_quark</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">light_NLO_quark</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cgv</span><span class="p">:</span>
+            <span class="c1"># yes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cgv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">light_LO_gluon</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">light_NLO_gluon</span>
+            <span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">_compute_component</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_LO</span><span class="p">,</span> <span class="n">f_NLO</span><span class="p">):</span>
+        <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># iterate all polynomials</span>
-        <span class="k">for</span> <span class="n">polynomial_f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">light_LO_quark</span><span class="p">(</span><span class="n">polynomial_f</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">polynomial_f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_interpolator</span><span class="p">:</span>
+            <span class="n">cv</span> <span class="o">=</span> <span class="n">f_LO</span><span class="p">(</span><span class="n">polynomial_f</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_pto</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">cv</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a_s</span> <span class="o">*</span> <span class="n">f_NLO</span><span class="p">(</span><span class="n">polynomial_f</span><span class="p">)</span>
+            <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ls</span>
 
 <div class="viewcode-block" id="EvaluatedStructureFunction.get_output"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -207,6 +223,30 @@
 
 <div class="viewcode-block" id="EvaluatedStructureFunction.light_LO_quark"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.light_LO_quark">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractclassmethod</span>
     <span class="k">def</span> <span class="nf">light_LO_quark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunction.light_LO_gluon"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.light_LO_gluon">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractclassmethod</span>
+    <span class="k">def</span> <span class="nf">light_LO_gluon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunction.light_NLO_quark"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.light_NLO_quark">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractclassmethod</span>
+    <span class="k">def</span> <span class="nf">light_NLO_quark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunction.light_NLO_gluon"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.light_NLO_gluon">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractclassmethod</span>
+    <span class="k">def</span> <span class="nf">light_NLO_gluon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        .. todo::</span>
 <span class="sd">            docs</span>

@@ -170,21 +170,25 @@
 <span class="sd">        docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ESF</span><span class="p">,</span> <span class="n">interpolator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ESF</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">interpolator</span><span class="p">,</span> <span class="n">constants</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">alpha_s</span><span class="p">,</span> <span class="n">pto</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span> <span class="o">=</span> <span class="n">interpolator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_constants</span> <span class="o">=</span> <span class="n">constants</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_threshold</span> <span class="o">=</span> <span class="n">threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_alpha_s</span> <span class="o">=</span> <span class="n">alpha_s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pto</span> <span class="o">=</span> <span class="n">pto</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_ESF</span> <span class="o">=</span> <span class="n">ESF</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ESFS</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ESFS</span> <span class="o">=</span> <span class="p">[]</span>
 
 <div class="viewcode-block" id="StructureFunction.load"><a class="viewcode-back" href="../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.StructureFunction.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kinematic_configs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        .. todo::</span>
 <span class="sd">            docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ESFS</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ESFS</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># iterate F* configurations</span>
         <span class="k">for</span> <span class="n">kinematics</span> <span class="ow">in</span> <span class="n">kinematic_configs</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_ESFS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ESF</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">))</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__ESFS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ESF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="StructureFunction.get_output"><a class="viewcode-back" href="../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.StructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -192,7 +196,7 @@
 <span class="sd">            docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">esf</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ESFS</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">esf</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ESFS</span><span class="p">:</span>
             <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">esf</span><span class="o">.</span><span class="n">get_output</span><span class="p">())</span>
 
         <span class="k">return</span> <span class="n">output</span></div></div>
@@ -204,8 +208,8 @@
 <span class="sd">        docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interpolator</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">F2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="n">ESF_F2</span><span class="p">,</span> <span class="n">interpolator</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">F2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="n">ESF_F2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="FL"><a class="viewcode-back" href="../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.FL">[docs]</a><span class="k">class</span> <span class="nc">FL</span><span class="p">(</span><span class="n">StructureFunction</span><span class="p">):</span>
@@ -214,8 +218,8 @@
 <span class="sd">        docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interpolator</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">FL</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;FL&quot;</span><span class="p">,</span> <span class="n">ESF_FL</span><span class="p">,</span> <span class="n">interpolator</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FL</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;FL&quot;</span><span class="p">,</span> <span class="n">ESF_FL</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

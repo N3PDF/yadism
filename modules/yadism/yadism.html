@@ -159,6 +159,8 @@
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.EvaluatedStructureFunction">yadism.structure_functions.EvaluatedStructureFunction module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.F2">yadism.structure_functions.F2 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.FL">yadism.structure_functions.FL module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.convolution">yadism.structure_functions.convolution module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.splitting_functions">yadism.structure_functions.splitting_functions module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions">Module contents</a></li>
 </ul>
 </li>
@@ -298,7 +300,7 @@ replacing the format:</p>
 </div>
 <dl class="class">
 <dt id="yadism.runner.Runner">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.runner.</code><code class="sig-name descname">Runner</code><span class="sig-paren">(</span><em class="sig-param">theory</em>, <em class="sig-param">dis_observables</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/yadism/runner.html#Runner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.runner.</code><code class="sig-name descname">Runner</code><span class="sig-paren">(</span><em class="sig-param">theory: dict</em>, <em class="sig-param">dis_observables: dict</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/yadism/runner.html#Runner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Wrapper to compute a process</p>
 <dl class="field-list simple">
@@ -312,7 +314,7 @@ replacing the format:</p>
 </dl>
 <dl class="method">
 <dt id="yadism.runner.Runner.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param">pdfs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/yadism/runner.html#Runner.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.apply" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param">pdfs: Any</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../../_modules/yadism/runner.html#Runner.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.apply" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition-todo admonition" id="id5">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
@@ -324,7 +326,7 @@ replacing the format:</p>
 
 <dl class="method">
 <dt id="yadism.runner.Runner.clear">
-<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/yadism/runner.html#Runner.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.clear" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/yadism/runner.html#Runner.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Or ‘restart’ or whatever</p>
 <div class="admonition-todo admonition" id="id6">
 <p class="admonition-title">Todo</p>
@@ -337,7 +339,7 @@ replacing the format:</p>
 
 <dl class="method">
 <dt id="yadism.runner.Runner.dump">
-<code class="sig-name descname">dump</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/yadism/runner.html#Runner.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.dump" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dump</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/yadism/runner.html#Runner.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>If any output available (‘computed’) dump the current output on file</p>
 <div class="admonition-todo admonition" id="id7">
 <p class="admonition-title">Todo</p>
@@ -350,7 +352,7 @@ replacing the format:</p>
 
 <dl class="method">
 <dt id="yadism.runner.Runner.get_output">
-<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/yadism/runner.html#Runner.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.get_output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; yadism.output.Output<a class="reference internal" href="../../_modules/yadism/runner.html#Runner.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.get_output" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition-todo admonition" id="id8">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
@@ -361,7 +363,7 @@ replacing the format:</p>
 
 <dl class="function">
 <dt id="yadism.runner.run_dis">
-<code class="sig-prename descclassname">yadism.runner.</code><code class="sig-name descname">run_dis</code><span class="sig-paren">(</span><em class="sig-param">theory: dict</em>, <em class="sig-param">dis_observables: dict</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../../_modules/yadism/runner.html#run_dis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.run_dis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">yadism.runner.</code><code class="sig-name descname">run_dis</code><span class="sig-paren">(</span><em class="sig-param">theory: dict</em>, <em class="sig-param">dis_observables: dict</em><span class="sig-paren">)</span> &#x2192; yadism.runner.Runner<a class="reference internal" href="../../_modules/yadism/runner.html#run_dis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.run_dis" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition-todo admonition" id="id9">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
