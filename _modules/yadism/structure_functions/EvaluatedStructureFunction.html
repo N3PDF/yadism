@@ -177,7 +177,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_e_cqv</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cgv</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_e_cgv</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_a_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_alpha_s</span><span class="o">.</span><span class="n">a_s</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_n_f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_threshold</span><span class="o">.</span><span class="n">get_areas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">nf</span>
 
@@ -189,34 +191,39 @@
         <span class="c1"># something to do?</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span><span class="p">:</span>
             <span class="c1"># yes</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e_cqv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">light_LO_quark</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">light_NLO_quark</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cgv</span><span class="p">:</span>
             <span class="c1"># yes</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_cgv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cgv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e_cgv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">light_LO_gluon</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">light_NLO_gluon</span>
             <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_compute_component</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_LO</span><span class="p">,</span> <span class="n">f_NLO</span><span class="p">):</span>
         <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">els</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">def</span> <span class="nf">fac</span><span class="p">(</span><span class="n">f_XO_</span><span class="p">):</span>
-            <span class="k">return</span> <span class="k">lambda</span> <span class="n">poly_f</span><span class="p">:</span> <span class="n">f_XO_</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="n">poly_f</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># def fac(f_XO_):</span>
+        <span class="c1"># return lambda poly_f: f_XO_.convolution(self._x, poly_f)</span>
 
-        <span class="n">c_LO</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">f_LO</span><span class="p">())</span>
-        <span class="n">c_NLO</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">f_NLO</span><span class="p">())</span>
-        <span class="n">f_LO_</span> <span class="o">=</span> <span class="n">fac</span><span class="p">(</span><span class="n">c_LO</span><span class="p">)</span>
-        <span class="n">f_NLO_</span> <span class="o">=</span> <span class="n">fac</span><span class="p">(</span><span class="n">c_NLO</span><span class="p">)</span>
+        <span class="c1"># c_LO = conv.DistributionVec(f_LO())</span>
+        <span class="c1"># c_NLO = conv.DistributionVec(f_NLO())</span>
+        <span class="c1"># f_LO_ = fac(c_LO)</span>
+        <span class="c1"># f_NLO_ = fac(c_NLO)</span>
+
+        <span class="c1"># combine orders</span>
+        <span class="n">d_vec</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">f_LO</span><span class="p">())</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_pto</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">d_vec</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a_s</span> <span class="o">*</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">f_NLO</span><span class="p">())</span>
 
         <span class="c1"># iterate all polynomials</span>
         <span class="k">for</span> <span class="n">polynomial_f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_interpolator</span><span class="p">:</span>
-            <span class="n">cv</span> <span class="o">=</span> <span class="n">f_LO_</span><span class="p">(</span><span class="n">polynomial_f</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_pto</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">cv</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a_s</span> <span class="o">*</span> <span class="n">f_NLO_</span><span class="p">(</span><span class="n">polynomial_f</span><span class="p">)</span>
+            <span class="n">cv</span><span class="p">,</span> <span class="n">ecv</span> <span class="o">=</span> <span class="n">d_vec</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">)</span>
             <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv</span><span class="p">)</span>
+            <span class="n">els</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ecv</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">ls</span>
+        <span class="k">return</span> <span class="n">ls</span><span class="p">,</span> <span class="n">els</span>
 
 <div class="viewcode-block" id="EvaluatedStructureFunction.get_output"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -229,7 +236,9 @@
         <span class="n">output</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
         <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span>
         <span class="n">output</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cqv</span>
+        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;q_error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e_cqv</span>
         <span class="n">output</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cgv</span>
+        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;g_error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e_cgv</span>
         <span class="k">return</span> <span class="n">output</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunction.light_LO_quark"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.light_LO_quark">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractclassmethod</span>
