@@ -151,11 +151,17 @@
   <h1>Source code for yadism.structure_functions.convolution</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Define DistributionVec and its API.</span>
+
 <span class="sd">.. todo::</span>
 <span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.integrate</span>
+
+<span class="kn">from</span> <span class="nn">eko.interpolation</span> <span class="kn">import</span> <span class="n">BasisFunction</span>
 
 
 <div class="viewcode-block" id="DistributionVec"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.convolution.DistributionVec">[docs]</a><span class="k">class</span> <span class="nc">DistributionVec</span><span class="p">:</span>
@@ -167,79 +173,193 @@
 <span class="sd">        - (log(1-x)/(1-x))_+</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">__names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;regular&quot;</span><span class="p">,</span> <span class="s2">&quot;delta&quot;</span><span class="p">,</span> <span class="s2">&quot;omx&quot;</span><span class="p">,</span> <span class="s2">&quot;logomx&quot;</span><span class="p">]</span>
+    <span class="n">eps_integration_border</span> <span class="o">=</span> <span class="mf">1e-10</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">regular</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">omx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logomx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_regular</span> <span class="o">=</span> <span class="n">regular</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_delta</span> <span class="o">=</span> <span class="n">delta</span> <span class="k">if</span> <span class="n">delta</span> <span class="k">else</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_omx</span> <span class="o">=</span> <span class="n">omx</span> <span class="k">if</span> <span class="n">omx</span> <span class="k">else</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_logomx</span> <span class="o">=</span> <span class="n">logomx</span> <span class="k">if</span> <span class="n">logomx</span> <span class="k">else</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">comp_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">regular</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">regular</span><span class="p">)):</span>
+                <span class="n">comp_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="n">comp_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">regular</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">omx</span><span class="p">,</span> <span class="n">logomx</span><span class="p">]</span>
+
+        <span class="n">components</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">,</span> <span class="n">comp_list</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">components</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">component</span><span class="p">):</span>
+                <span class="n">component_func</span> <span class="o">=</span> <span class="n">component</span>
+            <span class="k">elif</span> <span class="n">component</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">component_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># if component is None:</span>
+                <span class="c1"># __import__(&quot;pdb&quot;).set_trace()</span>
+                <span class="n">component_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">component</span><span class="o">=</span><span class="n">component</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">component_func</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regular</span>
-        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delta</span>
-        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_omx</span>
-        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logomx</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;todo&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;todo&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">return</span> <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;todo&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">NotImplemented</span></div>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Do not support ``DistributionVec + iterable``, if needed use:</span>
+<span class="sd">        .. code-block::</span>
+<span class="sd">            d_vec + DistributionVec(*iterable)</span>
 
-<div class="viewcode-block" id="convnd"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.convolution.convnd">[docs]</a><span class="k">def</span> <span class="nf">convnd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coeff_dvec</span><span class="p">,</span> <span class="n">pdf_func</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;TODO: Docstring for convnd.</span>
+<span class="sd">        Supported:</span>
+<span class="sd">        * ``+ num``</span>
+<span class="sd">        * ``+ function``</span>
+<span class="sd">        * ``+ DistributionVec``</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x : TODO</span>
-<span class="sd">    coeff_dvec : TODO</span>
-<span class="sd">    pdf : TODO</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DistributionVec</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">DistributionVec</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)):</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">c2</span><span class="p">:</span> <span class="n">c1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">c2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">old</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">old</span><span class="o">=</span><span class="n">old</span><span class="p">,</span> <span class="n">other</span><span class="o">=</span><span class="n">other</span><span class="p">:</span> <span class="n">old</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">other</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="n">old</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">old</span><span class="o">=</span><span class="n">old</span><span class="p">,</span> <span class="n">other</span><span class="o">=</span><span class="n">other</span><span class="p">:</span> <span class="n">old</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    TODO</span>
+        <span class="k">return</span> <span class="n">result</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-    <span class="c1"># providing integrands functions and addends</span>
-    <span class="c1"># ------------------------------------------</span>
+    <span class="k">def</span> <span class="fm">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-    <span class="c1"># plus distribution test function</span>
-    <span class="n">__pd_tf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">coeff_dvec</span><span class="p">[</span><span class="n">n</span><span class="p">](</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span>
+    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Supported:</span>
+<span class="sd">        * ``+ num``</span>
 
-    <span class="n">integrands</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">coeff_dvec</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">,</span>
-        <span class="mf">0.0</span><span class="p">,</span>
-        <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">__pd_tf</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">__pd_tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">),</span>
-        <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">__pd_tf</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">__pd_tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">),</span>
-    <span class="p">]</span>
+<span class="sd">        .. note::</span>
+<span class="sd">            Currently multiplication by a function is not supported, because a</span>
+<span class="sd">            Distribution can only be multiplied by a test function (and the TestFunction</span>
+<span class="sd">            API is not going to be implemented).</span>
 
-    <span class="n">addends</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="mf">0.0</span><span class="p">,</span>
-        <span class="n">coeff_dvec</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
-        <span class="n">coeff_dvec</span><span class="p">[</span><span class="mi">2</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">),</span>
-        <span class="n">coeff_dvec</span><span class="p">[</span><span class="mi">3</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="p">]</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">DistributionVec</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">el</span><span class="o">=</span><span class="n">el</span><span class="p">,</span> <span class="n">other</span><span class="o">=</span><span class="n">other</span><span class="p">:</span> <span class="n">el</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-    <span class="c1"># actual convolution</span>
-    <span class="c1"># ------------------</span>
+        <span class="k">return</span> <span class="n">result</span>
 
-    <span class="n">res</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">err</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">integrands</span><span class="p">,</span> <span class="n">addends</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-            <span class="n">r</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span>
-                <span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
-            <span class="p">)</span>  <span class="c1"># TODO: take care of both limits</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="n">r</span>
-            <span class="n">err</span> <span class="o">+=</span> <span class="n">e</span> <span class="o">**</span> <span class="mi">2</span>
-        <span class="n">res</span> <span class="o">+=</span> <span class="n">a</span>
+    <span class="k">def</span> <span class="fm">__imul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div>
+<div class="viewcode-block" id="DistributionVec.compare"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.convolution.DistributionVec.compare">[docs]</a>    <span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="s2">&quot;Compare two DistributionVec @ x&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DistributionVec</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">c1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="n">c2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Comparison only available with other DistributionVec&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributionVec.convolution"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.convolution.DistributionVec.convolution">[docs]</a>    <span class="k">def</span> <span class="nf">convolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">pdf_func</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;TODO: Docstring for convnd.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        self : TODO</span>
+<span class="sd">        x : TODO</span>
+<span class="sd">        pdf : TODO</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        TODO</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            real name of this method: ``convnd``</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">breakpoints</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+
+        <span class="c1"># eko environment?</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pdf_func</span><span class="p">,</span> <span class="n">BasisFunction</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">pdf_func</span><span class="o">.</span><span class="n">is_below_x</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+                <span class="c1"># support below x --&gt; trivially 0</span>
+                <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># set breakpoints as relevant points of the integrand</span>
+                <span class="c1"># computed from interpolation areas of `pdf_func`</span>
+                <span class="k">for</span> <span class="n">area</span> <span class="ow">in</span> <span class="n">pdf_func</span><span class="o">.</span><span class="n">areas</span><span class="p">:</span>
+                    <span class="n">breakpoints</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">area</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">area</span><span class="o">.</span><span class="n">xmax</span><span class="p">])</span>
+                <span class="n">breakpoints</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">))</span>
+
+        <span class="c1"># providing integrands functions and addends</span>
+        <span class="c1"># ------------------------------------------</span>
+
+        <span class="c1"># plus distribution test function</span>
+        <span class="n">__pd_tf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="n">n</span><span class="p">](</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span>
+
+        <span class="n">integrands</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">,</span>
+            <span class="c1"># 0.0,</span>
+            <span class="mf">0.0</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">__pd_tf</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">__pd_tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">),</span>
+            <span class="c1"># 0.0,</span>
+            <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">__pd_tf</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">__pd_tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">),</span>
+            <span class="c1"># 0.0,</span>
+        <span class="p">]</span>
+
+        <span class="n">addends</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="mf">0.0</span><span class="p">,</span>
+            <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+            <span class="bp">self</span><span class="p">[</span><span class="mi">2</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">),</span>
+            <span class="bp">self</span><span class="p">[</span><span class="mi">3</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="c1"># actual convolution</span>
+        <span class="c1"># ------------------</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">integrands</span><span class="p">,</span> <span class="n">addends</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">r</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span>
+                    <span class="n">i</span><span class="p">,</span>
+                    <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
+                    <span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
+                    <span class="n">points</span><span class="o">=</span><span class="n">breakpoints</span><span class="p">,</span>
+                <span class="p">)</span>
+
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">r</span>
+                <span class="n">err</span> <span class="o">+=</span> <span class="n">e</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">a</span>
+
+        <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
