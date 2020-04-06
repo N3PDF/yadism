@@ -12,18 +12,34 @@ yadism.structure\_functions.EvaluatedStructureFunction module
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.F2 module
--------------------------------------
+yadism.structure\_functions.F2heavy module
+------------------------------------------
 
-.. automodule:: yadism.structure_functions.F2
+.. automodule:: yadism.structure_functions.F2heavy
    :members:
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.FL module
--------------------------------------
+yadism.structure\_functions.F2light module
+------------------------------------------
 
-.. automodule:: yadism.structure_functions.FL
+.. automodule:: yadism.structure_functions.F2light
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.FLheavy module
+------------------------------------------
+
+.. automodule:: yadism.structure_functions.FLheavy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.FLlight module
+------------------------------------------
+
+.. automodule:: yadism.structure_functions.FLlight
    :members:
    :undoc-members:
    :show-inheritance:

@@ -164,7 +164,16 @@
 <span class="kn">from</span> <span class="nn">eko.alpha_s</span> <span class="kn">import</span> <span class="n">StrongCoupling</span>
 
 <span class="kn">from</span> <span class="nn">.output</span> <span class="kn">import</span> <span class="n">Output</span>
-<span class="kn">from</span> <span class="nn">.structure_functions</span> <span class="kn">import</span> <span class="n">F2</span><span class="p">,</span> <span class="n">FL</span>
+<span class="kn">from</span> <span class="nn">.structure_functions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">F2_light</span><span class="p">,</span>
+    <span class="n">FL_light</span><span class="p">,</span>
+    <span class="n">F2_charm</span><span class="p">,</span>
+    <span class="n">F2_bottom</span><span class="p">,</span>
+    <span class="n">F2_top</span><span class="p">,</span>
+    <span class="n">FL_charm</span><span class="p">,</span>
+    <span class="n">FL_bottom</span><span class="p">,</span>
+    <span class="n">FL_top</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <div class="viewcode-block" id="Runner"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.Runner">[docs]</a><span class="k">class</span> <span class="nc">Runner</span><span class="p">:</span>
@@ -226,34 +235,37 @@
         <span class="c1"># ==============================</span>
         <span class="c1"># initialize structure functions</span>
         <span class="c1"># ==============================</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">f2</span> <span class="o">=</span> <span class="n">F2</span><span class="p">(</span>
+        <span class="n">default_args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
             <span class="n">interpolator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="p">,</span>
             <span class="n">constants</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_constants</span><span class="p">,</span>
             <span class="n">threshold</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_threshold</span><span class="p">,</span>
             <span class="n">alpha_s</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_alpha_s</span><span class="p">,</span>
             <span class="n">pto</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_pto</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fL</span> <span class="o">=</span> <span class="n">FL</span><span class="p">(</span>
-            <span class="n">interpolator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="p">,</span>
-            <span class="n">constants</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_constants</span><span class="p">,</span>
-            <span class="n">threshold</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_threshold</span><span class="p">,</span>
-            <span class="n">alpha_s</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_alpha_s</span><span class="p">,</span>
-            <span class="n">pto</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_pto</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">F2_light</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">),</span>
+            <span class="n">FL_light</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">),</span>
+            <span class="n">F2_charm</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mc&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
+            <span class="n">F2_bottom</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mb&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
+            <span class="n">F2_top</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mt&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
+            <span class="n">FL_charm</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mc&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
+            <span class="n">FL_bottom</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mb&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
+            <span class="n">FL_top</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mt&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
+        <span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span> <span class="o">=</span> <span class="n">Output</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="o">.</span><span class="n">xgrid</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">f2</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="p">[]))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fL</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;FL&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span><span class="p">:</span>
+            <span class="n">obs</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[]))</span>
 
 <div class="viewcode-block" id="Runner.get_output"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.Runner.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Output</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        .. todo::</span>
 <span class="sd">            docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f2</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="s2">&quot;FL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fL</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output</span></div>
 
@@ -283,9 +295,10 @@
                 <span class="n">pdf_fl</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">pdf_fl</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
             <span class="p">)</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">9</span>
 
-        <span class="n">ret</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;F2&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;FL&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-        <span class="k">for</span> <span class="n">sf</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="s2">&quot;FL&quot;</span><span class="p">]:</span>
-            <span class="k">for</span> <span class="n">kin</span> <span class="ow">in</span> <span class="n">output</span><span class="p">[</span><span class="n">sf</span><span class="p">]:</span>
+        <span class="n">ret</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span><span class="p">:</span>
+            <span class="n">ret</span><span class="p">[</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">kin</span> <span class="ow">in</span> <span class="n">output</span><span class="p">[</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
                 <span class="c1"># collect pdfs</span>
                 <span class="n">fq</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="n">fg</span> <span class="o">=</span> <span class="p">[]</span>
@@ -300,7 +313,7 @@
                 <span class="n">error</span> <span class="o">=</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
                     <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fq</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;q_error&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fg</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;g_error&quot;</span><span class="p">])</span>
                 <span class="p">)</span>
-                <span class="n">ret</span><span class="p">[</span><span class="n">sf</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">ret</span><span class="p">[</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">kin</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">Q2</span><span class="o">=</span><span class="n">kin</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">],</span> <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
                 <span class="p">)</span>
 

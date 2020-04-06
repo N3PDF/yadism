@@ -175,6 +175,7 @@
 
     <span class="n">__names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;regular&quot;</span><span class="p">,</span> <span class="s2">&quot;delta&quot;</span><span class="p">,</span> <span class="s2">&quot;omx&quot;</span><span class="p">,</span> <span class="s2">&quot;logomx&quot;</span><span class="p">]</span>
     <span class="n">eps_integration_border</span> <span class="o">=</span> <span class="mf">1e-10</span>
+    <span class="n">eps_integration_abs</span> <span class="o">=</span> <span class="mf">1e-13</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">regular</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">omx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logomx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
@@ -287,27 +288,27 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Comparison only available with other DistributionVec&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DistributionVec.convolution"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.convolution.DistributionVec.convolution">[docs]</a>    <span class="k">def</span> <span class="nf">convolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">pdf_func</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;TODO: Docstring for convnd.</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            convolution.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        self : TODO</span>
-<span class="sd">        x : TODO</span>
-<span class="sd">        pdf : TODO</span>
+<span class="sd">            Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">            x :</span>
+<span class="sd">                x</span>
+<span class="sd">            pdf_func :</span>
+<span class="sd">                pdf_func</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        TODO</span>
+<span class="sd">            .. note::</span>
+<span class="sd">                real name of this method: ``convnd``</span>
 
-<span class="sd">        .. note::</span>
-<span class="sd">            real name of this method: ``convnd``</span>
-
+<span class="sd">            .. todo::</span>
+<span class="sd">                docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">breakpoints</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
 
         <span class="c1"># eko environment?</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pdf_func</span><span class="p">,</span> <span class="n">BasisFunction</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">pdf_func</span><span class="o">.</span><span class="n">is_below_x</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">pdf_func</span><span class="o">.</span><span class="n">is_below_x</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>  <span class="c1"># TODO: in eko update remove np.log</span>
                 <span class="c1"># support below x --&gt; trivially 0</span>
                 <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
             <span class="k">else</span><span class="p">:</span>
@@ -352,14 +353,15 @@
                     <span class="n">i</span><span class="p">,</span>
                     <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
                     <span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
+                    <span class="n">epsabs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_abs</span><span class="p">,</span>
                     <span class="n">points</span><span class="o">=</span><span class="n">breakpoints</span><span class="p">,</span>
                 <span class="p">)</span>
 
                 <span class="n">res</span> <span class="o">+=</span> <span class="n">r</span>
-                <span class="n">err</span> <span class="o">+=</span> <span class="n">e</span> <span class="o">**</span> <span class="mi">2</span>
+                <span class="n">err</span> <span class="o">+=</span> <span class="n">e</span>
             <span class="n">res</span> <span class="o">+=</span> <span class="n">a</span>
 
-        <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">err</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span></div></div>
 </pre></div>
 
            </div>
