@@ -190,6 +190,17 @@
 <span class="sd">        docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">__obs_templates</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;F2light&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">F2_light</span><span class="p">,),</span>
+        <span class="s2">&quot;F2charm&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">F2_charm</span><span class="p">,</span> <span class="s2">&quot;mc&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;F2bottom&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">F2_bottom</span><span class="p">,</span> <span class="s2">&quot;mb&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;F2top&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">F2_top</span><span class="p">,</span> <span class="s2">&quot;mt&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;FLlight&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">FL_light</span><span class="p">,),</span>
+        <span class="s2">&quot;FLcharm&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">FL_charm</span><span class="p">,</span> <span class="s2">&quot;mc&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;FLbottom&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">FL_bottom</span><span class="p">,</span> <span class="s2">&quot;mb&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;FLtop&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">FL_top</span><span class="p">,</span> <span class="s2">&quot;mt&quot;</span><span class="p">),</span>
+    <span class="p">}</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">theory</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">dis_observables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_theory</span> <span class="o">=</span> <span class="n">theory</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span> <span class="o">=</span> <span class="n">dis_observables</span>
@@ -242,22 +253,28 @@
             <span class="n">alpha_s</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_alpha_s</span><span class="p">,</span>
             <span class="n">pto</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_pto</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">F2_light</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">),</span>
-            <span class="n">FL_light</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">),</span>
-            <span class="n">F2_charm</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mc&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
-            <span class="n">F2_bottom</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mb&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
-            <span class="n">F2_top</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mt&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
-            <span class="n">FL_charm</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mc&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
-            <span class="n">FL_bottom</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mb&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
-            <span class="n">FL_top</span><span class="p">(</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="s2">&quot;mt&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,),</span>
-        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">sf</span><span class="p">,</span> <span class="n">obs_t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__obs_templates</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># if not in the input skip</span>
+            <span class="k">if</span> <span class="n">sf</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span><span class="p">:</span>
+                <span class="k">continue</span>
 
+            <span class="c1"># first element is the class [required]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs_t</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">obs_t</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="o">**</span><span class="n">default_args</span><span class="p">)</span>
+            <span class="c1"># if second element specified is the key for the mass</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs_t</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">obs_t</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="o">**</span><span class="n">default_args</span><span class="p">,</span> <span class="n">M2</span><span class="o">=</span><span class="n">theory</span><span class="p">[</span><span class="n">obs_t</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Invalid obs template&quot;</span><span class="p">)</span>
+
+            <span class="c1"># read kinematics</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+        <span class="c1"># prepare output</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span> <span class="o">=</span> <span class="n">Output</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interpolator</span><span class="o">.</span><span class="n">xgrid</span>
-
-        <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span><span class="p">:</span>
-            <span class="n">obs</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dis_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[]))</span>
 
 <div class="viewcode-block" id="Runner.get_output"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.runner.Runner.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Output</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
