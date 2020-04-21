@@ -308,7 +308,7 @@
 
         <span class="c1"># eko environment?</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pdf_func</span><span class="p">,</span> <span class="n">BasisFunction</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">pdf_func</span><span class="o">.</span><span class="n">is_below_x</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>  <span class="c1"># TODO: in eko update remove np.log</span>
+            <span class="k">if</span> <span class="n">pdf_func</span><span class="o">.</span><span class="n">is_below_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  <span class="c1"># TODO: in eko update remove np.log</span>
                 <span class="c1"># support below x --&gt; trivially 0</span>
                 <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
             <span class="k">else</span><span class="p">:</span>
@@ -321,44 +321,49 @@
         <span class="c1"># providing integrands functions and addends</span>
         <span class="c1"># ------------------------------------------</span>
 
-        <span class="c1"># plus distribution test function</span>
-        <span class="n">__pd_tf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="n">n</span><span class="p">](</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span>
+        <span class="c1"># cache values</span>
+        <span class="n">self_at_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span>
+        <span class="n">pdf_at_x</span> <span class="o">=</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-        <span class="n">integrands</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">,</span>
-            <span class="c1"># 0.0,</span>
-            <span class="mf">0.0</span><span class="p">,</span>
-            <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">__pd_tf</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">__pd_tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">),</span>
-            <span class="c1"># 0.0,</span>
-            <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">__pd_tf</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">__pd_tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">),</span>
-            <span class="c1"># 0.0,</span>
-        <span class="p">]</span>
+        <span class="k">def</span> <span class="nf">ker</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="c1"># cache again</span>
+            <span class="n">self_at_z</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span>
+            <span class="n">pdf_at_x_ov_z_div_z</span> <span class="o">=</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span>
+            <span class="c1"># compute</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">self_at_z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">pdf_at_x_ov_z_div_z</span>  <span class="c1"># regular</span>
+            <span class="c1"># keep delta bit in addendum (for now)</span>
+            <span class="c1"># iterate plus distributions</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="p">(</span><span class="n">pd_at_z</span><span class="p">,</span> <span class="n">pd_at_1</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">self_at_z</span><span class="p">,</span> <span class="n">self_at_1</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="p">):</span>
+                <span class="c1"># skip</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="p">(</span>
+                    <span class="p">(</span><span class="n">pd_at_z</span> <span class="o">*</span> <span class="n">pdf_at_x_ov_z_div_z</span> <span class="o">-</span> <span class="n">pd_at_1</span> <span class="o">*</span> <span class="n">pdf_at_x</span><span class="p">)</span>
+                    <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">return</span> <span class="n">res</span>
 
+        <span class="c1"># addends</span>
         <span class="n">addends</span> <span class="o">=</span> <span class="p">[</span>
             <span class="mf">0.0</span><span class="p">,</span>
-            <span class="bp">self</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
-            <span class="bp">self</span><span class="p">[</span><span class="mi">2</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">),</span>
-            <span class="bp">self</span><span class="p">[</span><span class="mi">3</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="n">self_at_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">pdf_at_x</span><span class="p">,</span>
+            <span class="n">self_at_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">pdf_at_x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">),</span>
+            <span class="n">self_at_1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">pdf_at_x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
         <span class="p">]</span>
 
         <span class="c1"># actual convolution</span>
         <span class="c1"># ------------------</span>
 
-        <span class="n">res</span> <span class="o">=</span> <span class="mf">0.0</span>
-        <span class="n">err</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span>
+            <span class="n">ker</span><span class="p">,</span>
+            <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
+            <span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
+            <span class="n">epsabs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_abs</span><span class="p">,</span>
+            <span class="n">points</span><span class="o">=</span><span class="n">breakpoints</span><span class="p">,</span>
+        <span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">integrands</span><span class="p">,</span> <span class="n">addends</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-                <span class="n">r</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span>
-                    <span class="n">i</span><span class="p">,</span>
-                    <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
-                    <span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
-                    <span class="n">epsabs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_abs</span><span class="p">,</span>
-                    <span class="n">points</span><span class="o">=</span><span class="n">breakpoints</span><span class="p">,</span>
-                <span class="p">)</span>
-
-                <span class="n">res</span> <span class="o">+=</span> <span class="n">r</span>
-                <span class="n">err</span> <span class="o">+=</span> <span class="n">e</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">addends</span><span class="p">:</span>
             <span class="n">res</span> <span class="o">+=</span> <span class="n">a</span>
 
         <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span></div></div>
