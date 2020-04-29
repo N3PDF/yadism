@@ -196,13 +196,6 @@
         <span class="c1"># leading order is just a delta function</span>
         <span class="k">return</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">1</span></div>
 
-<div class="viewcode-block" id="ESF_F2light.gluon_0"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2light.ESF_F2light.gluon_0">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_0</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="mi">0</span></div>
-
 <div class="viewcode-block" id="ESF_F2light.quark_1"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2light.ESF_F2light.quark_1">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        regular</span>
@@ -236,12 +229,33 @@
 
         <span class="k">return</span> <span class="n">cq_reg</span><span class="p">,</span> <span class="n">cq_delta</span><span class="p">,</span> <span class="n">cq_omx</span><span class="p">,</span> <span class="n">cq_logomx</span></div>
 
+<div class="viewcode-block" id="ESF_F2light.quark_1_fact"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2light.ESF_F2light.quark_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">cq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">cq_delta</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_delta</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">cq_pd</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_pd</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">cq_reg</span><span class="p">,</span> <span class="n">cq_delta</span><span class="p">,</span> <span class="n">cq_pd</span></div>
+
 <div class="viewcode-block" id="ESF_F2light.gluon_1"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2light.ESF_F2light.gluon_1">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        vogt page 21</span>
 
 <span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            - docs</span>
+<span class="sd">            - 2 * n_f here and in gluon_1_fact is coming from momentum sum rule</span>
+<span class="sd">            q_i -&gt; {q_i, g} but g -&gt; {g, q_i, \bar{q_i} \forall i}, so the 2*n_f</span>
+<span class="sd">            is needed to compensate for all the number of flavours + antiflavours</span>
+<span class="sd">            in which the gluon can go</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">TR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="o">.</span><span class="n">TF</span>
@@ -256,6 +270,17 @@
                     <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">TR</span>
                 <span class="p">)</span>
             <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">cg</span></div>
+
+<div class="viewcode-block" id="ESF_F2light.gluon_1_fact"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2light.ESF_F2light.gluon_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_f</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">cg</span></div></div>
 </pre></div>
