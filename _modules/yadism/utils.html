@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism &mdash; DIS  documentation</title>
+  <title>yadism.utils &mdash; DIS  documentation</title>
   
 
   
@@ -129,14 +129,14 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>yadism</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../yadism.html">yadism</a> &raquo;</li>
+        
+      <li>yadism.utils</li>
     
     
       <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../../_sources/modules/yadism/modules.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -148,43 +148,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="yadism">
-<h1>yadism<a class="headerlink" href="#yadism" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="yadism.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="yadism.structure_functions.html">yadism.structure_functions package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.ESFResult">yadism.structure_functions.ESFResult module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.EvaluatedStructureFunction">yadism.structure_functions.EvaluatedStructureFunction module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.F2heavy">yadism.structure_functions.F2heavy module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.F2light">yadism.structure_functions.F2light module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.FLheavy">yadism.structure_functions.FLheavy module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.FLlight">yadism.structure_functions.FLlight module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.TMC">yadism.structure_functions.TMC module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.convolution">yadism.structure_functions.convolution module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.splitting_functions">yadism.structure_functions.splitting_functions module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.html#module-yadism.StructureFunction">yadism.StructureFunction module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.html#module-yadism.output">yadism.output module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="yadism.html#output">Output</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.html#module-yadism.runner">yadism.runner module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.html#module-yadism.utils">yadism.utils module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.html#module-yadism">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
+  <h1>Source code for yadism.utils</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="get_mass_label"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.utils.get_mass_label">[docs]</a><span></span><span class="k">def</span> <span class="nf">get_mass_label</span><span class="p">(</span><span class="n">sf_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        get_mass_label.</span>
 
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sf_name :</span>
+<span class="sd">            sf_name</span>
+
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flavour</span> <span class="o">=</span> <span class="n">sf_name</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="k">if</span> <span class="n">flavour</span> <span class="o">==</span> <span class="s2">&quot;light&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;m</span><span class="si">{</span><span class="n">flavour</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</pre></div>
 
            </div>
            

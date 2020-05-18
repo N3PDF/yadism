@@ -133,8 +133,6 @@
         
           <li><a href="../../yadism.html">yadism</a> &raquo;</li>
         
-          <li><a href="../structure_functions.html">yadism.structure_functions</a> &raquo;</li>
-        
       <li>yadism.structure_functions.F2heavy</li>
     
     
@@ -162,7 +160,6 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">.EvaluatedStructureFunction</span> <span class="kn">import</span> <span class="n">EvaluatedStructureFunctionHeavy</span> <span class="k">as</span> <span class="n">ESFH</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">splitting_functions</span> <span class="k">as</span> <span class="n">split</span>
 
 
 <div class="viewcode-block" id="ESF_F2heavy"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.F2heavy.ESF_F2heavy">[docs]</a><span class="k">class</span> <span class="nc">ESF_F2heavy</span><span class="p">(</span><span class="n">ESFH</span><span class="p">):</span>
@@ -171,16 +168,13 @@
 <span class="sd">        docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">,</span> <span class="n">charge_em</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ESF_F2heavy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">,</span> <span class="n">charge_em</span><span class="p">)</span>
-
     <span class="k">def</span> <span class="nf">_gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        .. todo::</span>
 <span class="sd">            docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">CF</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="o">.</span><span class="n">CF</span>
+        <span class="n">CF</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
 
         <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_below_threshold</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>

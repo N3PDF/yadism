@@ -4,6 +4,14 @@ yadism.structure\_functions package
 Submodules
 ----------
 
+yadism.structure\_functions.ESFResult module
+--------------------------------------------
+
+.. automodule:: yadism.structure_functions.ESFResult
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadism.structure\_functions.EvaluatedStructureFunction module
 -------------------------------------------------------------
 
@@ -40,6 +48,14 @@ yadism.structure\_functions.FLlight module
 ------------------------------------------
 
 .. automodule:: yadism.structure_functions.FLlight
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.TMC module
+--------------------------------------
+
+.. automodule:: yadism.structure_functions.TMC
    :members:
    :undoc-members:
    :show-inheritance:

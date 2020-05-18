@@ -133,8 +133,6 @@
         
           <li><a href="../../yadism.html">yadism</a> &raquo;</li>
         
-          <li><a href="../structure_functions.html">yadism.structure_functions</a> &raquo;</li>
-        
       <li>yadism.structure_functions.FLlight</li>
     
     
@@ -159,10 +157,7 @@
 <span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
 <span class="kn">from</span> <span class="nn">.EvaluatedStructureFunction</span> <span class="kn">import</span> <span class="n">EvaluatedStructureFunction</span> <span class="k">as</span> <span class="n">ESF</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">splitting_functions</span> <span class="k">as</span> <span class="n">split</span>
 
 
 <div class="viewcode-block" id="ESF_FLlight"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.FLlight.ESF_FLlight">[docs]</a><span class="k">class</span> <span class="nc">ESF_FLlight</span><span class="p">(</span><span class="n">ESF</span><span class="p">):</span>
@@ -170,9 +165,6 @@
 <span class="sd">    .. todo::</span>
 <span class="sd">        docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ESF_FLlight</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ESF_FLlight.quark_0"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.FLlight.ESF_FLlight.quark_0">[docs]</a>    <span class="k">def</span> <span class="nf">quark_0</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -187,11 +179,10 @@
 <span class="sd">        .. todo::</span>
 <span class="sd">            docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">CF</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">_constants</span><span class="o">.</span><span class="n">CF</span>
-        <span class="n">zeta_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">6</span>
+        <span class="n">CF</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
 
         <span class="k">def</span> <span class="nf">cq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">CF</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">z</span>
+            <span class="k">return</span> <span class="n">CF</span> <span class="o">*</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">z</span>
 
         <span class="k">return</span> <span class="n">cq_reg</span></div>
 
@@ -211,7 +202,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_f</span> <span class="o">*</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_f</span> <span class="o">*</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">cg</span></div>
 

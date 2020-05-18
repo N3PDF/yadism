@@ -158,29 +158,19 @@
 <span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">.structure_functions.EvaluatedStructureFunction</span> <span class="kn">import</span> <span class="n">ESFResult</span>
+
 
 <div class="viewcode-block" id="Output"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.output.Output">[docs]</a><span class="k">class</span> <span class="nc">Output</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    .. todo::</span>
-<span class="sd">        docs</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># TODO shift function somewhere else?</span>
     <span class="c1"># the other alternative is to shift this to an external module (and ouf of runner)</span>
     <span class="c1"># and import from there, here and in yadism.__init__</span>
 <div class="viewcode-block" id="Output.apply_PDF"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.output.Output.apply_PDF">[docs]</a>    <span class="k">def</span> <span class="nf">apply_PDF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdfs</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">get_charged_sum</span><span class="p">(</span><span class="n">z</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Q2</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-            <span class="sd">&quot;&quot;&quot;Short summary.</span>
-
-<span class="sd">            d/9 + db/9 + s/9 + sb/9 + 4*u/9 + 4*ub/9</span>
-
-<span class="sd">            .. todo::</span>
-<span class="sd">                docs</span>
-<span class="sd">            &quot;&quot;&quot;</span>
-            <span class="n">pdf_fl</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">pdfs</span><span class="o">.</span><span class="n">xfxQ2</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">Q2</span><span class="p">)</span>
-            <span class="k">return</span> <span class="p">(</span><span class="n">pdf_fl</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">pdf_fl</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">pdf_fl</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">pdf_fl</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="mi">9</span> <span class="o">+</span> <span class="p">(</span>
-                <span class="n">pdf_fl</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">pdf_fl</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-            <span class="p">)</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">9</span>
         <span class="c1"># iterate</span>
         <span class="n">ret</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
@@ -190,24 +180,9 @@
                 <span class="k">continue</span>
             <span class="n">ret</span><span class="p">[</span><span class="n">obs</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">kin</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">[</span><span class="n">obs</span><span class="p">]:</span>
-                <span class="c1"># collect pdfs</span>
-                <span class="n">fq</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="n">fg</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">]:</span>
-                    <span class="n">fq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_charged_sum</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;xiF&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span>
-                    <span class="n">fg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pdfs</span><span class="o">.</span><span class="n">xfxQ2</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;xiF&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span>
-
-                <span class="c1"># contract with coefficient functions</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fq</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fg</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">])</span>
-                <span class="p">)</span>
-                <span class="n">error</span> <span class="o">=</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fq</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;q_error&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fg</span><span class="p">,</span> <span class="n">kin</span><span class="p">[</span><span class="s2">&quot;g_error&quot;</span><span class="p">])</span>
-                <span class="p">)</span>
                 <span class="n">ret</span><span class="p">[</span><span class="n">obs</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                    <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">kin</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">Q2</span><span class="o">=</span><span class="n">kin</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">],</span> <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+                    <span class="n">ESFResult</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">kin</span><span class="p">)</span><span class="o">.</span><span class="n">apply_PDF</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;xiF&quot;</span><span class="p">],</span> <span class="n">pdfs</span><span class="p">)</span>
                 <span class="p">)</span>
-
         <span class="k">return</span> <span class="n">ret</span></div>
 
 <div class="viewcode-block" id="Output.dump"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.output.Output.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
