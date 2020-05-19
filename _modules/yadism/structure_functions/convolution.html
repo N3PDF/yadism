@@ -174,7 +174,7 @@
 
 
 <div class="viewcode-block" id="DistributionVec"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.convolution.DistributionVec">[docs]</a><span class="k">class</span> <span class="nc">DistributionVec</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :py:class:`DistributionVec` is an object that encodes the structure of a</span>
 <span class="sd">        distribution, as opposed to a regular function. It consists of an array of</span>
 <span class="sd">        functions, considered as coefficients of the following distributions basis:</span>
@@ -244,8 +244,8 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># check if regular is iterable</span>
             <span class="n">comp_list</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">regular</span>
-            <span class="p">]</span>  <span class="c1"># pylint: disable=unnecessary-comprehension</span>
+                <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">regular</span>  <span class="c1"># pylint: disable=unnecessary-comprehension</span>
+            <span class="p">]</span>
             <span class="c1"># if a sequence provided fill the missing slots with `None`</span>
             <span class="k">for</span> <span class="n">_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__names</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">regular</span><span class="p">)):</span>
                 <span class="n">comp_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
