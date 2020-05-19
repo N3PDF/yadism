@@ -25,6 +25,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -33,9 +34,11 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Physics documentation" href="Physics.html" /> 
+    <link rel="next" title="Interpolation" href="interpolation.html" />
+    <link rel="prev" title="Development" href="dev.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,12 +82,30 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="Physics.html">Physics documentation</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Dev:</span></p>
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dev.html">Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dev.html#feature-to-be-implemented">Feature to be implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html#known-bugs">Known bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev.html#testing">Testing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dev.html#other-stuffs">Other stuffs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ToDo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="theory/LO.html">LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/NLO.html">NLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/NNLO.html">NNLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
 </ul>
 
             
@@ -130,6 +151,8 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
+          <li><a href="dev.html">Development</a> &raquo;</li>
+        
       <li>ToDo</li>
     
     
@@ -149,13 +172,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="todo">
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="todo">
 <h1>ToDo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="index.html#id1"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/__init__.py:docstring of yadism, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id1"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/__init__.py:docstring of yadism, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
@@ -164,37 +205,45 @@
 <li><p>docs</p></li>
 </ul>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="index.html#id2"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/__init__.py:docstring of yadism.run_yadism, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id2"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/__init__.py:docstring of yadism.run_yadism, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id1"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/StructureFunction.py:docstring of yadism.StructureFunction, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id3"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/StructureFunction.py:docstring of yadism.StructureFunction, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id2"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/StructureFunction.py:docstring of yadism.StructureFunction.StructureFunction.get_output, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id4"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/StructureFunction.py:docstring of yadism.StructureFunction.StructureFunction.get_output, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id3"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/StructureFunction.py:docstring of yadism.StructureFunction.StructureFunction.load, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id5"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/StructureFunction.py:docstring of yadism.StructureFunction.StructureFunction.load, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id4"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/output.py:docstring of yadism.output, line 4.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id6"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/output.py:docstring of yadism.output, line 4.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id5"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/output.py:docstring of yadism.output.Output, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id7"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/output.py:docstring of yadism.output.Output, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
-<p>docs</p>
+<p>decide about <code class="docutils literal notranslate"><span class="pre">run_dis</span></code> and document it properly in module header</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id6"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner, line 3.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id8"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner, line 11.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>reference on theory template</p></li>
+<li><p>detailed description of dis_observables entries</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id9"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner, line 15.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
@@ -202,7 +251,7 @@
 <li><p>docs</p></li>
 </ul>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id7"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.apply, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id10"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.apply, line 3.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
@@ -210,7 +259,7 @@
 <li><p>docs</p></li>
 </ul>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id8"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.clear, line 3.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id11"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.clear, line 3.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
@@ -218,241 +267,188 @@
 <li><p>docs</p></li>
 </ul>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id9"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.dump, line 3.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id10"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.get_output, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id11"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/__init__.py:docstring of yadism, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id12"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.dump, line 3.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
-<li><p>decide the purpose</p></li>
-<li><p>implement</p></li>
 <li><p>docs</p></li>
+<li><p>get_output pipeline</p></li>
 </ul>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.html#id12"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/__init__.py:docstring of yadism.run_yadism, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id13"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.get_output, line 13.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id1"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id2"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/__init__.py:docstring of yadism.structure_functions, line 5.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id2"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult.ESFResult, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id3"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id3"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult.ESFResult.apply_PDF, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id4"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult.ESFResult, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id4"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult.ESFResult.from_dict, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id5"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult.ESFResult.apply_PDF, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id5"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult.ESFResult.get_raw, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id6"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult.ESFResult.from_dict, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id6"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id7"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/ESFResult.py:docstring of yadism.structure_functions.ESFResult.ESFResult.get_raw, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id7"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id8"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.get_output, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id9"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.get_result, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id10"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.gluon_0, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id11"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.gluon_1, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id12"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.gluon_1_fact, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id13"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_0, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id14"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_1, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id10"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.get_result, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
-<li><p>docs</p></li>
 <li><p>consistent naming convention: use hep-ph/0006154 convention
 of c_a^(l,m), e.g. quark_1_fact -&gt; quark_1_1
 also take care of muR, since in reference eq.2.16 they are
 setting muR = muF, so maybe quark_1_fact -&gt; quark_1_1_0</p></li>
 </ul>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id15"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_1_fact, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id11"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_1_fact, line 3.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id16"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.gluon_1_fact, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id14"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.gluon_1_fact, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>use threshold on shat or using FH’s zmax?</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id17"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.is_below_threshold, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id15"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.is_below_threshold, line 3.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id18"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.quark_1_fact, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id16"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/EvaluatedStructureFunction.py:docstring of yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.quark_1_fact, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id19"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2heavy.py:docstring of yadism.structure_functions.F2heavy, line 3.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id17"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2heavy.py:docstring of yadism.structure_functions.F2heavy, line 3.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id20"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2heavy.py:docstring of yadism.structure_functions.F2heavy.ESF_F2heavy, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id18"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2heavy.py:docstring of yadism.structure_functions.F2heavy.ESF_F2heavy, line 1.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id21"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2light.py:docstring of yadism.structure_functions.F2light, line 3.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id19"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2light.py:docstring of yadism.structure_functions.F2light, line 3.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id22"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2light.py:docstring of yadism.structure_functions.F2light.ESF_F2light, line 1.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id20"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2light.py:docstring of yadism.structure_functions.F2light.ESF_F2light, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id26"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLheavy.py:docstring of yadism.structure_functions.FLheavy, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id27"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLheavy.py:docstring of yadism.structure_functions.FLheavy.ESF_FLheavy, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id28"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id29"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id30"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.gluon_1, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id31"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.gluon_1_fact, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id32"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.quark_0, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id33"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.quark_1, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id34"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.quark_1_fact, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id35"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/TMC.py:docstring of yadism.structure_functions.TMC, line 50.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id36"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/TMC.py:docstring of yadism.structure_functions.TMC.ESFTMC_F2, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id37"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/TMC.py:docstring of yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_output, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>document how the convolution is performed (that is how it’s
+replaced by an integration and some pre-integrated addends)</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id40"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/convolution.py:docstring of yadism.structure_functions.convolution.DistributionVec.convolution, line 34.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
-<li><p>docs</p></li>
-<li><p>2 * n_f here and in gluon_1_fact is coming from momentum sum rule</p></li>
+<li><p>Reference: pink book</p></li>
 </ul>
-<p>q_i -&gt; {q_i, g} but g -&gt; {g, q_i, ar{q_i}</p>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id23"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2light.py:docstring of yadism.structure_functions.F2light.ESF_F2light.gluon_1, line 3.)</p>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id41"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/splitting_functions.py:docstring of yadism.structure_functions.splitting_functions, line 15.)</p>
 <div class="admonition-todo admonition">
 <p class="admonition-title">Todo</p>
-<p>docs</p>
+<ul class="simple">
+<li><p>add Introduction section</p>
+<ul>
+<li><p>include a very brief digraph to expose the overall structure of the
+project</p></li>
+</ul>
+</li>
+<li><p>add Usage section</p></li>
+<li><p>add Description section</p>
+<ul>
+<li><p>put graphs in spoiler tags</p></li>
+<li><p>add to ESF children graphs the corresponding for SF, using a 2-rows table
+(first one for SF, second for ESF, first column F2, second FL)</p></li>
+</ul>
+</li>
+</ul>
 </div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id24"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2light.py:docstring of yadism.structure_functions.F2light.ESF_F2light.gluon_1_fact, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id26"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2light.py:docstring of yadism.structure_functions.F2light.ESF_F2light.quark_1, line 6.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id27"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/F2light.py:docstring of yadism.structure_functions.F2light.ESF_F2light.quark_1_fact, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id28"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLheavy.py:docstring of yadism.structure_functions.FLheavy, line 3.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id29"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLheavy.py:docstring of yadism.structure_functions.FLheavy.ESF_FLheavy, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id30"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight, line 3.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id31"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id32"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.gluon_1, line 3.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id33"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.gluon_1_fact, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id34"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.quark_0, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id35"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.quark_1, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id36"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/FLlight.py:docstring of yadism.structure_functions.FLlight.ESF_FLlight.quark_1_fact, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id37"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/TMC.py:docstring of yadism.structure_functions.TMC, line 50.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id38"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/TMC.py:docstring of yadism.structure_functions.TMC.ESFTMC_F2, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id39"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/TMC.py:docstring of yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_output, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id40"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/convolution.py:docstring of yadism.structure_functions.convolution, line 3.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id41"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/splitting_functions.py:docstring of yadism.structure_functions.splitting_functions, line 1.)</p>
-<div class="admonition-todo admonition">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<p class="todo-source">(The <a class="reference internal" href="modules/yadism/yadism.structure_functions.html#id43"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.7/x64/lib/python3.7/site-packages/yadism/structure_functions/__init__.py:docstring of yadism.structure_functions, line 5.)</p>
+<p class="todo-source">(The <a class="reference internal" href="yadism.html#id1"><em>original entry</em></a> is located in /home/runner/work/dis/dis/docs/sphinx/source/yadism.rst, line 21.)</p>
 </div>
 
 
@@ -463,8 +459,10 @@ setting muR = muF, so maybe quark_1_fact -&gt; quark_1_1_0</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="interpolation.html" class="btn btn-neutral float-right" title="Interpolation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="Physics.html" class="btn btn-neutral float-left" title="Physics documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="dev.html" class="btn btn-neutral float-left" title="Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -473,11 +471,14 @@ setting muR = muF, so maybe quark_1_fact -&gt; quark_1_1_0</p></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, the N3PDF team
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+
 
 </footer>
 

@@ -1,0 +1,83 @@
+yadism.structure\_functions package
+===================================
+
+.. automodule:: yadism.structure_functions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+yadism.structure\_functions.ESFResult module
+--------------------------------------------
+
+.. automodule:: yadism.structure_functions.ESFResult
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.EvaluatedStructureFunction module
+-------------------------------------------------------------
+
+.. automodule:: yadism.structure_functions.EvaluatedStructureFunction
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.F2heavy module
+------------------------------------------
+
+.. automodule:: yadism.structure_functions.F2heavy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.F2light module
+------------------------------------------
+
+.. automodule:: yadism.structure_functions.F2light
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.FLheavy module
+------------------------------------------
+
+.. automodule:: yadism.structure_functions.FLheavy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.FLlight module
+------------------------------------------
+
+.. automodule:: yadism.structure_functions.FLlight
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.TMC module
+--------------------------------------
+
+.. automodule:: yadism.structure_functions.TMC
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.convolution module
+----------------------------------------------
+
+.. automodule:: yadism.structure_functions.convolution
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.splitting\_functions module
+-------------------------------------------------------
+
+.. automodule:: yadism.structure_functions.splitting_functions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

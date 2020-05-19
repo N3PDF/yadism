@@ -25,6 +25,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -33,6 +34,7 @@
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
@@ -78,12 +80,21 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../Physics.html">Physics documentation</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Dev:</span></p>
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../todo.html">ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/LO.html">LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/NLO.html">NLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/NNLO.html">NNLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
 </ul>
 
             
@@ -151,24 +162,38 @@
   <h1>Source code for yadism.structure_functions.splitting_functions</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provides splitting functions definition for coefficient functions calculation.</span>
+
+<span class="sd">The coefficient functions are defined in ???, and they are organized in:</span>
+
+<span class="sd">- qq</span>
+<span class="sd">- qg</span>
+<span class="sd">- gq</span>
+<span class="sd">- gg</span>
+
+<span class="sd">according to the partons (entering the hard process - coming from the proton).</span>
+
+<span class="sd">Furthermore they are organized according to their distribution structure, for</span>
+<span class="sd">which see :py:mod:`convolution`.</span>
+
 <span class="sd">.. todo::</span>
-<span class="sd">    docs</span>
+<span class="sd">    - Reference: pink book</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="pqq_reg"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.splitting_functions.pqq_reg">[docs]</a><span class="k">def</span> <span class="nf">pqq_reg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">constants</span><span class="p">):</span>
+<div class="viewcode-block" id="pqq_reg"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.splitting_functions.pqq_reg">[docs]</a><span class="k">def</span> <span class="nf">pqq_reg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">constants</span><span class="p">):</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">constants</span><span class="o">.</span><span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="pqq_delta"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.splitting_functions.pqq_delta">[docs]</a><span class="k">def</span> <span class="nf">pqq_delta</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">constants</span><span class="p">):</span>
+<div class="viewcode-block" id="pqq_delta"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.splitting_functions.pqq_delta">[docs]</a><span class="k">def</span> <span class="nf">pqq_delta</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">constants</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span></div>
 
 
-<div class="viewcode-block" id="pqq_pd"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.splitting_functions.pqq_pd">[docs]</a><span class="k">def</span> <span class="nf">pqq_pd</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">constants</span><span class="p">):</span>
+<div class="viewcode-block" id="pqq_pd"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.splitting_functions.pqq_pd">[docs]</a><span class="k">def</span> <span class="nf">pqq_pd</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">constants</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span></div>
 
 
-<div class="viewcode-block" id="pqg"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.splitting_functions.pqg">[docs]</a><span class="k">def</span> <span class="nf">pqg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">constants</span><span class="p">):</span>
+<div class="viewcode-block" id="pqg"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.splitting_functions.pqg">[docs]</a><span class="k">def</span> <span class="nf">pqg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">constants</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">TF</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span></div>
 </pre></div>
 
@@ -182,11 +207,14 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, the N3PDF team
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+
 
 </footer>
 

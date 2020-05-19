@@ -25,6 +25,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -33,6 +34,7 @@
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
@@ -78,12 +80,21 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../Physics.html">Physics documentation</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Dev:</span></p>
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../todo.html">ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/LO.html">LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/NLO.html">NLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/NNLO.html">NNLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
 </ul>
 
             
@@ -213,7 +224,7 @@
 <span class="kn">from</span> <span class="nn">.convolution</span> <span class="kn">import</span> <span class="n">DistributionVec</span>
 <span class="kn">from</span> <span class="nn">.EvaluatedStructureFunction</span> <span class="kn">import</span> <span class="n">ESFResult</span>
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionTMC"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionTMC</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionTMC</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        .. todo:</span>
 <span class="sd">            docs</span>
@@ -252,7 +263,7 @@
 <span class="sd">                docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionTMC.get_result"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC.get_result"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            .. todo:</span>
 <span class="sd">                docs</span>
@@ -279,7 +290,7 @@
 
         <span class="k">return</span> <span class="n">out</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionTMC.get_output"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC.get_output"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            .. todo::</span>
 <span class="sd">                docs</span>
@@ -356,7 +367,7 @@
 
 
 
-<div class="viewcode-block" id="ESFTMC_F2"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.TMC.ESFTMC_F2">[docs]</a><span class="k">class</span> <span class="nc">ESFTMC_F2</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionTMC</span><span class="p">):</span>
+<div class="viewcode-block" id="ESFTMC_F2"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.TMC.ESFTMC_F2">[docs]</a><span class="k">class</span> <span class="nc">ESFTMC_F2</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionTMC</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        .. todo::</span>
 <span class="sd">            docs</span>
@@ -479,7 +490,7 @@
     <span class="c1">### ----- /APFEL crap</span>
 
 
-<div class="viewcode-block" id="ESFTMC_FL"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.TMC.ESFTMC_FL">[docs]</a><span class="k">class</span> <span class="nc">ESFTMC_FL</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionTMC</span><span class="p">):</span>
+<div class="viewcode-block" id="ESFTMC_FL"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.TMC.ESFTMC_FL">[docs]</a><span class="k">class</span> <span class="nc">ESFTMC_FL</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionTMC</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ESFTMC_FL</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
         <span class="c1"># shifted prefactor is common</span>
@@ -546,11 +557,14 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, the N3PDF team
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+
 
 </footer>
 

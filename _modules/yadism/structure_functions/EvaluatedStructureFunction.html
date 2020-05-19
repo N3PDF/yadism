@@ -25,6 +25,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -33,6 +34,7 @@
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
@@ -78,12 +80,21 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../Physics.html">Physics documentation</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Dev:</span></p>
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../todo.html">ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/LO.html">LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/NLO.html">NLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/NNLO.html">NNLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
 </ul>
 
             
@@ -151,8 +162,22 @@
   <h1>Source code for yadism.structure_functions.EvaluatedStructureFunction</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">.. todo::</span>
-<span class="sd">    docs</span>
+<span class="sd">This module provides the base classes that define the interface for Structure</span>
+<span class="sd">Function calculation on a given kinematic point (x, Q2) (that is why they are</span>
+<span class="sd">called *Evaluated*).</span>
+<span class="sd">They are:</span>
+
+<span class="sd">:py:class:`EvaluatedStructureFunction` :</span>
+<span class="sd">    this is a pure abstract class, that define the interface (defining the way</span>
+<span class="sd">    in which coefficient functions are actually encoded) and implement some</span>
+<span class="sd">    shared methods (like initializer and :py:meth:`get_output`, responsible also</span>
+<span class="sd">    for :ref:`local caching&lt;local-caching&gt;`.</span>
+
+<span class="sd">:py:class:`EvaluatedStructureFunctionHeavy` :</span>
+<span class="sd">    this class is inheriting from the former, factorizing some common procedure</span>
+<span class="sd">    needed for heavy quark calculation, like auxiliary variable definition,</span>
+<span class="sd">    threshold passing calculation or directly setting to 0 some coefficient</span>
+<span class="sd">    functions.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">abc</span>
@@ -163,13 +188,88 @@
 <span class="kn">from</span> <span class="nn">.ESFResult</span> <span class="kn">import</span> <span class="n">ESFResult</span>
 
 
-<div class="viewcode-block" id="EvaluatedStructureFunction"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunction</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunction</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">        The actual Structure Function implementation.</span>
+
+<span class="sd">        This class is the abstract class that implements the structure for all</span>
+<span class="sd">        the coefficient functions&#39; providers, for a single kinematic point (x,</span>
+<span class="sd">        Q2), but all the flavours (singlet, nonsinglet, gluon).</span>
+
+<span class="sd">        Since the coefficient functions in general are distributions they are</span>
+<span class="sd">        provided with an internal representation, that respects the interface</span>
+<span class="sd">        defined by the class :py:class:`conv.DistributionVec`, and the same</span>
+<span class="sd">        class is used to perform the convolution with the basis functions (see</span>
+<span class="sd">        :py:class:`eko.InterpolatorDispatcher`), so the final result will</span>
+<span class="sd">        consist of an array of dimension 2: one dimension corresponding to the</span>
+<span class="sd">        interpolation grid, the other to the flavour.</span>
+
+<span class="sd">        Its subclasses are organized by:</span>
+
+<span class="sd">        - kind: `F2`, `FL`</span>
+<span class="sd">        - flavour: `light`, `charm`, `bottom`, `top`</span>
+
+<span class="sd">        and they all implement a :py:meth:`get_output` method that performs the</span>
+<span class="sd">        calculation (convolution included), if needed.</span>
+
+<span class="sd">        .. _local-caching:</span>
+
+<span class="sd">        Caching</span>
+<span class="sd">        ~~~~~~~</span>
+
+<span class="sd">        A part of the overall caching system is implemented at this level.</span>
+
+<span class="sd">        The one implemented here is only a **local, isolated** caching, i.e.:</span>
+
+<span class="sd">        - the first time the instance is asked for computing the result, through</span>
+<span class="sd">          the :py:meth:`get_ouput` method, it registers the result;</span>
+<span class="sd">        - any following call to the :py:meth:`get_output` method will make use</span>
+<span class="sd">          of the cached result, and will never recompute it.</span>
+
+<span class="sd">        If another instance with the same attributes is asked for the result it</span>
+<span class="sd">        will recompute it from scratch, because any instance is isolated and</span>
+<span class="sd">        doesn&#39;t keep any reference to the others.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        SF : StructureFunction</span>
+<span class="sd">            the parent :py:class:`StructureFunction` instance, provides an</span>
+<span class="sd">            interface, holds references to global objects (like managers coming</span>
+<span class="sd">            from :py:mod:`eko`, e.g. :py:class:``) and implements the global caching</span>
+<span class="sd">        kinematics : dict</span>
+<span class="sd">            the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
+
+<span class="sd">        Methods</span>
+<span class="sd">        -------</span>
+<span class="sd">        get_output()</span>
+<span class="sd">            compute the coefficient functions</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Internal Attributes</span>
+<span class="sd">            -------------------</span>
+
+<span class="sd">            _SF :</span>
+<span class="sd">                parent :py:class:`StructureFunction` reference</span>
+<span class="sd">            _x :</span>
+<span class="sd">                momentum fraction</span>
+<span class="sd">            _Q2 :</span>
+<span class="sd">                process energy</span>
+<span class="sd">            _cqv :</span>
+<span class="sd">                singlet quark coefficient function (implements the cache)</span>
+<span class="sd">            _e_cqv :</span>
+<span class="sd">                error on :py:attr:`_cqv`</span>
+<span class="sd">            _cgv :</span>
+<span class="sd">                gluon coefficient function (implements the cache)</span>
+<span class="sd">            _e_cgv :</span>
+<span class="sd">                error on :py:attr:`_cgv`</span>
+<span class="sd">            _a_s :</span>
+<span class="sd">                value of $ \alpha_s / 4 \pi $ at the scale :py:attr:`_Q2`</span>
+<span class="sd">            _n_f :</span>
+<span class="sd">                number of flavours at the scale :py:attr:`_Q2`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">x</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
         <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kinematics &#39;x&#39; must be in the range (0,1]&quot;</span><span class="p">)</span>
@@ -182,7 +282,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span> <span class="o">=</span> <span class="n">SF</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">),</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span><span class="n">Q2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="n">Q2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span>
+        <span class="p">)</span>
         <span class="c1"># localize external parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_a_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">strong_coupling</span><span class="o">.</span><span class="n">a_s</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiR</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_n_f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">get_areas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">nf</span>
@@ -190,8 +292,12 @@
 
     <span class="k">def</span> <span class="nf">_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            .. todo::</span>
-<span class="sd">                docs</span>
+<span class="sd">            Here is where the local caching is actually implemented: if the</span>
+<span class="sd">            coefficient functions are already computed don&#39;t do nothing,</span>
+<span class="sd">            otherwise call :py:meth:`_compute_component` (checks are per flavour).</span>
+
+<span class="sd">            In any case no output is provided, but the result is stored in</span>
+<span class="sd">            instance&#39;s attributes (this method is for internal use).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># something to do?</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computed</span><span class="p">:</span>
@@ -206,8 +312,22 @@
 
     <span class="k">def</span> <span class="nf">_compute_component</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_LO</span><span class="p">,</span> <span class="n">f_NLO</span><span class="p">,</span> <span class="n">f_NLO_fact</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Perform coefficient function calculation for a single flavour,</span>
+<span class="sd">            combining orders, compute the convolution through</span>
+<span class="sd">            :py:meth:`DistributionVec.convolution` iterating over *basis</span>
+<span class="sd">            functions* and take care of scale variations.</span>
+
+<span class="sd">            Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">            f_LO : callable, or sequence of callables</span>
+<span class="sd">                implements LO coefficient function</span>
+<span class="sd">            f_NLO : callable, or sequence of callables</span>
+<span class="sd">                implements NLO coefficient function</span>
+<span class="sd">            f_NLO_fact : callable, or sequence of callables</span>
+<span class="sd">                implements NLO factorization scheme contribution</span>
+
 <span class="sd">            .. todo::</span>
-<span class="sd">                docs</span>
+<span class="sd">                reference needed for factorization scheme</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">els</span> <span class="o">=</span> <span class="p">[]</span>
@@ -230,7 +350,7 @@
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ls</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">els</span><span class="p">)</span>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction.get_result"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.get_result"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            .. todo::</span>
 <span class="sd">                docs</span>
@@ -239,78 +359,137 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_res</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction.get_output"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.get_output"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">           Returns the output for this instance.</span>
+
+<span class="sd">           In particular it returns the convolution of the coefficient function</span>
+<span class="sd">           for the selected observable and the array of basis functions, so the</span>
+<span class="sd">           result will be an array itself, running over the interpolation grid.</span>
+
+<span class="sd">           Caching is provided as explained in the class description (see</span>
+<span class="sd">           :py:class:`EvaluatedStructureFunction`).</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            dict</span>
+<span class="sd">                a collection of the output arrays with the following structure:</span>
+
+<span class="sd">                - `x`: the input momentum fraction</span>
+<span class="sd">                - `Q2`: the input process scale</span>
+<span class="sd">                - `q`: a :py:meth:`numpy.array` for the quark coefficient</span>
+<span class="sd">                  functions</span>
+<span class="sd">                - `q_error`: a :py:meth:`numpy.array` with the integration</span>
+<span class="sd">                  errors for `q` calculation</span>
+<span class="sd">                - `g`: a :py:meth:`numpy.array` for the gluon coefficient</span>
+<span class="sd">                  functions</span>
+<span class="sd">                - `g_error`: a :py:meth:`numpy.array` with the integration</span>
+<span class="sd">                  errors for `g` calculation</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span><span class="o">.</span><span class="n">get_raw</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction.quark_0"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_0">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.quark_0"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_0">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
     <span class="k">def</span> <span class="nf">quark_0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            quark coefficient function at order 0 in :math`a_s`</span>
 <span class="sd">        &quot;&quot;&quot;</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction.gluon_0"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.gluon_0">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.gluon_0"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.gluon_0">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            gluon coefficient function at order 0 in :math`a_s`</span>
+
+<span class="sd">            Set to 0 for all kind of observables and flavours, since there is no</span>
+<span class="sd">            gluon contribution at order 0.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction.quark_1"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_1">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.quark_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_1">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
     <span class="k">def</span> <span class="nf">quark_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            quark coefficient function at order 1 in :math`a_s`</span>
 <span class="sd">        &quot;&quot;&quot;</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction.quark_1_fact"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_1_fact">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.quark_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.quark_1_fact">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
     <span class="k">def</span> <span class="nf">quark_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            - docs</span>
-<span class="sd">            - consistent naming convention: use hep-ph/0006154 convention</span>
-<span class="sd">              of c_a^(l,m), e.g. quark_1_fact -&gt; quark_1_1</span>
-<span class="sd">              also take care of muR, since in reference eq.2.16 they are</span>
-<span class="sd">              setting muR = muF, so maybe quark_1_fact -&gt; quark_1_1_0</span>
+<span class="sd">            quark factorization scheme contribution, at order 1 in :math`a_s`</span>
+
+<span class="sd">            .. todo::</span>
+<span class="sd">                - consistent naming convention: use hep-ph/0006154 convention</span>
+<span class="sd">                  of c_a^(l,m), e.g. quark_1_fact -&gt; quark_1_1</span>
+<span class="sd">                  also take care of muR, since in reference eq.2.16 they are</span>
+<span class="sd">                  setting muR = muF, so maybe quark_1_fact -&gt; quark_1_1_0</span>
 <span class="sd">        &quot;&quot;&quot;</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction.gluon_1"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.gluon_1">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.gluon_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.gluon_1">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
     <span class="k">def</span> <span class="nf">gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            gluon coefficient function at order 1 in :math`a_s`</span>
 <span class="sd">        &quot;&quot;&quot;</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction.gluon_1_fact"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.gluon_1_fact">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.gluon_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction.gluon_1_fact">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
     <span class="k">def</span> <span class="nf">gluon_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            gluon factorization scheme contribution, at order 1 in :math`a_s`</span>
 <span class="sd">        &quot;&quot;&quot;</span></div></div>
 
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionHeavy</span><span class="p">(</span><span class="n">EvaluatedStructureFunction</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">,</span> <span class="n">charge_em</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionHeavy</span><span class="p">(</span><span class="n">EvaluatedStructureFunction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Specialize EvaluatedStructureFunction for heavy flavours.</span>
+
+<span class="sd">        This class factorizes some common tasks needed for heavy flavours</span>
+<span class="sd">        (namely: charm, bottom and top quarks), in particular:</span>
+
+<span class="sd">        - compute some auxiliary derived variables at initialization time</span>
+<span class="sd">        - check if the available energy for heavy quark production is above the</span>
+<span class="sd">          mass threshold of the quark itself (returning immediately 0 otherwise)</span>
+<span class="sd">        - set :py:meth:`quark_0` and :py:meth:`quark_1` (and the factorization</span>
+<span class="sd">          scheme contributions corresponding to both gluon and quark, since the</span>
+<span class="sd">          LO is completely null) to 0</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        SF : StructureFunction</span>
+<span class="sd">            the parent :py:class:`StructureFunction` instance, provides an</span>
+<span class="sd">            interface, holds references to global objects (like managers coming</span>
+<span class="sd">            from :py:mod:`eko`, e.g. :py:class:``) and implements the global caching</span>
+<span class="sd">        kinematics : dict</span>
+<span class="sd">            the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
+<span class="sd">        charge_em : float</span>
+
+<span class="sd">        Methods</span>
+<span class="sd">        -------</span>
+<span class="sd">        get_output()</span>
+<span class="sd">            compute the coefficient functions (see :py:class:`EvaluatedStructureFunction`)</span>
+
+<span class="sd">        .. todo::</span>
+<span class="sd">            - charge_em</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">charge_em</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            collect electric charge (relevant for heavy flavours coefficient</span>
+<span class="sd">            functions) and compute common derived variables</span>
+
+<span class="sd">            .. todo::</span>
+<span class="sd">                - document prefactor: FH page 61 (6.1), 65 (7.2) - Vogt page 21 (4.1)</span>
+<span class="sd">                - a_s expansion factor already included (simplify with alpha_s/4pi)</span>
+<span class="sd">                  pay attention to Vogt 1/x in (4.1) in FH appendix are written</span>
+<span class="sd">                  the expressions for c&#39;s (6.1), convolution defined in (7.2)</span>
+<span class="sd">                  also the charge average 9 / 2 is coming from Vogt (4.1)</span>
+<span class="sd">                  definition in the gluon</span>
+<span class="sd">                - remember that is only for the gluon and quark singlet, so it</span>
+<span class="sd">                  should be removed from the non-singlet prefactor</span>
+<span class="sd">                - why is it not the pdf but xpdf used? check why Laenen is using</span>
+<span class="sd">                  xpdf in the first place</span>
+<span class="sd">                - docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionHeavy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
 
-        <span class="c1"># FH - Vogt comparison prefactor</span>
-        <span class="c1"># TODO: document prefactor</span>
-        <span class="c1"># FH page 61 (6.1), 65 (7.2) - Vogt page 21 (4.1)</span>
-        <span class="c1"># a_s expansion factor already included (simplify with alpha_s / 4 pi)</span>
-        <span class="c1"># pay attention to Vogt 1/x in (4.1)</span>
-        <span class="c1"># in FH appendix are written the expressions for c&#39;s (6.1), convolution</span>
-        <span class="c1"># defined in (7.2)</span>
-        <span class="c1"># also the charge average 9 / 2 is coming from Vogt (4.1) definition in the</span>
-        <span class="c1"># gluon</span>
-        <span class="c1"># TODO: remember that is only for the gluon and quark singlet, so it should</span>
-        <span class="c1"># be removed from the non-singlet prefactor</span>
-        <span class="c1"># TODO: why is it not the pdf but xpdf used? check why Laenen is using xpdf</span>
-        <span class="c1"># in the first place</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_charge_em</span> <span class="o">=</span> <span class="n">charge_em</span>
+        <span class="c1"># FH - Vogt comparison prefactor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_FHprefactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">)</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># / self._x</span>
 
         <span class="c1"># common variables</span>
@@ -325,23 +504,25 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_chi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beta</span><span class="p">(</span><span class="n">z</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beta</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.is_below_threshold"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.is_below_threshold">[docs]</a>    <span class="k">def</span> <span class="nf">is_below_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.is_below_threshold"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.is_below_threshold">[docs]</a>    <span class="k">def</span> <span class="nf">is_below_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            use threshold on shat or using FH&#39;s zmax?</span>
+<span class="sd">            check if available energy is below production threshold or not</span>
+
+<span class="sd">            .. todo::</span>
+<span class="sd">                use threshold on shat or using FH&#39;s zmax?</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shat</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.quark_0"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.quark_0">[docs]</a>    <span class="k">def</span> <span class="nf">quark_0</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.quark_0"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.quark_0">[docs]</a>    <span class="k">def</span> <span class="nf">quark_0</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.quark_1"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.quark_1">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.quark_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.quark_1">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.quark_1_fact"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.quark_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.quark_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.quark_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            .. todo::</span>
+<span class="sd">                docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
@@ -349,16 +530,21 @@
     <span class="k">def</span> <span class="nf">_gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.gluon_1"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.gluon_1">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.gluon_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.gluon_1">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            returns gluon coefficient function at order 1 in :math:`alpha_s`</span>
+<span class="sd">            (delegated to internal :py:meth:`_gluon_1`) checking before for</span>
+<span class="sd">            production threshold</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">0</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gluon_1</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.gluon_1_fact"><a class="viewcode-back" href="../../../modules/yadism/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.gluon_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.gluon_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy.gluon_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            .. todo::</span>
+<span class="sd">                docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mi">0</span></div></div>
 </pre></div>
@@ -373,11 +559,14 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, the N3PDF team
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+
 
 </footer>
 

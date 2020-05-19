@@ -25,6 +25,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -33,6 +34,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 </head>
@@ -78,12 +80,21 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../Physics.html">Physics documentation</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Dev:</span></p>
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../todo.html">ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/LO.html">LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/NLO.html">NLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/NNLO.html">NNLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
 </ul>
 
             
@@ -159,7 +170,7 @@
 <span class="kn">from</span> <span class="nn">.structure_functions.TMC</span> <span class="kn">import</span> <span class="n">ESFTMCmap</span>
 
 
-<div class="viewcode-block" id="StructureFunction"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.StructureFunction.StructureFunction">[docs]</a><span class="k">class</span> <span class="nc">StructureFunction</span><span class="p">:</span>
+<div class="viewcode-block" id="StructureFunction"><a class="viewcode-back" href="../../modules/yadism.html#yadism.StructureFunction.StructureFunction">[docs]</a><span class="k">class</span> <span class="nc">StructureFunction</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        __init__.</span>
 
@@ -196,7 +207,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">TMC</span> <span class="o">=</span> <span class="n">theory_stuffs</span><span class="p">[</span><span class="s2">&quot;TMC&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">M2target</span> <span class="o">=</span> <span class="n">theory_stuffs</span><span class="p">[</span><span class="s2">&quot;M2target&quot;</span><span class="p">]</span>
 
-<div class="viewcode-block" id="StructureFunction.load"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.StructureFunction.StructureFunction.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kinematic_configs</span><span class="p">):</span>
+<div class="viewcode-block" id="StructureFunction.load"><a class="viewcode-back" href="../../modules/yadism.html#yadism.StructureFunction.StructureFunction.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kinematic_configs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        .. todo::</span>
 <span class="sd">            docs</span>
@@ -206,7 +217,7 @@
         <span class="k">for</span> <span class="n">kinematics</span> <span class="ow">in</span> <span class="n">kinematic_configs</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__ESFs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__ESF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="StructureFunction.get_ESF"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.StructureFunction.StructureFunction.get_ESF">[docs]</a>    <span class="k">def</span> <span class="nf">get_ESF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
+<div class="viewcode-block" id="StructureFunction.get_ESF"><a class="viewcode-back" href="../../modules/yadism.html#yadism.StructureFunction.StructureFunction.get_ESF">[docs]</a>    <span class="k">def</span> <span class="nf">get_ESF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            get_ESF.</span>
 
@@ -235,7 +246,7 @@
             <span class="c1"># ask our parent (as always)</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__runner</span><span class="o">.</span><span class="n">observable_instances</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="StructureFunction.get_output"><a class="viewcode-back" href="../../modules/yadism/yadism.html#yadism.StructureFunction.StructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="StructureFunction.get_output"><a class="viewcode-back" href="../../modules/yadism.html#yadism.StructureFunction.StructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        .. todo::</span>
 <span class="sd">            docs</span>
@@ -257,11 +268,14 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, the N3PDF team
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+
 
 </footer>
 

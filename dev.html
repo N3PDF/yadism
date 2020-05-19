@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; DIS  documentation</title>
+  <title>Development &mdash; DIS  documentation</title>
   
 
   
@@ -26,7 +26,6 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script src="_static/searchtools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -37,7 +36,9 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ToDo" href="todo.html" />
+    <link rel="prev" title="yadism.structure_functions package" href="modules/yadism.structure_functions.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +65,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -82,9 +83,25 @@
             
             
               <p class="caption"><span class="caption-text">Package Reference</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev.html">Development</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#feature-to-be-implemented">Feature to be implemented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#known-bugs">Known bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unit-testing">Unit testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apfel-benchmarks">APFEL benchmarks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-use-benchmark-tools">How to use benchmark tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#other-stuffs">Other stuffs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="todo.html">ToDo</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz-refs.html">References</a></li>
 </ul>
@@ -141,12 +158,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Development</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/dev.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -158,24 +177,78 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="feature-to-be-implemented">
+<h2>Feature to be implemented<a class="headerlink" href="#feature-to-be-implemented" title="Permalink to this headline">¶</a></h2>
+<p>Known list of features to be implemented</p>
+</div>
+<div class="section" id="known-bugs">
+<h2>Known bugs<a class="headerlink" href="#known-bugs" title="Permalink to this headline">¶</a></h2>
+<p>like behaviour Q2 APFEl &amp; blabla</p>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Description of testing workflows.</p>
+<div class="section" id="unit-testing">
+<h3>Unit testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h3>
+<p>Where are used unit tests and other interesting facts related to them.</p>
+<p>List and description of unit tests (currently only <code class="docutils literal notranslate"><span class="pre">convolution</span></code> related
+stuffs).</p>
+</div>
+<div class="section" id="apfel-benchmarks">
+<h3>APFEL benchmarks<a class="headerlink" href="#apfel-benchmarks" title="Permalink to this headline">¶</a></h3>
+<p>Organization (db and so on), matrix (all the alternatives tested) and other
+benchmark related stuffs description.</p>
+<div class="section" id="how-to-use-benchmark-tools">
+<h4>How to use benchmark tools<a class="headerlink" href="#how-to-use-benchmark-tools" title="Permalink to this headline">¶</a></h4>
+<p>Description of script ecosystem for running benchmarks and further analyzing
+their output (logs).</p>
+</div>
+</div>
+</div>
+<div class="section" id="other-stuffs">
+<h2>Other stuffs<a class="headerlink" href="#other-stuffs" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
+</ul>
+</div>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="todo.html" class="btn btn-neutral float-right" title="ToDo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules/yadism.structure_functions.html" class="btn btn-neutral float-left" title="yadism.structure_functions package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -211,14 +284,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
