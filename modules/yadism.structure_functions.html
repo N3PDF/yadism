@@ -550,63 +550,272 @@ production threshold</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-yadism.structure_functions.F2heavy">
-<span id="yadism-structure-functions-f2heavy-module"></span><h2>yadism.structure_functions.F2heavy module<a class="headerlink" href="#module-yadism.structure_functions.F2heavy" title="Permalink to this headline">¶</a></h2>
-<p>This file contains the implementation of the DIS structure functions at LO.</p>
-<div class="admonition-todo admonition" id="id17">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
+<div class="section" id="module-yadism.structure_functions.distribution_vec">
+<span id="yadism-structure-functions-distribution-vec-module"></span><h2>yadism.structure_functions.distribution_vec module<a class="headerlink" href="#module-yadism.structure_functions.distribution_vec" title="Permalink to this headline">¶</a></h2>
+<p>Define <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> and its API, that are used to represent
+distributions object in the coefficient function definition and calculation.</p>
+<dl class="py class">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.distribution_vec.</code><code class="sig-name descname">DistributionVec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">regular</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">omx</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">logomx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p><a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> is an object that encodes the structure of a
+distribution, as opposed to a regular function. It consists of an array of
+functions, considered as coefficients of the following distributions basis:</p>
+<ul class="simple">
+<li><p><em>regular</em>: the regular part is the coefficient of 1, so it is the pure
+function component</p></li>
+<li><p><em>delta</em>: it is the coefficient of the Dirac delta function <span class="math notranslate nohighlight">\(\delta(1-x)\)</span></p></li>
+<li><p><em>omx</em>: it is the coefficient of the distribution <a href="#id17"><span class="problematic" id="id18">:log:`1/(1-x)_+`</span></a></p></li>
+<li><p><em>logomx</em>: it is the coefficient of the distribution <span class="math notranslate nohighlight">\((\log(x)/(1-x))_+\)</span></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unstable: it is going to change, maybe in more directions:</p>
+<ul class="simple">
+<li><p>collecting all the plus distributions in a single one, so limiting the vector
+size to be 3</p></li>
+<li><p>(potential) from an array of functions to an array of numbers, using a
+canonical representation (it is always possible to swap all the functional
+part in the regular)</p></li>
+</ul>
 </div>
-<dl class="py class">
-<dt id="yadism.structure_functions.F2heavy.ESF_F2bottom">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.F2heavy.</code><code class="sig-name descname">ESF_F2bottom</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/F2heavy.html#ESF_F2bottom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2heavy.ESF_F2bottom" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.F2heavy.ESF_F2heavy" title="yadism.structure_functions.F2heavy.ESF_F2heavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.F2heavy.ESF_F2heavy</span></code></a></p>
-</dd></dl>
-
-<dl class="py class">
-<dt id="yadism.structure_functions.F2heavy.ESF_F2charm">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.F2heavy.</code><code class="sig-name descname">ESF_F2charm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/F2heavy.html#ESF_F2charm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2heavy.ESF_F2charm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.F2heavy.ESF_F2heavy" title="yadism.structure_functions.F2heavy.ESF_F2heavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.F2heavy.ESF_F2heavy</span></code></a></p>
-</dd></dl>
-
-<dl class="py class">
-<dt id="yadism.structure_functions.F2heavy.ESF_F2heavy">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.F2heavy.</code><code class="sig-name descname">ESF_F2heavy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em>, <em class="sig-param"><span class="n">charge_em</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/F2heavy.html#ESF_F2heavy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2heavy.ESF_F2heavy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy" title="yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy</span></code></a></p>
-<div class="admonition-todo admonition" id="id18">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>regular</strong> (<em>number</em><em> or </em><em>callable</em>) – regular</p></li>
+<li><p><strong>delta</strong> (<em>number</em><em> or </em><em>callable</em>) – delta (default: None)</p></li>
+<li><p><strong>omx</strong> (<em>number</em><em> or </em><em>callable</em>) – omx (default: None)</p></li>
+<li><p><strong>logomx</strong> (<em>number</em><em> or </em><em>callable</em>) – logomx (default: None)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.__add__">
+<code class="sig-name descname">__add__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.__add__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
+<p>Supported further addends:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>+ num</cite>: if a number is provided is considered as a constant
+regular function, to be summed to the regular bit</p></li>
+<li><p><cite>+ function</cite>: if a callable is provided is considered as a
+regular function to be summed to the regular bit</p></li>
+<li><p><cite>+ DistributionVec</cite>: if a <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> is
+provided the coefficients of that one and the current one are
+summed element-wise</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not support <code class="docutils literal notranslate"><span class="pre">DistributionVec</span> <span class="pre">+</span> <span class="pre">iterable</span></code>, if needed use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d_vec</span> <span class="o">+</span> <span class="n">DistributionVec</span><span class="p">(</span><span class="o">*</span><span class="n">iterable</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </dd></dl>
 
-<dl class="py class">
-<dt id="yadism.structure_functions.F2heavy.ESF_F2top">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.F2heavy.</code><code class="sig-name descname">ESF_F2top</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/F2heavy.html#ESF_F2top"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2heavy.ESF_F2top" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.F2heavy.ESF_F2heavy" title="yadism.structure_functions.F2heavy.ESF_F2heavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.F2heavy.ESF_F2heavy</span></code></a></p>
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.__getitem__">
+<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements dictionary semantics for <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.__iadd__">
+<code class="sig-name descname">__iadd__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.__iadd__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.__iadd__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, makes
+use of <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec.__add__" title="yadism.structure_functions.distribution_vec.DistributionVec.__add__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.__imul__">
+<code class="sig-name descname">__imul__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.__imul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.__imul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, makes
+use of <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec.__mul__" title="yadism.structure_functions.distribution_vec.DistributionVec.__mul__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.__iter__">
+<code class="sig-name descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements iterable semantics for <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.__mul__">
+<code class="sig-name descname">__mul__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.__mul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
+<p>The only supported type for the further factor is a scalar, and it
+is considered in a vector sense: multiplying by a scalar yields
+multiplying each coefficient by a scalar.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently multiplication by a function (a callable in the code) is
+not supported, because a Distribution can only be multiplied by a
+test function (and the TestFunction API is not going to be
+implemented).</p>
 </div>
-<div class="section" id="module-yadism.structure_functions.F2light">
-<span id="yadism-structure-functions-f2light-module"></span><h2>yadism.structure_functions.F2light module<a class="headerlink" href="#module-yadism.structure_functions.F2light" title="Permalink to this headline">¶</a></h2>
-<p>This file contains the implementation of the DIS structure functions at LO.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.__radd__">
+<code class="sig-name descname">__radd__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.__radd__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.__radd__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, makes
+use of <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec.__add__" title="yadism.structure_functions.distribution_vec.DistributionVec.__add__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.__rmul__">
+<code class="sig-name descname">__rmul__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.__rmul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.__rmul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, makes
+use of <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec.__mul__" title="yadism.structure_functions.distribution_vec.DistributionVec.__mul__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.__setitem__">
+<code class="sig-name descname">__setitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements dictionary semantics for <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.compare">
+<code class="sig-name descname">compare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.compare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare two <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> at a given value of <cite>x</cite>,
+checking if all the coefficients compare equal when evaluated at
+<cite>x</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> – the other <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> to be compareed with the
+current one</p></li>
+<li><p><strong>x</strong> – the kinematics point at which the comparison should be performed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – The only kind of comparison available is between two
+    <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, so if the first argument provided
+    does not match the type an error is raised.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.convolution">
+<code class="sig-name descname">convolution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">pdf_func</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/distribution_vec.html#DistributionVec.convolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.convolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convolute the current <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> with a function
+<code class="docutils literal notranslate"><span class="pre">pdf_func</span></code>.</p>
+<p>The definition of the convolution performed is:</p>
+<div class="math notranslate nohighlight">
+\[\int_x^{1} \frac{\text{d}z}{z} dvec(z) f\left(\frac{x}{z}\right)\]</div>
+<p>(notice that is symmetryc in <span class="math notranslate nohighlight">\(dvec \leftrightarrow f\)</span>).</p>
+<div class="admonition note" id="integration-note">
+<p class="admonition-title">Note</p>
+<p>The class level attributes <a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec.eps_integration_abs" title="yadism.structure_functions.distribution_vec.DistributionVec.eps_integration_abs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">eps_integration_abs</span></code></a> and
+<a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec.eps_integration_border" title="yadism.structure_functions.distribution_vec.DistributionVec.eps_integration_border"><code class="xref py py-attr docutils literal notranslate"><span class="pre">eps_integration_border</span></code></a> regulate the integration process,
+setting respectively the absolute error and restricting the
+integration domain in order to avoid singularities.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>scalar</em>) – the kinematics point at which the convoution is evaluated</p></li>
+<li><p><strong>pdf_func</strong> (<em>callable</em>) – the function to be convoluted with the current
+<a class="reference internal" href="#yadism.structure_functions.distribution_vec.DistributionVec" title="yadism.structure_functions.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> (usually a PDF, or a PDF
+interpolator)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>float</em> – the result of the convolution</p></li>
+<li><p><em>float</em> – the integration error</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The real name of this method is <code class="docutils literal notranslate"><span class="pre">convnd</span></code>.</p>
 <div class="admonition-todo admonition" id="id19">
 <p class="admonition-title">Todo</p>
-<p>docs</p>
+<p>document how the convolution is performed (that is how it’s
+replaced by an integration and some pre-integrated addends)</p>
 </div>
-<dl class="py class">
-<dt id="yadism.structure_functions.F2light.ESF_F2light">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.F2light.</code><code class="sig-name descname">ESF_F2light</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/F2light.html#ESF_F2light"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2light.ESF_F2light" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction" title="yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.eps_integration_abs">
+<code class="sig-name descname">eps_integration_abs</code><em class="property"> = 1e-13</em><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.eps_integration_abs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the integration target absolute error, see
+<a class="reference internal" href="#integration-note"><span class="std std-ref">Integration Note</span></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="yadism.structure_functions.distribution_vec.DistributionVec.eps_integration_border">
+<code class="sig-name descname">eps_integration_border</code><em class="property"> = 1e-10</em><a class="headerlink" href="#yadism.structure_functions.distribution_vec.DistributionVec.eps_integration_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the integration domain restriction, see
+<a class="reference internal" href="#integration-note"><span class="std std-ref">Integration Note</span></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-yadism.structure_functions.f2_heavy">
+<span id="yadism-structure-functions-f2-heavy-module"></span><h2>yadism.structure_functions.f2_heavy module<a class="headerlink" href="#module-yadism.structure_functions.f2_heavy" title="Permalink to this headline">¶</a></h2>
+<p>This file contains the implementation of the DIS structure functions at LO.</p>
 <div class="admonition-todo admonition" id="id20">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
+<dl class="py class">
+<dt id="yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2bottom">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.f2_heavy.</code><code class="sig-name descname">EvaluatedStructureFunctionF2bottom</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/f2_heavy.html#EvaluatedStructureFunctionF2bottom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2bottom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy" title="yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2charm">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.f2_heavy.</code><code class="sig-name descname">EvaluatedStructureFunctionF2charm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/f2_heavy.html#EvaluatedStructureFunctionF2charm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2charm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy" title="yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.f2_heavy.</code><code class="sig-name descname">EvaluatedStructureFunctionF2heavy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em>, <em class="sig-param"><span class="n">charge_em</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/f2_heavy.html#EvaluatedStructureFunctionF2heavy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy" title="yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy</span></code></a></p>
+<div class="admonition-todo admonition" id="id21">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2top">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.f2_heavy.</code><code class="sig-name descname">EvaluatedStructureFunctionF2top</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/f2_heavy.html#EvaluatedStructureFunctionF2top"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2top" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy" title="yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-yadism.structure_functions.f2_light">
+<span id="yadism-structure-functions-f2-light-module"></span><h2>yadism.structure_functions.f2_light module<a class="headerlink" href="#module-yadism.structure_functions.f2_light" title="Permalink to this headline">¶</a></h2>
+<p>This file contains the implementation of the DIS structure functions at LO.</p>
+<div class="admonition-todo admonition" id="id22">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<dl class="py class">
+<dt id="yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.f2_light.</code><code class="sig-name descname">EvaluatedStructureFunctionF2light</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/f2_light.html#EvaluatedStructureFunctionF2light"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction" title="yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction</span></code></a></p>
+<div class="admonition-todo admonition" id="id23">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
 <dl class="py method">
-<dt id="yadism.structure_functions.F2light.ESF_F2light.gluon_1">
-<code class="sig-name descname">gluon_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/F2light.html#ESF_F2light.gluon_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2light.ESF_F2light.gluon_1" title="Permalink to this definition">¶</a></dt>
+<dt id="yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.gluon_1">
+<code class="sig-name descname">gluon_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/f2_light.html#EvaluatedStructureFunctionF2light.gluon_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.gluon_1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the gluon part of the next to leading order F2 structure
 function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.4</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id21">[VVM05]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.4</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id24">[VVM05]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
@@ -627,11 +836,11 @@ plus antiflavours in which the gluon can go.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="yadism.structure_functions.F2light.ESF_F2light.gluon_1_fact">
-<code class="sig-name descname">gluon_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/F2light.html#ESF_F2light.gluon_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2light.ESF_F2light.gluon_1_fact" title="Permalink to this definition">¶</a></dt>
+<dt id="yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.gluon_1_fact">
+<code class="sig-name descname">gluon_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/f2_light.html#EvaluatedStructureFunctionF2light.gluon_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.gluon_1_fact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the gluon contribution to the next to leading order F2
 structure function coming from the factorization scheme.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">??</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id22">[VVM05]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">??</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id25">[VVM05]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
@@ -644,10 +853,10 @@ structure function coming from the factorization scheme.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="yadism.structure_functions.F2light.ESF_F2light.quark_0">
-<code class="sig-name descname">quark_0</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a><a class="reference internal" href="../_modules/yadism/structure_functions/F2light.html#ESF_F2light.quark_0"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2light.ESF_F2light.quark_0" title="Permalink to this definition">¶</a></dt>
+<dt id="yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.quark_0">
+<code class="sig-name descname">quark_0</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a><a class="reference internal" href="../_modules/yadism/structure_functions/f2_light.html#EvaluatedStructureFunctionF2light.quark_0"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.quark_0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the quark singlet part of the leading order F2 structure function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.2</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id23">[VVM05]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.2</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id26">[VVM05]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>coefficient functions, as two arguments functions: <code class="code py python docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">Q2</span></span><span class="punctuation"><span class="pre">)</span></span></code></p>
@@ -659,11 +868,11 @@ structure function coming from the factorization scheme.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="yadism.structure_functions.F2light.ESF_F2light.quark_1">
-<code class="sig-name descname">quark_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/F2light.html#ESF_F2light.quark_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2light.ESF_F2light.quark_1" title="Permalink to this definition">¶</a></dt>
+<dt id="yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.quark_1">
+<code class="sig-name descname">quark_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/f2_light.html#EvaluatedStructureFunctionF2light.quark_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.quark_1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the quark singlet part of the next to leading order F2
 structure function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.3</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id24">[VVM05]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.3</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id27">[VVM05]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>coefficient functions, as two arguments functions: <code class="code py python docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">Q2</span></span><span class="punctuation"><span class="pre">)</span></span></code></p>
@@ -675,11 +884,11 @@ structure function.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="yadism.structure_functions.F2light.ESF_F2light.quark_1_fact">
-<code class="sig-name descname">quark_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/F2light.html#ESF_F2light.quark_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.F2light.ESF_F2light.quark_1_fact" title="Permalink to this definition">¶</a></dt>
+<dt id="yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.quark_1_fact">
+<code class="sig-name descname">quark_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/f2_light.html#EvaluatedStructureFunctionF2light.quark_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light.quark_1_fact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the quark singlet contribution to the next to leading
 order F2 structure function coming from the factorization scheme.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">??</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id25">[VVM05]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">??</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id28">[VVM05]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>coefficient functions, as two arguments functions: <code class="code py python docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">Q2</span></span><span class="punctuation"><span class="pre">)</span></span></code></p>
@@ -696,108 +905,148 @@ order F2 structure function coming from the factorization scheme.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-yadism.structure_functions.FLheavy">
-<span id="yadism-structure-functions-flheavy-module"></span><h2>yadism.structure_functions.FLheavy module<a class="headerlink" href="#module-yadism.structure_functions.FLheavy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-yadism.structure_functions.fl_heavy">
+<span id="yadism-structure-functions-fl-heavy-module"></span><h2>yadism.structure_functions.fl_heavy module<a class="headerlink" href="#module-yadism.structure_functions.fl_heavy" title="Permalink to this headline">¶</a></h2>
 <p>This file contains the implementation of the DIS structure functions at LO.</p>
-<div class="admonition-todo admonition" id="id26">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<dl class="py class">
-<dt id="yadism.structure_functions.FLheavy.ESF_FLbottom">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.FLheavy.</code><code class="sig-name descname">ESF_FLbottom</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/FLheavy.html#ESF_FLbottom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLheavy.ESF_FLbottom" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.FLheavy.ESF_FLheavy" title="yadism.structure_functions.FLheavy.ESF_FLheavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.FLheavy.ESF_FLheavy</span></code></a></p>
-</dd></dl>
-
-<dl class="py class">
-<dt id="yadism.structure_functions.FLheavy.ESF_FLcharm">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.FLheavy.</code><code class="sig-name descname">ESF_FLcharm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/FLheavy.html#ESF_FLcharm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLheavy.ESF_FLcharm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.FLheavy.ESF_FLheavy" title="yadism.structure_functions.FLheavy.ESF_FLheavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.FLheavy.ESF_FLheavy</span></code></a></p>
-</dd></dl>
-
-<dl class="py class">
-<dt id="yadism.structure_functions.FLheavy.ESF_FLheavy">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.FLheavy.</code><code class="sig-name descname">ESF_FLheavy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em>, <em class="sig-param"><span class="n">charge_em</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/FLheavy.html#ESF_FLheavy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLheavy.ESF_FLheavy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy" title="yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy</span></code></a></p>
-<div class="admonition-todo admonition" id="id27">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-</dd></dl>
-
-<dl class="py class">
-<dt id="yadism.structure_functions.FLheavy.ESF_FLtop">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.FLheavy.</code><code class="sig-name descname">ESF_FLtop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/FLheavy.html#ESF_FLtop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLheavy.ESF_FLtop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.FLheavy.ESF_FLheavy" title="yadism.structure_functions.FLheavy.ESF_FLheavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.FLheavy.ESF_FLheavy</span></code></a></p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-yadism.structure_functions.FLlight">
-<span id="yadism-structure-functions-fllight-module"></span><h2>yadism.structure_functions.FLlight module<a class="headerlink" href="#module-yadism.structure_functions.FLlight" title="Permalink to this headline">¶</a></h2>
-<p>This file contains the implementation of the DIS structure functions at LO.</p>
-<div class="admonition-todo admonition" id="id28">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-<dl class="py class">
-<dt id="yadism.structure_functions.FLlight.ESF_FLlight">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.FLlight.</code><code class="sig-name descname">ESF_FLlight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/FLlight.html#ESF_FLlight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLlight.ESF_FLlight" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction" title="yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction</span></code></a></p>
 <div class="admonition-todo admonition" id="id29">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
-<dl class="py method">
-<dt id="yadism.structure_functions.FLlight.ESF_FLlight.gluon_1">
-<code class="sig-name descname">gluon_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/FLlight.html#ESF_FLlight.gluon_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLlight.ESF_FLlight.gluon_1" title="Permalink to this definition">¶</a></dt>
-<dd><p>vogt page 117</p>
+<dl class="py class">
+<dt id="yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLbottom">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.fl_heavy.</code><code class="sig-name descname">EvaluatedStructureFunctionFLbottom</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_heavy.html#EvaluatedStructureFunctionFLbottom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLbottom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy" title="yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLcharm">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.fl_heavy.</code><code class="sig-name descname">EvaluatedStructureFunctionFLcharm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_heavy.html#EvaluatedStructureFunctionFLcharm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLcharm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy" title="yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.fl_heavy.</code><code class="sig-name descname">EvaluatedStructureFunctionFLheavy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em>, <em class="sig-param"><span class="n">charge_em</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_heavy.html#EvaluatedStructureFunctionFLheavy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy" title="yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunctionHeavy</span></code></a></p>
 <div class="admonition-todo admonition" id="id30">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
 </dd></dl>
 
+<dl class="py class">
+<dt id="yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLtop">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.fl_heavy.</code><code class="sig-name descname">EvaluatedStructureFunctionFLtop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_heavy.html#EvaluatedStructureFunctionFLtop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLtop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy" title="yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-yadism.structure_functions.fl_light">
+<span id="yadism-structure-functions-fl-light-module"></span><h2>yadism.structure_functions.fl_light module<a class="headerlink" href="#module-yadism.structure_functions.fl_light" title="Permalink to this headline">¶</a></h2>
+<p>This file contains the implementation of the DIS structure functions at LO.</p>
+<div class="admonition-todo admonition" id="id31">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<dl class="py class">
+<dt id="yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.fl_light.</code><code class="sig-name descname">EvaluatedStructureFunctionFLlight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction" title="yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.EvaluatedStructureFunction.EvaluatedStructureFunction</span></code></a></p>
+<div class="admonition-todo admonition" id="id32">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
 <dl class="py method">
-<dt id="yadism.structure_functions.FLlight.ESF_FLlight.gluon_1_fact">
-<code class="sig-name descname">gluon_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/FLlight.html#ESF_FLlight.gluon_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLlight.ESF_FLlight.gluon_1_fact" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition-todo admonition" id="id31">
+<dt id="yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.gluon_1">
+<code class="sig-name descname">gluon_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.gluon_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.gluon_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>vogt page 117</p>
+<div class="admonition-todo admonition" id="id33">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="yadism.structure_functions.FLlight.ESF_FLlight.quark_0">
-<code class="sig-name descname">quark_0</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a><a class="reference internal" href="../_modules/yadism/structure_functions/FLlight.html#ESF_FLlight.quark_0"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLlight.ESF_FLlight.quark_0" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition-todo admonition" id="id32">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.FLlight.ESF_FLlight.quark_1">
-<code class="sig-name descname">quark_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/FLlight.html#ESF_FLlight.quark_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLlight.ESF_FLlight.quark_1" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition-todo admonition" id="id33">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.FLlight.ESF_FLlight.quark_1_fact">
-<code class="sig-name descname">quark_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/FLlight.html#ESF_FLlight.quark_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.FLlight.ESF_FLlight.quark_1_fact" title="Permalink to this definition">¶</a></dt>
+<dt id="yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.gluon_1_fact">
+<code class="sig-name descname">gluon_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.gluon_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.gluon_1_fact" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition-todo admonition" id="id34">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
 </dd></dl>
 
+<dl class="py method">
+<dt id="yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_0">
+<code class="sig-name descname">quark_0</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.quark_0"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_0" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition-todo admonition" id="id35">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_1">
+<code class="sig-name descname">quark_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.quark_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_1" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition-todo admonition" id="id36">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_1_fact">
+<code class="sig-name descname">quark_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.quark_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_1_fact" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition-todo admonition" id="id37">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 </div>
-<div class="section" id="module-yadism.structure_functions.TMC">
-<span id="yadism-structure-functions-tmc-module"></span><h2>yadism.structure_functions.TMC module<a class="headerlink" href="#module-yadism.structure_functions.TMC" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-yadism.structure_functions.splitting_functions">
+<span id="yadism-structure-functions-splitting-functions-module"></span><h2>yadism.structure_functions.splitting_functions module<a class="headerlink" href="#module-yadism.structure_functions.splitting_functions" title="Permalink to this headline">¶</a></h2>
+<p>Provides splitting functions definition for coefficient functions calculation.</p>
+<p>The coefficient functions are defined in ???, and they are organized in:</p>
+<ul class="simple">
+<li><p>qq</p></li>
+<li><p>qg</p></li>
+<li><p>gq</p></li>
+<li><p>gg</p></li>
+</ul>
+<p>according to the partons (entering the hard process - coming from the proton).</p>
+<p>Furthermore they are organized according to their distribution structure, for
+which see <code class="xref py py-mod docutils literal notranslate"><span class="pre">convolution</span></code>.</p>
+<div class="admonition-todo admonition" id="id38">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>Reference: pink book</p></li>
+</ul>
+</div>
+<dl class="py function">
+<dt id="yadism.structure_functions.splitting_functions.pqg">
+<code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.structure_functions.splitting_functions.pqq_delta">
+<code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqq_delta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqq_delta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqq_delta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.structure_functions.splitting_functions.pqq_pd">
+<code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqq_pd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqq_pd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqq_pd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.structure_functions.splitting_functions.pqq_reg">
+<code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqq_reg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqq_reg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqq_reg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-yadism.structure_functions.tmc">
+<span id="yadism-structure-functions-tmc-module"></span><h2>yadism.structure_functions.tmc module<a class="headerlink" href="#module-yadism.structure_functions.tmc" title="Permalink to this headline">¶</a></h2>
 <p>Runner: holds a list of structure functions instances, that will act as our
 “soft singletons”
 StructureFunction: holds a reference to his parent runner, in this way its also
@@ -857,296 +1106,47 @@ the review (Schienbein et al.) set to 0</p></li>
 </ul>
 </dd>
 </dl>
-<div class="admonition-todo admonition" id="id35">
+<div class="admonition-todo admonition" id="id39">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
 </div>
 <dl class="py class">
-<dt id="yadism.structure_functions.TMC.ESFTMC_F2">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.TMC.</code><code class="sig-name descname">ESFTMC_F2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/TMC.html#ESFTMC_F2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.TMC.ESFTMC_F2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC" title="yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC</span></code></a></p>
-<div class="admonition-todo admonition" id="id36">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-</dd></dl>
-
-<dl class="py class">
-<dt id="yadism.structure_functions.TMC.ESFTMC_FL">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.TMC.</code><code class="sig-name descname">ESFTMC_FL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/TMC.html#ESFTMC_FL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.TMC.ESFTMC_FL" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC" title="yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC</span></code></a></p>
-</dd></dl>
-
-<dl class="py class">
-<dt id="yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.TMC.</code><code class="sig-name descname">EvaluatedStructureFunctionTMC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/TMC.html#EvaluatedStructureFunctionTMC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
-<dl class="py method">
-<dt id="yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_output">
-<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/TMC.html#EvaluatedStructureFunctionTMC.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_output" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition-todo admonition" id="id37">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_result">
-<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/TMC.html#EvaluatedStructureFunctionTMC.get_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.TMC.EvaluatedStructureFunctionTMC.get_result" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
-<div class="section" id="module-yadism.structure_functions.convolution">
-<span id="yadism-structure-functions-convolution-module"></span><h2>yadism.structure_functions.convolution module<a class="headerlink" href="#module-yadism.structure_functions.convolution" title="Permalink to this headline">¶</a></h2>
-<p>Define <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> and its API, that are used to represent
-distributions object in the coefficient function definition and calculation.</p>
-<dl class="py class">
-<dt id="yadism.structure_functions.convolution.DistributionVec">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.convolution.</code><code class="sig-name descname">DistributionVec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">regular</span></em>, <em class="sig-param"><span class="n">delta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">omx</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">logomx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p><a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> is an object that encodes the structure of a
-distribution, as opposed to a regular function. It consists of an array of
-functions, considered as coefficients of the following distributions basis:</p>
-<ul class="simple">
-<li><p><em>regular</em>: the regular part is the coefficient of 1, so it is the pure
-function component</p></li>
-<li><p><em>delta</em>: it is the coefficient of the Dirac delta function <span class="math notranslate nohighlight">\(\delta(1-x)\)</span></p></li>
-<li><p><em>omx</em>: it is the coefficient of the distribution <a href="#id38"><span class="problematic" id="id39">:log:`1/(1-x)_+`</span></a></p></li>
-<li><p><em>logomx</em>: it is the coefficient of the distribution <span class="math notranslate nohighlight">\((\log(x)/(1-x))_+\)</span></p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Unstable: it is going to change, maybe in more directions:</p>
-<ul class="simple">
-<li><p>collecting all the plus distributions in a single one, so limiting the vector
-size to be 3</p></li>
-<li><p>(potential) from an array of functions to an array of numbers, using a
-canonical representation (it is always possible to swap all the functional
-part in the regular)</p></li>
-</ul>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>regular</strong> (<em>number</em><em> or </em><em>callable</em>) – regular</p></li>
-<li><p><strong>delta</strong> (<em>number</em><em> or </em><em>callable</em>) – delta (default: None)</p></li>
-<li><p><strong>omx</strong> (<em>number</em><em> or </em><em>callable</em>) – omx (default: None)</p></li>
-<li><p><strong>logomx</strong> (<em>number</em><em> or </em><em>callable</em>) – logomx (default: None)</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.__add__">
-<code class="sig-name descname">__add__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.__add__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.__add__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
-<p>Supported further addends:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><cite>+ num</cite>: if a number is provided is considered as a constant
-regular function, to be summed to the regular bit</p></li>
-<li><p><cite>+ function</cite>: if a callable is provided is considered as a
-regular function to be summed to the regular bit</p></li>
-<li><p><cite>+ DistributionVec</cite>: if a <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> is
-provided the coefficients of that one and the current one are
-summed element-wise</p></li>
-</ul>
-</div></blockquote>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Do not support <code class="docutils literal notranslate"><span class="pre">DistributionVec</span> <span class="pre">+</span> <span class="pre">iterable</span></code>, if needed use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d_vec</span> <span class="o">+</span> <span class="n">DistributionVec</span><span class="p">(</span><span class="o">*</span><span class="n">iterable</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.__getitem__">
-<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.__getitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements dictionary semantics for <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.__iadd__">
-<code class="sig-name descname">__iadd__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.__iadd__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.__iadd__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, makes
-use of <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec.__add__" title="yadism.structure_functions.convolution.DistributionVec.__add__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.__imul__">
-<code class="sig-name descname">__imul__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.__imul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.__imul__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, makes
-use of <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec.__mul__" title="yadism.structure_functions.convolution.DistributionVec.__mul__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.__iter__">
-<code class="sig-name descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.__iter__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.__iter__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements iterable semantics for <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.__mul__">
-<code class="sig-name descname">__mul__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.__mul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.__mul__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
-<p>The only supported type for the further factor is a scalar, and it
-is considered in a vector sense: multiplying by a scalar yields
-multiplying each coefficient by a scalar.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Currently multiplication by a function (a callable in the code) is
-not supported, because a Distribution can only be multiplied by a
-test function (and the TestFunction API is not going to be
-implemented).</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.__radd__">
-<code class="sig-name descname">__radd__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.__radd__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.__radd__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, makes
-use of <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec.__add__" title="yadism.structure_functions.convolution.DistributionVec.__add__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__add__()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.__rmul__">
-<code class="sig-name descname">__rmul__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.__rmul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.__rmul__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements addition semantics for <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, makes
-use of <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec.__mul__" title="yadism.structure_functions.convolution.DistributionVec.__mul__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__mul__()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.__setitem__">
-<code class="sig-name descname">__setitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.__setitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.__setitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implements dictionary semantics for <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.compare">
-<code class="sig-name descname">compare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.compare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.compare" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compare two <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> at a given value of <cite>x</cite>,
-checking if all the coefficients compare equal when evaluated at
-<cite>x</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> – the other <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> to be compareed with the
-current one</p></li>
-<li><p><strong>x</strong> – the kinematics point at which the comparison should be performed</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – The only kind of comparison available is between two
-    <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, so if the first argument provided
-    does not match the type an error is raised.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="yadism.structure_functions.convolution.DistributionVec.convolution">
-<code class="sig-name descname">convolution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">pdf_func</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/convolution.html#DistributionVec.convolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.convolution" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convolute the current <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> with a function
-<code class="docutils literal notranslate"><span class="pre">pdf_func</span></code>.</p>
-<p>The definition of the convolution performed is:</p>
-<div class="math notranslate nohighlight">
-\[\int_x^{1} \frac{\text{d}z}{z} dvec(z) f\left(\frac{x}{z}\right)\]</div>
-<p>(notice that is symmetryc in <span class="math notranslate nohighlight">\(dvec \leftrightarrow f\)</span>).</p>
-<div class="admonition note" id="integration-note">
-<p class="admonition-title">Note</p>
-<p>The class level attributes <a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec.eps_integration_abs" title="yadism.structure_functions.convolution.DistributionVec.eps_integration_abs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">eps_integration_abs</span></code></a> and
-<a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec.eps_integration_border" title="yadism.structure_functions.convolution.DistributionVec.eps_integration_border"><code class="xref py py-attr docutils literal notranslate"><span class="pre">eps_integration_border</span></code></a> regulate the integration process,
-setting respectively the absolute error and restricting the
-integration domain in order to avoid singularities.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>scalar</em>) – the kinematics point at which the convoution is evaluated</p></li>
-<li><p><strong>pdf_func</strong> (<em>callable</em>) – the function to be convoluted with the current
-<a class="reference internal" href="#yadism.structure_functions.convolution.DistributionVec" title="yadism.structure_functions.convolution.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> (usually a PDF, or a PDF
-interpolator)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><em>float</em> – the result of the convolution</p></li>
-<li><p><em>float</em> – the integration error</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The real name of this method is <code class="docutils literal notranslate"><span class="pre">convnd</span></code>.</p>
+<dt id="yadism.structure_functions.tmc.ESFTMC_F2">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.tmc.</code><code class="sig-name descname">ESFTMC_F2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#ESFTMC_F2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.ESFTMC_F2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC" title="yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC</span></code></a></p>
 <div class="admonition-todo admonition" id="id40">
 <p class="admonition-title">Todo</p>
-<p>document how the convolution is performed (that is how it’s
-replaced by an integration and some pre-integrated addends)</p>
-</div>
+<p>docs</p>
 </div>
 </dd></dl>
 
-<dl class="py attribute">
-<dt id="yadism.structure_functions.convolution.DistributionVec.eps_integration_abs">
-<code class="sig-name descname">eps_integration_abs</code><em class="property"> = 1e-13</em><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.eps_integration_abs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the integration target absolute error, see
-<a class="reference internal" href="#integration-note"><span class="std std-ref">Integration Note</span></a></p>
+<dl class="py class">
+<dt id="yadism.structure_functions.tmc.ESFTMC_FL">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.tmc.</code><code class="sig-name descname">ESFTMC_FL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#ESFTMC_FL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.ESFTMC_FL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC" title="yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC</span></code></a></p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt id="yadism.structure_functions.convolution.DistributionVec.eps_integration_border">
-<code class="sig-name descname">eps_integration_border</code><em class="property"> = 1e-10</em><a class="headerlink" href="#yadism.structure_functions.convolution.DistributionVec.eps_integration_border" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the integration domain restriction, see
-<a class="reference internal" href="#integration-note"><span class="std std-ref">Integration Note</span></a></p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-yadism.structure_functions.splitting_functions">
-<span id="yadism-structure-functions-splitting-functions-module"></span><h2>yadism.structure_functions.splitting_functions module<a class="headerlink" href="#module-yadism.structure_functions.splitting_functions" title="Permalink to this headline">¶</a></h2>
-<p>Provides splitting functions definition for coefficient functions calculation.</p>
-<p>The coefficient functions are defined in ???, and they are organized in:</p>
-<ul class="simple">
-<li><p>qq</p></li>
-<li><p>qg</p></li>
-<li><p>gq</p></li>
-<li><p>gg</p></li>
-</ul>
-<p>according to the partons (entering the hard process - coming from the proton).</p>
-<p>Furthermore they are organized according to their distribution structure, for
-which see <code class="xref py py-mod docutils literal notranslate"><span class="pre">convolution</span></code>.</p>
-<div class="admonition-todo admonition" id="id41">
+<dl class="py class">
+<dt id="yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.tmc.</code><code class="sig-name descname">EvaluatedStructureFunctionTMC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#EvaluatedStructureFunctionTMC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<dl class="py method">
+<dt id="yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC.get_output">
+<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#EvaluatedStructureFunctionTMC.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC.get_output" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition-todo admonition" id="id41">
 <p class="admonition-title">Todo</p>
-<ul class="simple">
-<li><p>Reference: pink book</p></li>
-</ul>
+<p>docs</p>
 </div>
-<dl class="py function">
-<dt id="yadism.structure_functions.splitting_functions.pqg">
-<code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqg" title="Permalink to this definition">¶</a></dt>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#EvaluatedStructureFunctionTMC.get_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC.get_result" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
-<dt id="yadism.structure_functions.splitting_functions.pqq_delta">
-<code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqq_delta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqq_delta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqq_delta" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+</dd></dl>
 
-<dl class="py function">
-<dt id="yadism.structure_functions.splitting_functions.pqq_pd">
-<code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqq_pd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqq_pd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqq_pd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="yadism.structure_functions.splitting_functions.pqq_reg">
-<code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqq_reg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqq_reg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqq_reg" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+</div>
 </div>
 </div>
 

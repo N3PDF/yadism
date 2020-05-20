@@ -25,50 +25,42 @@ yadism.structure\_functions.EvaluatedStructureFunction module
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.F2heavy module
-------------------------------------------
+yadism.structure\_functions.distribution\_vec module
+----------------------------------------------------
 
-.. automodule:: yadism.structure_functions.F2heavy
+.. automodule:: yadism.structure_functions.distribution_vec
    :members:
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.F2light module
-------------------------------------------
+yadism.structure\_functions.f2\_heavy module
+--------------------------------------------
 
-.. automodule:: yadism.structure_functions.F2light
+.. automodule:: yadism.structure_functions.f2_heavy
    :members:
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.FLheavy module
-------------------------------------------
+yadism.structure\_functions.f2\_light module
+--------------------------------------------
 
-.. automodule:: yadism.structure_functions.FLheavy
+.. automodule:: yadism.structure_functions.f2_light
    :members:
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.FLlight module
-------------------------------------------
+yadism.structure\_functions.fl\_heavy module
+--------------------------------------------
 
-.. automodule:: yadism.structure_functions.FLlight
+.. automodule:: yadism.structure_functions.fl_heavy
    :members:
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.TMC module
---------------------------------------
+yadism.structure\_functions.fl\_light module
+--------------------------------------------
 
-.. automodule:: yadism.structure_functions.TMC
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadism.structure\_functions.convolution module
-----------------------------------------------
-
-.. automodule:: yadism.structure_functions.convolution
+.. automodule:: yadism.structure_functions.fl_light
    :members:
    :undoc-members:
    :show-inheritance:
@@ -77,6 +69,14 @@ yadism.structure\_functions.splitting\_functions module
 -------------------------------------------------------
 
 .. automodule:: yadism.structure_functions.splitting_functions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.tmc module
+--------------------------------------
+
+.. automodule:: yadism.structure_functions.tmc
    :members:
    :undoc-members:
    :show-inheritance:
