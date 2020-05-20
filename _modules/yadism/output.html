@@ -169,7 +169,7 @@
 <span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">.structure_functions.EvaluatedStructureFunction</span> <span class="kn">import</span> <span class="n">ESFResult</span>
+<span class="kn">from</span> <span class="nn">.structure_functions.esf_result</span> <span class="kn">import</span> <span class="n">ESFResult</span>
 
 
 <div class="viewcode-block" id="Output"><a class="viewcode-back" href="../../modules/yadism.html#yadism.output.Output">[docs]</a><span class="k">class</span> <span class="nc">Output</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
@@ -181,7 +181,7 @@
     <span class="c1"># TODO shift function somewhere else?</span>
     <span class="c1"># the other alternative is to shift this to an external module (and ouf of runner)</span>
     <span class="c1"># and import from there, here and in yadism.__init__</span>
-<div class="viewcode-block" id="Output.apply_PDF"><a class="viewcode-back" href="../../modules/yadism.html#yadism.output.Output.apply_PDF">[docs]</a>    <span class="k">def</span> <span class="nf">apply_PDF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdfs</span><span class="p">):</span>
+<div class="viewcode-block" id="Output.apply_pdf"><a class="viewcode-back" href="../../modules/yadism.html#yadism.output.Output.apply_pdf">[docs]</a>    <span class="k">def</span> <span class="nf">apply_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdfs</span><span class="p">):</span>
         <span class="c1"># iterate</span>
         <span class="n">ret</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
@@ -192,7 +192,7 @@
             <span class="n">ret</span><span class="p">[</span><span class="n">obs</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">kin</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">[</span><span class="n">obs</span><span class="p">]:</span>
                 <span class="n">ret</span><span class="p">[</span><span class="n">obs</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                    <span class="n">ESFResult</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">kin</span><span class="p">)</span><span class="o">.</span><span class="n">apply_PDF</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;xiF&quot;</span><span class="p">],</span> <span class="n">pdfs</span><span class="p">)</span>
+                    <span class="n">ESFResult</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">kin</span><span class="p">)</span><span class="o">.</span><span class="n">apply_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;xiF&quot;</span><span class="p">],</span> <span class="n">pdfs</span><span class="p">)</span>
                 <span class="p">)</span>
         <span class="k">return</span> <span class="n">ret</span></div>
 

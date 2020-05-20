@@ -17,14 +17,6 @@ Subpackages
 Submodules
 ----------
 
-yadism.StructureFunction module
--------------------------------
-
-.. automodule:: yadism.StructureFunction
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 yadism.output module
 --------------------
 
@@ -37,6 +29,14 @@ yadism.runner module
 --------------------
 
 .. automodule:: yadism.runner
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.sf module
+----------------
+
+.. automodule:: yadism.sf
    :members:
    :undoc-members:
    :show-inheritance:

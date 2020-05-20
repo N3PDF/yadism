@@ -9,26 +9,26 @@ yadism.structure\_functions package
 Submodules
 ----------
 
-yadism.structure\_functions.ESFResult module
---------------------------------------------
-
-.. automodule:: yadism.structure_functions.ESFResult
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadism.structure\_functions.EvaluatedStructureFunction module
--------------------------------------------------------------
-
-.. automodule:: yadism.structure_functions.EvaluatedStructureFunction
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 yadism.structure\_functions.distribution\_vec module
 ----------------------------------------------------
 
 .. automodule:: yadism.structure_functions.distribution_vec
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.esf module
+--------------------------------------
+
+.. automodule:: yadism.structure_functions.esf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.esf\_result module
+----------------------------------------------
+
+.. automodule:: yadism.structure_functions.esf_result
    :members:
    :undoc-members:
    :show-inheritance:

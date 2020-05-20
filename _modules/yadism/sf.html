@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>yadism.sf &mdash; DIS  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> DIS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/LO.html">LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/NLO.html">NLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/NNLO.html">NNLO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DIS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../yadism.html">yadism</a> &raquo;</li>
+        
+      <li>yadism.sf</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for yadism.sf</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. todo::</span>
+<span class="sd">    docs</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">.structure_functions</span> <span class="kn">import</span> <span class="n">ESFmap</span>
+<span class="kn">from</span> <span class="nn">.structure_functions.tmc</span> <span class="kn">import</span> <span class="n">ESFTMCmap</span>
+
+
+<div class="viewcode-block" id="StructureFunction"><a class="viewcode-back" href="../../modules/yadism.html#yadism.sf.StructureFunction">[docs]</a><span class="k">class</span> <span class="nc">StructureFunction</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        __init__.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name :</span>
+<span class="sd">            name</span>
+<span class="sd">        eko_components :</span>
+<span class="sd">            eko_components</span>
+<span class="sd">        theory_stuffs :</span>
+<span class="sd">            theory_stuffs</span>
+
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">runner</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">eko_components</span><span class="p">,</span> <span class="n">theory_stuffs</span><span class="p">):</span>
+        <span class="c1"># internal managers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ESF</span> <span class="o">=</span> <span class="n">ESFmap</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">if</span> <span class="n">theory_stuffs</span><span class="p">[</span><span class="s2">&quot;TMC&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">ESFTMCmap</span><span class="p">[</span><span class="n">name</span><span class="p">[:</span><span class="mi">2</span><span class="p">]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__runner</span> <span class="o">=</span> <span class="n">runner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ESFs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ESFcache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># external managers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span> <span class="o">=</span> <span class="n">eko_components</span><span class="p">[</span><span class="s2">&quot;interpolator&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constants</span> <span class="o">=</span> <span class="n">eko_components</span><span class="p">[</span><span class="s2">&quot;constants&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">eko_components</span><span class="p">[</span><span class="s2">&quot;threshold&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strong_coupling</span> <span class="o">=</span> <span class="n">eko_components</span><span class="p">[</span><span class="s2">&quot;alpha_s&quot;</span><span class="p">]</span>
+        <span class="c1"># parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pto</span> <span class="o">=</span> <span class="n">theory_stuffs</span><span class="p">[</span><span class="s2">&quot;pto&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xiR</span> <span class="o">=</span> <span class="n">theory_stuffs</span><span class="p">[</span><span class="s2">&quot;xiR&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xiF</span> <span class="o">=</span> <span class="n">theory_stuffs</span><span class="p">[</span><span class="s2">&quot;xiF&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M2hq</span> <span class="o">=</span> <span class="n">theory_stuffs</span><span class="p">[</span><span class="s2">&quot;M2hq&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">TMC</span> <span class="o">=</span> <span class="n">theory_stuffs</span><span class="p">[</span><span class="s2">&quot;TMC&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">M2target</span> <span class="o">=</span> <span class="n">theory_stuffs</span><span class="p">[</span><span class="s2">&quot;M2target&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="StructureFunction.load"><a class="viewcode-back" href="../../modules/yadism.html#yadism.sf.StructureFunction.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kinematic_configs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ESFs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># iterate F* configurations</span>
+        <span class="k">for</span> <span class="n">kinematics</span> <span class="ow">in</span> <span class="n">kinematic_configs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__ESFs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__ESF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="StructureFunction.get_ESF"><a class="viewcode-back" href="../../modules/yadism.html#yadism.sf.StructureFunction.get_ESF">[docs]</a>    <span class="k">def</span> <span class="nf">get_ESF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            get_ESF.</span>
+
+<span class="sd">            Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">            name :</span>
+<span class="sd">                name</span>
+<span class="sd">            kinematics :</span>
+<span class="sd">                kinematics</span>
+
+<span class="sd">            .. todo::</span>
+<span class="sd">                docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># is it us or do we need to delegate?</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span>
+            <span class="c1"># convert to tuple</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">kinematics</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+            <span class="c1"># search</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ESFcache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">ESFmap</span><span class="p">[</span><span class="n">name</span><span class="p">](</span><span class="bp">self</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__ESFcache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span>
+                <span class="k">return</span> <span class="n">obj</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># ask our parent (as always)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__runner</span><span class="o">.</span><span class="n">observable_instances</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="StructureFunction.get_output"><a class="viewcode-back" href="../../modules/yadism.html#yadism.sf.StructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">esf</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__ESFs</span><span class="p">:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">esf</span><span class="o">.</span><span class="n">get_output</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">output</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
