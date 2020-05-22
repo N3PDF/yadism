@@ -162,10 +162,19 @@
   <h1>Source code for yadism.structure_functions.fl_light</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This file contains the implementation of the DIS structure functions at LO.</span>
+<span class="sd">This module contains the implementation of the DIS FL coefficient functions, for</span>
+<span class="sd">light quark flavours.</span>
 
-<span class="sd">.. todo::</span>
-<span class="sd">    docs</span>
+<span class="sd">The only element present is the :py:class:`ESF_FLlight`, that inherits the</span>
+<span class="sd">:py:class:`EvaluatedStructureFunction` machinery, but it is used just to store</span>
+<span class="sd">the definitions of the related coefficient functions formula.</span>
+
+<span class="sd">The coefficient functions definition is given in :eqref:`4.2`, :cite:`vogt` (the</span>
+<span class="sd">same of :eqref:`1` in :cite:`vogt-fl`).</span>
+<span class="sd">The main reference for their expression is :cite:`vogt-fl`.</span>
+
+<span class="sd">Scale varitions main reference is :cite:`vogt-sv`.</span>
+
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">.esf</span> <span class="kn">import</span> <span class="n">EvaluatedStructureFunction</span> <span class="k">as</span> <span class="n">ESF</span>
@@ -173,22 +182,42 @@
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFLlight"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionFLlight</span><span class="p">(</span><span class="n">ESF</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    .. todo::</span>
-<span class="sd">        docs</span>
+<span class="sd">        Compute FL structure functions for light quark flavours.</span>
+
+<span class="sd">        This class inherits from :py:class:`ESF`, providing only the formulas</span>
+<span class="sd">        for coefficient functions, while all the machinery for dealing with</span>
+<span class="sd">        distributions, making convolution with PDFs, and packaging results is</span>
+<span class="sd">        completely defined in the parent.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFLlight.quark_0"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_0">[docs]</a>    <span class="k">def</span> <span class="nf">quark_0</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            Computes the quark singlet part of the leading order FL structure function.</span>
+
+<span class="sd">            The LO is null because of Callan-Gross relation, cf. :cite:`vogt-fl`.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">               coefficient functions, as two arguments functions: :py:`(x, Q2)`</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="mi">0</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFLlight.quark_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_1">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            Computes the quark singlet part of the next to leading order FL</span>
+<span class="sd">            structure function.</span>
+
+<span class="sd">            |ref| implements :eqref:`3`, :cite:`vogt-fl`.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">               coefficient functions, as two arguments functions: :py:`(x, Q2)`</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">CF</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
 
@@ -199,17 +228,43 @@
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFLlight.quark_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            Computes the quark singlet contribution to the next to leading</span>
+<span class="sd">            order FL structure function coming from the factorization scheme.</span>
+
+<span class="sd">            |ref| implements :eqref:`2.17`, :cite:`vogt-sv`.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">               coefficient functions, as two arguments functions: :py:`(x, Q2)`</span>
+
+<span class="sd">            Note</span>
+<span class="sd">            ----</span>
+<span class="sd">            Check the theory reference for details on</span>
+<span class="sd">            :doc:`../theory/scale-variations`</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFLlight.gluon_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.gluon_1">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        vogt page 117</span>
+<span class="sd">            Computes the gluon part of the next to leading order FL structure</span>
+<span class="sd">            function.</span>
 
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            |ref| implements :eqref:`3`, :cite:`vogt-fl`.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">                coefficient functions, as two arguments functions: :py:`(x, Q2)`</span>
+
+
+<span class="sd">            .. todo::</span>
+<span class="sd">                - 2 * n_f here and in gluon_1_fact is coming from momentum sum</span>
+<span class="sd">                  rule q_i -&gt; {q_i, g} but g -&gt; {g, q_i, \bar{q_i} forall i}, so</span>
+<span class="sd">                  the 2 * n_f is needed to compensate for all the number of flavours</span>
+<span class="sd">                  plus antiflavours in which the gluon can go.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
@@ -219,8 +274,21 @@
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFLlight.gluon_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.gluon_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        .. todo::</span>
-<span class="sd">            docs</span>
+<span class="sd">            Computes the gluon contribution to the next to leading order FL</span>
+<span class="sd">            structure function coming from the factorization scheme.</span>
+
+<span class="sd">            |ref| implements :eqref:`2.17`, :cite:`vogt-sv`.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">               coefficient functions, as two arguments functions: :py:`(x, Q2)`</span>
+
+<span class="sd">            Note</span>
+<span class="sd">            ----</span>
+<span class="sd">            Check the theory reference for details on</span>
+<span class="sd">            :doc:`../theory/scale-variations`</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mi">0</span></div></div>
 </pre></div>

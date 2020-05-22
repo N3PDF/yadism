@@ -181,14 +181,12 @@
   }
 </style><div class="section" id="interpolation">
 <h1>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h1>
-<p>Interpolation kicks in the game in a lot of ways, namely 3:
-- there is an interpolation involved at the <strong>pdf level</strong>, that is really the only</p>
-<blockquote>
-<div><p>one <cite>yadism</cite> cares about, and is managed through <cite>eko</cite>: pdfs are delivered as
-an array of coefficient over an interpolation basis made of polynomials (of
-<cite>x</cite> or <cite>logx</cite>, chosen as an option)</p>
-</div></blockquote>
+<p>Interpolation kicks in the game in a lot of ways, namely 3:</p>
 <ul class="simple">
+<li><p>there is an interpolation involved at the <strong>pdf level</strong>, that is really the only
+one <cite>yadism</cite> cares about, and is managed through <cite>eko</cite>: pdfs are delivered as
+an array of coefficient over an interpolation basis made of polynomials (of
+<cite>x</cite> or <cite>logx</cite>, chosen as an option)</p></li>
 <li><p>there is an interpolation involved at the <strong>structure functions level</strong>: this
 is done by <cite>APFEL</cite> since it’s precomputing the structure functions on the
 xgrid at initialization time, and when asked for a specific observable it

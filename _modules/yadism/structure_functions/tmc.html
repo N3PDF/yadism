@@ -190,26 +190,28 @@
 <span class="sd">----------------</span>
 <span class="sd">Since the responsibility of caching is of SF as written above we decided the</span>
 <span class="sd">following layout:</span>
-<span class="sd">    - SF instantiate ESF or ESFTMC according to TMC flag in theory dictionary,</span>
-<span class="sd">      and append it to `self.__ESFs` at load time, i.e. in `self.load()` (these</span>
-<span class="sd">      are the observables to be computed)</span>
-<span class="sd">    - when asked for output if noTMC a ESF is called and the instance is</span>
-<span class="sd">      registered</span>
-<span class="sd">        - `self.get_ouput()` is used for getting the result passing through:</span>
-<span class="sd">        - `self.get_ESF()` is used for getting the instance and register to the</span>
-<span class="sd">          cache</span>
-<span class="sd">    - if TMC a ESFTMC is called, and whenever he needs an ESF instance to</span>
-<span class="sd">      compute a point it will ask its parent SF with `SF.get_ESF()` method, in</span>
-<span class="sd">      this way passing through the cache</span>
+
+<span class="sd">- SF instantiate ESF or ESFTMC according to TMC flag in theory dictionary,</span>
+<span class="sd">  and append it to `self.__ESFs` at load time, i.e. in `self.load()` (these</span>
+<span class="sd">  are the observables to be computed)</span>
+<span class="sd">- when asked for output if noTMC a ESF is called and the instance is</span>
+<span class="sd">  registered</span>
+<span class="sd">    - `self.get_ouput()` is used for getting the result passing through:</span>
+<span class="sd">    - `self.get_ESF()` is used for getting the instance and register to the</span>
+<span class="sd">      cache</span>
+<span class="sd">- if TMC a ESFTMC is called, and whenever he needs an ESF instance to</span>
+<span class="sd">  compute a point it will ask its parent SF with `SF.get_ESF()` method, in</span>
+<span class="sd">  this way passing through the cache</span>
 
 <span class="sd">Note 3 (physics)</span>
 <span class="sd">----------------</span>
 <span class="sd">There 3 schemes in the reference:</span>
-<span class="sd">    - **exact**: is the full and involves integration</span>
-<span class="sd">    - **approximate**: is stemming from the exact, but the strcture functions in</span>
-<span class="sd">      the integrand are evaluated at the bottom end</span>
-<span class="sd">    - **APFEL**: the one used in APFEL, similar to the exact but with g2 in</span>
-<span class="sd">      the review (Schienbein et al.) set to 0</span>
+
+<span class="sd">- **exact**: is the full and involves integration</span>
+<span class="sd">- **approximate**: is stemming from the exact, but the strcture functions in</span>
+<span class="sd">  the integrand are evaluated at the bottom end</span>
+<span class="sd">- **APFEL**: the one used in APFEL, similar to the exact but with g2 in</span>
+<span class="sd">  the review (Schienbein et al.) set to 0</span>
 
 <span class="sd">.. todo::</span>
 <span class="sd">    docs</span>
@@ -223,6 +225,7 @@
 
 <span class="kn">from</span> <span class="nn">.distribution_vec</span> <span class="kn">import</span> <span class="n">DistributionVec</span>
 <span class="kn">from</span> <span class="nn">.esf_result</span> <span class="kn">import</span> <span class="n">ESFResult</span>
+
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionTMC"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionTMC</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -456,6 +459,7 @@
             <span class="p">)</span>
         <span class="c1"># join</span>
         <span class="k">return</span> <span class="n">res</span></div>
+
     <span class="c1">### ----- /APFEL crap</span>
 
 
