@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ToDo" href="todo.html" />
-    <link rel="prev" title="yadism.structure_functions package" href="modules/yadism.structure_functions.html" /> 
+    <link rel="prev" title="Target Mass Corrections" href="package-structure/TMC.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,31 +88,30 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#feature-to-be-implemented">Feature to be implemented</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#known-bugs">Known bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#unit-testing">Unit testing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#apfel-benchmarks">APFEL benchmarks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#how-to-use-benchmark-tools">How to use benchmark tools</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#other-stuffs">Other stuffs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="todo.html">ToDo</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="theory/LO.html">LO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/NLO.html">NLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/NNLO.html">NNLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html">Target Mass Corrections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/third-party.html">Third Party Tools</a></li>
 </ul>
 
             
@@ -197,6 +196,12 @@
   }
 </style><div class="section" id="development">
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<p>This page exists only because <cite>yadism</cite> is still work in progress, it is used to
+gather useful infos about the development itself.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The page will be removed as soon as we will have an official stable release.</p>
+</div>
 <div class="section" id="feature-to-be-implemented">
 <h2>Feature to be implemented<a class="headerlink" href="#feature-to-be-implemented" title="Permalink to this headline">¶</a></h2>
 <p>Known list of features to be implemented</p>
@@ -204,26 +209,6 @@
 <div class="section" id="known-bugs">
 <h2>Known bugs<a class="headerlink" href="#known-bugs" title="Permalink to this headline">¶</a></h2>
 <p>like behaviour Q2 APFEl &amp; blabla</p>
-</div>
-<div class="section" id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
-<p>Description of testing workflows.</p>
-<div class="section" id="unit-testing">
-<h3>Unit testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h3>
-<p>Where are used unit tests and other interesting facts related to them.</p>
-<p>List and description of unit tests (currently only <code class="docutils literal notranslate"><span class="pre">convolution</span></code> related
-stuffs).</p>
-</div>
-<div class="section" id="apfel-benchmarks">
-<h3>APFEL benchmarks<a class="headerlink" href="#apfel-benchmarks" title="Permalink to this headline">¶</a></h3>
-<p>Organization (db and so on), matrix (all the alternatives tested) and other
-benchmark related stuffs description.</p>
-<div class="section" id="how-to-use-benchmark-tools">
-<h4>How to use benchmark tools<a class="headerlink" href="#how-to-use-benchmark-tools" title="Permalink to this headline">¶</a></h4>
-<p>Description of script ecosystem for running benchmarks and further analyzing
-their output (logs).</p>
-</div>
-</div>
 </div>
 <div class="section" id="other-stuffs">
 <h2>Other stuffs<a class="headerlink" href="#other-stuffs" title="Permalink to this headline">¶</a></h2>
@@ -246,7 +231,7 @@ their output (logs).</p>
         <a href="todo.html" class="btn btn-neutral float-right" title="ToDo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="modules/yadism.structure_functions.html" class="btn btn-neutral float-left" title="yadism.structure_functions package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="package-structure/TMC.html" class="btn btn-neutral float-left" title="Target Mass Corrections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

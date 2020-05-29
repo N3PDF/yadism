@@ -84,17 +84,24 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/LO.html">LO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/NLO.html">NLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/NNLO.html">NNLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/TMC.html">Target Mass Corrections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/third-party.html">Third Party Tools</a></li>
 </ul>
 
             
@@ -196,9 +203,11 @@
 <span class="sd">  are the observables to be computed)</span>
 <span class="sd">- when asked for output if noTMC a ESF is called and the instance is</span>
 <span class="sd">  registered</span>
+
 <span class="sd">    - `self.get_ouput()` is used for getting the result passing through:</span>
 <span class="sd">    - `self.get_ESF()` is used for getting the instance and register to the</span>
 <span class="sd">      cache</span>
+
 <span class="sd">- if TMC a ESFTMC is called, and whenever he needs an ESF instance to</span>
 <span class="sd">  compute a point it will ask its parent SF with `SF.get_ESF()` method, in</span>
 <span class="sd">  this way passing through the cache</span>

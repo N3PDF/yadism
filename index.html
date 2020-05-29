@@ -85,17 +85,24 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dev.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="theory/LO.html">LO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/NLO.html">NLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/NNLO.html">NNLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html">Target Mass Corrections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/third-party.html">Third Party Tools</a></li>
 </ul>
 
             
@@ -188,6 +195,7 @@ corresponding one inside <a href="https://apfel.mi.infn.it/"><abbr title="A PDF 
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dev.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz-refs.html">References</a></li>
 </ul>
@@ -204,17 +212,43 @@ corresponding one inside <a href="https://apfel.mi.infn.it/"><abbr title="A PDF 
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="theory/LO.html">LO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/NLO.html">NLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/NNLO.html">NNLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html">Target Mass Corrections</a></li>
 </ul>
 </div>
 <p>And here there is some <em>physics documentation</em>.</p>
 <p>Some of these are trivial and will be replaced, they are here just to create a
 structure.</p>
+</div>
+<div class="section" id="dev-tools">
+<h2>Dev Tools<a class="headerlink" href="#dev-tools" title="Permalink to this headline">¶</a></h2>
+<p>Current tools:</p>
+<ul class="simple">
+<li><p>benchmark db suite
+- db generating scripts
+- navigator</p></li>
+<li><p>benchmark runner
+- currently in <cite>benchmarks/conftest.py</cite></p></li>
+<li><p>actual tests/benchmarks
+- unit tests
+- regression tests
+- benchmark (against APFEL)</p></li>
+<li><p>third-party tools</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/third-party.html">Third Party Tools</a></li>
+</ul>
+</div>
+<p>This tools have been developed alongside <cite>yadism</cite>, in order to automatize tests
+and improve the quality of code (less bugs, more readable… hopefully…).</p>
 <hr class="docutils" />
 <div class="section" id="indices-and-tables">
 <h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h3>

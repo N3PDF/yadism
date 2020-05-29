@@ -84,17 +84,24 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/LO.html">LO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/NLO.html">NLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/NNLO.html">NNLO docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/N3LO.html">N3LO docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/TMC.html">Target Mass Corrections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/third-party.html">Third Party Tools</a></li>
 </ul>
 
             
@@ -235,7 +242,8 @@
 <span class="sd">        SF : StructureFunction</span>
 <span class="sd">            the parent :py:class:`StructureFunction` instance, provides an</span>
 <span class="sd">            interface, holds references to global objects (like managers coming</span>
-<span class="sd">            from :py:mod:`eko`, e.g. :py:class:``) and implements the global caching</span>
+<span class="sd">            from :py:mod:`eko`, e.g. :py:class:`InterpolatorDispatcher`) and</span>
+<span class="sd">            implements the global caching</span>
 <span class="sd">        kinematics : dict</span>
 <span class="sd">            the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
 
@@ -455,7 +463,8 @@
 <span class="sd">        SF : StructureFunction</span>
 <span class="sd">            the parent :py:class:`StructureFunction` instance, provides an</span>
 <span class="sd">            interface, holds references to global objects (like managers coming</span>
-<span class="sd">            from :py:mod:`eko`, e.g. :py:class:``) and implements the global caching</span>
+<span class="sd">            from :py:mod:`eko`, e.g. :py:class:`InterpolatorDispatcher`) and</span>
+<span class="sd">            implements the global caching</span>
 <span class="sd">        kinematics : dict</span>
 <span class="sd">            the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
 <span class="sd">        charge_em : float</span>
