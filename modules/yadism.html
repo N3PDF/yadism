@@ -25,7 +25,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -36,7 +36,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="yadism.structure_functions package" href="yadism.structure_functions.html" />
+    <link rel="prev" title="Target Mass Corrections" href="../package-structure/TMC.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,8 +83,29 @@
             
             
               <p class="caption"><span class="caption-text">Package Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../yadism.html">yadism</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../package-structure/index.html">Structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.html">yadism.structure_functions package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-yadism.output">yadism.output module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-yadism.runner">yadism.runner module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-yadism.sf">yadism.sf module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-yadism.utils">yadism.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../yadism.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yadism.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yadism.html#description">Description</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../dev.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../interpolation.html">Interpolation</a></li>
@@ -95,6 +118,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -146,6 +170,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../yadism.html">yadism</a> &raquo;</li>
         
       <li>yadism package</li>
     
@@ -217,12 +243,7 @@
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.fl_heavy">yadism.structure_functions.fl_heavy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.fl_light">yadism.structure_functions.fl_light module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.splitting_functions">yadism.structure_functions.splitting_functions module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.tmc">yadism.structure_functions.tmc module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="yadism.structure_functions.html#note-1">Note 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yadism.structure_functions.html#note-2-caching">Note 2 (caching)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yadism.structure_functions.html#note-3-physics">Note 3 (physics)</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.tmc">yadism.structure_functions.tmc module</a></li>
 </ul>
 </li>
 </ul>
@@ -465,6 +486,15 @@ point (x, Q2)</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="yadism.structure_functions.html" class="btn btn-neutral float-right" title="yadism.structure_functions package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../package-structure/TMC.html" class="btn btn-neutral float-left" title="Target Mass Corrections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

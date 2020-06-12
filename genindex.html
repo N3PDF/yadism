@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -26,7 +25,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -96,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -216,8 +216,6 @@
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.distribution_vec.DistributionVec.__iter__">__iter__() (yadism.structure_functions.distribution_vec.DistributionVec method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf_result.ESFResult.__itruediv__">__itruediv__() (yadism.structure_functions.esf_result.ESFResult method)</a>
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.distribution_vec.DistributionVec.__mul__">__mul__() (yadism.structure_functions.distribution_vec.DistributionVec method)</a>
@@ -226,6 +224,8 @@
         <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf_result.ESFResult.__mul__">(yadism.structure_functions.esf_result.ESFResult method)</a>
 </li>
       </ul></li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.distribution_vec.DistributionVec.__names">__names (yadism.structure_functions.distribution_vec.DistributionVec attribute)</a>
+</li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf_result.ESFResult.__neg__">__neg__() (yadism.structure_functions.esf_result.ESFResult method)</a>
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.distribution_vec.DistributionVec.__radd__">__radd__() (yadism.structure_functions.distribution_vec.DistributionVec method)</a>
@@ -241,6 +241,86 @@
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf_result.ESFResult.__sub__">__sub__() (yadism.structure_functions.esf_result.ESFResult method)</a>
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf_result.ESFResult.__truediv__">__truediv__() (yadism.structure_functions.esf_result.ESFResult method)</a>
+</li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction._abc_impl">_abc_impl (yadism.structure_functions.esf.EvaluatedStructureFunction attribute)</a>
+
+      <ul>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy._abc_impl">(yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2bottom._abc_impl">(yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2bottom attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2charm._abc_impl">(yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2charm attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy._abc_impl">(yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2top._abc_impl">(yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2top attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light._abc_impl">(yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLbottom._abc_impl">(yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLbottom attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLcharm._abc_impl">(yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLcharm attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy._abc_impl">(yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLtop._abc_impl">(yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLtop attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight._abc_impl">(yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_F2._abc_impl">(yadism.structure_functions.tmc.ESFTMC_F2 attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_FL._abc_impl">(yadism.structure_functions.tmc.ESFTMC_FL attribute)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._abc_impl">(yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction._compute">_compute() (yadism.structure_functions.esf.EvaluatedStructureFunction method)</a>
+</li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction._compute_component">_compute_component() (yadism.structure_functions.esf.EvaluatedStructureFunction method)</a>
+</li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._convolute_F2">_convolute_F2() (yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC method)</a>
+</li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.distribution_vec.DistributionVec._DistributionVec__names">_DistributionVec__names (yadism.structure_functions.distribution_vec.DistributionVec attribute)</a>
+</li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._g2">_g2() (yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC method)</a>
+</li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_F2._get_result_APFEL">_get_result_APFEL() (yadism.structure_functions.tmc.ESFTMC_F2 method)</a>
+
+      <ul>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_FL._get_result_APFEL">(yadism.structure_functions.tmc.ESFTMC_FL method)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._get_result_APFEL">(yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC method)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_F2._get_result_APFEL_strict">_get_result_APFEL_strict() (yadism.structure_functions.tmc.ESFTMC_F2 method)</a>
+</li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_F2._get_result_approx">_get_result_approx() (yadism.structure_functions.tmc.ESFTMC_F2 method)</a>
+
+      <ul>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_FL._get_result_approx">(yadism.structure_functions.tmc.ESFTMC_FL method)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._get_result_approx">(yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC method)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_F2._get_result_exact">_get_result_exact() (yadism.structure_functions.tmc.ESFTMC_F2 method)</a>
+
+      <ul>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_FL._get_result_exact">(yadism.structure_functions.tmc.ESFTMC_FL method)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._get_result_exact">(yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC method)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy._gluon_1">_gluon_1() (yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy method)</a>
+
+      <ul>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy._gluon_1">(yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy method)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy._gluon_1">(yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy method)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._h2">_h2() (yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -304,16 +384,18 @@
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_FL">ESFTMC_FL (class in yadism.structure_functions.tmc)</a>
 </li>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMCmap">ESFTMCmap (in module yadism.structure_functions.tmc)</a>
+</li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction">EvaluatedStructureFunction (class in yadism.structure_functions.esf)</a>
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2bottom">EvaluatedStructureFunctionF2bottom (class in yadism.structure_functions.f2_heavy)</a>
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2charm">EvaluatedStructureFunctionF2charm (class in yadism.structure_functions.f2_heavy)</a>
 </li>
-      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy">EvaluatedStructureFunctionF2heavy (class in yadism.structure_functions.f2_heavy)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2heavy">EvaluatedStructureFunctionF2heavy (class in yadism.structure_functions.f2_heavy)</a>
+</li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_light.EvaluatedStructureFunctionF2light">EvaluatedStructureFunctionF2light (class in yadism.structure_functions.f2_light)</a>
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_heavy.EvaluatedStructureFunctionF2top">EvaluatedStructureFunctionF2top (class in yadism.structure_functions.f2_heavy)</a>
