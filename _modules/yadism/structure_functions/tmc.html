@@ -696,9 +696,9 @@
   var image_container = document.createElement("DIV");
   var n3pdf_link = document.createElement("A");
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
-  image_container.appendChild(n3pdf_link)
+  image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/_static/n3pdf_logo.png";
+  image.src = "/yadism/_static/n3pdf_logo.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";
@@ -707,7 +707,7 @@
   image.style.marginLeft = "auto";
   image.style.marginRight = "auto";
   n3pdf_link.appendChild(image);
-  var sidebar_content  = document.getElementsByClassName("wy-side-scroll")[0];
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
   sidebar_content.appendChild(image_container);
 
   console.log(location.hostname);
