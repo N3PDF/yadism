@@ -1,15 +1,19 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.structure_functions.esf &mdash; DIS  documentation</title>
+  <title>yadism.structure_functions.esf &mdash; yadism 0.1.1 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
 
   
   
@@ -17,7 +21,9 @@
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -30,11 +36,6 @@
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
@@ -50,14 +51,21 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> DIS
+            <a href="../../../index.html">
           
 
+          
+            
+            <img src="../../../_static/logo-docs.svg" class="logo" alt="Logo"/>
           
           </a>
 
           
             
+            
+              <div class="version">
+                0.1
+              </div>
             
           
 
@@ -73,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -83,9 +92,7 @@
               <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
@@ -108,6 +115,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -117,7 +125,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">DIS</a>
+          <a href="../../../index.html">yadism</a>
         
       </nav>
 
@@ -146,7 +154,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
@@ -181,6 +189,10 @@
 <span class="sd">    shared methods (like initializer and :py:meth:`get_output`, responsible also</span>
 <span class="sd">    for :ref:`local caching&lt;local-caching&gt;`.</span>
 
+<span class="sd">:py:class:`EvaluatedStructureFunctionLight` :</span>
+<span class="sd">    this class is inheriting from the former, factorizing some common procedure</span>
+<span class="sd">    needed for light calculation.</span>
+
 <span class="sd">:py:class:`EvaluatedStructureFunctionHeavy` :</span>
 <span class="sd">    this class is inheriting from the former, factorizing some common procedure</span>
 <span class="sd">    needed for heavy quark calculation, like auxiliary variable definition,</span>
@@ -189,6 +201,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">copy</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -240,18 +253,14 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        SF : StructureFunction</span>
-<span class="sd">            the parent :py:class:`StructureFunction` instance, provides an</span>
-<span class="sd">            interface, holds references to global objects (like managers coming</span>
-<span class="sd">            from :py:mod:`eko`, e.g. :py:class:`InterpolatorDispatcher`) and</span>
-<span class="sd">            implements the global caching</span>
-<span class="sd">        kinematics : dict</span>
-<span class="sd">            the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
+<span class="sd">            SF : StructureFunction</span>
+<span class="sd">                the parent :py:class:`StructureFunction` instance, provides an</span>
+<span class="sd">                interface, holds references to global objects (like managers coming</span>
+<span class="sd">                from :py:mod:`eko`, e.g. :py:class:`InterpolatorDispatcher`) and</span>
+<span class="sd">                implements the global caching</span>
+<span class="sd">            kinematics : dict</span>
+<span class="sd">                the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
 
-<span class="sd">        Methods</span>
-<span class="sd">        -------</span>
-<span class="sd">        get_output()</span>
-<span class="sd">            compute the coefficient functions</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
@@ -265,18 +274,6 @@
 <span class="sd">                momentum fraction</span>
 <span class="sd">            _Q2 :</span>
 <span class="sd">                process energy</span>
-<span class="sd">            _cqv :</span>
-<span class="sd">                singlet quark coefficient function (implements the cache)</span>
-<span class="sd">            _e_cqv :</span>
-<span class="sd">                error on :py:attr:`_cqv`</span>
-<span class="sd">            _cgv :</span>
-<span class="sd">                gluon coefficient function (implements the cache)</span>
-<span class="sd">            _e_cgv :</span>
-<span class="sd">                error on :py:attr:`_cgv`</span>
-<span class="sd">            _a_s :</span>
-<span class="sd">                value of $ \alpha_s / 4 \pi $ at the scale :py:attr:`_Q2`</span>
-<span class="sd">            _n_f :</span>
-<span class="sd">                number of flavours at the scale :py:attr:`_Q2`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">x</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
@@ -291,15 +288,21 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span> <span class="o">=</span> <span class="n">SF</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span>
-            <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="n">Q2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span>
-        <span class="p">)</span>
-        <span class="c1"># localize external parameters</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_a_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">strong_coupling</span><span class="o">.</span><span class="n">a_s</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiR</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_n_f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">get_areas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">nf</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="n">Q2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_computed</span> <span class="o">=</span> <span class="kc">False</span>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction._compute"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction._compute">[docs]</a>    <span class="k">def</span> <span class="nf">_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction._compute_weights"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction._compute_weights">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_compute_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Compute PDF weights for different channels.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">                weights : dict</span>
+<span class="sd">                    dictionary with key refering to the channel and a dictionary with pid -&gt; weight</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunction._compute_local"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction._compute_local">[docs]</a>    <span class="k">def</span> <span class="nf">_compute_local</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Here is where the local caching is actually implemented: if the</span>
 <span class="sd">            coefficient functions are already computed don&#39;t do nothing,</span>
@@ -312,13 +315,16 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computed</span><span class="p">:</span>
             <span class="k">return</span>
         <span class="c1"># run</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">q</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">q_error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">quark_0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quark_1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quark_1_fact</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">g_error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">gluon_0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gluon_1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gluon_1_fact</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span></div>
+        <span class="c1"># add the factor x from the LHS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+        <span class="c1"># setup weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_weights</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunction._compute_component"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction._compute_component">[docs]</a>    <span class="k">def</span> <span class="nf">_compute_component</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_LO</span><span class="p">,</span> <span class="n">f_NLO</span><span class="p">,</span> <span class="n">f_NLO_fact</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -345,7 +351,8 @@
         <span class="c1"># combine orders</span>
         <span class="n">d_vec</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">f_LO</span><span class="p">())</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">pto</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">d_vec</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a_s</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="n">a_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">strong_coupling</span><span class="o">.</span><span class="n">a_s</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiR</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">d_vec</span> <span class="o">+=</span> <span class="n">a_s</span> <span class="o">*</span> <span class="p">(</span>
                 <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">f_NLO</span><span class="p">())</span>
                 <span class="o">+</span> <span class="mi">2</span>  <span class="c1"># TODO: to be understood</span>
                 <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
@@ -360,14 +367,12 @@
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ls</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">els</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction.get_result"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.get_result"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction.get_result">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            .. todo::</span>
 <span class="sd">                docs</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_compute</span><span class="p">()</span>
-
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_res</span></div>
+<span class="sd">        &quot;&quot;&quot;</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunction.get_output"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -445,6 +450,49 @@
 <span class="sd">        &quot;&quot;&quot;</span></div></div>
 
 
+<div class="viewcode-block" id="EvaluatedStructureFunctionLight"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionLight">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionLight</span><span class="p">(</span>
+    <span class="n">EvaluatedStructureFunction</span>
+<span class="p">):</span>  <span class="c1"># pylint:disable=abstract-method</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parent class for the light ESF implementations -</span>
+<span class="sd">        really meaning up, down, and strange quark contributions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>  <span class="c1"># 3 = u+d+s</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionLight</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
+        <span class="c1"># expose number of flavours</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nf</span> <span class="o">=</span> <span class="n">nf</span>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionLight._compute_weights"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionLight._compute_weights">[docs]</a>    <span class="k">def</span> <span class="nf">_compute_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Compute PDF weights for different channels.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">                weights : dict</span>
+<span class="sd">                    dictionary with key refering to the channel and a dictionary with pid -&gt; weight</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+        <span class="c1"># quark couplings</span>
+        <span class="n">tot_ch_sq</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># u+d+s</span>
+            <span class="n">eq2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">coupling_constants</span><span class="o">.</span><span class="n">electric_charge_sq</span><span class="p">[</span><span class="n">q</span><span class="p">]</span>
+            <span class="n">weights</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">][</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">eq2</span>
+            <span class="n">tot_ch_sq</span> <span class="o">+=</span> <span class="n">eq2</span>
+        <span class="c1"># gluon coupling = charge average (omitting the *2/2)</span>
+        <span class="n">weights</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">][</span><span class="mi">21</span><span class="p">]</span> <span class="o">=</span> <span class="n">tot_ch_sq</span> <span class="o">/</span> <span class="mi">3</span>  <span class="c1"># 3 = u+d+s</span>
+        <span class="k">return</span> <span class="n">weights</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionLight.get_result"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionLight.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            .. todo::</span>
+<span class="sd">                docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_compute_local</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="p">)</span></div></div>
+
+
 <div class="viewcode-block" id="EvaluatedStructureFunctionHeavy"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionHeavy</span><span class="p">(</span><span class="n">EvaluatedStructureFunction</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Specialize EvaluatedStructureFunction for heavy flavours.</span>
@@ -461,25 +509,25 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        SF : StructureFunction</span>
-<span class="sd">            the parent :py:class:`StructureFunction` instance, provides an</span>
-<span class="sd">            interface, holds references to global objects (like managers coming</span>
-<span class="sd">            from :py:mod:`eko`, e.g. :py:class:`InterpolatorDispatcher`) and</span>
-<span class="sd">            implements the global caching</span>
-<span class="sd">        kinematics : dict</span>
-<span class="sd">            the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
-<span class="sd">        charge_em : float</span>
+<span class="sd">            SF : StructureFunction</span>
+<span class="sd">                the parent :py:class:`StructureFunction` instance, provides an</span>
+<span class="sd">                interface, holds references to global objects (like managers coming</span>
+<span class="sd">                from :py:mod:`eko`, e.g. :py:class:`InterpolatorDispatcher`) and</span>
+<span class="sd">                implements the global caching</span>
+<span class="sd">            kinematics : dict</span>
+<span class="sd">                the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
+<span class="sd">            nhq : int</span>
+<span class="sd">                heavy quark flavor number, i.e. c=4,b=5,t=6</span>
+<span class="sd">            force_local : bool</span>
+<span class="sd">                always return the local object? i.e. ignore e.g. scheme</span>
 
 <span class="sd">        Methods</span>
 <span class="sd">        -------</span>
-<span class="sd">        get_output()</span>
-<span class="sd">            compute the coefficient functions (see :py:class:`EvaluatedStructureFunction`)</span>
-
-<span class="sd">        .. todo::</span>
-<span class="sd">            - charge_em</span>
+<span class="sd">            get_output()</span>
+<span class="sd">                compute the coefficient functions (see :py:class:`EvaluatedStructureFunction`)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">charge_em</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">nhq</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">force_local</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            collect electric charge (relevant for heavy flavours coefficient</span>
 <span class="sd">            functions) and compute common derived variables</span>
@@ -499,14 +547,12 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionHeavy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_charge_em</span> <span class="o">=</span> <span class="n">charge_em</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nhq</span> <span class="o">=</span> <span class="n">nhq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_force_local</span> <span class="o">=</span> <span class="n">force_local</span>
         <span class="c1"># FH - Vogt comparison prefactor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_FHprefactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">)</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># / self._x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_FHprefactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">)</span>
 
         <span class="c1"># common variables</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_shat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">_rho_q</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_rho_q</span> <span class="o">*</span> <span class="n">z</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rho_p</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_rho_q</span> <span class="o">*</span> <span class="n">z</span>
@@ -515,6 +561,58 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_chi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beta</span><span class="p">(</span><span class="n">z</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beta</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 
+<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.get_result"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            .. todo::</span>
+<span class="sd">                docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># get our local active number of flavors</span>
+        <span class="n">nf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">get_areas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">nf</span>
+        <span class="c1"># use local only? i.e. by force or because we (Q2) are below our threshold (name)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_force_local</span> <span class="ow">or</span> <span class="n">nf</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nhq</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_compute_local</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># compute zero-mass part</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">kind</span> <span class="o">=</span> <span class="n">name</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">res_light</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+                <span class="n">kind</span> <span class="o">+</span> <span class="s2">&quot;light&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">},</span> <span class="mi">1</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+            <span class="c1"># readjust the weights</span>
+            <span class="n">ehq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">coupling_constants</span><span class="o">.</span><span class="n">electric_charge_sq</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_nhq</span><span class="p">]</span>
+            <span class="n">res_light</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="p">{</span><span class="mi">21</span><span class="p">:</span> <span class="n">ehq</span><span class="p">},</span> <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_nhq</span><span class="p">:</span> <span class="n">ehq</span><span class="p">}}</span>
+            <span class="c1"># now checkout scheme:</span>
+            <span class="c1"># matching is only needed for FONLL and in there only if we just crossed our threshold</span>
+            <span class="c1"># otherwise we continue with the ZM expressions (in contrast to APFEL which treats only</span>
+            <span class="c1"># F2c in this way)</span>
+            <span class="c1"># FONLL-A corresponds to (strict) APFEL</span>
+            <span class="c1"># FONLL-A&#39; reduces to the ZM-VFNS scheme if above the next threshold (which would numerically happen anyway)</span>
+            <span class="n">scheme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">scheme</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;FONLL-A&quot;</span> <span class="ow">and</span> <span class="n">nf</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nhq</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+                <span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;FONLL-A&#39;&quot;</span> <span class="ow">and</span> <span class="n">nf</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nhq</span>
+            <span class="p">):</span>
+                <span class="c1"># collect all parts</span>
+                <span class="n">res_heavy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+                    <span class="n">name</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">},</span> <span class="n">force_local</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+                <span class="n">res_asy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+                    <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;asy&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">}</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+                <span class="c1"># add damping</span>
+                <span class="n">damp</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">FONLL_damping</span><span class="p">:</span>
+                    <span class="n">power</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">damping_powers</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_nhq</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span>
+                    <span class="n">damp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">,</span> <span class="n">power</span><span class="p">)</span>
+                <span class="c1"># join all</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">=</span> <span class="n">res_heavy</span><span class="o">.</span><span class="n">suffix</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">_heavy&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">damp</span> <span class="o">*</span> <span class="p">(</span>
+                    <span class="n">res_light</span><span class="o">.</span><span class="n">suffix</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">_light&quot;</span><span class="p">)</span>
+                    <span class="o">-</span> <span class="n">res_asy</span><span class="o">.</span><span class="n">suffix</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">_asymptotic&quot;</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">=</span> <span class="n">res_light</span>
+
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.is_below_threshold"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy.is_below_threshold">[docs]</a>    <span class="k">def</span> <span class="nf">is_below_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            check if available energy is below production threshold or not</span>
@@ -522,7 +620,8 @@
 <span class="sd">            .. todo::</span>
 <span class="sd">                use threshold on shat or using FH&#39;s zmax?</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shat</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span></div>
+        <span class="n">shat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span>
+        <span class="k">return</span> <span class="n">shat</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.quark_0"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy.quark_0">[docs]</a>    <span class="k">def</span> <span class="nf">quark_0</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span></div>
@@ -537,6 +636,19 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
+<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy._compute_weights"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy._compute_weights">[docs]</a>    <span class="k">def</span> <span class="nf">_compute_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Compute PDF weights for different channels.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">                weights : dict</span>
+<span class="sd">                    dictionary with key refering to the channel and a dictionary with pid -&gt; weight</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">e2hq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">coupling_constants</span><span class="o">.</span><span class="n">electric_charge_sq</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_nhq</span><span class="p">]</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="n">e2hq</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="n">e2hq</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="n">e2hq</span><span class="p">},</span> <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="p">{</span><span class="mi">21</span><span class="p">:</span> <span class="n">e2hq</span><span class="p">}}</span>
+        <span class="k">return</span> <span class="n">weights</span></div>
+
 <div class="viewcode-block" id="EvaluatedStructureFunctionHeavy._gluon_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy._gluon_1">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
     <span class="k">def</span> <span class="nf">_gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div>
@@ -547,7 +659,8 @@
 <span class="sd">            (delegated to internal :py:meth:`_gluon_1`) checking before for</span>
 <span class="sd">            production threshold</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">:</span>
+        <span class="n">s_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+        <span class="k">if</span> <span class="n">s_h</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">0</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gluon_1</span><span class="p">()</span></div>
@@ -589,7 +702,6 @@
   </div>
   
 
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
@@ -599,7 +711,28 @@
   
   
     
-   
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link)
+  var image = document.createElement("IMG");
+  image.src = "/_static/n3pdf_logo.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content  = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
 
 </body>
 </html>

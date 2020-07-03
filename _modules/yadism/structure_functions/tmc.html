@@ -1,15 +1,19 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.structure_functions.tmc &mdash; DIS  documentation</title>
+  <title>yadism.structure_functions.tmc &mdash; yadism 0.1.1 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
 
   
   
@@ -17,7 +21,9 @@
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -30,11 +36,6 @@
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
@@ -50,14 +51,21 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> DIS
+            <a href="../../../index.html">
           
 
+          
+            
+            <img src="../../../_static/logo-docs.svg" class="logo" alt="Logo"/>
           
           </a>
 
           
             
+            
+              <div class="version">
+                0.1
+              </div>
             
           
 
@@ -73,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -83,9 +92,7 @@
               <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
@@ -108,6 +115,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -117,7 +125,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">DIS</a>
+          <a href="../../../index.html">yadism</a>
         
       </nav>
 
@@ -146,7 +154,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
@@ -238,7 +246,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span> <span class="o">=</span> <span class="n">SF</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span> <span class="o">=</span> <span class="n">SF</span><span class="o">.</span><span class="n">_name</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span> <span class="o">=</span> <span class="n">SF</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span>
         <span class="c1"># compute variables</span>
@@ -395,13 +403,13 @@
                 <span class="sa">f</span><span class="s2">&quot;xi outside xgrid - cannot convolute starting from xi=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="p">)</span>
         <span class="c1"># iterate grid</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">xj</span><span class="p">,</span> <span class="n">pj</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="p">):</span>
             <span class="c1"># basis function does not contribute?</span>
             <span class="k">if</span> <span class="n">pj</span><span class="o">.</span><span class="n">is_below_x</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">):</span>
                 <span class="k">continue</span>
             <span class="c1"># compute F2 matrix (j,k) (where k is wrapped inside get_result)</span>
-            <span class="n">F2j</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span>
+            <span class="n">F2j</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
                 <span class="s2">&quot;F2&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">xj</span><span class="p">}</span>
             <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
             <span class="c1"># compute interpolated h2 integral (j)</span>
@@ -496,7 +504,7 @@
         <span class="c1"># fmt: on</span>
 
         <span class="c1"># collect F2</span>
-        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span>
+        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
             <span class="s2">&quot;F2&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
         <span class="c1"># join</span>
@@ -504,7 +512,7 @@
 
 <div class="viewcode-block" id="ESFTMC_F2._get_result_APFEL"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_F2._get_result_APFEL">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_APFEL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># collect F2</span>
-        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span>
+        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
             <span class="s2">&quot;F2&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
         <span class="c1"># compute integral</span>
@@ -516,7 +524,7 @@
 <div class="viewcode-block" id="ESFTMC_F2._get_result_exact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_F2._get_result_exact">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_exact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">factor_g2</span> <span class="o">=</span> <span class="mf">12.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">**</span> <span class="mi">5</span>
         <span class="c1"># collect F2</span>
-        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span>
+        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
             <span class="s2">&quot;F2&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
         <span class="c1"># compute raw integral</span>
@@ -536,7 +544,7 @@
         <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">:</span>
             <span class="c1"># collect support points</span>
             <span class="n">F2list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
                     <span class="s2">&quot;F2&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">xj</span><span class="p">}</span>
                 <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
             <span class="p">)</span>
@@ -599,10 +607,10 @@
         <span class="c1"># fmt: on</span>
 
         <span class="c1"># collect structure functions at shifted kinematics</span>
-        <span class="n">FLout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span>
+        <span class="n">FLout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
             <span class="s2">&quot;FL&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
-        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span>
+        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
             <span class="s2">&quot;F2&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
 
@@ -611,7 +619,7 @@
 
 <div class="viewcode-block" id="ESFTMC_FL._get_result_APFEL"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_FL._get_result_APFEL">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_APFEL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># collect F2</span>
-        <span class="n">FLout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span>
+        <span class="n">FLout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
             <span class="s2">&quot;FL&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
         <span class="c1"># compute integral</span>
@@ -623,7 +631,7 @@
 <div class="viewcode-block" id="ESFTMC_FL._get_result_exact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.tmc.ESFTMC_FL._get_result_exact">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_exact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">factor_g2</span> <span class="o">=</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">**</span> <span class="mi">3</span>
         <span class="c1"># collect F2</span>
-        <span class="n">FLout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_ESF</span><span class="p">(</span>
+        <span class="n">FLout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
             <span class="s2">&quot;FL&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flavour</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
         <span class="c1"># compute raw integral</span>
@@ -674,7 +682,6 @@
   </div>
   
 
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
@@ -684,7 +691,28 @@
   
   
     
-   
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link)
+  var image = document.createElement("IMG");
+  image.src = "/_static/n3pdf_logo.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content  = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
 
 </body>
 </html>

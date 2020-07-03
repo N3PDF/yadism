@@ -1,15 +1,19 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism package &mdash; DIS  documentation</title>
+  <title>yadism package &mdash; yadism 0.1.1 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
   
@@ -17,7 +21,9 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -30,11 +36,6 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="yadism.structure_functions package" href="yadism.structure_functions.html" />
@@ -52,14 +53,21 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> DIS
+            <a href="../index.html">
           
 
+          
+            
+            <img src="../_static/logo-docs.svg" class="logo" alt="Logo"/>
           
           </a>
 
           
             
+            
+              <div class="version">
+                0.1
+              </div>
             
           
 
@@ -75,6 +83,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -92,6 +101,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-yadism.coupling_constants">yadism.coupling_constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yadism.output">yadism.output module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
 </ul>
@@ -101,14 +111,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-yadism.utils">yadism.utils module</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/index.html">Miscellanea</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../yadism.html#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../yadism.html#usage">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../yadism.html#description">Description</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../dev.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
@@ -131,6 +140,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -140,7 +150,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">DIS</a>
+          <a href="../index.html">yadism</a>
         
       </nav>
 
@@ -169,7 +179,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../yadism.html">yadism</a> &raquo;</li>
         
@@ -179,7 +189,9 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/modules/yadism.rst.txt" rel="nofollow"> View page source</a>
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/modules/yadism.rst" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -238,8 +250,11 @@
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.distribution_vec">yadism.structure_functions.distribution_vec module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.esf">yadism.structure_functions.esf module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.esf_result">yadism.structure_functions.esf_result module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.f2_asymptotic">yadism.structure_functions.f2_asymptotic module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.f2_heavy">yadism.structure_functions.f2_heavy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.f2_light">yadism.structure_functions.f2_light module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.f_total">yadism.structure_functions.f_total module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.fl_asymptotic">yadism.structure_functions.fl_asymptotic module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.fl_heavy">yadism.structure_functions.fl_heavy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.fl_light">yadism.structure_functions.fl_light module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.splitting_functions">yadism.structure_functions.splitting_functions module</a></li>
@@ -251,6 +266,33 @@
 </div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-yadism.coupling_constants">
+<span id="yadism-coupling-constants-module"></span><h2>yadism.coupling_constants module<a class="headerlink" href="#module-yadism.coupling_constants" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="yadism.coupling_constants.CouplingConstants">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.coupling_constants.</code><code class="sig-name descname">CouplingConstants</code><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Defines the coupling constants between the QCD particles and the EW particles</p>
+<dl class="py method">
+<dt id="yadism.coupling_constants.CouplingConstants.from_dict">
+<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_theory</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the object from the theory dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>theory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – theory dictionary</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>o</strong> – created object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#yadism.coupling_constants.CouplingConstants" title="yadism.coupling_constants.CouplingConstants">CouplingConstants</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-yadism.output">
 <span id="yadism-output-module"></span><h2>yadism.output module<a class="headerlink" href="#module-yadism.output" title="Permalink to this headline">¶</a></h2>
@@ -407,36 +449,56 @@ point (x, Q2)</p>
 </div>
 <div class="section" id="module-yadism.sf">
 <span id="yadism-sf-module"></span><h2>yadism.sf module<a class="headerlink" href="#module-yadism.sf" title="Permalink to this headline">¶</a></h2>
+<p>Defines the <a class="reference internal" href="#yadism.sf.StructureFunction" title="yadism.sf.StructureFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">StructureFunction</span></code></a> class.</p>
 <div class="admonition-todo admonition" id="id11">
 <p class="admonition-title">Todo</p>
-<p>docs</p>
+<p>refer to the sf-esf overview</p>
 </div>
 <dl class="py class">
 <dt id="yadism.sf.StructureFunction">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.sf.</code><code class="sig-name descname">StructureFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">runner</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">eko_components</span></em>, <em class="sig-param"><span class="n">theory_stuffs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.sf.</code><code class="sig-name descname">StructureFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">runner</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">eko_components</span></em>, <em class="sig-param"><span class="n">theory_params</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>__init__.</p>
+<p>Represents an abstract structure function.</p>
+<p>This class acts as an intermediate handler between the <code class="xref py py-class docutils literal notranslate"><span class="pre">Runner</span></code>
+exposed to the outside and the <code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunction</span></code>
+which compute the actual observable.</p>
+<p>The actual child class is determined by either <cite>ESFmap</cite> or, if TMC is
+active, by <cite>ESFTMCmap</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – name</p></li>
-<li><p><strong>eko_components</strong> – eko_components</p></li>
-<li><p><strong>theory_stuffs</strong> – theory_stuffs</p></li>
-<li><p><strong>todo::</strong> (<em>.</em>) – docs</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – common name, e.g. F2light, F2charm, FLbottom</p></li>
+<li><p><strong>eko_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – managers dictionary that holds all created managers (which wrap
+some more complicated structure)</p></li>
+<li><p><strong>theory_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – theory dictionary containing all needed parameters</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="yadism.sf.StructureFunction.get_ESF">
-<code class="sig-name descname">get_ESF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction.get_ESF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction.get_ESF" title="Permalink to this definition">¶</a></dt>
-<dd><p>get_ESF.</p>
+<dt id="yadism.sf.StructureFunction.get_esf">
+<code class="sig-name descname">get_esf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">kinematics</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">use_raw</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">force_local</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction.get_esf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction.get_esf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <em>raw</em> <code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunction</span></code> instance.</p>
+<p>This wrappers allows</p>
+<ul class="simple">
+<li><p>TMC to to access raw computations</p></li>
+<li><p>heavy quark matching schemes to access their light counter parts</p></li>
+</ul>
+<p>It also implements an internal caching system, to speed up the integrals
+in TMC.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – name</p></li>
-<li><p><strong>kinematics</strong> – kinematics</p></li>
-<li><p><strong>todo::</strong> (<em>.</em>) – docs</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – structure function name</p></li>
+<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – kinematic configuration</p></li>
+<li><p><strong>args</strong> (<em>any</em>) – further arguments passed down to the instance</p></li>
+<li><p><strong>use_raw</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – eventually use the ESFTMC? (or just the uncorrected one)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>obj</strong> – created object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunction" title="yadism.structure_functions.esf.EvaluatedStructureFunction">EvaluatedStructureFunction</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -444,19 +506,26 @@ point (x, Q2)</p>
 <dl class="py method">
 <dt id="yadism.sf.StructureFunction.get_output">
 <code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction.get_output" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition-todo admonition" id="id12">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
+<dd><p>Collects the output from all childrens.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>output</strong> – all children outputs</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="yadism.sf.StructureFunction.load">
 <code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kinematic_configs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction.load" title="Permalink to this definition">¶</a></dt>
-<dd><div class="admonition-todo admonition" id="id13">
-<p class="admonition-title">Todo</p>
-<p>docs</p>
-</div>
+<dd><p>Loads all kinematic configurations from the run card.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kinematic_configs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>)</em>) – run card input</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -520,7 +589,6 @@ point (x, Q2)</p>
   </div>
   
 
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
@@ -530,7 +598,28 @@ point (x, Q2)</p>
   
   
     
-   
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link)
+  var image = document.createElement("IMG");
+  image.src = "/_static/n3pdf_logo.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content  = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
 
 </body>
 </html>

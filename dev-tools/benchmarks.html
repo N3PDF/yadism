@@ -1,15 +1,19 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Benchmarks &mdash; DIS  documentation</title>
+  <title>Benchmarks &mdash; yadism 0.1.1 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
   
@@ -17,7 +21,9 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -30,11 +36,6 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Third Party Tools" href="third-party.html" />
@@ -52,14 +53,21 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> DIS
+            <a href="../index.html">
           
 
+          
+            
+            <img src="../_static/logo-docs.svg" class="logo" alt="Logo"/>
           
           </a>
 
           
             
+            
+              <div class="version">
+                0.1
+              </div>
             
           
 
@@ -75,6 +83,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -85,9 +94,7 @@
               <p class="caption"><span class="caption-text">Package Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
@@ -106,7 +113,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="tests.html">Tests</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="unit-tests.html">Unit Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regression-tests.html">Regression Tests</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Benchmarks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Benchmarks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apfel">APFEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qcdnum">QCDNUM</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="third-party.html">Third Party Tools</a></li>
@@ -115,6 +126,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -124,7 +136,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">DIS</a>
+          <a href="../index.html">yadism</a>
         
       </nav>
 
@@ -153,7 +165,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="tests.html">Tests</a> &raquo;</li>
         
@@ -163,7 +175,9 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/dev-tools/benchmarks.rst.txt" rel="nofollow"> View page source</a>
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/dev-tools/benchmarks.rst" class="fa fa-github"> Edit on GitHub</a>
+            
           
         
       </li>
@@ -196,6 +210,20 @@
   }
 </style><div class="section" id="benchmarks">
 <h1>Benchmarks<a class="headerlink" href="#benchmarks" title="Permalink to this headline">¶</a></h1>
+<p>Benchmarks are implemented against external code, where they overlap with this
+package.</p>
+<div class="section" id="apfel">
+<h2>APFEL<a class="headerlink" href="#apfel" title="Permalink to this headline">¶</a></h2>
+<p>It is a tool aimed to the evolution of PDFs and DIS observables’ calculation
+(and FTDY as well).</p>
+<p>It has been used by the NNPDF collaboration up to NNPDF4.0</p>
+</div>
+<div class="section" id="qcdnum">
+<h2>QCDNUM<a class="headerlink" href="#qcdnum" title="Permalink to this headline">¶</a></h2>
+<p>It is a tool aimed to the evolution of PDFs and DIS observables’ calculation in
+a restricted number of schemes.</p>
+<p>It is/has been used by the <cite>xFitter</cite> framework.</p>
+</div>
 </div>
 
 
@@ -237,7 +265,6 @@
   </div>
   
 
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
@@ -247,7 +274,28 @@
   
   
     
-   
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link)
+  var image = document.createElement("IMG");
+  image.src = "/_static/n3pdf_logo.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content  = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
 
 </body>
 </html>

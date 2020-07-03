@@ -33,6 +33,14 @@ yadism.structure\_functions.esf\_result module
    :undoc-members:
    :show-inheritance:
 
+yadism.structure\_functions.f2\_asymptotic module
+-------------------------------------------------
+
+.. automodule:: yadism.structure_functions.f2_asymptotic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadism.structure\_functions.f2\_heavy module
 --------------------------------------------
 
@@ -45,6 +53,22 @@ yadism.structure\_functions.f2\_light module
 --------------------------------------------
 
 .. automodule:: yadism.structure_functions.f2_light
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.f\_total module
+-------------------------------------------
+
+.. automodule:: yadism.structure_functions.f_total
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.structure\_functions.fl\_asymptotic module
+-------------------------------------------------
+
+.. automodule:: yadism.structure_functions.fl_asymptotic
    :members:
    :undoc-members:
    :show-inheritance:
