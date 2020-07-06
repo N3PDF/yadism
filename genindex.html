@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; yadism 0.1.1 documentation</title>
+  <title>Index &mdash; yadism 0.3.2 documentation</title>
   
 
   
@@ -56,7 +56,7 @@
 
           
             
-            <img src="_static/logo-docs.svg" class="logo" alt="Logo"/>
+            <img src="_static/logo-docs.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.1
+                0.3
               </div>
             
           
@@ -188,9 +188,11 @@
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
@@ -210,7 +212,11 @@
       </ul></li>
       <li><a href="modules/yadism.html#yadism.runner.Runner.__call__">__call__() (yadism.runner.Runner method)</a>
 </li>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.__eq__">__eq__() (yadism.observable_name.ObservableName method)</a>
+</li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.distribution_vec.DistributionVec.__getitem__">__getitem__() (yadism.structure_functions.distribution_vec.DistributionVec method)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.__hash__">__hash__ (yadism.observable_name.ObservableName attribute)</a>
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.distribution_vec.DistributionVec.__iadd__">__iadd__() (yadism.structure_functions.distribution_vec.DistributionVec method)</a>
 
@@ -241,6 +247,8 @@
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf_result.ESFResult.__neg__">__neg__() (yadism.structure_functions.esf_result.ESFResult method)</a>
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.distribution_vec.DistributionVec.__radd__">__radd__() (yadism.structure_functions.distribution_vec.DistributionVec method)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.__repr__">__repr__() (yadism.observable_name.ObservableName method)</a>
 </li>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.distribution_vec.DistributionVec.__rmul__">__rmul__() (yadism.structure_functions.distribution_vec.DistributionVec method)</a>
 
@@ -376,8 +384,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.runner.Runner.apply">apply() (yadism.runner.Runner method)</a>
 </li>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.apply_flavor">apply_flavor() (yadism.observable_name.ObservableName method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.apply_kind">apply_kind() (yadism.observable_name.ObservableName method)</a>
+</li>
       <li><a href="modules/yadism.html#yadism.output.Output.apply_pdf">apply_pdf() (yadism.output.Output method)</a>
 
       <ul>
@@ -500,9 +512,9 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/yadism.html#yadism.sf.StructureFunction.get_esf">get_esf() (yadism.sf.StructureFunction method)</a>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.get_asy">get_asy() (yadism.observable_name.ObservableName method)</a>
 </li>
-      <li><a href="modules/yadism.html#yadism.utils.get_mass_label">get_mass_label() (in module yadism.utils)</a>
+      <li><a href="modules/yadism.html#yadism.sf.StructureFunction.get_esf">get_esf() (yadism.sf.StructureFunction method)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.runner.Runner.get_output">get_output() (yadism.runner.Runner method)</a>
 
@@ -528,6 +540,8 @@
         <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f2_asymptotic.EvaluatedStructureFunctionF2Asymptotic.get_result">(yadism.structure_functions.f2_asymptotic.EvaluatedStructureFunctionF2Asymptotic method)</a>
 </li>
         <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.get_result">(yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal method)</a>
+</li>
+        <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.fl_asymptotic.EvaluatedStructureFunctionFLAsymptotic.get_result">(yadism.structure_functions.fl_asymptotic.EvaluatedStructureFunctionFLAsymptotic method)</a>
 </li>
         <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC.get_result">(yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC method)</a>
 </li>
@@ -565,10 +579,28 @@
   </ul></td>
 </tr></table>
 
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.has_heavies">has_heavies() (yadism.observable_name.ObservableName class method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.has_lights">has_lights() (yadism.observable_name.ObservableName class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.structure_functions.html#yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy.is_below_threshold">is_below_threshold() (yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.is_heavy">is_heavy() (yadism.observable_name.ObservableName property)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.is_valid">is_valid() (yadism.observable_name.ObservableName static method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -584,6 +616,8 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.mass_label">mass_label() (yadism.observable_name.ObservableName property)</a>
+</li>
       <li>
     module
 
@@ -591,6 +625,8 @@
         <li><a href="modules/yadism.html#module-yadism">yadism</a>
 </li>
         <li><a href="modules/yadism.html#module-yadism.coupling_constants">yadism.coupling_constants</a>
+</li>
+        <li><a href="modules/yadism.html#module-yadism.observable_name">yadism.observable_name</a>
 </li>
         <li><a href="modules/yadism.html#module-yadism.output">yadism.output</a>
 </li>
@@ -624,14 +660,24 @@
 </li>
         <li><a href="modules/yadism.structure_functions.html#module-yadism.structure_functions.tmc">yadism.structure_functions.tmc</a>
 </li>
-        <li><a href="modules/yadism.html#module-yadism.utils">yadism.utils</a>
-</li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.name">name() (yadism.observable_name.ObservableName property)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.observable_name.ObservableName">ObservableName (class in yadism.observable_name)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.output.Output">Output (class in yadism.output)</a>
 </li>
@@ -740,6 +786,13 @@
 </li>
       </ul></li>
       <li>
+    yadism.observable_name
+
+      <ul>
+        <li><a href="modules/yadism.html#module-yadism.observable_name">module</a>
+</li>
+      </ul></li>
+      <li>
     yadism.output
 
       <ul>
@@ -788,6 +841,8 @@
         <li><a href="modules/yadism.structure_functions.html#module-yadism.structure_functions.esf_result">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     yadism.structure_functions.f2_asymptotic
 
@@ -795,8 +850,6 @@
         <li><a href="modules/yadism.structure_functions.html#module-yadism.structure_functions.f2_asymptotic">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     yadism.structure_functions.f2_heavy
 
@@ -851,13 +904,6 @@
 
       <ul>
         <li><a href="modules/yadism.structure_functions.html#module-yadism.structure_functions.tmc">module</a>
-</li>
-      </ul></li>
-      <li>
-    yadism.utils
-
-      <ul>
-        <li><a href="modules/yadism.html#module-yadism.utils">module</a>
 </li>
       </ul></li>
   </ul></td>

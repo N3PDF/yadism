@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.structure_functions.f_total &mdash; yadism 0.1.1 documentation</title>
+  <title>yadism.structure_functions.f_total &mdash; yadism 0.3.2 documentation</title>
   
 
   
@@ -56,7 +56,7 @@
 
           
             
-            <img src="../../../_static/logo-docs.svg" class="logo" alt="Logo"/>
+            <img src="../../../_static/logo-docs.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.1
+                0.3
               </div>
             
           
@@ -197,7 +197,6 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionFtotal</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">name</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.get_result"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -212,19 +211,19 @@
         <span class="n">kin</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">}</span>
         <span class="c1"># light component</span>
         <span class="n">res_light</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span> <span class="o">+</span> <span class="s2">&quot;light&quot;</span><span class="p">,</span> <span class="n">kin</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">apply_flavor</span><span class="p">(</span><span class="s2">&quot;light&quot;</span><span class="p">),</span> <span class="n">kin</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
         <span class="c1"># charm component</span>
         <span class="n">res_charm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span> <span class="o">+</span> <span class="s2">&quot;charm&quot;</span><span class="p">,</span> <span class="n">kin</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">apply_flavor</span><span class="p">(</span><span class="s2">&quot;charm&quot;</span><span class="p">),</span> <span class="n">kin</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
         <span class="c1"># bottom component</span>
         <span class="n">res_bottom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span> <span class="o">+</span> <span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="n">kin</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">apply_flavor</span><span class="p">(</span><span class="s2">&quot;bottom&quot;</span><span class="p">),</span> <span class="n">kin</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
         <span class="c1"># top component</span>
         <span class="n">res_top</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span> <span class="o">+</span> <span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">kin</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">apply_flavor</span><span class="p">(</span><span class="s2">&quot;top&quot;</span><span class="p">),</span> <span class="n">kin</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
         <span class="c1"># rename and add</span>
         <span class="k">return</span> <span class="p">(</span>
@@ -236,32 +235,32 @@
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal._compute_weights"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal._compute_weights">[docs]</a>    <span class="k">def</span> <span class="nf">_compute_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span><span class="si">}</span><span class="s2">total: this method should never be called!&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.quark_0"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.quark_0">[docs]</a>    <span class="k">def</span> <span class="nf">quark_0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span><span class="si">}</span><span class="s2">total: this method should never be called!&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.quark_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.quark_1">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span><span class="si">}</span><span class="s2">total: this method should never be called!&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.quark_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.quark_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span><span class="si">}</span><span class="s2">total: this method should never be called!&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.gluon_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.gluon_1">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span><span class="si">}</span><span class="s2">total: this method should never be called!&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.gluon_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.gluon_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_sf_kind</span><span class="si">}</span><span class="s2">total: this method should never be called!&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
         <span class="p">)</span></div></div>
 </pre></div>
 

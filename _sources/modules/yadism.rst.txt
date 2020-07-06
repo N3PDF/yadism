@@ -25,6 +25,14 @@ yadism.coupling\_constants module
    :undoc-members:
    :show-inheritance:
 
+yadism.observable\_name module
+------------------------------
+
+.. automodule:: yadism.observable_name
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadism.output module
 --------------------
 
@@ -45,14 +53,6 @@ yadism.sf module
 ----------------
 
 .. automodule:: yadism.sf
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadism.utils module
--------------------
-
-.. automodule:: yadism.utils
    :members:
    :undoc-members:
    :show-inheritance:

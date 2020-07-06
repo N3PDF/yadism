@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.structure_functions package &mdash; yadism 0.1.1 documentation</title>
+  <title>yadism.structure_functions package &mdash; yadism 0.3.2 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
 
           
             
-            <img src="../_static/logo-docs.svg" class="logo" alt="Logo"/>
+            <img src="../_static/logo-docs.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.1
+                0.3
               </div>
             
           
@@ -102,10 +102,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.coupling_constants">yadism.coupling_constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.observable_name">yadism.observable_name module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.output">yadism.output module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.runner">yadism.runner module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.sf">yadism.sf module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.utils">yadism.utils module</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../misc/index.html">Miscellanea</a></li>
@@ -1413,6 +1413,15 @@ charge).</p>
 </div>
 </dd></dl>
 
+<dl class="py method">
+<dt id="yadism.structure_functions.fl_asymptotic.EvaluatedStructureFunctionFLAsymptotic.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_asymptotic.html#EvaluatedStructureFunctionFLAsymptotic.get_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_asymptotic.EvaluatedStructureFunctionFLAsymptotic.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition-todo admonition" id="id31">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -1485,7 +1494,7 @@ direct ancestor for the individual flavour ones.</p>
 <p>Actually the coefficient functions formulas are encoded already at the level of
 <a class="reference internal" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy" title="yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunctionFLheavy</span></code></a>, while the explicit leaf classes are
 used to handle the differences between flavours (e.g. electric charge).</p>
-<p>The main reference used is: <a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id31">[Hek19]</a>.</p>
+<p>The main reference used is: <a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id32">[Hek19]</a>.</p>
 <dl class="py class">
 <dt id="yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLbottom">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.fl_heavy.</code><code class="sig-name descname">EvaluatedStructureFunctionFLbottom</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em>, <em class="sig-param"><span class="n">force_local</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_heavy.html#EvaluatedStructureFunctionFLbottom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLbottom" title="Permalink to this definition">¶</a></dt>
@@ -1546,7 +1555,7 @@ charge).</p>
 <code class="sig-name descname">_gluon_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_heavy.html#EvaluatedStructureFunctionFLheavy._gluon_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_heavy.EvaluatedStructureFunctionFLheavy._gluon_1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the gluon part of the next to leading order FL structure
 function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">D.2</span>, <a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id32">[Hek19]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">D.2</span>, <a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id33">[Hek19]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>coefficient functions, as two arguments functions: <code class="code py python docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">Q2</span></span><span class="punctuation"><span class="pre">)</span></span></code></p>
@@ -1591,10 +1600,10 @@ light quark flavours.</p>
 <p>The only element present is the <a class="reference internal" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight" title="yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunctionFLlight</span></code></a>, that inherits the
 <code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunctionLight</span></code> machinery, but it is used just to store
 the definitions of the related coefficient functions formula.</p>
-<p>The coefficient functions definition is given in <span class="eqref">4.2</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id33">[VVM05]</a> (the
-same of <span class="eqref">1</span> in <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id34">[MVV05]</a>).
-The main reference for their expression is <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id35">[MVV05]</a>.</p>
-<p>Scale varitions main reference is <a class="bibtex reference internal" href="../zzz-refs.html#vogt-sv" id="id36">[vNV00]</a>.</p>
+<p>The coefficient functions definition is given in <span class="eqref">4.2</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id34">[VVM05]</a> (the
+same of <span class="eqref">1</span> in <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id35">[MVV05]</a>).
+The main reference for their expression is <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id36">[MVV05]</a>.</p>
+<p>Scale varitions main reference is <a class="bibtex reference internal" href="../zzz-refs.html#vogt-sv" id="id37">[vNV00]</a>.</p>
 <dl class="py class">
 <dt id="yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.structure_functions.fl_light.</code><code class="sig-name descname">EvaluatedStructureFunctionFLlight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em>, <em class="sig-param"><span class="n">nf</span><span class="o">=</span><span class="default_value">3</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight" title="Permalink to this definition">¶</a></dt>
@@ -1615,7 +1624,7 @@ completely defined in the parent.</p>
 <code class="sig-name descname">gluon_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.gluon_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.gluon_1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the gluon part of the next to leading order FL structure
 function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">3</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id37">[MVV05]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">3</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id38">[MVV05]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>coefficient functions, as two arguments functions: <code class="code py python docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">Q2</span></span><span class="punctuation"><span class="pre">)</span></span></code></p>
@@ -1624,7 +1633,7 @@ function.</p>
 <dd class="field-even"><p>sequence of callables</p>
 </dd>
 </dl>
-<div class="admonition-todo admonition" id="id38">
+<div class="admonition-todo admonition" id="id39">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>2 * n_f here and in gluon_1_fact is coming from momentum sum
@@ -1640,7 +1649,7 @@ plus antiflavours in which the gluon can go.</p></li>
 <code class="sig-name descname">gluon_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.gluon_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.gluon_1_fact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the gluon contribution to the next to leading order FL
 structure function coming from the factorization scheme.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">2.17</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt-sv" id="id39">[vNV00]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">2.17</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt-sv" id="id40">[vNV00]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>coefficient functions, as two arguments functions: <code class="code py python docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">Q2</span></span><span class="punctuation"><span class="pre">)</span></span></code></p>
@@ -1660,7 +1669,7 @@ structure function coming from the factorization scheme.</p>
 <dt id="yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_0">
 <code class="sig-name descname">quark_0</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.quark_0"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the quark singlet part of the leading order FL structure function.</p>
-<p>The LO is null because of Callan-Gross relation, cf. <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id40">[MVV05]</a>.</p>
+<p>The LO is null because of Callan-Gross relation, cf. <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id41">[MVV05]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>coefficient functions, as two arguments functions: <code class="code py python docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">Q2</span></span><span class="punctuation"><span class="pre">)</span></span></code></p>
@@ -1676,7 +1685,7 @@ structure function coming from the factorization scheme.</p>
 <code class="sig-name descname">quark_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.quark_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the quark singlet part of the next to leading order FL
 structure function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">3</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id41">[MVV05]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">3</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt-fl" id="id42">[MVV05]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>coefficient functions, as two arguments functions: <code class="code py python docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">Q2</span></span><span class="punctuation"><span class="pre">)</span></span></code></p>
@@ -1692,7 +1701,7 @@ structure function.</p>
 <code class="sig-name descname">quark_1_fact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/fl_light.html#EvaluatedStructureFunctionFLlight.quark_1_fact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.fl_light.EvaluatedStructureFunctionFLlight.quark_1_fact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the quark singlet contribution to the next to leading
 order FL structure function coming from the factorization scheme.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">2.17</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt-sv" id="id42">[vNV00]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">2.17</span>, <a class="bibtex reference internal" href="../zzz-refs.html#vogt-sv" id="id43">[vNV00]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>coefficient functions, as two arguments functions: <code class="code py python docutils literal notranslate"><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">x</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">Q2</span></span><span class="punctuation"><span class="pre">)</span></span></code></p>
@@ -1714,7 +1723,7 @@ order FL structure function coming from the factorization scheme.</p>
 <div class="section" id="module-yadism.structure_functions.splitting_functions">
 <span id="yadism-structure-functions-splitting-functions-module"></span><h2>yadism.structure_functions.splitting_functions module<a class="headerlink" href="#module-yadism.structure_functions.splitting_functions" title="Permalink to this headline">¶</a></h2>
 <p>Provides splitting functions definition for coefficient functions calculation.</p>
-<p>The coefficient functions are defined in <span class="eqref">4.87</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id43">[ESW11]</a>, and
+<p>The coefficient functions are defined in <span class="eqref">4.87</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id44">[ESW11]</a>, and
 they are organized in:</p>
 <ul class="simple">
 <li><p>qq</p></li>
@@ -1725,12 +1734,12 @@ they are organized in:</p>
 <p>according to the partons (entering the hard process - coming from the proton).</p>
 <p>Furthermore they are organized according to their distribution structure, for
 which see <code class="xref py py-mod docutils literal notranslate"><span class="pre">convolution</span></code>.</p>
-<p>The reference for LO splitting functions is <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id44">[ESW11]</a>.</p>
+<p>The reference for LO splitting functions is <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id45">[ESW11]</a>.</p>
 <dl class="py function">
 <dt id="yadism.structure_functions.splitting_functions.pqg">
 <code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqg" title="Permalink to this definition">¶</a></dt>
 <dd><p>The expression of <span class="math notranslate nohighlight">\(P_{qg}\)</span> splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id45">[ESW11]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id46">[ESW11]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1752,7 +1761,7 @@ which see <code class="xref py py-mod docutils literal notranslate"><span class=
 <code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqq_delta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqq_delta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqq_delta" title="Permalink to this definition">¶</a></dt>
 <dd><p>The coefficient of the Dirac-<span class="math notranslate nohighlight">\(\delta(1-x)\)</span> part of <span class="math notranslate nohighlight">\(P_{qq}\)</span>
 splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id46">[ESW11]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id47">[ESW11]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1774,7 +1783,7 @@ splitting function.</p>
 <code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqq_pd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqq_pd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqq_pd" title="Permalink to this definition">¶</a></dt>
 <dd><p>The coefficient of the <span class="math notranslate nohighlight">\(1/(1-x)_+\)</span> part of <span class="math notranslate nohighlight">\(P_{qq}\)</span>
 splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id47">[ESW11]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id48">[ESW11]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1795,7 +1804,7 @@ splitting function.</p>
 <dt id="yadism.structure_functions.splitting_functions.pqq_reg">
 <code class="sig-prename descclassname">yadism.structure_functions.splitting_functions.</code><code class="sig-name descname">pqq_reg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">constants</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/splitting_functions.html#pqq_reg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.splitting_functions.pqq_reg" title="Permalink to this definition">¶</a></dt>
 <dd><p>The expression of the regular part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id48">[ESW11]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id49">[ESW11]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1863,8 +1872,8 @@ belongs to</p></li>
 <code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#ESFTMC_F2._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.ESFTMC_F2._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the same formula used by APFEL, see
-<span class="bibtex" id="id49">[???]</span></p>
-<div class="admonition-todo admonition" id="id50">
+<span class="bibtex" id="id50">[???]</span></p>
+<div class="admonition-todo admonition" id="id51">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>APFEL TMC reference missing</p></li>
@@ -1882,15 +1891,15 @@ of TMC calculation according to the same formula used by APFEL, see
 <code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#ESFTMC_F2._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.ESFTMC_F2._get_result_approx" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the approximate formula defined in
-<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id51">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id52">[S+08]</a>.</p>
+<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id52">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id53">[S+08]</a>.</p>
 <p>The convenience of this formula is that the integration is
 approximate by a simple evaluation of the integrand in a suitable
 point, so the evaluation of the full expression is much faster
 (because integration yields an array of evaluations, ranging from 1
 to the <cite>xgrid</cite> length).
 Despite the approximation the formula is quite in a good agreement
-with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id53">[S+08]</a>).</p>
+with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id54">[S+08]</a>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1898,8 +1907,8 @@ with the exact one (for comparison see <a class="bibtex reference internal" href
 <code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#ESFTMC_F2._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.ESFTMC_F2._get_result_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the exact formula defined in
-<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id54">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id55">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id56">[GP76]</a>.</p>
+<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id55">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id56">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id57">[GP76]</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will always involve an integration (and more than one
@@ -1936,8 +1945,8 @@ belongs to</p></li>
 <code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#ESFTMC_FL._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.ESFTMC_FL._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the same formula used by APFEL, see
-<span class="bibtex" id="id57">[???]</span></p>
-<div class="admonition-todo admonition" id="id58">
+<span class="bibtex" id="id58">[???]</span></p>
+<div class="admonition-todo admonition" id="id59">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>APFEL TMC reference missing</p></li>
@@ -1950,15 +1959,15 @@ of TMC calculation according to the same formula used by APFEL, see
 <code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#ESFTMC_FL._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.ESFTMC_FL._get_result_approx" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the approximate formula defined in
-<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id59">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id60">[S+08]</a>.</p>
+<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id60">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id61">[S+08]</a>.</p>
 <p>The convenience of this formula is that the integration is
 approximate by a simple evaluation of the integrand in a suitable
 point, so the evaluation of the full expression is much faster
 (because integration yields an array of evaluations, ranging from 1
 to the <cite>xgrid</cite> length).
 Despite the approximation the formula is quite in a good agreement
-with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id61">[S+08]</a>).</p>
+with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id62">[S+08]</a>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1966,8 +1975,8 @@ with the exact one (for comparison see <a class="bibtex reference internal" href
 <code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#ESFTMC_FL._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.ESFTMC_FL._get_result_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the exact formula defined in
-<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id62">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id63">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id64">[GP76]</a>.</p>
+<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id63">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id64">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id65">[GP76]</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will always involve an integration (and more than one
@@ -2000,9 +2009,9 @@ classes. In particular here are defined:</p>
 <blockquote>
 <div><ul>
 <li><p>shifted kinematics <span class="math notranslate nohighlight">\(\xi\)</span> and other aux variables
-(<span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span>, see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id65">[GR20]</a>)</p></li>
+(<span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span>, see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id66">[GR20]</a>)</p></li>
 <li><p>integration layout and two common integrals of structure
-functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span class="math notranslate nohighlight">\(g_2\)</span> (see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id66">[S+08]</a>)</p></li>
+functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span class="math notranslate nohighlight">\(g_2\)</span> (see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id67">[S+08]</a>)</p></li>
 <li><p>an interface for picking up the chosen formulas between:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -2011,7 +2020,7 @@ functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span c
 <li><p><em>exact</em></p></li>
 </ol>
 </div></blockquote>
-<p>(see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id67">[GR20]</a>)</p>
+<p>(see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id68">[GR20]</a>)</p>
 </li>
 </ul>
 </div></blockquote>
@@ -2084,8 +2093,8 @@ other terms not described here.</p>
 <em class="property">abstract </em><code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#EvaluatedStructureFunctionTMC._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the same formula used by APFEL, see
-<span class="bibtex" id="id68">[???]</span></p>
-<div class="admonition-todo admonition" id="id69">
+<span class="bibtex" id="id69">[???]</span></p>
+<div class="admonition-todo admonition" id="id70">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>APFEL TMC reference missing</p></li>
@@ -2098,15 +2107,15 @@ of TMC calculation according to the same formula used by APFEL, see
 <em class="property">abstract </em><code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#EvaluatedStructureFunctionTMC._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._get_result_approx" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the approximate formula defined in
-<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id70">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id71">[S+08]</a>.</p>
+<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id71">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id72">[S+08]</a>.</p>
 <p>The convenience of this formula is that the integration is
 approximate by a simple evaluation of the integrand in a suitable
 point, so the evaluation of the full expression is much faster
 (because integration yields an array of evaluations, ranging from 1
 to the <cite>xgrid</cite> length).
 Despite the approximation the formula is quite in a good agreement
-with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id72">[S+08]</a>).</p>
+with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id73">[S+08]</a>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2114,8 +2123,8 @@ with the exact one (for comparison see <a class="bibtex reference internal" href
 <em class="property">abstract </em><code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/structure_functions/tmc.html#EvaluatedStructureFunctionTMC._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._get_result_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the exact formula defined in
-<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id73">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id74">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id75">[GP76]</a>.</p>
+<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id74">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id75">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id76">[GP76]</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will always involve an integration (and more than one

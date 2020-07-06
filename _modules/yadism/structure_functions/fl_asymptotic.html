@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.structure_functions.fl_asymptotic &mdash; yadism 0.1.1 documentation</title>
+  <title>yadism.structure_functions.fl_asymptotic &mdash; yadism 0.3.2 documentation</title>
   
 
   
@@ -56,7 +56,7 @@
 
           
             
-            <img src="../../../_static/logo-docs.svg" class="logo" alt="Logo"/>
+            <img src="../../../_static/logo-docs.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.1
+                0.3
               </div>
             
           
@@ -184,6 +184,7 @@
 <span class="sd">.. todo::</span>
 <span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">copy</span>
 
 <span class="kn">from</span> <span class="nn">.esf</span> <span class="kn">import</span> <span class="n">EvaluatedStructureFunctionHeavy</span> <span class="k">as</span> <span class="n">ESFH</span>
 
@@ -204,6 +205,15 @@
 <span class="sd">        charge).</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionFLAsymptotic.get_result"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.fl_asymptotic.EvaluatedStructureFunctionFLAsymptotic.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            .. todo::</span>
+<span class="sd">                docs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_compute_local</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFLAsymptotic._gluon_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.fl_asymptotic.EvaluatedStructureFunctionFLAsymptotic._gluon_1">[docs]</a>    <span class="k">def</span> <span class="nf">_gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
