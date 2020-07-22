@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.structure_functions.f_total &mdash; yadism 0.3.2 documentation</title>
+  <title>yadism.structure_functions.f_total &mdash; yadism 0.3.3 documentation</title>
   
 
   
@@ -180,7 +180,6 @@
 
 
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">esf</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">esf_result</span>
 
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionFtotal</span><span class="p">(</span><span class="n">esf</span><span class="o">.</span><span class="n">EvaluatedStructureFunction</span><span class="p">):</span>
@@ -194,9 +193,6 @@
 <span class="sd">            kinematics : dict</span>
 <span class="sd">                the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionFtotal</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
 
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.get_result"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -233,32 +229,13 @@
             <span class="o">+</span> <span class="n">res_top</span><span class="o">.</span><span class="n">suffix</span><span class="p">(</span><span class="s2">&quot;_total_top&quot;</span><span class="p">)</span>
         <span class="p">)</span></div>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
+        <span class="p">)</span>
+
 <div class="viewcode-block" id="EvaluatedStructureFunctionFtotal._compute_weights"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal._compute_weights">[docs]</a>    <span class="k">def</span> <span class="nf">_compute_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
-        <span class="p">)</span></div>
-
-<div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.quark_0"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.quark_0">[docs]</a>    <span class="k">def</span> <span class="nf">quark_0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
-        <span class="p">)</span></div>
-
-<div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.quark_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.quark_1">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
-        <span class="p">)</span></div>
-
-<div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.quark_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.quark_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">quark_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
-        <span class="p">)</span></div>
-
-<div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.gluon_1"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.gluon_1">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
-        <span class="p">)</span></div>
-
-<div class="viewcode-block" id="EvaluatedStructureFunctionFtotal.gluon_1_fact"><a class="viewcode-back" href="../../../modules/yadism.structure_functions.html#yadism.structure_functions.f_total.EvaluatedStructureFunctionFtotal.gluon_1_fact">[docs]</a>    <span class="k">def</span> <span class="nf">gluon_1_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: this method should never be called!&quot;</span>
         <span class="p">)</span></div></div>

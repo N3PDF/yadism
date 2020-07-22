@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism package &mdash; yadism 0.3.2 documentation</title>
+  <title>yadism package &mdash; yadism 0.3.3 documentation</title>
   
 
   
@@ -246,17 +246,25 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="yadism.structure_functions.html">yadism.structure_functions package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yadism.structure_functions.nc.html">yadism.structure_functions.nc package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.nc.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.nc.html#module-yadism.structure_functions.nc.f2_asy">yadism.structure_functions.nc.f2_asy module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.nc.html#module-yadism.structure_functions.nc.f2_heavy">yadism.structure_functions.nc.f2_heavy module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.nc.html#module-yadism.structure_functions.nc.f2_light">yadism.structure_functions.nc.f2_light module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.nc.html#module-yadism.structure_functions.nc.fl_asy">yadism.structure_functions.nc.fl_asy module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.nc.html#module-yadism.structure_functions.nc.fl_heavy">yadism.structure_functions.nc.fl_heavy module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadism.structure_functions.nc.html#module-yadism.structure_functions.nc.fl_light">yadism.structure_functions.nc.fl_light module</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.distribution_vec">yadism.structure_functions.distribution_vec module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.esf">yadism.structure_functions.esf module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.esf_result">yadism.structure_functions.esf_result module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.f2_asymptotic">yadism.structure_functions.f2_asymptotic module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.f2_heavy">yadism.structure_functions.f2_heavy module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.f2_light">yadism.structure_functions.f2_light module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.f_total">yadism.structure_functions.f_total module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.fl_asymptotic">yadism.structure_functions.fl_asymptotic module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.fl_heavy">yadism.structure_functions.fl_heavy module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.fl_light">yadism.structure_functions.fl_light module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.partonic_channel">yadism.structure_functions.partonic_channel module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.splitting_functions">yadism.structure_functions.splitting_functions module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.structure_functions.html#module-yadism.structure_functions.tmc">yadism.structure_functions.tmc module</a></li>
 </ul>
@@ -271,22 +279,55 @@
 <span id="yadism-coupling-constants-module"></span><h2>yadism.coupling_constants module<a class="headerlink" href="#module-yadism.coupling_constants" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="yadism.coupling_constants.CouplingConstants">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.coupling_constants.</code><code class="sig-name descname">CouplingConstants</code><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.coupling_constants.</code><code class="sig-name descname">CouplingConstants</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory_config</span></em>, <em class="sig-param"><span class="n">obs_config</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Defines the coupling constants between the QCD particles and the EW particles</p>
 <dl class="py method">
+<dt id="yadism.coupling_constants.CouplingConstants._get_vectorial_coupling">
+<code class="sig-name descname">_get_vectorial_coupling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pid</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants._get_vectorial_coupling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants._get_vectorial_coupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine the vectorial coupling from electric and weak charges</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="yadism.coupling_constants.CouplingConstants.from_dict">
-<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_theory</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory</span></em>, <em class="sig-param"><span class="n">observables</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the object from the theory dictionary</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>theory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – theory dictionary</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>theory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – theory dictionary</p></li>
+<li><p><strong>observables</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – observables dictionary</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>o</strong> – created object</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#yadism.coupling_constants.CouplingConstants" title="yadism.coupling_constants.CouplingConstants">CouplingConstants</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.coupling_constants.CouplingConstants.get_weight">
+<code class="sig-name descname">get_weight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pid</span></em>, <em class="sig-param"><span class="n">Q2</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.get_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.get_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the weight for the pid contributions to the structure function.</p>
+<p>Combine the charges, both on the leptonic side and the hadronic side, as well
+as propagator changes and/or corrections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – particle identifier</p></li>
+<li><p><strong>Q2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – DIS virtuality</p></li>
+<li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
+coupling</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>w</strong> – weight</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -300,7 +341,7 @@
 <dt id="yadism.observable_name.ObservableName">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.observable_name.</code><code class="sig-name descname">ObservableName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Abstract wrapper to observables to easy split their names in two parts</p>
+<p>Wrapper to observable names to easy split them into two parts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – full observable name</p>
@@ -309,7 +350,7 @@
 <dl class="py method">
 <dt id="yadism.observable_name.ObservableName.__eq__">
 <code class="sig-name descname">__eq__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName.__eq__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self==value.</p>
+<dd><p>Test equality of kind and flavor</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -320,7 +361,32 @@
 <dl class="py method">
 <dt id="yadism.observable_name.ObservableName.__repr__">
 <code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName.__repr__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName.__repr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>return name as representation</p>
+<dd><p>The full name is the representation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.observable_name.ObservableName.all">
+<em class="property">classmethod </em><code class="sig-name descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName.all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates all valid (external) names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields</dt>
+<dd class="field-odd"><p><strong>all</strong> (<em>cls</em>) – ObservableName</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.observable_name.ObservableName.apply_asy">
+<code class="sig-name descname">apply_asy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName.apply_asy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName.apply_asy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the asymptotic heavy correspondend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>apply_asy</strong> – asymptotic heavy correspondend</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)">type</a>(self)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -336,6 +402,20 @@
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)">type</a>(self)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.observable_name.ObservableName.apply_flavor_family">
+<code class="sig-name descname">apply_flavor_family</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName.apply_flavor_family"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName.apply_flavor_family" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return name with abstract flavor family name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>apply_flavor_family</strong> – new ObservableName</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)">type</a>(self)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -358,17 +438,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="yadism.observable_name.ObservableName.get_asy">
-<code class="sig-name descname">get_asy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName.get_asy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName.get_asy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the asymptotic heavy correspondend.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>get_asy</strong> – asymptotic heavy correspondend</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)">type</a>(self)</p>
-</dd>
-</dl>
+<dt id="yadism.observable_name.ObservableName.flavor_family">
+<em class="property">property </em><code class="sig-name descname">flavor_family</code><a class="headerlink" href="#yadism.observable_name.ObservableName.flavor_family" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract flavor family name</p>
 </dd></dl>
 
 <dl class="py method">
@@ -406,6 +478,24 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="yadism.observable_name.ObservableName.hqnumber">
+<em class="property">property </em><code class="sig-name descname">hqnumber</code><a class="headerlink" href="#yadism.observable_name.ObservableName.hqnumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Heavy quark flavor number</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.observable_name.ObservableName.is_asy">
+<em class="property">property </em><code class="sig-name descname">is_asy</code><a class="headerlink" href="#yadism.observable_name.ObservableName.is_asy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is it a asymptotic raw heavy flavor? i.e. charmasy, bottomasy, or, topasy</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.observable_name.ObservableName.is_composed">
+<em class="property">property </em><code class="sig-name descname">is_composed</code><a class="headerlink" href="#yadism.observable_name.ObservableName.is_composed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is it a composed flavor? i.e. total</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="yadism.observable_name.ObservableName.is_heavy">
 <em class="property">property </em><code class="sig-name descname">is_heavy</code><a class="headerlink" href="#yadism.observable_name.ObservableName.is_heavy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Is it a heavy flavor?</p>
@@ -420,8 +510,14 @@
 </dd></dl>
 
 <dl class="py method">
+<dt id="yadism.observable_name.ObservableName.is_raw_heavy">
+<em class="property">property </em><code class="sig-name descname">is_raw_heavy</code><a class="headerlink" href="#yadism.observable_name.ObservableName.is_raw_heavy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is it a raw heavy flavor? i.e. charm, bottom, or, top</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="yadism.observable_name.ObservableName.is_valid">
-<em class="property">static </em><code class="sig-name descname">is_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName.is_valid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName.is_valid" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">is_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName.is_valid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName.is_valid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tests whether the name is a valid observable name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -436,7 +532,7 @@
 <dl class="py method">
 <dt id="yadism.observable_name.ObservableName.mass_label">
 <em class="property">property </em><code class="sig-name descname">mass_label</code><a class="headerlink" href="#yadism.observable_name.ObservableName.mass_label" title="Permalink to this definition">¶</a></dt>
-<dd><p>mass label in the theory runcard</p>
+<dd><p>Mass label in the theory runcard</p>
 </dd></dl>
 
 <dl class="py method">
@@ -545,6 +641,11 @@ dictionaries read ??.</p>
 </div>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="yadism.runner.Runner.banner">
+<code class="sig-name descname">banner</code><em class="property"> = &lt;rich.align.Align object&gt;</em><a class="headerlink" href="#yadism.runner.Runner.banner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="yadism.runner.Runner.clear">
 <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.clear" title="Permalink to this definition">¶</a></dt>
@@ -610,7 +711,7 @@ point (x, Q2)</p>
 </div>
 <dl class="py class">
 <dt id="yadism.sf.StructureFunction">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.sf.</code><code class="sig-name descname">StructureFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obs_name</span></em>, <em class="sig-param"><span class="n">runner</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">eko_components</span></em>, <em class="sig-param"><span class="n">theory_params</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.sf.</code><code class="sig-name descname">StructureFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obs_name</span></em>, <em class="sig-param"><span class="n">runner</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">eko_components</span></em>, <em class="sig-param"><span class="n">theory_params</span></em>, <em class="sig-param"><span class="n">obs_params</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Represents an abstract structure function.</p>
 <p>This class acts as an intermediate handler between the <code class="xref py py-class docutils literal notranslate"><span class="pre">Runner</span></code>
@@ -631,7 +732,7 @@ some more complicated structure)</p></li>
 <dl class="py method">
 <dt id="yadism.sf.StructureFunction.get_esf">
 <code class="sig-name descname">get_esf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obs_name</span></em>, <em class="sig-param"><span class="n">kinematics</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">use_raw</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">force_local</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction.get_esf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction.get_esf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a <em>raw</em> <code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunction</span></code> instance.</p>
+<dd><p>Returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunction</span></code> instance.</p>
 <p>This wrappers allows</p>
 <ul class="simple">
 <li><p>TMC to to access raw computations</p></li>

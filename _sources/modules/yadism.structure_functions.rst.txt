@@ -6,6 +6,14 @@ yadism.structure\_functions package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   yadism.structure_functions.nc
+
 Submodules
 ----------
 
@@ -33,30 +41,6 @@ yadism.structure\_functions.esf\_result module
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.f2\_asymptotic module
--------------------------------------------------
-
-.. automodule:: yadism.structure_functions.f2_asymptotic
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadism.structure\_functions.f2\_heavy module
---------------------------------------------
-
-.. automodule:: yadism.structure_functions.f2_heavy
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadism.structure\_functions.f2\_light module
---------------------------------------------
-
-.. automodule:: yadism.structure_functions.f2_light
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 yadism.structure\_functions.f\_total module
 -------------------------------------------
 
@@ -65,26 +49,10 @@ yadism.structure\_functions.f\_total module
    :undoc-members:
    :show-inheritance:
 
-yadism.structure\_functions.fl\_asymptotic module
--------------------------------------------------
+yadism.structure\_functions.partonic\_channel module
+----------------------------------------------------
 
-.. automodule:: yadism.structure_functions.fl_asymptotic
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadism.structure\_functions.fl\_heavy module
---------------------------------------------
-
-.. automodule:: yadism.structure_functions.fl_heavy
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadism.structure\_functions.fl\_light module
---------------------------------------------
-
-.. automodule:: yadism.structure_functions.fl_light
+.. automodule:: yadism.structure_functions.partonic_channel
    :members:
    :undoc-members:
    :show-inheritance:
