@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ToDo &mdash; yadism 0.3.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-tools/third-party.html">Third Party Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ToDo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/todo.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="todo">
+<h1>ToDo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id1"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/__init__.py:docstring of yadism, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>decide the purpose</p></li>
+<li><p>implement</p></li>
+<li><p>docs</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id2"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/__init__.py:docstring of yadism.run_yadism, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id3"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/output.py:docstring of yadism.output, line 4.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id4"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/output.py:docstring of yadism.output.Output, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>decide about <code class="docutils literal notranslate"><span class="pre">run_dis</span></code> and document it properly in module header</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id5"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner, line 11.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>reference on theory template</p></li>
+<li><p>detailed description of dis_observables entries</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id6"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner, line 15.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>implement</p></li>
+<li><p>docs</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id7"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.apply, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>implement</p></li>
+<li><p>docs</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id8"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.clear, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>implement</p></li>
+<li><p>docs</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id9"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.dump, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>docs</p></li>
+<li><p>get_output pipeline</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id10"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/runner.py:docstring of yadism.runner.Runner.get_output, line 13.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>refer to the sf-esf overview</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.html#id11"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/sf.py:docstring of yadism.sf, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id2"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/__init__.py:docstring of yadism.structure_functions, line 5.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>document how the convolution is performed (that is how it’s
+replaced by an integration and some pre-integrated addends)</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id3"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/distribution_vec.py:docstring of yadism.structure_functions.distribution_vec.DistributionVec.convolution, line 34.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>document prefactor: FH page 61 (6.1), 65 (7.2) - Vogt page 21 (4.1)</p></li>
+<li><dl class="simple">
+<dt>a_s expansion factor already included (simplify with alpha_s/4pi)</dt><dd><p>pay attention to Vogt 1/x in (4.1) in FH appendix are written
+the expressions for c’s (6.1), convolution defined in (7.2)
+also the charge average 9 / 2 is coming from Vogt (4.1)
+definition in the gluon</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>remember that is only for the gluon and quark singlet, so it</dt><dd><p>should be removed from the non-singlet prefactor</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>why is it not the pdf but xpdf used? check why Laenen is using</dt><dd><p>xpdf in the first place</p>
+</dd>
+</dl>
+</li>
+<li><p>docs</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id4"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/esf.py:docstring of yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy, line 8.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id5"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/esf.py:docstring of yadism.structure_functions.esf.EvaluatedStructureFunctionHeavy.get_result, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id6"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/esf_result.py:docstring of yadism.structure_functions.esf_result, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id7"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/esf_result.py:docstring of yadism.structure_functions.esf_result.ESFResult, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id8"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/esf_result.py:docstring of yadism.structure_functions.esf_result.ESFResult.apply_pdf, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id9"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/esf_result.py:docstring of yadism.structure_functions.esf_result.ESFResult.from_dict, line 1.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>use threshold on shat or using FH’s zmax?</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id10"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/partonic_channel.py:docstring of yadism.structure_functions.partonic_channel.PartonicChannelHeavy.is_below_threshold, line 10.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>APFEL TMC reference missing</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id18"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/tmc.py:docstring of yadism.structure_functions.tmc.ESFTMC_F2._get_result_APFEL, line 5.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>APFEL TMC reference missing</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id26"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/tmc.py:docstring of yadism.structure_functions.tmc.ESFTMC_FL._get_result_APFEL, line 5.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>APFEL TMC reference missing</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.html#id37"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/tmc.py:docstring of yadism.structure_functions.tmc.EvaluatedStructureFunctionTMC._get_result_APFEL, line 5.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.nc.html#id1"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/nc/f2_asy.py:docstring of yadism.structure_functions.nc.f2_asy, line 4.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.nc.html#id2"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/nc/f2_asy.py:docstring of yadism.structure_functions.nc.f2_asy.F2asyGluonVV.NLO, line 4.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>2 * n_f here and in gluon_1_fact is coming from momentum sum
+rule q_i -&gt; {q_i, g} but g -&gt; {g, q_i, ar{q_i} forall i}, so
+the 2 * n_f is needed to compensate for all the number of flavours
+plus antiflavours in which the gluon can go.</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.nc.html#id9"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/nc/f2_light.py:docstring of yadism.structure_functions.nc.f2_light.F2lightGluon.NLO, line 9.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.nc.html#id14"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/nc/fl_asy.py:docstring of yadism.structure_functions.nc.fl_asy, line 4.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>docs</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.nc.html#id15"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/nc/fl_asy.py:docstring of yadism.structure_functions.nc.fl_asy.FLasyGluonVV.NLO, line 4.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>2 * n_f here and in gluon_1_fact is coming from momentum sum
+rule q_i -&gt; {q_i, g} but g -&gt; {g, q_i, ar{q_i} forall i}, so
+the 2 * n_f is needed to compensate for all the number of flavours
+plus antiflavours in which the gluon can go.</p></li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="modules/yadism.structure_functions.nc.html#id24"><em>original entry</em></a> is located in /opt/hostedtoolcache/Python/3.7.9/x64/lib/python3.7/site-packages/yadism/structure_functions/nc/fl_light.py:docstring of yadism.structure_functions.nc.fl_light.FLlightGluon.NLO, line 9.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>Write a brief description of the ESFResult’s attributes and methods.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="package-structure/ESF.html#id1"><em>original entry</em></a> is located in /home/runner/work/yadism/yadism/docs/sphinx/source/package-structure/ESF.rst, line 51.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>add Introduction section</p>
+<ul>
+<li><p>include a very brief digraph to expose the overall structure of the
+project</p></li>
+</ul>
+</li>
+<li><p>add Usage section</p></li>
+<li><p>add Description section</p>
+<ul>
+<li><p>put graphs in spoiler tags</p></li>
+<li><p>add to ESF children graphs the corresponding for SF, using a 2-rows table
+(first one for SF, second for ESF, first column F2, second FL)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="yadism.html#id1"><em>original entry</em></a> is located in /home/runner/work/yadism/yadism/docs/sphinx/source/yadism.rst, line 23.)</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

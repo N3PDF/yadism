@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>yadism.coupling_constants &mdash; yadism 0.3.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/third-party.html">Third Party Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../yadism.html">yadism</a> &raquo;</li>
+        
+      <li>yadism.coupling_constants</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for yadism.coupling_constants</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<div class="viewcode-block" id="CouplingConstants"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants">[docs]</a><span class="k">class</span> <span class="nc">CouplingConstants</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Defines the coupling constants between the QCD particles and the EW particles</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">theory_config</span><span class="p">,</span> <span class="n">obs_config</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">theory_config</span> <span class="o">=</span> <span class="n">theory_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span> <span class="o">=</span> <span class="n">obs_config</span>
+        <span class="c1"># electric charges ----------------------------------------------------</span>
+        <span class="c1"># QCD particles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span> <span class="o">=</span> <span class="p">{</span><span class="mi">21</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">q</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span>
+        <span class="c1"># leptons: 11 = e-(!)</span>
+        <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="c1"># neutrinos</span>
+        <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># 3rd component of weak isospin ---------------------------------------</span>
+        <span class="c1"># QCD particles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">21</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span><span class="p">[</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">q</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># u if stmt else d</span>
+        <span class="c1"># leptons: 11 = e-(!)</span>
+        <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="c1"># neutrinos</span>
+        <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
+
+<div class="viewcode-block" id="CouplingConstants._get_vectorial_coupling"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants._get_vectorial_coupling">[docs]</a>    <span class="k">def</span> <span class="nf">_get_vectorial_coupling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Combine the vectorial coupling from electric and weak charges&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span>
+            <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">theory_config</span><span class="p">[</span><span class="s2">&quot;sin2theta_weak&quot;</span><span class="p">]</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CouplingConstants.get_weight"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.get_weight">[docs]</a>    <span class="k">def</span> <span class="nf">get_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Compute the weight for the pid contributions to the structure function.</span>
+
+<span class="sd">            Combine the charges, both on the leptonic side and the hadronic side, as well</span>
+<span class="sd">            as propagator changes and/or corrections.</span>
+
+<span class="sd">            Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">                pid : int</span>
+<span class="sd">                    particle identifier</span>
+<span class="sd">                Q2 : float</span>
+<span class="sd">                    DIS virtuality</span>
+<span class="sd">                quark_coupling_type : str</span>
+<span class="sd">                    flag to distinguish for heavy quarks between vectorial and axial-vectorial</span>
+<span class="sd">                    coupling</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">                w : float</span>
+<span class="sd">                    weight</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># for quarks only the flavor does matter</span>
+        <span class="n">pid</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
+        <span class="c1"># keep in mind that for the projectile we *do* care about sign</span>
+        <span class="n">projectile_pid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s2">&quot;projectilePID&quot;</span><span class="p">]</span>
+        <span class="n">eq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span>
+        <span class="c1"># axial coupling of the photon to the quark is not there of course</span>
+        <span class="k">if</span> <span class="n">quark_coupling_type</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
+            <span class="n">eq</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">w_phph</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">projectile_pid</span><span class="p">)]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">eq</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># pure photon exchane</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s2">&quot;process&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;EM&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">w_phph</span>
+        <span class="c1"># allow Z to be mixed in</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s2">&quot;process&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;NC&quot;</span><span class="p">:</span>
+            <span class="c1"># load coupling</span>
+            <span class="n">projectile_v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_vectorial_coupling</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">projectile_pid</span><span class="p">))</span>
+            <span class="n">projectile_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">projectile_pid</span><span class="p">)]</span>
+            <span class="n">gqv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_vectorial_coupling</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
+            <span class="n">gqa</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span>
+            <span class="c1"># load proper polarization definition</span>
+            <span class="n">pol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s2">&quot;polarization&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">projectile_pid</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">projectile_pid</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+                <span class="n">projectile_pid</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">projectile_pid</span> <span class="o">&lt;</span> <span class="mi">0</span>
+            <span class="p">):</span>
+                <span class="n">pol</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">eta_phZ</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">Q2</span>
+                <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theory_config</span><span class="p">[</span><span class="s2">&quot;MZ2&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">Q2</span><span class="p">)</span>
+                <span class="o">/</span> <span class="p">(</span>
+                    <span class="mf">4.0</span>
+                    <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">theory_config</span><span class="p">[</span><span class="s2">&quot;sin2theta_weak&quot;</span><span class="p">]</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">theory_config</span><span class="p">[</span><span class="s2">&quot;sin2theta_weak&quot;</span><span class="p">])</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">eta_phZ</span> <span class="o">/=</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s2">&quot;propagatorCorrection&quot;</span><span class="p">]</span>
+            <span class="c1"># photon-Z interference</span>
+            <span class="n">w_phZ</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="mi">2</span>
+                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">projectile_pid</span><span class="p">)]</span>
+                <span class="o">*</span> <span class="p">(</span><span class="n">projectile_v</span> <span class="o">+</span> <span class="n">pol</span> <span class="o">*</span> <span class="n">projectile_a</span><span class="p">)</span>
+                <span class="o">*</span> <span class="n">eta_phZ</span>
+                <span class="o">*</span> <span class="n">eq</span>
+                <span class="o">*</span> <span class="n">gqv</span>
+            <span class="p">)</span>
+            <span class="c1"># in heavy quark structure functions the two coefficient functions for the</span>
+            <span class="c1"># vectorial and axial-vectorial coupling are NOT the same (unlinke in the massless case)</span>
+            <span class="n">g2q</span> <span class="o">=</span> <span class="n">gqv</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">gqa</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="k">if</span> <span class="n">quark_coupling_type</span> <span class="o">==</span> <span class="s2">&quot;V&quot;</span><span class="p">:</span>
+                <span class="n">g2q</span> <span class="o">=</span> <span class="n">gqv</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="k">elif</span> <span class="n">quark_coupling_type</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
+                <span class="n">g2q</span> <span class="o">=</span> <span class="n">gqa</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="c1"># true Z contributions</span>
+            <span class="n">w_ZZ</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="n">projectile_v</span> <span class="o">**</span> <span class="mi">2</span>
+                    <span class="o">+</span> <span class="n">projectile_a</span> <span class="o">**</span> <span class="mi">2</span>
+                    <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">pol</span> <span class="o">*</span> <span class="n">projectile_v</span> <span class="o">*</span> <span class="n">projectile_a</span>
+                <span class="p">)</span>
+                <span class="o">*</span> <span class="p">(</span><span class="n">eta_phZ</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="o">*</span> <span class="n">g2q</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">w_phph</span> <span class="o">+</span> <span class="n">w_phZ</span> <span class="o">+</span> <span class="n">w_ZZ</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="CouplingConstants.from_dict"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">theory</span><span class="p">,</span> <span class="n">observables</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Creates the object from the theory dictionary</span>
+
+<span class="sd">            Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">                theory : dict</span>
+<span class="sd">                    theory dictionary</span>
+<span class="sd">                observables : dict</span>
+<span class="sd">                    observables dictionary</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">                o : CouplingConstants</span>
+<span class="sd">                    created object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">theory_config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;MZ2&quot;</span><span class="p">:</span> <span class="n">theory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;MZ&quot;</span><span class="p">,</span> <span class="mf">91.1876</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># defaults to the PDG2020 value</span>
+            <span class="s2">&quot;sin2theta_weak&quot;</span><span class="p">:</span> <span class="n">theory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;SIN2TW&quot;</span><span class="p">,</span> <span class="mf">0.23121</span>
+            <span class="p">),</span>  <span class="c1"># defaults to the PDG2020 value</span>
+        <span class="p">}</span>
+        <span class="c1"># map projectile to PID</span>
+        <span class="n">projectile</span> <span class="o">=</span> <span class="n">observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ProjectileDIS&quot;</span><span class="p">,</span> <span class="s2">&quot;electron&quot;</span><span class="p">)</span>
+        <span class="n">projectile_pids</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;electron&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+            <span class="s2">&quot;positron&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span>
+            <span class="s2">&quot;neutrino&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+            <span class="s2">&quot;antineutrino&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">projectile</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">projectile_pids</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unkown projectile </span><span class="si">{</span><span class="n">projectile</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">obs_config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;process&quot;</span><span class="p">:</span> <span class="n">observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;prDIS&quot;</span><span class="p">,</span> <span class="s2">&quot;EM&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;projectilePID&quot;</span><span class="p">:</span> <span class="n">projectile_pids</span><span class="p">[</span><span class="n">projectile</span><span class="p">],</span>
+            <span class="s2">&quot;polarization&quot;</span><span class="p">:</span> <span class="n">observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;PolarizationDIS&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s2">&quot;propagatorCorrection&quot;</span><span class="p">:</span> <span class="n">observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;PropagatorCorrection&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="n">o</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">theory_config</span><span class="p">,</span> <span class="n">obs_config</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">o</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

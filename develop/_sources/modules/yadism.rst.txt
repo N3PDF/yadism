@@ -1,0 +1,58 @@
+yadism package
+==============
+
+.. automodule:: yadism
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   yadism.structure_functions
+
+Submodules
+----------
+
+yadism.coupling\_constants module
+---------------------------------
+
+.. automodule:: yadism.coupling_constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.observable\_name module
+------------------------------
+
+.. automodule:: yadism.observable_name
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.output module
+--------------------
+
+.. automodule:: yadism.output
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.runner module
+--------------------
+
+.. automodule:: yadism.runner
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.sf module
+----------------
+
+.. automodule:: yadism.sf
+   :members:
+   :undoc-members:
+   :show-inheritance:
