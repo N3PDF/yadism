@@ -72,4 +72,3 @@ yadism.structure\_functions.tmc module
    :members:
    :undoc-members:
    :show-inheritance:
-

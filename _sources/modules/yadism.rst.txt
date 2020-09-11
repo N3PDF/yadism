@@ -56,4 +56,3 @@ yadism.sf module
    :members:
    :undoc-members:
    :show-inheritance:
-
