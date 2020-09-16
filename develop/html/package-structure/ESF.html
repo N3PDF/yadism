@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Evaluated Structure Function &mdash; yadism 0.3.3~develop documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Target Mass Corrections" href="TMC.html" />
+    <link rel="prev" title="Structure Function interface" href="SF.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                develop
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../yadism.html">yadism</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Structure</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="runner.html">Runner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SF.html">Structure Function interface</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Evaluated Structure Function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kinds">Kinds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#brief-descriptions">Brief Descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/yadism.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/index.html">Miscellanea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yadism.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yadism.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yadism.html#description">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../yadism.html">yadism</a> &raquo;</li>
+        
+          <li><a href="index.html">Code Structure</a> &raquo;</li>
+        
+      <li>Evaluated Structure Function</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/package-structure/ESF.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="evaluated-structure-function">
+<h1>Evaluated Structure Function<a class="headerlink" href="#evaluated-structure-function" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunction</span></code> is the actual calculator of the
+coefficient functions, indeed it is not possible to perform the calculation
+until the kinematics has not been fully specified.</p>
+<p>Each one of this object is created for a single kinematic point, and
+initialized with it at construction time.</p>
+<p>No object is recycled for more than a single calculation, and it’s not deleted
+before the destruction of its ancestor <code class="xref py py-class docutils literal notranslate"><span class="pre">Runner</span></code> instance.
+For this reason once that its result has been computed the object is kept and
+used as the atomic part of the caching system.</p>
+<div class="section" id="kinds">
+<h2>Kinds<a class="headerlink" href="#kinds" title="Permalink to this headline">¶</a></h2>
+<p>There are more kinds of <code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunction</span></code>, and each instance
+belong to a <code class="xref py py-class docutils literal notranslate"><span class="pre">StructureFunction</span></code> instance of the respective kind.</p>
+<p>The kinds are defined by choosing one option for each of the following classes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">F2</span></code> or <code class="docutils literal notranslate"><span class="pre">FL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">light</span></code>, <code class="docutils literal notranslate"><span class="pre">charm</span></code>, <code class="docutils literal notranslate"><span class="pre">bottom</span></code>, <code class="docutils literal notranslate"><span class="pre">top</span></code>, or <code class="docutils literal notranslate"><span class="pre">total</span></code></p></li>
+</ul>
+<p>Sometimes an instance of a different kind it is needed to complete the
+calculation, for one of the following reasons:</p>
+<ol class="arabic">
+<li><p>it is not always possible to determine the exact kind involved in the
+calculation before having the final kinematics is available;</p>
+<p><em>for example</em>: if <code class="docutils literal notranslate"><span class="pre">F2charm</span></code> is requested but the Flavor Number Scheme is
+<cite>FFNS4</cite> than the calculation should be performed as it were a light and not
+an heavy quark, but the information about how to compute the light
+contributions is hold by <code class="docutils literal notranslate"><span class="pre">F2light</span></code> and not duplicated</p>
+</li>
+<li><p>the observable definition depends on other observables;</p>
+<p><em>for example</em>: <code class="docutils literal notranslate"><span class="pre">F*total</span></code> is defined as the sum of <code class="docutils literal notranslate"><span class="pre">F*light</span></code>,
+<code class="docutils literal notranslate"><span class="pre">F*charm</span></code>, <code class="docutils literal notranslate"><span class="pre">F*bottom</span></code> and <code class="docutils literal notranslate"><span class="pre">F*top</span></code></p>
+</li>
+</ol>
+<p>In these cases the instance will determine which one is the kind (or kinds)
+required to complete the calculation, and it will ask its direct ancestor
+(the unique <code class="xref py py-class docutils literal notranslate"><span class="pre">StructureFunction</span></code> instance of that <code class="xref py py-class docutils literal notranslate"><span class="pre">Runner</span></code> of the
+correct kind) for the instance needed.</p>
+<p>Once the instance has been obtained it is asked for its result.</p>
+<div class="section" id="esfresult">
+<h3>ESFResult<a class="headerlink" href="#esfresult" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Write a brief description of the ESFResult’s attributes and methods.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TMC.html" class="btn btn-neutral float-right" title="Target Mass Corrections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SF.html" class="btn btn-neutral float-left" title="Structure Function interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>
