@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.output &mdash; yadism 0.3.3 documentation</title>
+  <title>yadism.output &mdash; yadism 0.3.3~develop documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -98,11 +98,11 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -110,6 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/tests.html">Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -185,7 +186,7 @@
 <span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">.structure_functions.esf_result</span> <span class="kn">import</span> <span class="n">ESFResult</span>
+<span class="kn">from</span> <span class="nn">.esf.esf_result</span> <span class="kn">import</span> <span class="n">ESFResult</span>
 
 
 <div class="viewcode-block" id="Output"><a class="viewcode-back" href="../../modules/yadism.html#yadism.output.Output">[docs]</a><span class="k">class</span> <span class="nc">Output</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
@@ -210,6 +211,9 @@
         <span class="k">return</span> <span class="n">ret</span></div>
 
 <div class="viewcode-block" id="Output.dump"><a class="viewcode-back" href="../../modules/yadism.html#yadism.output.Output.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Output.load"><a class="viewcode-back" href="../../modules/yadism.html#yadism.output.Output.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div></div>
 </pre></div>
 
@@ -229,7 +233,7 @@
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -258,7 +262,7 @@
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

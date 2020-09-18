@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Coefficient Functions &mdash; yadism 0.3.3 documentation</title>
+  <title>Coefficient Functions Calculation &mdash; yadism 0.3.3~develop documentation</title>
   
 
   
@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Heavy Flavors" href="heavy-flavors.html" />
+    <link rel="next" title="Light Flavors" href="light-flavors.html" />
     <link rel="prev" title="DIS introduction" href="DIS-intro.html" /> 
 </head>
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -100,15 +100,20 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Coefficient Functions</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Coefficient Functions Calculation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#coefficients-conventions-aka-weights">Coefficients conventions (aka “weights”)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#neutral-currents">Neutral Currents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#charged-currents">Charged Currents</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#regular-singular-local">Regular - Singular - Local</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#convolution-integral">Convolution Integral</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -116,6 +121,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -162,7 +168,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Coefficient Functions</li>
+      <li>Coefficient Functions Calculation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,9 +207,35 @@
   span.eqref:after {
     content: ")";
   }
-</style><div class="section" id="coefficient-functions">
-<h1>Coefficient Functions<a class="headerlink" href="#coefficient-functions" title="Permalink to this headline">¶</a></h1>
-<p>Look <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id1">[VVM05]</a>.</p>
+</style><div class="section" id="coefficient-functions-calculation">
+<h1>Coefficient Functions Calculation<a class="headerlink" href="#coefficient-functions-calculation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="coefficients-conventions-aka-weights">
+<h2>Coefficients conventions (aka “weights”)<a class="headerlink" href="#coefficients-conventions-aka-weights" title="Permalink to this headline">¶</a></h2>
+<p>Define the coefficient from <em>factorization scheme</em>.</p>
+<p>Do we want to include also the perturbative expansion convention? (expand in
+<code class="docutils literal notranslate"><span class="pre">a_s</span></code>)</p>
+<ul class="simple">
+<li><p>leptonic</p></li>
+<li><p>propagator</p></li>
+<li><p>hadronic</p></li>
+<li><p>factorization formula contributions</p></li>
+</ul>
+<div class="section" id="neutral-currents">
+<h3>Neutral Currents<a class="headerlink" href="#neutral-currents" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>electromagnetic</p></li>
+<li><p>z: vectorial-vectorial, axial-axial</p></li>
+<li><p>f3: vectorial-axial</p></li>
+</ul>
+</div>
+<div class="section" id="charged-currents">
+<h3>Charged Currents<a class="headerlink" href="#charged-currents" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ckm</p></li>
+<li><p>W+/-</p></li>
+</ul>
+</div>
+</div>
 <div class="section" id="regular-singular-local">
 <h2>Regular - Singular - Local<a class="headerlink" href="#regular-singular-local" title="Permalink to this headline">¶</a></h2>
 <p>Define the split in three bits.</p>
@@ -223,7 +255,7 @@ are properly defined) plus some addends.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="heavy-flavors.html" class="btn btn-neutral float-right" title="Heavy Flavors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="light-flavors.html" class="btn btn-neutral float-right" title="Light Flavors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="DIS-intro.html" class="btn btn-neutral float-left" title="DIS introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -241,7 +273,7 @@ are properly defined) plus some addends.</p>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -270,7 +302,7 @@ are properly defined) plus some addends.</p>
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

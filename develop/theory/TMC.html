@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Target Mass Corrections &mdash; yadism 0.3.3 documentation</title>
+  <title>Target Mass Corrections &mdash; yadism 0.3.3~develop documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -100,11 +100,12 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#work-in-progress-notes">Work in Progress notes</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Target Mass Corrections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#work-in-progress-notes">Work in Progress notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#note-1">Note 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#note-2-caching">Note 2 (caching)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#note-3-physics">Note 3 (physics)</a></li>
@@ -117,6 +118,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -205,10 +207,9 @@
 </style><div class="section" id="target-mass-corrections">
 <span id="tmc-page"></span><h1>Target Mass Corrections<a class="headerlink" href="#target-mass-corrections" title="Permalink to this headline">¶</a></h1>
 <p><a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id1">[S+08]</a>, <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id2">[GR20]</a></p>
-</div>
 <hr class="docutils" />
 <div class="section" id="work-in-progress-notes">
-<h1>Work in Progress notes<a class="headerlink" href="#work-in-progress-notes" title="Permalink to this headline">¶</a></h1>
+<h2>Work in Progress notes<a class="headerlink" href="#work-in-progress-notes" title="Permalink to this headline">¶</a></h2>
 <p>Runner: holds a list of structure functions instances, that will act as our
 “soft singletons”
 StructureFunction: holds a reference to his parent runner, in this way its also
@@ -217,6 +218,7 @@ compute TMCs, e.g.)</p>
 <p>Caching: it is managed at the level of StructureFunction, while the values are
 kept at the level of ESF (so the StructureFunction is just routing the caller to
 the correct instance of ESF to ask for values)</p>
+</div>
 <div class="section" id="note-1">
 <h2>Note 1<a class="headerlink" href="#note-1" title="Permalink to this headline">¶</a></h2>
 <p>Here is the third time that we are proliferating the SF classes to all the
@@ -293,7 +295,7 @@ the review (Schienbein et al.) set to 0</p></li>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -322,7 +324,7 @@ the review (Schienbein et al.) set to 0</p></li>
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

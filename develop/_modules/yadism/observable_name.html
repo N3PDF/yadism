@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.observable_name &mdash; yadism 0.3.3 documentation</title>
+  <title>yadism.observable_name &mdash; yadism 0.3.3~develop documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -98,11 +98,11 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -110,6 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/tests.html">Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -178,11 +179,13 @@
   <h1>Source code for yadism.observable_name</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="n">kinds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="s2">&quot;FL&quot;</span><span class="p">]</span>
+<span class="n">fake_kind</span> <span class="o">=</span> <span class="s2">&quot;??&quot;</span>
+<span class="n">kinds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="s2">&quot;FL&quot;</span><span class="p">,</span> <span class="s2">&quot;F3&quot;</span><span class="p">,</span> <span class="n">fake_kind</span><span class="p">]</span>
 <span class="c1"># external flavors:</span>
 <span class="n">heavys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;charm&quot;</span><span class="p">,</span> <span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="s2">&quot;top&quot;</span><span class="p">]</span>
 <span class="n">asys</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="o">+</span> <span class="s2">&quot;asy&quot;</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">heavys</span><span class="p">]</span>
-<span class="n">external_flavors</span> <span class="o">=</span> <span class="n">heavys</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">asys</span>
+<span class="n">heavylights</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span> <span class="o">+</span> <span class="s2">&quot;light&quot;</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">heavys</span><span class="p">]</span>
+<span class="n">external_flavors</span> <span class="o">=</span> <span class="n">heavys</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">asys</span> <span class="o">+</span> <span class="n">heavylights</span>
 <span class="c1"># internally we allow in addition for the flavor families</span>
 <span class="n">flavor_families</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;asy&quot;</span><span class="p">,</span> <span class="s2">&quot;heavy&quot;</span><span class="p">]</span>
 <span class="n">flavors</span> <span class="o">=</span> <span class="n">external_flavors</span> <span class="o">+</span> <span class="n">flavor_families</span>
@@ -287,6 +290,11 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span> <span class="ow">in</span> <span class="n">asys</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_heavylight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is it a heavylight flavor? i.e. charmlight, bottomlight, or, toplight&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span> <span class="ow">in</span> <span class="n">heavylights</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">is_composed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Is it a composed flavor? i.e. total&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span> <span class="o">==</span> <span class="s2">&quot;total&quot;</span>
@@ -298,6 +306,8 @@
             <span class="k">return</span> <span class="s2">&quot;heavy&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_asy</span><span class="p">:</span>
             <span class="k">return</span> <span class="s2">&quot;asy&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_heavylight</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;light&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span>
 
 <div class="viewcode-block" id="ObservableName.apply_flavor_family"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.apply_flavor_family">[docs]</a>    <span class="k">def</span> <span class="nf">apply_flavor_family</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -316,9 +326,18 @@
         <span class="sd">&quot;&quot;&quot;Heavy quark flavor number&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_asy</span><span class="p">:</span>
             <span class="n">idx</span> <span class="o">=</span> <span class="n">asys</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flavor</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_heavylight</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">heavylights</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flavor</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">idx</span> <span class="o">=</span> <span class="n">heavys</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flavor</span><span class="p">)</span>
         <span class="k">return</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">idx</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">raw_flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;underlying raw flavor&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span> <span class="o">==</span> <span class="s2">&quot;light&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span>
+        <span class="k">return</span> <span class="n">heavys</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">hqnumber</span> <span class="o">-</span> <span class="mi">4</span><span class="p">]</span>
 
 <div class="viewcode-block" id="ObservableName.has_heavies"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.has_heavies">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">has_heavies</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
@@ -401,6 +420,8 @@
 <span class="sd">                    ObservableName</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="n">kinds</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">fake_kind</span><span class="p">:</span>
+                <span class="k">continue</span>
             <span class="k">for</span> <span class="n">flav</span> <span class="ow">in</span> <span class="n">external_flavors</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="bp">cls</span><span class="p">(</span><span class="n">kind</span> <span class="o">+</span> <span class="n">flav</span><span class="p">)</span></div></div>
 </pre></div>
@@ -421,7 +442,7 @@
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -450,7 +471,7 @@
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.runner &mdash; yadism 0.3.3 documentation</title>
+  <title>yadism.runner &mdash; yadism 0.3.3~develop documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -98,11 +98,11 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -110,6 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/tests.html">Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -209,7 +210,6 @@
 
 <span class="kn">from</span> <span class="nn">.output</span> <span class="kn">import</span> <span class="n">Output</span>
 <span class="kn">from</span> <span class="nn">.sf</span> <span class="kn">import</span> <span class="n">StructureFunction</span> <span class="k">as</span> <span class="n">SF</span>
-<span class="kn">from</span> <span class="nn">.structure_functions</span> <span class="kn">import</span> <span class="n">ESFmap</span>
 <span class="kn">from</span> <span class="nn">.coupling_constants</span> <span class="kn">import</span> <span class="n">CouplingConstants</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">observable_name</span>
 
@@ -241,11 +241,10 @@
     <span class="n">banner</span> <span class="o">=</span> <span class="n">rich</span><span class="o">.</span><span class="n">align</span><span class="o">.</span><span class="n">Align</span><span class="p">(</span>
         <span class="n">rich</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">Panel</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
             <span class="n">inspect</span><span class="o">.</span><span class="n">cleandoc</span><span class="p">(</span>
-                <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">                     __     __       _ _</span>
+                <span class="sa">r</span><span class="sd">&quot;&quot;&quot;  __     __       _ _</span>
 <span class="sd">                     \ \   / /      | (_)</span>
 <span class="sd">                      \ \_/ /_ _  __| |_ ___ _ __ ___</span>
-<span class="sd">                       \   / _` |/ _` | / __| &#39;_ ` _ \ </span>
+<span class="sd">                       \   / _` |/ _` | / __| &#39;_ ` _ \</span>
 <span class="sd">                        | | (_| | (_| | \__ \ | | | | |</span>
 <span class="sd">                        |_|\__,_|\__,_|_|___/_| |_| |_|</span>
 <span class="sd">                &quot;&quot;&quot;</span>
@@ -449,7 +448,7 @@
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -478,7 +477,7 @@
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

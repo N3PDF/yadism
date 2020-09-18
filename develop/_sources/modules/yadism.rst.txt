@@ -12,7 +12,9 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   yadism.structure_functions
+   yadism.cc
+   yadism.esf
+   yadism.nc
 
 Submodules
 ----------
@@ -41,6 +43,14 @@ yadism.output module
    :undoc-members:
    :show-inheritance:
 
+yadism.partonic\_channel module
+-------------------------------
+
+.. automodule:: yadism.partonic_channel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadism.runner module
 --------------------
 
@@ -53,6 +63,22 @@ yadism.sf module
 ----------------
 
 .. automodule:: yadism.sf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.splitting\_functions module
+----------------------------------
+
+.. automodule:: yadism.splitting_functions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.tmc module
+-----------------
+
+.. automodule:: yadism.tmc
    :members:
    :undoc-members:
    :show-inheritance:
