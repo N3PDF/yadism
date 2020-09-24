@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>yadmark package &mdash; yadism 0.3.3~develop documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="yadmark.benchmark package" href="yadmark.benchmark.html" />
+    <link rel="prev" title="Navigator" href="../navigator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                develop
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html">Target Mass Corrections</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../yadmark.html">Yadmark</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../benchmark-runner.html">Benchmark Runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../navigator.html">Navigator</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yadmark.benchmark.html">yadmark.benchmark package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadmark.data.html">yadmark.data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadmark.navigator.html">yadmark.navigator package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yadmark-toylh-module">yadmark.toyLH module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yadmark-utils-module">yadmark.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../yadmark.html#runners">Runners</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../yadmark.html">Yadmark</a> &raquo;</li>
+        
+      <li>yadmark package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/dev-tools/yadmark/yadmark.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="yadmark-package">
+<h1>yadmark package<a class="headerlink" href="#yadmark-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="yadmark.benchmark.html">yadmark.benchmark package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.benchmark.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yadmark.benchmark.external.html">yadmark.benchmark.external package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="yadmark.benchmark.external.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadmark.benchmark.external.html#yadmark-benchmark-external-apfel-utils-module">yadmark.benchmark.external.apfel_utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadmark.benchmark.external.html#yadmark-benchmark-external-qcdnum-utils-module">yadmark.benchmark.external.qcdnum_utils module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.benchmark.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.benchmark.html#yadmark-benchmark-db-interface-module">yadmark.benchmark.db_interface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.benchmark.html#yadmark-benchmark-mode-selector-module">yadmark.benchmark.mode_selector module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yadmark.data.html">yadmark.data package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.data.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.data.html#yadmark-data-observables-module">yadmark.data.observables module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.data.html#yadmark-data-theories-module">yadmark.data.theories module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yadmark.navigator.html">yadmark.navigator package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.navigator.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.navigator.html#yadmark-navigator-df-list-module">yadmark.navigator.df_list module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.navigator.html#yadmark-navigator-navigator-module">yadmark.navigator.navigator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.navigator.html#yadmark-navigator-table-manager-module">yadmark.navigator.table_manager module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="yadmark-toylh-module">
+<h2>yadmark.toyLH module<a class="headerlink" href="#yadmark-toylh-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="yadmark-utils-module">
+<h2>yadmark.utils module<a class="headerlink" href="#yadmark-utils-module" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="yadmark.benchmark.html" class="btn btn-neutral float-right" title="yadmark.benchmark package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../navigator.html" class="btn btn-neutral float-left" title="Navigator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

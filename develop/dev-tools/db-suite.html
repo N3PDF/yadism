@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Benchmark Runner" href="benchmark-runner.html" />
-    <link rel="prev" title="Target Mass Corrections" href="../theory/TMC.html" /> 
+    <link rel="next" title="Yadmark" href="yadmark.html" />
+    <link rel="prev" title="Benchmarks" href="benchmarks.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -108,15 +108,17 @@
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Database Test Suite</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#generating-ecosystem">Generating Ecosystem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#navigator">Navigator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#i-o-databases-structure">I/O databases’ structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#database-infrastructure">Database infrastructure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-infrastructure">Database infrastructure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#little-human-readability">(Little) human readability</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="benchmark-runner.html">Benchmark Runner</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-lfs">Git LFS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras.html">Extras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="third-party.html">Third Party Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code-todos.html">TODOs</a></li>
 </ul>
@@ -209,81 +211,16 @@
 <p>We developed a test suite to manage the several configuration to be tested
 through a proper database (currently implemented on <cite>tinydb</cite>).</p>
 <p>The suite currently consists of:</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Update with the current structure</p>
+</div>
 <ul class="simple">
 <li><p>some scripts able to fill an <strong>input database</strong> (filling includes creating it,
 if does not exist yet)</p></li>
 <li><p>a <strong>navigator</strong>, able to display the content of both the <em>input database</em>,
 and the output one, to store the data generated during test process itself</p></li>
 </ul>
-<div class="section" id="generating-ecosystem">
-<h2>Generating Ecosystem<a class="headerlink" href="#generating-ecosystem" title="Permalink to this headline">¶</a></h2>
-<p>It currently consists of some scripts able to iterate properly over the
-options, generating each one a table in input database <cite>input.json</cite>.
-Each combination defined is stored in one record of the suitable table that
-makes it easier to iterate over them and query the options.</p>
-<p>The current scripts are:</p>
-<ul class="simple">
-<li><p><cite>theories.py</cite>: create the table <cite>theories</cite> (purging any existing one, if
-already exists)</p></li>
-<li><p><cite>observables.py</cite>: create the table <cite>observables</cite> (purging any existing one,
-if already exists)</p></li>
-<li><p><cite>observables-regression.py</cite>: create the table <cite>observables-regression</cite>
-(purging any existing one, if already exists)</p></li>
-</ul>
-</div>
-<div class="section" id="navigator">
-<h2>Navigator<a class="headerlink" href="#navigator" title="Permalink to this headline">¶</a></h2>
-<p>Enter through the entry script <cite>navigator</cite> running:
-<code class="docutils literal notranslate"><span class="pre">`shell</span>
-<span class="pre">./navigator</span>
-<span class="pre">`</span></code>
-in <cite>benchmarks</cite> folder.</p>
-<p>The script will load the full interface and drop into an <cite>ipython</cite> interpreter
-instance, so the interface is available as a set of python functions.
-Once inside the interpreter all the functions in:</p>
-<ul class="simple">
-<li><p>the interface</p></li>
-<li><p><cite>pylab</cite></p></li>
-</ul>
-<p>will be available without any prefix (they are imported in the global namespace).</p>
-</div>
-<div class="section" id="i-o-databases-structure">
-<h2>I/O databases’ structure<a class="headerlink" href="#i-o-databases-structure" title="Permalink to this headline">¶</a></h2>
-<p>Input database will consist of the tables:</p>
-<ul class="simple">
-<li><p><strong>theories</strong>: each entry of this table will represent a <em>physical theory</em>,
-i.e. it will specify a set of parameters involved in QFT computations; the
-following entries are expected:</p>
-<ul>
-<li><p><em>PTO</em>: perturbative order</p></li>
-<li><p><em>XIF</em>, <em>XIR</em>:</p></li>
-<li><p><em>mc</em>. <em>Qmc</em>, <em>mb</em>, <em>Qmb</em>, <em>mt</em>, <em>Qmt</em>:</p></li>
-<li><p>…</p></li>
-</ul>
-</li>
-<li><p><strong>observables</strong>: each entry of this table will represent a <em>set of DIS
-observables</em>, and also some parameters involved in the computation of the
-observables themselves; the following entries are expected:</p>
-<ul>
-<li><p><em>xgrid</em>: the grid on which the interpolation is evaluated</p></li>
-<li><p>…</p></li>
-</ul>
-</li>
-<li><p><strong>observables-regression</strong>: this table is completely analogous to the
-<em>observables</em> one, and uniform in entry format; the difference it is in the
-aim: it is used to define the observables used for <em>regression tests</em>, while
-the previous is used in benchmarks (and it is expected to change faster than
-this one)</p></li>
-</ul>
-<p>Output database will consist of the tables:</p>
-<ul class="simple">
-<li><p><strong>apfel_cache</strong>: to keep a cache of APFEL runs, since APFEL it is stable
-there is no need of rerunning it multiple times to compute the same
-observables (while rerunning is needed for <em>yadism</em> during its development,
-of course…)</p></li>
-<li><p><strong>logs</strong>: keep a log of the runs of <em>yadism</em></p></li>
-</ul>
-</div>
 <div class="section" id="database-infrastructure">
 <h2>Database infrastructure<a class="headerlink" href="#database-infrastructure" title="Permalink to this headline">¶</a></h2>
 <p>In the current version databases are managed through <cite>tinydb</cite>, a DBMS
@@ -296,13 +233,23 @@ them more flexible and easier to manage less homogeneous data.</p>
 it very easy to store, transfer and manage. No system-wide installation is
 needed to interact with the db, and can be easily sent around since it is a
 bare text file, nothing more than formatted.</p>
-<p>In principle it is always possible to explore the file content through any text
-editor, but in order to save space (and since it is designed to be managed by a
-proper tool) the readability its reduced because of lack of whitespaces, and
-the presence of internal structures.
-If needed it can be simply reformatted adding automatically whitespaces, but
+<div class="section" id="little-human-readability">
+<h3>(Little) human readability<a class="headerlink" href="#little-human-readability" title="Permalink to this headline">¶</a></h3>
+<p>In principle it is always possible to explore
+the file content through any text editor, but in order to save space (and since
+it is designed to be managed by a proper tool) the readability its reduced
+because of lack of whitespaces, and the presence of internal structures.</p>
+<p>If needed it can be simply reformatted adding automatically whitespaces, but
 when available its always better to interact with it through the proper
-manager.</p>
+manager (consider also that is a <strong>huge</strong> text file, that can break simple
+editors trying to load all at once).</p>
+</div>
+</div>
+<div class="section" id="git-lfs">
+<h2>Git LFS<a class="headerlink" href="#git-lfs" title="Permalink to this headline">¶</a></h2>
+<p>In order to keep the databases in the projects we decided to use <cite>git-lfs</cite>
+(<cite>git</cite> Large File Storage), a tool integrating with <cite>git</cite> and designed
+specifically to manage large files inside a <cite>git</cite> repo.</p>
 </div>
 </div>
 
@@ -314,10 +261,10 @@ manager.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="benchmark-runner.html" class="btn btn-neutral float-right" title="Benchmark Runner" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="yadmark.html" class="btn btn-neutral float-right" title="Yadmark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../theory/TMC.html" class="btn btn-neutral float-left" title="Target Mass Corrections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="benchmarks.html" class="btn btn-neutral float-left" title="Benchmarks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

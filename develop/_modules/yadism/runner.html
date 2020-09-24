@@ -106,9 +106,10 @@
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/db-suite.html">Database Test Suite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/extras.html">Extras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/third-party.html">Third Party Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
@@ -266,9 +267,7 @@
         <span class="c1"># ===========================</span>
         <span class="c1"># Setup eko stuff</span>
         <span class="c1"># ===========================</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span> <span class="o">=</span> <span class="n">InterpolatorDispatcher</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
-            <span class="n">observables</span><span class="p">,</span> <span class="n">mode_N</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">numba_it</span><span class="o">=</span><span class="kc">False</span>
-        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span> <span class="o">=</span> <span class="n">InterpolatorDispatcher</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">observables</span><span class="p">,</span> <span class="n">mode_N</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">constants</span> <span class="o">=</span> <span class="n">Constants</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">thresholds</span><span class="o">.</span><span class="n">ThresholdsConfig</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">theory</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">strong_coupling</span> <span class="o">=</span> <span class="n">strong_coupling</span><span class="o">.</span><span class="n">StrongCoupling</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>

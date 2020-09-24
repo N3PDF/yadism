@@ -136,9 +136,10 @@
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/extras.html">Extras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
@@ -1252,6 +1253,93 @@ according to the structure function). If this is to expensive check
 </dd></dl>
 
 <dl class="py class">
+<dt id="yadism.tmc.ESFTMC_F3">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.tmc.</code><code class="sig-name descname">ESFTMC_F3</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.tmc.EvaluatedStructureFunctionTMC" title="yadism.tmc.EvaluatedStructureFunctionTMC"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.tmc.EvaluatedStructureFunctionTMC</span></code></a></p>
+<p>This function implements the actual formula for target mass corrections
+of F3, for all the three (+1) kinds described in the parent class
+<a class="reference internal" href="#yadism.tmc.EvaluatedStructureFunctionTMC" title="yadism.tmc.EvaluatedStructureFunctionTMC"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunctionTMC</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>SF</strong> (<a class="reference internal" href="#yadism.sf.StructureFunction" title="yadism.sf.StructureFunction"><em>StructureFunction</em></a>) – the interface object representing the structure function kind he
+belongs to</p></li>
+<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – requested kinematic point</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="yadism.tmc.ESFTMC_F3._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#yadism.tmc.ESFTMC_F3._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.tmc.ESFTMC_F3._get_result_APFEL">
+<code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F3._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F3._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is defined by subclasses to provide the implementation
+of TMC calculation according to the same formula used by APFEL, see
+<span class="bibtex" id="id27">[???]</span></p>
+<div class="admonition-todo admonition" id="id28">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>APFEL TMC reference missing</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.tmc.ESFTMC_F3._get_result_approx">
+<code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F3._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F3._get_result_approx" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is defined by subclasses to provide the implementation
+of TMC calculation according to the approximate formula defined in
+<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id29">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id30">[S+08]</a>.</p>
+<p>The convenience of this formula is that the integration is
+approximate by a simple evaluation of the integrand in a suitable
+point, so the evaluation of the full expression is much faster
+(because integration yields an array of evaluations, ranging from 1
+to the <cite>xgrid</cite> length).
+Despite the approximation the formula is quite in a good agreement
+with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id31">[S+08]</a>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.tmc.ESFTMC_F3._get_result_exact">
+<code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F3._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F3._get_result_exact" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is defined by subclasses to provide the implementation
+of TMC calculation according to the exact formula defined in
+<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id32">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id33">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id34">[GP76]</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method will always involve an integration (and more than one
+according to the structure function). If this is to expensive check
+<a class="reference internal" href="#yadism.tmc.ESFTMC_F3._get_result_approx" title="yadism.tmc.ESFTMC_F3._get_result_approx"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_get_result_approx()</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.tmc.ESFTMC_F3._h3">
+<code class="sig-name descname">_h3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F3._h3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F3._h3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute raw integral over <cite>F3</cite>, making use of <code class="xref py py-meth docutils literal notranslate"><span class="pre">_convolute_FX()</span></code>.</p>
+<div class="math notranslate nohighlight">
+\begin{align*}
+h_3(\xi,Q^2) &amp;= \int_\xi^1 du \frac{F_3(u,Q^2)}{u}\\
+             &amp;= \int_\xi^1 \frac{du}{u} F_3(u,Q^2)\\
+             &amp;= ((z\to 1) \otimes F_3(z))(\xi)
+\end{align*}</div><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>h3</strong> – ESF output for the integral</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt id="yadism.tmc.ESFTMC_FL">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.tmc.</code><code class="sig-name descname">ESFTMC_FL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_FL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_FL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.tmc.EvaluatedStructureFunctionTMC" title="yadism.tmc.EvaluatedStructureFunctionTMC"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.tmc.EvaluatedStructureFunctionTMC</span></code></a></p>
@@ -1277,8 +1365,8 @@ belongs to</p></li>
 <code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_FL._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_FL._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the same formula used by APFEL, see
-<span class="bibtex" id="id27">[???]</span></p>
-<div class="admonition-todo admonition" id="id28">
+<span class="bibtex" id="id35">[???]</span></p>
+<div class="admonition-todo admonition" id="id36">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>APFEL TMC reference missing</p></li>
@@ -1291,15 +1379,15 @@ of TMC calculation according to the same formula used by APFEL, see
 <code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_FL._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_FL._get_result_approx" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the approximate formula defined in
-<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id29">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id30">[S+08]</a>.</p>
+<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id37">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id38">[S+08]</a>.</p>
 <p>The convenience of this formula is that the integration is
 approximate by a simple evaluation of the integrand in a suitable
 point, so the evaluation of the full expression is much faster
 (because integration yields an array of evaluations, ranging from 1
 to the <cite>xgrid</cite> length).
 Despite the approximation the formula is quite in a good agreement
-with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id31">[S+08]</a>).</p>
+with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id39">[S+08]</a>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1307,8 +1395,8 @@ with the exact one (for comparison see <a class="bibtex reference internal" href
 <code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_FL._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_FL._get_result_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the exact formula defined in
-<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id32">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id33">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id34">[GP76]</a>.</p>
+<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id40">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id41">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id42">[GP76]</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will always involve an integration (and more than one
@@ -1321,7 +1409,7 @@ according to the structure function). If this is to expensive check
 
 <dl class="py data">
 <dt id="yadism.tmc.ESFTMCmap">
-<code class="sig-prename descclassname">yadism.tmc.</code><code class="sig-name descname">ESFTMCmap</code><em class="property"> = {'F2': &lt;class 'yadism.tmc.ESFTMC_F2'&gt;, 'FL': &lt;class 'yadism.tmc.ESFTMC_FL'&gt;}</em><a class="headerlink" href="#yadism.tmc.ESFTMCmap" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">yadism.tmc.</code><code class="sig-name descname">ESFTMCmap</code><em class="property"> = {'F2': &lt;class 'yadism.tmc.ESFTMC_F2'&gt;, 'F3': &lt;class 'yadism.tmc.ESFTMC_F3'&gt;, 'FL': &lt;class 'yadism.tmc.ESFTMC_FL'&gt;}</em><a class="headerlink" href="#yadism.tmc.ESFTMCmap" title="Permalink to this definition">¶</a></dt>
 <dd><p>mapping of ESF TMC classes</p>
 <p>This dictionary is used to redirect to the correct class from a string
 indicating the kind of the required structure function.</p>
@@ -1341,9 +1429,9 @@ classes. In particular here are defined:</p>
 <blockquote>
 <div><ul>
 <li><p>shifted kinematics <span class="math notranslate nohighlight">\(\xi\)</span> and other aux variables
-(<span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span>, see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id35">[GR20]</a>)</p></li>
+(<span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span>, see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id43">[GR20]</a>)</p></li>
 <li><p>integration layout and two common integrals of structure
-functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span class="math notranslate nohighlight">\(g_2\)</span> (see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id36">[S+08]</a>)</p></li>
+functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span class="math notranslate nohighlight">\(g_2\)</span> (see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id44">[S+08]</a>)</p></li>
 <li><p>an interface for picking up the chosen formulas between:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -1352,7 +1440,7 @@ functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span c
 <li><p><em>exact</em></p></li>
 </ol>
 </div></blockquote>
-<p>(see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id37">[GR20]</a>)</p>
+<p>(see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id45">[GR20]</a>)</p>
 </li>
 </ul>
 </div></blockquote>
@@ -1371,8 +1459,8 @@ belongs to</p></li>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="yadism.tmc.EvaluatedStructureFunctionTMC._convolute_F2">
-<code class="sig-name descname">_convolute_F2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ker</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._convolute_F2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._convolute_F2" title="Permalink to this definition">¶</a></dt>
+<dt id="yadism.tmc.EvaluatedStructureFunctionTMC._convolute_FX">
+<code class="sig-name descname">_convolute_FX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">ker</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._convolute_FX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._convolute_FX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implement generic structure to convolute any function <cite>ker</cite> with <cite>F2</cite>.</p>
 <p>This method is provided for internal use, in order to factorize the
 machinery for TMC integrals.
@@ -1384,17 +1472,20 @@ once more the the contraction with the PDF.</p>
 <div class="math notranslate nohighlight">
 \begin{align*}
 \tilde{F}_X \otimes f &amp;= \sum_i (\tilde{F}_X \otimes w_i) f_i =
-        \left[ a + \sum_{i} ((F_2 \otimes k) \otimes w_i)
+        \left[ a + \sum_{i} ((F_X \otimes k) \otimes w_i)
         \right] f_i \\
-    &amp; = \left[ a + \sum_{i,j} \underbrace{{F_2}_j ((w_j \otimes
-        k)}_{\texttt{_convolute_F2}} \otimes w_i) \right] f_i
+    &amp; = \left[ a + \sum_{i,j} \underbrace{{F_X}_j ((w_j \otimes
+        k)}_{\texttt{_convolute_FX}} \otimes w_i) \right] f_i
 \end{align*}</div><p>where <span class="math notranslate nohighlight">\(\tilde{F}_X\)</span> is the target mass corrected structure
-function, <span class="math notranslate nohighlight">\(F_2\)</span> is the bare structure function, <span class="math notranslate nohighlight">\(k\)</span> is
+function, <span class="math notranslate nohighlight">\(F_X\)</span> is the bare structure function, <span class="math notranslate nohighlight">\(k\)</span> is
 the kernel function <cite>ker</cite>, and <span class="math notranslate nohighlight">\(a\)</span> is representing all the
 other terms not described here.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ker</strong> (<em>callable</em>) – the kernel function to be convoluted with <cite>F2</cite></p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – observable kind</p></li>
+<li><p><strong>ker</strong> (<em>callable</em>) – the kernel function to be convoluted with structure functions</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -1402,7 +1493,7 @@ other terms not described here.</p>
 <dl class="py method">
 <dt id="yadism.tmc.EvaluatedStructureFunctionTMC._g2">
 <code class="sig-name descname">_g2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._g2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._g2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute nested integral over <cite>F2</cite>, making use of <a class="reference internal" href="#yadism.tmc.EvaluatedStructureFunctionTMC._convolute_F2" title="yadism.tmc.EvaluatedStructureFunctionTMC._convolute_F2"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_convolute_F2()</span></code></a>.</p>
+<dd><p>Compute nested integral over <cite>F2</cite>, making use of <a class="reference internal" href="#yadism.tmc.EvaluatedStructureFunctionTMC._convolute_FX" title="yadism.tmc.EvaluatedStructureFunctionTMC._convolute_FX"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_convolute_FX()</span></code></a>.</p>
 <div class="math notranslate nohighlight">
 \begin{align*}
     g_2(\xi,Q^2) &amp;= \int_\xi^1 du (u-\xi)
@@ -1425,8 +1516,8 @@ other terms not described here.</p>
 <em class="property">abstract </em><code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the same formula used by APFEL, see
-<span class="bibtex" id="id38">[???]</span></p>
-<div class="admonition-todo admonition" id="id39">
+<span class="bibtex" id="id46">[???]</span></p>
+<div class="admonition-todo admonition" id="id47">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>APFEL TMC reference missing</p></li>
@@ -1439,15 +1530,15 @@ of TMC calculation according to the same formula used by APFEL, see
 <em class="property">abstract </em><code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._get_result_approx" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the approximate formula defined in
-<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id40">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id41">[S+08]</a>.</p>
+<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id48">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id49">[S+08]</a>.</p>
 <p>The convenience of this formula is that the integration is
 approximate by a simple evaluation of the integrand in a suitable
 point, so the evaluation of the full expression is much faster
 (because integration yields an array of evaluations, ranging from 1
 to the <cite>xgrid</cite> length).
 Despite the approximation the formula is quite in a good agreement
-with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id42">[S+08]</a>).</p>
+with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id50">[S+08]</a>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1455,8 +1546,8 @@ with the exact one (for comparison see <a class="bibtex reference internal" href
 <em class="property">abstract </em><code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._get_result_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the exact formula defined in
-<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id43">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id44">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id45">[GP76]</a>.</p>
+<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id51">[GR20]</a>, and already presented in
+<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id52">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id53">[GP76]</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will always involve an integration (and more than one
@@ -1468,7 +1559,7 @@ according to the structure function). If this is to expensive check
 <dl class="py method">
 <dt id="yadism.tmc.EvaluatedStructureFunctionTMC._h2">
 <code class="sig-name descname">_h2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._h2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._h2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute raw integral over <cite>F2</cite>, making use of <a class="reference internal" href="#yadism.tmc.EvaluatedStructureFunctionTMC._convolute_F2" title="yadism.tmc.EvaluatedStructureFunctionTMC._convolute_F2"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_convolute_F2()</span></code></a>.</p>
+<dd><p>Compute raw integral over <cite>F2</cite>, making use of <a class="reference internal" href="#yadism.tmc.EvaluatedStructureFunctionTMC._convolute_FX" title="yadism.tmc.EvaluatedStructureFunctionTMC._convolute_FX"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_convolute_FX()</span></code></a>.</p>
 <div class="math notranslate nohighlight">
 \begin{align*}
 h_2(\xi,Q^2) &amp;= \int_\xi^1 du \frac{F_2(u,Q^2)}{u^2}\\

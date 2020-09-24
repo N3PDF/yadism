@@ -11,7 +11,7 @@ From Source Code
 
 `runner.py <file:///home/runner/work/yadism/yadism/src/yadism/runner.py>`_
 
-.. warning:: #200 move to log and make more readable
+.. warning:: #198 move to log and make more readable
 
 
 
