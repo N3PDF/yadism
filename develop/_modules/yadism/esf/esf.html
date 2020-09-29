@@ -236,21 +236,21 @@
 
 <span class="sd">        .. _local-caching:</span>
 
-<span class="sd">        Caching</span>
-<span class="sd">        ~~~~~~~</span>
+<span class="sd">        .. admonition:: Cache</span>
 
-<span class="sd">        A part of the overall caching system is implemented at this level.</span>
+<span class="sd">            A part of the overall caching system is implemented at this level.</span>
 
-<span class="sd">        The one implemented here is only a **local, isolated** caching, i.e.:</span>
+<span class="sd">            The one implemented here is only a **local, isolated** caching,</span>
+<span class="sd">            i.e.:</span>
 
-<span class="sd">        - the first time the instance is asked for computing the result, through</span>
-<span class="sd">          the :py:meth:`get_output` method, it registers the result;</span>
-<span class="sd">        - any following call to the :py:meth:`get_output` method will make use</span>
-<span class="sd">          of the cached result, and will never recompute it.</span>
+<span class="sd">            - the first time the instance is asked for computing the result,</span>
+<span class="sd">              through the :py:meth:`get_output` method, it registers the result;</span>
+<span class="sd">            - any following call to the :py:meth:`get_output` method will make</span>
+<span class="sd">              use of the cached result, and will never recompute it.</span>
 
-<span class="sd">        If another instance with the same attributes is asked for the result it</span>
-<span class="sd">        will recompute it from scratch, because any instance is isolated and</span>
-<span class="sd">        doesn&#39;t keep any reference to the others.</span>
+<span class="sd">            If another instance with the same attributes is asked for the result</span>
+<span class="sd">            it will recompute it from scratch, because any instance is isolated</span>
+<span class="sd">            and doesn&#39;t keep any reference to the others.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>

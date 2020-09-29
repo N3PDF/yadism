@@ -180,20 +180,28 @@
   <h1>Source code for yadism.cc.weights</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    - sf = F3</span>
-<span class="sd">    - q = 2 (i.e. u-quark)</span>
-<span class="sd">    - q%2 = 2%2 = 0</span>
-<span class="sd">    # projectile = e+ -&gt; rest = 1</span>
-<span class="sd">    - sign = -1</span>
-<span class="sd">    - weight[2] is not set (i.e. 0) </span>
-<span class="sd">    - weight[-2] = -w</span>
-<span class="sd">    # projectile = e- -&gt; rest = 0</span>
-<span class="sd">    - sign = 1</span>
-<span class="sd">    - weight[2] = w</span>
-<span class="sd">    - weight[-2] is not set</span>
-<span class="sd">    # together</span>
-<span class="sd">    - weight[2] + weight[-2] changes sign</span>
-<span class="sd">    - weight[2] - weight[-2] does NOT change sign</span>
+<span class="sd">Note</span>
+<span class="sd">----</span>
+<span class="sd">Brief proof of @F3-sign@ for singlet and non-singlet combinations</span>
+
+<span class="sd">- sf = F3</span>
+<span class="sd">- q = 2 (i.e. u-quark)</span>
+<span class="sd">- q%2 = 2%2 = 0</span>
+
+<span class="sd">projectile = e+ -&gt; rest = 1</span>
+<span class="sd">- sign = -1</span>
+<span class="sd">- weight[2] is not set (i.e. 0) </span>
+<span class="sd">- weight[-2] = -w</span>
+
+<span class="sd">projectile = e- -&gt; rest = 0</span>
+<span class="sd">- sign = 1</span>
+<span class="sd">- weight[2] = w</span>
+<span class="sd">- weight[-2] is not set</span>
+
+<span class="sd">together</span>
+<span class="sd">- weight[2] + weight[-2] changes sign</span>
+<span class="sd">- weight[2] - weight[-2] does NOT change sign</span>
+
 <span class="sd">&quot;&quot;&quot;</span>
 
 
@@ -219,6 +227,7 @@
         <span class="n">w</span> <span class="o">=</span> <span class="n">coupling_constants</span><span class="o">.</span><span class="n">get_weight</span><span class="p">(</span>
             <span class="n">q</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">obs_name</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">cc_flavor</span><span class="o">=</span><span class="n">obs_name</span><span class="o">.</span><span class="n">raw_flavor</span>
         <span class="p">)</span>
+        <span class="c1"># @F3-sign@</span>
         <span class="n">weights</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">][</span><span class="n">sign</span> <span class="o">*</span> <span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="k">if</span> <span class="n">obs_name</span><span class="o">.</span><span class="n">kind</span> <span class="o">!=</span> <span class="s2">&quot;F3&quot;</span> <span class="k">else</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">w</span>
         <span class="n">tot_ch_sq</span> <span class="o">+=</span> <span class="n">w</span>
     <span class="c1"># gluon coupling = charge sum</span>
