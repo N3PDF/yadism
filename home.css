@@ -1572,6 +1572,42 @@ html {
 
 #home-page {
   height: 100vh;
+  background-color: #fff0d440;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.row, .version-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.external-logo {
+  width: 13em;
+  margin: 2em 3em;
+}
+
+#top-row .item, #top-row .docs-version,
+#bottom-row .item,
+#bottom-row .docs-version {
+  flex-grow: 1;
+}
+#top-row .item.spacer, #top-row .spacer.docs-version,
+#bottom-row .item.spacer,
+#bottom-row .spacer.docs-version {
+  flex-grow: 1000;
+}
+
+.signature {
+  margin: 1em 2em;
+}
+
+#central-matter {
   justify-content: center;
 }
 
@@ -1580,14 +1616,7 @@ html {
   font-weight: 500;
 }
 
-.container, .version-row {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
 .version-row {
-  flex-direction: row;
   justify-content: center;
 }
 
@@ -1597,4 +1626,8 @@ html {
 
 .dropdown {
   margin: 2em;
+}
+
+#cm-bottom-spacer {
+  flex-basis: 7em;
 }
