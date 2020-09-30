@@ -103,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
 </ul>
@@ -110,6 +111,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="tests.html">Tests</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Unit Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#strategy">Strategy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#coverage">Coverage</a></li>
 </ul>
 </li>
@@ -212,11 +214,16 @@
 </style><div class="section" id="unit-tests">
 <h1>Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h1>
 <p>Unit tests are provided to test all the components of the package isolated.</p>
-<p>If needed some structures are mocked to be able to run piece of codes the
-depend on the presence of something else.</p>
-<p>The setup for each test is kept always minimal, trying to reduce each test to
-its atomic components.</p>
-<p>Even the error raising is tested, to ensure its consistency.</p>
+<div class="section" id="strategy">
+<h2>Strategy<a class="headerlink" href="#strategy" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Minimal:</strong> The setup for each test is kept always minimal, trying to reduce each test to
+its atomic components.</p></li>
+<li><p><strong>Mocking:</strong> If needed some structures are mocked to be able to run piece of codes the
+depend on the presence of something else.</p></li>
+<li><p><strong>Errors:</strong> Even the error raising is tested, to ensure its consistency.</p></li>
+</ol>
+</div>
 <div class="section" id="coverage">
 <h2>Coverage<a class="headerlink" href="#coverage" title="Permalink to this headline">¶</a></h2>
 <p>The testing is checked and guaranteed by coverage metrics.</p>

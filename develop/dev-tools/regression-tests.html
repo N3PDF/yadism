@@ -103,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
 </ul>
@@ -111,7 +112,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="tests.html">Tests</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="unit-tests.html">Unit Tests</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Regression Tests</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#strategy">Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slicing-1-hot">Slicing (1-hot)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="benchmarks.html">Benchmarks</a></li>
@@ -213,6 +215,8 @@
 <h1>Regression Tests<a class="headerlink" href="#regression-tests" title="Permalink to this headline">¶</a></h1>
 <p>This tests are implemented to guarantee the historical consistency of
 <a class="reference internal" href="../modules/yadism.html#module-yadism" title="yadism"><code class="xref py py-mod docutils literal notranslate"><span class="pre">yadism</span></code></a> results.</p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>A set of results is produced at a given time and stored separately from the
 package code (currently a <em>GitHub Gist</em> has been chosen for storing the
 <code class="docutils literal notranslate"><span class="pre">json</span></code> file).</p>
@@ -220,11 +224,18 @@ package code (currently a <em>GitHub Gist</em> has been chosen for storing the
 the previously generated results, fetch these ones and compare the new with the
 stored to ensure that nothing has been changed (if some behavior has been
 modified willfully it will be sufficient to ignore the generated warning).</p>
-<div class="section" id="strategy">
-<h2>Strategy<a class="headerlink" href="#strategy" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="slicing-1-hot">
+<h2>Slicing (1-hot)<a class="headerlink" href="#slicing-1-hot" title="Permalink to this headline">¶</a></h2>
 <p>Since it is not possible to test the full matrix of combinations, because of
 its exponential complexity in the features number, a one-hot strategy has been
 adopted.</p>
+<div class="admonition-hot admonition">
+<p class="admonition-title">1-hot</p>
+<p>It means that if multiple features can be toggle a single one is chosen and
+activated, keeping all the others off. Then iterate over all the possible
+selection (we borrowed this name from the well-known <a class="reference external" href="https://en.wikipedia.org/wiki/One-hot">One-hot encoding</a>.</p>
+</div>
 <p>This means that <strong>all the features</strong> are controlled by the <em>regression tests</em>,
 but <strong>not all the combinations</strong>.</p>
 </div>

@@ -101,17 +101,17 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">DIS introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Coefficient Functions Calculation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#coefficients-conventions-aka-weights">Coefficients conventions (aka “weights”)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#neutral-currents">Neutral Currents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#charged-currents">Charged Currents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#convolution-integral">Convolution Integral</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#convolution-to-integration">Convolution to Integration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#regular-singular-local">Regular - Singular - Local</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#convolution-integral">Convolution Integral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#regular-singular-local-rsl">Regular - Singular - Local (RSL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integral-details">Integral Details</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
 </ul>
@@ -210,41 +210,76 @@
   }
 </style><div class="section" id="coefficient-functions-calculation">
 <h1>Coefficient Functions Calculation<a class="headerlink" href="#coefficient-functions-calculation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="coefficients-conventions-aka-weights">
-<h2>Coefficients conventions (aka “weights”)<a class="headerlink" href="#coefficients-conventions-aka-weights" title="Permalink to this headline">¶</a></h2>
-<p>Define the coefficient from <em>factorization scheme</em>.</p>
-<p>Do we want to include also the perturbative expansion convention? (expand in
-<code class="docutils literal notranslate"><span class="pre">a_s</span></code>)</p>
-<ul class="simple">
-<li><p>leptonic</p></li>
-<li><p>propagator</p></li>
-<li><p>hadronic</p></li>
-<li><p>factorization formula contributions</p></li>
-</ul>
-<div class="section" id="neutral-currents">
-<h3>Neutral Currents<a class="headerlink" href="#neutral-currents" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>electromagnetic</p></li>
-<li><p>z: vectorial-vectorial, axial-axial</p></li>
-<li><p>f3: vectorial-axial</p></li>
-</ul>
-</div>
-<div class="section" id="charged-currents">
-<h3>Charged Currents<a class="headerlink" href="#charged-currents" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>ckm</p></li>
-<li><p>W+/-</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="regular-singular-local">
-<h2>Regular - Singular - Local<a class="headerlink" href="#regular-singular-local" title="Permalink to this headline">¶</a></h2>
-<p>Define the split in three bits.</p>
-</div>
 <div class="section" id="convolution-integral">
 <h2>Convolution Integral<a class="headerlink" href="#convolution-integral" title="Permalink to this headline">¶</a></h2>
 <p>How we recast convolution in an integration in [0,1] (where plus distributions
 are properly defined) plus some addends.</p>
+<div class="section" id="convolution-to-integration">
+<h3>Convolution to Integration<a class="headerlink" href="#convolution-to-integration" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\int_x^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ &amp;=
+\int_0^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ - \int_0^x \frac{\text{d}
+z}{z} f(z) \cdot \left[ h(z) \right]_+\\
+&amp;= \int_0^1 \text{d} z \left(\frac{f(z)}{z} - f(1)\right) \cdot h(z) - \int_0^x \text{d}
+z \frac{ f(z)}{z} \cdot h(z)\\
+&amp;= \int_x^1 \text{d} z \left(\frac{f(z)}{z} - f(1)\right) \cdot h(z) - f(1) \int_0^x
+\text{d} z~ h(z)
+\end{align}\end{split}\]</div>
+<p>And explicitly for a product of distributions:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+ &amp; \int_x^1 \frac{\text{d} z}{z} f(z) g(z) \cdot \left[ h(z) \right]_+\\
+ &amp;=
+\int_0^1 \frac{\text{d} z}{z} f(z) g(z) \cdot \left[ h(z) \right]_+ - \int_0^x \frac{\text{d}
+z}{z} f(z) g(z) \cdot \left[ h(z) \right]_+\\
+&amp;= \int_0^1 \text{d} z \left(\frac{f(z)g(z)}{z} - f(1)g(1)\right) \cdot h(z) - \int_0^x \text{d}
+z \frac{ f(z) g(z)}{z} \cdot h(z)\\
+&amp;= \int_x^1 \text{d} z \left(\frac{f(z)g(z)}{z} - f(1)g(1)\right) \cdot h(z) - f(1) g(1) \int_0^x\text{d} z~ h(z)\\
+&amp;= \int_x^1 \text{d} z \left(\frac{f(z)(g(z)+g(1)-g(1))}{z} - f(1)g(1)\right) \cdot h(z) - f(1) g(1) \int_0^x\text{d} z~ h(z)\\
+&amp;= \int_x^1 \text{d} z \left(\frac{f(z)}{z} - f(1)\right)  g(1)\cdot h(z) + \int_x^1 \text{d} z \frac{f(z)(g(z)-g(1)))}{z} h(z)  - f(1) g(1) \int_0^x\text{d} z~ h(z)\\
+&amp;= \int_x^1  \frac{\text{d} z}{ z} f(z)  g(1)\cdot \left[h(z)\right]_+ + \int_x^1 \text{d} z \frac{f(z)(g(z)-g(1)))}{z} h(z)
+\end{align}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="regular-singular-local-rsl">
+<h2>Regular - Singular - Local (RSL)<a class="headerlink" href="#regular-singular-local-rsl" title="Permalink to this headline">¶</a></h2>
+<p>A generic coefficient function will allow for three ingredients:</p>
+<ul class="simple">
+<li><p>regular functions</p></li>
+<li><p><span class="math notranslate nohighlight">\(delta(1-x)\)</span> distributions</p></li>
+<li><p><span class="math notranslate nohighlight">\(\left[f(x)\right]_+\)</span> distributions (where the function inside can be a
+generic function, but it will always be <span class="math notranslate nohighlight">\(\log^k(1-x)/(1-x)\)</span> in practice)</p></li>
+</ul>
+<p>The first one can be integrated by ordinary methods, but the other two will
+deserve special care:</p>
+<ul class="simple">
+<li><p>the <span class="math notranslate nohighlight">\(delta\)</span> part it becomes a simple evaluation of anything multiplied,
+but since this is not going to be numerically integrated this contributions
+are split in the code and directly evaluated; this <em>not-integrated</em> part is
+called the <strong>local (L)</strong> part, and <span class="math notranslate nohighlight">\(delta\)</span> contributions will go
+completely into it</p></li>
+<li><p>the plus distributions instead will contribute to two different parts: the
+<em>local</em> and the <strong>singular (S)</strong> one, that it will involve an integration
+with not just the plain function multiplied to it, but a little bit more
+complicate prescription, i.e.:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\int_x^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ = \int_x^1
+\text{d} z \left(\frac{f(z)}{z} - f(1)\right) \cdot h(z) - f(1) \int_0^x
+\text{d} z~ h(z)\\as it is derived in the previous section; the first bit will be the plus
+distribution contribution to the *singular*, while the second to the *local*
+part of the integration\end{aligned}\end{align} \]</div>
+</div>
+<div class="section" id="integral-details">
+<h2>Integral Details<a class="headerlink" href="#integral-details" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>if area does not overlap it’s set to 0 and integral skip</p></li>
+<li><p>we are using <cite>scipy.quad</cite></p></li>
+<li><p>precision can be set</p></li>
+<li><p>some areas specification are passed to quad</p></li>
+<li><p>the extremes are cut a little, to regulate integration behavior</p></li>
+</ul>
 </div>
 </div>
 

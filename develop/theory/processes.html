@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Scale Variations &mdash; yadism 0.3.3~develop documentation</title>
+  <title>Processes &mdash; yadism 0.3.3~develop documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Target Mass Corrections" href="TMC.html" />
-    <link rel="prev" title="Processes" href="processes.html" /> 
+    <link rel="next" title="Scale Variations" href="scale-variations.html" />
+    <link rel="prev" title="Heavy Flavors" href="heavy-flavors.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,13 +103,17 @@
 <li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions Calculation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="processes.html">Processes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Scale Variations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#renormalization-scale">Renormalization Scale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#factorization-scale">Factorization Scale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#points-vs-7-points">9-points vs 7-Points</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Processes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#weights">Weights</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#em">EM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nc">NC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cc">CC</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
@@ -166,14 +170,14 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Scale Variations</li>
+      <li>Processes</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/theory/scale-variations.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/theory/processes.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -205,17 +209,69 @@
   span.eqref:after {
     content: ")";
   }
-</style><div class="section" id="scale-variations">
-<h1>Scale Variations<a class="headerlink" href="#scale-variations" title="Permalink to this headline">¶</a></h1>
-<p>The main reference is <a class="bibtex reference internal" href="../zzz-refs.html#vogt-sv" id="id1">[vNV00]</a>.</p>
-<div class="section" id="renormalization-scale">
-<h2>Renormalization Scale<a class="headerlink" href="#renormalization-scale" title="Permalink to this headline">¶</a></h2>
+</style><div class="section" id="processes">
+<h1>Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h1>
+<p><abbr title="Deep Inelastic Scattering">DIS</abbr> itself is a kind of process, but it can be mediated by different bosons,
+so for this reason we further subdivide it in 3 groups:</p>
+<ul class="simple">
+<li><p><abbr title="Electromagnetic Current">EM</abbr>: the pure electromagnetic one, mediated by the photon <span class="math notranslate nohighlight">\(\gamma\)</span></p></li>
+<li><p><abbr title="Neutral Current">NC</abbr>: a superset of the previous one, where the mediator is any neutral <abbr title="ElectroWeak">EW</abbr>
+gauge boson, and so <span class="math notranslate nohighlight">\(\gamma,~Z\)</span></p></li>
+<li><p><abbr title="Charged Current">CC</abbr>: the <abbr title="ElectroWeak">EW</abbr> charged current, so when the mediator is one of
+<span class="math notranslate nohighlight">\(W_+,~W_-\)</span></p></li>
+</ul>
+<div class="section" id="weights">
+<h2>Weights<a class="headerlink" href="#weights" title="Permalink to this headline">¶</a></h2>
+<p>The choice of the process will affect the coefficient functions, in particular
+they will be different for <abbr title="Neutral Current">NC</abbr> and <abbr title="Charged Current">CC</abbr>, but the <abbr title="Electromagnetic Current">EM</abbr> are exactly the same of
+the <abbr title="Neutral Current">NC</abbr> (because the diagram are exactly the same for the <span class="math notranslate nohighlight">\(\gamma\)</span> and
+the <span class="math notranslate nohighlight">\(Z\)</span>).</p>
+<p>But coefficient functions are not the only relevant thing about processes,
+indeed they will affect also the coupling to the quarks and the relation
+between the <em>hadronic</em> and <em>leptonic</em> part of <abbr title="Deep Inelastic Scattering">DIS</abbr>.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Here a picture made with Inkscape of DIS diagram to make it clear what is
+the hadronic part, what the leptonic and where the coupling are coming into
+the game.</p>
 </div>
-<div class="section" id="factorization-scale">
-<h2>Factorization Scale<a class="headerlink" href="#factorization-scale" title="Permalink to this headline">¶</a></h2>
+<p>These two further contributions are collected in what we call the <strong>weight</strong>
+of each coefficient function (i.e. the weight of each element of the flavor
+basis, but we stress that (coefficient functions, processes) and weights are
+mapped <span class="math notranslate nohighlight">\(1 \leftrightarrow 1\)</span>).</p>
+<p>In the following the description of the weights for each kind of <abbr title="Deep Inelastic Scattering">DIS</abbr> process.</p>
+<div class="section" id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h3>
+<p>Define the coefficient from <em>factorization scheme</em>.</p>
+<p>Do we want to include also the perturbative expansion convention? (expand in
+<code class="docutils literal notranslate"><span class="pre">a_s</span></code>)</p>
+<ul class="simple">
+<li><p>leptonic</p></li>
+<li><p>propagator</p></li>
+<li><p>hadronic</p></li>
+<li><p>factorization formula contributions</p></li>
+</ul>
 </div>
-<div class="section" id="points-vs-7-points">
-<h2>9-points vs 7-Points<a class="headerlink" href="#points-vs-7-points" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="em">
+<h3>EM<a class="headerlink" href="#em" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>electromagnetic charges</p></li>
+</ul>
+</div>
+<div class="section" id="nc">
+<h3>NC<a class="headerlink" href="#nc" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>z: vectorial-vectorial, axial-axial</p></li>
+<li><p>f3: vectorial-axial</p></li>
+</ul>
+</div>
+<div class="section" id="cc">
+<h3>CC<a class="headerlink" href="#cc" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ckm</p></li>
+<li><p>W+/-</p></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -227,10 +283,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="TMC.html" class="btn btn-neutral float-right" title="Target Mass Corrections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scale-variations.html" class="btn btn-neutral float-right" title="Scale Variations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="processes.html" class="btn btn-neutral float-left" title="Processes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="heavy-flavors.html" class="btn btn-neutral float-left" title="Heavy Flavors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
