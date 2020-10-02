@@ -440,7 +440,7 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">leptonic_coupling</span><span class="p">(</span><span class="s2">&quot;WW&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hadronic_coupling</span><span class="p">(</span>
                 <span class="s2">&quot;WW&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">cc_flavor</span><span class="o">=</span><span class="n">cc_flavor</span>
             <span class="p">)</span>
-        <span class="k">return</span> <span class="mi">0</span></div>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown process: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s1">&#39;process&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="CouplingConstants.from_dict"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">theory</span><span class="p">,</span> <span class="n">observables</span><span class="p">):</span>
@@ -487,7 +487,7 @@
             <span class="s2">&quot;antineutrino&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="n">projectile</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">projectile_pids</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unkown projectile </span><span class="si">{</span><span class="n">projectile</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown projectile </span><span class="si">{</span><span class="n">projectile</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">obs_config</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;process&quot;</span><span class="p">:</span> <span class="n">observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;prDIS&quot;</span><span class="p">,</span> <span class="s2">&quot;EM&quot;</span><span class="p">),</span>
             <span class="s2">&quot;projectilePID&quot;</span><span class="p">:</span> <span class="n">projectile_pids</span><span class="p">[</span><span class="n">projectile</span><span class="p">],</span>
