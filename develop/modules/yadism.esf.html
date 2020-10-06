@@ -253,7 +253,7 @@ distributions object in the coefficient function definition and calculation.</p>
 <dl class="py class">
 <dt id="yadism.esf.distribution_vec.DistributionVec">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.esf.distribution_vec.</code><code class="sig-name descname">DistributionVec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">regular</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">singular</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">local</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/esf/distribution_vec.html#DistributionVec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.esf.distribution_vec.DistributionVec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p><a class="reference internal" href="#yadism.esf.distribution_vec.DistributionVec" title="yadism.esf.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a> is an object that encodes the structure of a
 distribution, as opposed to a regular function. It consists of an array of
 functions, considered as coefficients of the following distributions basis:</p>
@@ -373,7 +373,7 @@ current one</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – The only kind of comparison available is between two
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><strong>ValueError</strong></a> – The only kind of comparison available is between two
     <a class="reference internal" href="#yadism.esf.distribution_vec.DistributionVec" title="yadism.esf.distribution_vec.DistributionVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">DistributionVec</span></code></a>, so if the first argument provided
     does not match the type an error is raised.</p>
 </dd>
@@ -462,8 +462,8 @@ needed for heavy quark calculation, like matching schemes</p>
 </dl>
 <dl class="py class">
 <dt id="yadism.esf.esf.EvaluatedStructureFunction">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.esf.esf.</code><code class="sig-name descname">EvaluatedStructureFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/esf/esf.html#EvaluatedStructureFunction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.esf.esf.EvaluatedStructureFunction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.esf.esf.</code><code class="sig-name descname">EvaluatedStructureFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/esf/esf.html#EvaluatedStructureFunction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.esf.esf.EvaluatedStructureFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>The actual Structure Function implementation.</p>
 <p>This class is the abstract class that implements the structure for all
 the coefficient functions’ providers, for a single kinematic point (x,
@@ -504,7 +504,7 @@ and doesn’t keep any reference to the others.</p>
 interface, holds references to global objects (like managers coming
 from <code class="xref py py-mod docutils literal notranslate"><span class="pre">eko</span></code>, e.g. <code class="xref py py-class docutils literal notranslate"><span class="pre">InterpolatorDispatcher</span></code>) and
 implements the global caching</p></li>
-<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – the specific kinematic point as a dict with two elements (‘x’, ‘Q2’)</p></li>
+<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – the specific kinematic point as a dict with two elements (‘x’, ‘Q2’)</p></li>
 </ul>
 </dd>
 </dl>
@@ -539,7 +539,7 @@ instance’s attributes (this method is for internal use).</p>
 
 <dl class="py method">
 <dt id="yadism.esf.esf.EvaluatedStructureFunction.get_output">
-<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a><a class="reference internal" href="../_modules/yadism/esf/esf.html#EvaluatedStructureFunction.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.esf.esf.EvaluatedStructureFunction.get_output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a><a class="reference internal" href="../_modules/yadism/esf/esf.html#EvaluatedStructureFunction.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.esf.esf.EvaluatedStructureFunction.get_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the output for this instance.</p>
 <p>In particular it returns the convolution of the coefficient function
 for the selected observable and the array of basis functions, so the
@@ -558,7 +558,7 @@ result will be an array itself, running over the interpolation grid.</p>
 </p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -643,7 +643,7 @@ really meaning up, down, and strange quark contributions.</p>
 <dl class="py class">
 <dt id="yadism.esf.esf_result.ESFResult">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.esf.esf_result.</code><code class="sig-name descname">ESFResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">Q2</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/esf/esf_result.html#ESFResult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.esf.esf_result.ESFResult" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <div class="admonition-todo admonition" id="id6">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
@@ -725,7 +725,7 @@ really meaning up, down, and strange quark contributions.</p>
 <dd class="field-odd"><p><strong>out</strong> – output dictionary</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -736,7 +736,7 @@ really meaning up, down, and strange quark contributions.</p>
 <dd><p>Returns a new object with all keys suffixed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>val</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – suffix</p>
+<dd class="field-odd"><p><strong>val</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – suffix</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>res</strong> – suffixed result</p>
@@ -754,14 +754,14 @@ really meaning up, down, and strange quark contributions.</p>
 <span id="yadism-esf-f-total-module"></span><h2>yadism.esf.f_total module<a class="headerlink" href="#module-yadism.esf.f_total" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="yadism.esf.f_total.EvaluatedStructureFunctionFtotal">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.esf.f_total.</code><code class="sig-name descname">EvaluatedStructureFunctionFtotal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/esf/f_total.html#EvaluatedStructureFunctionFtotal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.esf.f_total.EvaluatedStructureFunctionFtotal" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.esf.f_total.</code><code class="sig-name descname">EvaluatedStructureFunctionFtotal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/esf/f_total.html#EvaluatedStructureFunctionFtotal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.esf.f_total.EvaluatedStructureFunctionFtotal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.esf.esf.EvaluatedStructureFunction" title="yadism.esf.esf.EvaluatedStructureFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.esf.esf.EvaluatedStructureFunction</span></code></a></p>
 <p>Complete structure function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>SF</strong> (<a class="reference internal" href="yadism.html#yadism.sf.StructureFunction" title="yadism.sf.StructureFunction"><em>StructureFunction</em></a>) – the parent <code class="xref py py-class docutils literal notranslate"><span class="pre">StructureFunction</span></code> instance</p></li>
-<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – the specific kinematic point as a dict with two elements (‘x’, ‘Q2’)</p></li>
+<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – the specific kinematic point as a dict with two elements (‘x’, ‘Q2’)</p></li>
 </ul>
 </dd>
 </dl>

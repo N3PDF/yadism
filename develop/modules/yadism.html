@@ -240,7 +240,7 @@
 </div>
 <dl class="py function">
 <dt id="yadism.run_yadism">
-<code class="sig-prename descclassname">yadism.</code><code class="sig-name descname">run_yadism</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em>, <em class="sig-param"><span class="n">observables</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#yadism.runner.Runner" title="yadism.runner.Runner">yadism.runner.Runner</a><a class="reference internal" href="../_modules/yadism.html#run_yadism"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.run_yadism" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">yadism.</code><code class="sig-name descname">run_yadism</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em>, <em class="sig-param"><span class="n">observables</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#yadism.runner.Runner" title="yadism.runner.Runner">yadism.runner.Runner</a><a class="reference internal" href="../_modules/yadism.html#run_yadism"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.run_yadism" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition-todo admonition" id="id2">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
@@ -304,11 +304,11 @@
 <dl class="py class">
 <dt id="yadism.coupling_constants.CKM2Matrix">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.coupling_constants.</code><code class="sig-name descname">CKM2Matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elems</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CKM2Matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CKM2Matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Wrapper for the CKM matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>elems</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a><em>)</em>) – squared elements in row order</p>
+<dd class="field-odd"><p><strong>elems</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>)</em>) – squared elements in row order</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -317,13 +317,13 @@
 <dd><p>Get column and row depending on pid</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – particle identifier</p>
+<dd class="field-odd"><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – particle identifier</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>elems</strong> – row or column</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a>)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -361,7 +361,7 @@
 <dd><p>Create the object from a string representation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>theory_string</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – all elements rowwise in a string</p>
+<dd class="field-odd"><p><strong>theory_string</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – all elements rowwise in a string</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>m</strong> – created object</p>
@@ -378,7 +378,7 @@
 <dd><p>Apply a mask according to the flavor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – flavor type</p>
+<dd class="field-odd"><p><strong>flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – flavor type</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>matrix</strong> – masked matrix</p>
@@ -404,7 +404,7 @@
 <dl class="py class">
 <dt id="yadism.coupling_constants.CouplingConstants">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.coupling_constants.</code><code class="sig-name descname">CouplingConstants</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory_config</span></em>, <em class="sig-param"><span class="n">obs_config</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Defines the coupling constants between the QCD particles and the EW particles</p>
 <dl class="py method">
 <dt id="yadism.coupling_constants.CouplingConstants.from_dict">
@@ -413,8 +413,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>theory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – theory dictionary</p></li>
-<li><p><strong>observables</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – observables dictionary</p></li>
+<li><p><strong>theory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – theory dictionary</p></li>
+<li><p><strong>observables</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – observables dictionary</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -435,19 +435,19 @@ as propagator changes and/or corrections.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – particle identifier</p></li>
-<li><p><strong>Q2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – DIS virtuality</p></li>
-<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
-<li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
+<li><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – particle identifier</p></li>
+<li><p><strong>Q2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – DIS virtuality</p></li>
+<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
+<li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
 coupling</p></li>
-<li><p><strong>cc_flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
+<li><p><strong>cc_flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>w</strong> – weight</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -459,19 +459,19 @@ coupling</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – scattered bosons</p></li>
-<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
-<li><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – parton identifier</p></li>
-<li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – scattered bosons</p></li>
+<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
+<li><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – parton identifier</p></li>
+<li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
 coupling</p></li>
-<li><p><strong>cc_flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
+<li><p><strong>cc_flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>hadronic_coupling</strong> – hadronic coupling</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -483,15 +483,15 @@ coupling</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – scattered bosons</p></li>
-<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – scattered bosons</p></li>
+<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>leptonic_coupling</strong> – leptonic coupling</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -503,15 +503,15 @@ coupling</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – scattered bosons</p></li>
-<li><p><strong>Q2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – virtuality of the process</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – scattered bosons</p></li>
+<li><p><strong>Q2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – virtuality of the process</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>propagator_factor</strong> – propagator shift</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -530,11 +530,11 @@ coupling</p></li>
 <dl class="py class">
 <dt id="yadism.observable_name.ObservableName">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.observable_name.</code><code class="sig-name descname">ObservableName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/observable_name.html#ObservableName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.observable_name.ObservableName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Wrapper to observable names to easy split them into two parts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – full observable name</p>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – full observable name</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -574,7 +574,7 @@ coupling</p></li>
 <dd class="field-odd"><p><strong>apply_asy</strong> – asymptotic heavy correspondend</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)">type</a>(self)</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)">type</a>(self)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -585,13 +585,13 @@ coupling</p></li>
 <dd><p>Create new object with given flavor and our kind</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – new flavor</p>
+<dd class="field-odd"><p><strong>flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – new flavor</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>apply_flavor</strong> – our kind and new flavor</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)">type</a>(self)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)">type</a>(self)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -605,7 +605,7 @@ coupling</p></li>
 <dd class="field-odd"><p><strong>apply_flavor_family</strong> – new ObservableName</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)">type</a>(self)</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)">type</a>(self)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -616,13 +616,13 @@ coupling</p></li>
 <dd><p>Create new object with given kind and our flavor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – new kind</p>
+<dd class="field-odd"><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – new kind</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>apply_kind</strong> – new kind and our flavor</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)">type</a>(self)</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)">type</a>(self)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -639,13 +639,13 @@ coupling</p></li>
 <dd><p>Are there any heavy objects in names?</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>)</em>) – names to check</p>
+<dd class="field-odd"><p><strong>names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>)</em>) – names to check</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>has_heavies</strong> – are there heavy obs in names?</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -656,13 +656,13 @@ coupling</p></li>
 <dd><p>Are there any light objects in names?</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>)</em>) – names to check</p>
+<dd class="field-odd"><p><strong>names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>)</em>) – names to check</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>has_lights</strong> – are there light obs in names?</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -694,7 +694,7 @@ coupling</p></li>
 <dd class="field-odd"><p><strong>is_heavy</strong> – is a heavy flavor?</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -720,7 +720,7 @@ coupling</p></li>
 <dd class="field-odd"><p><strong>is_valid</strong> – is valid name?</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -757,7 +757,7 @@ coupling</p></li>
 <dl class="py class">
 <dt id="yadism.output.Output">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.output.</code><code class="sig-name descname">Output</code><a class="reference internal" href="../_modules/yadism/output.html#Output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.Output" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 <div class="admonition-todo admonition" id="id4">
 <p class="admonition-title">Todo</p>
 <p>docs</p>
@@ -786,7 +786,7 @@ coupling</p></li>
 <dl class="py class">
 <dt id="yadism.partonic_channel.PartonicChannel">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">PartonicChannel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ESF</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 <p>Container of partonic coefficient functions</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -857,15 +857,15 @@ and calls the proper method to get the requested output</p></li>
 </div>
 <dl class="py class">
 <dt id="yadism.runner.Runner">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.runner.</code><code class="sig-name descname">Runner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em>, <em class="sig-param"><span class="n">observables</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/runner.html#Runner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.runner.</code><code class="sig-name descname">Runner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em>, <em class="sig-param"><span class="n">observables</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/runner.html#Runner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Wrapper to compute a process</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>theory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Dictionary with the theory parameters for the evolution (currently
+<li><p><strong>theory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Dictionary with the theory parameters for the evolution (currently
 including PDFSet and DIS process indication).</p></li>
-<li><p><strong>observables</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – DIS parameters: process description, kinematic specification for the
+<li><p><strong>observables</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – DIS parameters: process description, kinematic specification for the
 requested output.</p></li>
 </ul>
 </dd>
@@ -882,7 +882,7 @@ dictionaries read ??.</p>
 </div>
 <dl class="py method">
 <dt id="yadism.runner.Runner.__call__">
-<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdfs</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.__call__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdfs</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
@@ -896,7 +896,7 @@ dictionaries read ??.</p>
 
 <dl class="py method">
 <dt id="yadism.runner.Runner.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdfs</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.apply" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdfs</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for the <cite>__call__</cite> method.</p>
 <div class="admonition-todo admonition" id="id7">
 <p class="admonition-title">Todo</p>
@@ -914,7 +914,7 @@ dictionaries read ??.</p>
 
 <dl class="py method">
 <dt id="yadism.runner.Runner.clear">
-<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.clear" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Or ‘restart’ or whatever</p>
 <div class="admonition-todo admonition" id="id8">
 <p class="admonition-title">Todo</p>
@@ -927,7 +927,7 @@ dictionaries read ??.</p>
 
 <dl class="py method">
 <dt id="yadism.runner.Runner.dump">
-<code class="sig-name descname">dump</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.dump" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dump</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>If any output available (‘computed’) dump the current output on file</p>
 <div class="admonition-todo admonition" id="id9">
 <p class="admonition-title">Todo</p>
@@ -978,7 +978,7 @@ point (x, Q2)</p>
 <dl class="py class">
 <dt id="yadism.sf.StructureFunction">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.sf.</code><code class="sig-name descname">StructureFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obs_name</span></em>, <em class="sig-param"><span class="n">runner</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">eko_components</span></em>, <em class="sig-param"><span class="n">theory_params</span></em>, <em class="sig-param"><span class="n">obs_params</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Represents an abstract structure function.</p>
 <p>This class acts as an intermediate handler between the <code class="xref py py-class docutils literal notranslate"><span class="pre">Runner</span></code>
 exposed to the outside and the <code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatedStructureFunction</span></code>
@@ -989,9 +989,9 @@ active, by <cite>ESFTMCmap</cite>.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obs_name</strong> (<a class="reference internal" href="#yadism.observable_name.ObservableName" title="yadism.observable_name.ObservableName"><em>observable_name.ObservableName</em></a>) – name</p></li>
-<li><p><strong>eko_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – managers dictionary that holds all created managers (which wrap
+<li><p><strong>eko_components</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – managers dictionary that holds all created managers (which wrap
 some more complicated structure)</p></li>
-<li><p><strong>theory_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – theory dictionary containing all needed parameters</p></li>
+<li><p><strong>theory_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – theory dictionary containing all needed parameters</p></li>
 </ul>
 </dd>
 </dl>
@@ -1010,9 +1010,9 @@ in TMC.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>obs_name</strong> (<a class="reference internal" href="#yadism.observable_name.ObservableName" title="yadism.observable_name.ObservableName"><em>observable_name.ObservableName</em></a>) – structure function name</p></li>
-<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – kinematic configuration</p></li>
+<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – kinematic configuration</p></li>
 <li><p><strong>args</strong> (<em>any</em>) – further arguments passed down to the instance</p></li>
-<li><p><strong>use_raw</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – eventually use the ESFTMC? (or just the uncorrected one)</p></li>
+<li><p><strong>use_raw</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – eventually use the ESFTMC? (or just the uncorrected one)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1033,7 +1033,7 @@ in TMC.</p>
 <dd class="field-odd"><p><strong>output</strong> – all children outputs</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a>)</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1044,7 +1044,7 @@ in TMC.</p>
 <dd><p>Loads all kinematic configurations from the run card.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>kinematic_configs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a><em>)</em>) – run card input</p>
+<dd class="field-odd"><p><strong>kinematic_configs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>)</em>) – run card input</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1079,15 +1079,15 @@ which see <code class="xref py py-mod docutils literal notranslate"><span class=
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – momentum fraction</p></li>
-<li><p><strong>constants</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><em>object</em></a>) – an object holding constants value (for common QCD constants)</p></li>
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p></li>
+<li><p><strong>constants</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><em>object</em></a>) – an object holding constants value (for common QCD constants)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>the pqg splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1101,15 +1101,15 @@ splitting function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – momentum fraction</p></li>
-<li><p><strong>constants</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><em>object</em></a>) – an object holding constants value (for common QCD constants)</p></li>
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p></li>
+<li><p><strong>constants</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><em>object</em></a>) – an object holding constants value (for common QCD constants)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>the delta bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1123,15 +1123,15 @@ splitting function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – momentum fraction</p></li>
-<li><p><strong>constants</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><em>object</em></a>) – an object holding constants value (for common QCD constants)</p></li>
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p></li>
+<li><p><strong>constants</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><em>object</em></a>) – an object holding constants value (for common QCD constants)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>the <em>omx</em> bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1144,15 +1144,15 @@ splitting function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – momentum fraction</p></li>
-<li><p><strong>constants</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><em>object</em></a>) – an object holding constants value (for common QCD constants)</p></li>
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p></li>
+<li><p><strong>constants</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><em>object</em></a>) – an object holding constants value (for common QCD constants)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>the regular bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1194,7 +1194,7 @@ of F2, for all the three (+1) kinds described in the parent class
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>SF</strong> (<a class="reference internal" href="#yadism.sf.StructureFunction" title="yadism.sf.StructureFunction"><em>StructureFunction</em></a>) – the interface object representing the structure function kind he
 belongs to</p></li>
-<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – requested kinematic point</p></li>
+<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – requested kinematic point</p></li>
 </ul>
 </dd>
 </dl>
@@ -1267,7 +1267,7 @@ of F3, for all the three (+1) kinds described in the parent class
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>SF</strong> (<a class="reference internal" href="#yadism.sf.StructureFunction" title="yadism.sf.StructureFunction"><em>StructureFunction</em></a>) – the interface object representing the structure function kind he
 belongs to</p></li>
-<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – requested kinematic point</p></li>
+<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – requested kinematic point</p></li>
 </ul>
 </dd>
 </dl>
@@ -1335,7 +1335,7 @@ h_3(\xi,Q^2) &amp;= \int_\xi^1 du \frac{F_3(u,Q^2)}{u}\\
 <dd class="field-odd"><p><strong>h3</strong> – ESF output for the integral</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1354,7 +1354,7 @@ of FL, for all the three (+1) kinds described in the parent class
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>SF</strong> (<a class="reference internal" href="#yadism.sf.StructureFunction" title="yadism.sf.StructureFunction"><em>StructureFunction</em></a>) – the interface object representing the structure function kind he
 belongs to</p></li>
-<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – requested kinematic point</p></li>
+<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – requested kinematic point</p></li>
 </ul>
 </dd>
 </dl>
@@ -1418,7 +1418,7 @@ according to the structure function). If this is to expensive check
 indicating the kind of the required structure function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1426,7 +1426,7 @@ indicating the kind of the required structure function.</p>
 <dl class="py class">
 <dt id="yadism.tmc.EvaluatedStructureFunctionTMC">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.tmc.</code><code class="sig-name descname">EvaluatedStructureFunctionTMC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">SF</span></em>, <em class="sig-param"><span class="n">kinematics</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
 <p>This is an abstract class, made to serve the machinery to the inheriting
 classes. In particular here are defined:</p>
 <blockquote>
@@ -1452,7 +1452,7 @@ functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span c
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>SF</strong> (<a class="reference internal" href="#yadism.sf.StructureFunction" title="yadism.sf.StructureFunction"><em>StructureFunction</em></a>) – the interface object representing the structure function kind he
 belongs to</p></li>
-<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – requested kinematic point</p></li>
+<li><p><strong>kinematics</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – requested kinematic point</p></li>
 </ul>
 </dd>
 </dl>
@@ -1486,7 +1486,7 @@ other terms not described here.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – observable kind</p></li>
+<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable kind</p></li>
 <li><p><strong>ker</strong> (<em>callable</em>) – the kernel function to be convoluted with structure functions</p></li>
 </ul>
 </dd>
@@ -1509,7 +1509,7 @@ other terms not described here.</p>
 <dd class="field-odd"><p><strong>g2</strong> – ESF output for the integral</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1574,7 +1574,7 @@ h_2(\xi,Q^2) &amp;= \int_\xi^1 du \frac{F_2(u,Q^2)}{u^2}\\
 <dd class="field-odd"><p><strong>h2</strong> – ESF output for the integral</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1587,13 +1587,13 @@ corrected structure function.</p>
 <p>The kinematics is set to be the requested one, as it should (and not
 the shifted one used in evaluation of expression terms).</p>
 <p>This method is the sibling of <a class="reference internal" href="#yadism.tmc.EvaluatedStructureFunctionTMC.get_result" title="yadism.tmc.EvaluatedStructureFunctionTMC.get_result"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_result()</span></code></a>, providing a
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> as output, instead of an object.</p>
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> as output, instead of an object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>out</strong> – an dictionary that stores the details and result of the calculation</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
