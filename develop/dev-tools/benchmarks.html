@@ -116,7 +116,10 @@
 <li class="toctree-l2"><a class="reference internal" href="regression-tests.html">Regression Tests</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Benchmarks</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#apfel"><a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#qcdnum"><a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qcdnum"><a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#different-definition-of-sf">Different definition of <abbr title="Structure Function">SF</abbr></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -228,6 +231,27 @@ package.</p>
 <p>It is a tool aimed to the evolution of PDFs and DIS observables’ calculation in
 a restricted number of schemes.</p>
 <p>It is/has been used by the <cite>xFitter</cite> framework.</p>
+<div class="section" id="different-definition-of-sf">
+<h3>Different definition of <abbr title="Structure Function">SF</abbr><a class="headerlink" href="#different-definition-of-sf" title="Permalink to this headline">¶</a></h3>
+<p>Due to a different definition <abbr title="Structure Function">SF</abbr> in <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a> (and so <cite>yadism</cite>) and <a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a> is
+not possible to compare all the structure functions in all the schemes.</p>
+<p>In particular <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a>/<cite>yadism</cite> definition of <abbr title="Structure Function">SF</abbr> is based on the coupling to
+the photon (or <abbr title="Deep Inelastic Scattering">DIS</abbr> boson in general), cf. <a class="reference internal" href="../theory/light-flavors.html"><span class="doc">Light Flavors</span></a> and
+<a class="reference internal" href="../theory/heavy-flavors.html"><span class="doc">Heavy Flavors</span></a>.</p>
+<p>On the other hand <a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a> is using a different definition of the <abbr title="Structure Function">SF</abbr> that is
+not matching the other one and from which it is not possible to recover the
+other results at higher orders (in particular it becomes completely impossible
+since <abbr title="Next to Next to Leading Order">NNLO</abbr>).
+The different definition is:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_X^{light}\)</span> is defined by having only light quarks in the quark lines</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_X^{charm}\)</span> is defined by having light and charm quarks in the
+quark lines (at least one charm), given that charm is not light (otherwise
+it’s not defined)</p></li>
+<li><p>and so on for <span class="math notranslate nohighlight">\(bottom\)</span> (that will include at least one bottom) and
+<span class="math notranslate nohighlight">\(top\)</span> (that will include at least one top)</p></li>
+</ul>
+</div>
 </div>
 </div>
 
