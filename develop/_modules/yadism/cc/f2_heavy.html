@@ -191,6 +191,7 @@
 
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">partonic_channel</span> <span class="k">as</span> <span class="n">pccc</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">splitting_functions</span> <span class="k">as</span> <span class="n">split</span>
+<span class="kn">from</span> <span class="nn">..esf</span> <span class="kn">import</span> <span class="n">rsl_from_distr_coeffs</span>
 
 
 <div class="viewcode-block" id="F2heavyQuark"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f2_heavy.F2heavyQuark">[docs]</a><span class="k">class</span> <span class="nc">F2heavyQuark</span><span class="p">(</span><span class="n">pccc</span><span class="o">.</span><span class="n">PartonicChannelHeavy</span><span class="p">):</span>
@@ -208,7 +209,10 @@
         <span class="n">b1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">z</span>
         <span class="n">b2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">z</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_q</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_q</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="F2heavyQuark.NLO_fact"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f2_heavy.F2heavyQuark.NLO_fact">[docs]</a>    <span class="k">def</span> <span class="nf">NLO_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_NLO_fact_q</span><span class="p">()</span></div></div>
 
 
 <div class="viewcode-block" id="F2heavyGluon"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f2_heavy.F2heavyGluon">[docs]</a><span class="k">class</span> <span class="nc">F2heavyGluon</span><span class="p">(</span><span class="n">pccc</span><span class="o">.</span><span class="n">PartonicChannelHeavy</span><span class="p">):</span>
