@@ -191,7 +191,6 @@
 
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">partonic_channel</span> <span class="k">as</span> <span class="n">pccc</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">splitting_functions</span> <span class="k">as</span> <span class="n">split</span>
-<span class="kn">from</span> <span class="nn">..esf</span> <span class="kn">import</span> <span class="n">rsl_from_distr_coeffs</span>
 
 
 <div class="viewcode-block" id="FLheavyQuark"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyQuark">[docs]</a><span class="k">class</span> <span class="nc">FLheavyQuark</span><span class="p">(</span><span class="n">pccc</span><span class="o">.</span><span class="n">PartonicChannelHeavy</span><span class="p">):</span>
@@ -206,7 +205,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span>
 
 <div class="viewcode-block" id="FLheavyQuark.LO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyQuark.LO">[docs]</a>    <span class="k">def</span> <span class="nf">LO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LO_q</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="FLheavyQuark.NLO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyQuark.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ka</span>
@@ -247,7 +246,10 @@
                 <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_g</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="p">[</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">c3</span><span class="p">,</span> <span class="n">c4</span><span class="p">])</span>
             <span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span>
 
-        <span class="k">return</span> <span class="n">reg</span></div></div>
+        <span class="k">return</span> <span class="n">reg</span></div>
+
+<div class="viewcode-block" id="FLheavyGluon.NLO_fact"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyGluon.NLO_fact">[docs]</a>    <span class="k">def</span> <span class="nf">NLO_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_NLO_fact_g</span><span class="p">()</span></div></div>
 </pre></div>
 
            </div>

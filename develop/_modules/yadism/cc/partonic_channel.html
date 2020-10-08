@@ -314,6 +314,9 @@
 
         <span class="k">return</span> <span class="n">reg</span><span class="p">,</span> <span class="n">sing</span><span class="p">,</span> <span class="n">local</span></div>
 
+<div class="viewcode-block" id="PartonicChannelHeavy._LO_q"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.partonic_channel.PartonicChannelHeavy._LO_q">[docs]</a>    <span class="k">def</span> <span class="nf">_LO_q</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span></div>
+
 <div class="viewcode-block" id="PartonicChannelHeavy._NLO_fact_q"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.partonic_channel.PartonicChannelHeavy._NLO_fact_q">[docs]</a>    <span class="k">def</span> <span class="nf">_NLO_fact_q</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">as_norm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span>
 
@@ -325,6 +328,14 @@
             <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_delta</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="p">),</span>
             <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_pd</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="p">),</span>
         <span class="p">)</span></div>
+
+<div class="viewcode-block" id="PartonicChannelHeavy._NLO_fact_g"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.partonic_channel.PartonicChannelHeavy._NLO_fact_g">[docs]</a>    <span class="k">def</span> <span class="nf">_NLO_fact_g</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">as_norm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span>
+
+        <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
+
+        <span class="k">return</span> <span class="n">reg</span></div>
 
 <div class="viewcode-block" id="PartonicChannelHeavy.h_g"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.partonic_channel.PartonicChannelHeavy.h_g">[docs]</a>    <span class="k">def</span> <span class="nf">h_g</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">cs</span><span class="p">):</span>
         <span class="n">c0</span> <span class="o">=</span> <span class="p">(</span>

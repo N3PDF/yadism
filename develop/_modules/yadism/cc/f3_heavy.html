@@ -210,7 +210,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span>
 
 <div class="viewcode-block" id="F3heavyQuark.LO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f3_heavy.F3heavyQuark.LO">[docs]</a>    <span class="k">def</span> <span class="nf">LO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LO_q</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="F3heavyQuark.NLO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f3_heavy.F3heavyQuark.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
@@ -249,6 +249,14 @@
                 <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span>
                 <span class="o">*</span> <span class="mi">2</span>
             <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">reg</span></div>
+
+<div class="viewcode-block" id="F3heavyGluon.NLO_fact"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f3_heavy.F3heavyGluon.NLO_fact">[docs]</a>    <span class="k">def</span> <span class="nf">NLO_fact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">as_norm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span>
+
+        <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
 
         <span class="k">return</span> <span class="n">reg</span></div></div>
 </pre></div>
