@@ -9,9 +9,11 @@ From Docstrings
 From Source Code
 ----------------
 
-`runner.py <file:///home/runner/work/yadism/yadism/src/yadism/runner.py>`_
+`coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
 
-.. warning:: #198 move to log and make more readable
+.. warning:: #294 raise warning in log if inconsitent
+
+.. warning:: #335 maybe raise warning if non-unitarian
 
 
 
@@ -23,11 +25,9 @@ From Source Code
 
 
 
-`coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
+`runner.py <file:///home/runner/work/yadism/yadism/src/yadism/runner.py>`_
 
-.. warning:: #294 raise warning in log if inconsitent
-
-.. warning:: #335 maybe raise warning if non-unitarian
+.. warning:: #198 move to log and make more readable
 
 
 
