@@ -9,10 +9,10 @@ yadmark.navigator package
 Submodules
 ----------
 
-yadmark.navigator.df\_list module
+yadmark.navigator.df\_dict module
 ---------------------------------
 
-.. automodule:: yadmark.navigator.df_list
+.. automodule:: yadmark.navigator.df_dict
    :members:
    :undoc-members:
    :show-inheritance:
