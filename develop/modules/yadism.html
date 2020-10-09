@@ -106,6 +106,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yadism.coupling_constants">yadism.coupling_constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-yadism.log">yadism.log module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yadism.observable_name">yadism.observable_name module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yadism.output">yadism.output module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
@@ -345,6 +346,12 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="yadism.coupling_constants.CKM2Matrix.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CKM2Matrix.__repr__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CKM2Matrix.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt id="yadism.coupling_constants.CKM2Matrix.flav_cols">
 <code class="sig-name descname">flav_cols</code><em class="property"> = ['d', 's', 'b']</em><a class="headerlink" href="#yadism.coupling_constants.CKM2Matrix.flav_cols" title="Permalink to this definition">¶</a></dt>
@@ -497,6 +504,12 @@ coupling</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt id="yadism.coupling_constants.CouplingConstants.log">
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write current configuration to log</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="yadism.coupling_constants.CouplingConstants.propagator_factor">
 <code class="sig-name descname">propagator_factor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">Q2</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.propagator_factor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.propagator_factor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Propagator correction to account for different bosons (<span class="math notranslate nohighlight">\(\eta\)</span> in PDG)</p>
@@ -522,6 +535,15 @@ coupling</p></li>
 <dd><p>Combine the vectorial coupling from electric and weak charges</p>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="module-yadism.log">
+<span id="yadism-log-module"></span><h2>yadism.log module<a class="headerlink" href="#module-yadism.log" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="yadism.log.setup">
+<code class="sig-prename descclassname">yadism.log.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log_level</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">log_to_stdout</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">log_to_file</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/log.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.log.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init logging</p>
 </dd></dl>
 
 </div>
@@ -995,6 +1017,12 @@ some more complicated structure)</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py method">
+<dt id="yadism.sf.StructureFunction.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction.__repr__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
 <dl class="py method">
 <dt id="yadism.sf.StructureFunction.get_esf">
 <code class="sig-name descname">get_esf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obs_name</span></em>, <em class="sig-param"><span class="n">kinematics</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">use_raw</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">force_local</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction.get_esf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction.get_esf" title="Permalink to this definition">¶</a></dt>

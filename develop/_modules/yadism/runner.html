@@ -199,6 +199,7 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="kn">import</span> <span class="nn">rich</span>
 <span class="kn">import</span> <span class="nn">rich.align</span>
@@ -206,17 +207,21 @@
 <span class="kn">import</span> <span class="nn">rich.box</span>
 <span class="kn">import</span> <span class="nn">rich.progress</span>
 <span class="kn">import</span> <span class="nn">rich.markdown</span>
+<span class="kn">import</span> <span class="nn">rich.console</span>
 
 <span class="kn">from</span> <span class="nn">eko.interpolation</span> <span class="kn">import</span> <span class="n">InterpolatorDispatcher</span>
 <span class="kn">from</span> <span class="nn">eko.constants</span> <span class="kn">import</span> <span class="n">Constants</span>
 <span class="kn">from</span> <span class="nn">eko</span> <span class="kn">import</span> <span class="n">thresholds</span>
 <span class="kn">from</span> <span class="nn">eko</span> <span class="kn">import</span> <span class="n">strong_coupling</span>
 
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">observable_name</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">log</span>
 <span class="kn">from</span> <span class="nn">.output</span> <span class="kn">import</span> <span class="n">Output</span>
 <span class="kn">from</span> <span class="nn">.sf</span> <span class="kn">import</span> <span class="n">StructureFunction</span> <span class="k">as</span> <span class="n">SF</span>
 <span class="kn">from</span> <span class="nn">.coupling_constants</span> <span class="kn">import</span> <span class="n">CouplingConstants</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">observable_name</span>
 
+<span class="n">log</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Runner"><a class="viewcode-back" href="../../modules/yadism.html#yadism.runner.Runner">[docs]</a><span class="k">class</span> <span class="nc">Runner</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -334,6 +339,8 @@
             <span class="n">obj</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_observables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">[]))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">observable_instances</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span>
 
+        <span class="c1"># stdout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span> <span class="o">=</span> <span class="n">rich</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">Console</span><span class="p">()</span>
         <span class="c1"># =================</span>
         <span class="c1"># Initialize output</span>
         <span class="c1"># =================</span>
@@ -363,7 +370,7 @@
 <span class="sd">                * docs</span>
 <span class="sd">                * get_output pipeline</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">banner</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">banner</span><span class="p">)</span>
 
         <span class="c1"># precomputing the plan of calculation</span>
         <span class="n">precomputed_plan</span> <span class="o">=</span> <span class="p">{}</span>
@@ -371,13 +378,13 @@
             <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="n">precomputed_plan</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">obs</span>
 
-        <span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">rich</span><span class="o">.</span><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;## Plan&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">rich</span><span class="o">.</span><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;## Plan&quot;</span><span class="p">))</span>
         <span class="n">printable_plan</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">obs</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">obs</span> <span class="ow">in</span> <span class="n">precomputed_plan</span><span class="p">])</span>
-        <span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">rich</span><span class="o">.</span><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">printable_plan</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">rich</span><span class="o">.</span><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">printable_plan</span><span class="p">))</span>
 
         <span class="c1"># running the calculation</span>
-        <span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">rich</span><span class="o">.</span><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;## Calculation&quot;</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yadism took off! please stay tuned ...&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">rich</span><span class="o">.</span><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;## Calculation&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;yadism took off! please stay tuned ...&quot;</span><span class="p">)</span>
         <span class="c1"># TODO move to log and make more readable</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="c1"># for name, obs in rich.progress.track(</span>
@@ -387,7 +394,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="n">diff</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
-        <span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[cyan]took </span><span class="si">{</span><span class="n">diff</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[cyan]took </span><span class="si">{</span><span class="n">diff</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output</span></div>
 

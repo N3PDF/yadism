@@ -11,23 +11,23 @@ From Source Code
 
 `coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
 
-.. warning:: #294 raise warning in log if inconsitent
+.. warning:: #302 raise warning in log if inconsitent
 
-.. warning:: #335 maybe raise warning if non-unitarian
+.. warning:: #343 maybe raise warning if non-unitarian
 
 
 
 `sf.py <file:///home/runner/work/yadism/yadism/src/yadism/sf.py>`_
 
-.. warning:: #45 wrap managers and parameters as single attributes
+.. warning:: #47 wrap managers and parameters as single attributes
 
-.. warning:: #135 how to incorporate args?
+.. warning:: #141 how to incorporate args?
 
 
 
 `runner.py <file:///home/runner/work/yadism/yadism/src/yadism/runner.py>`_
 
-.. warning:: #198 move to log and make more readable
+.. warning:: #205 move to log and make more readable
 
 
 

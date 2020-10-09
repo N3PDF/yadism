@@ -27,6 +27,14 @@ yadism.coupling\_constants module
    :undoc-members:
    :show-inheritance:
 
+yadism.log module
+-----------------
+
+.. automodule:: yadism.log
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadism.observable\_name module
 ------------------------------
 
