@@ -21,13 +21,7 @@ From Source Code
 
 .. warning:: #47 wrap managers and parameters as single attributes
 
-.. warning:: #141 how to incorporate args?
-
-
-
-`runner.py <file:///home/runner/work/yadism/yadism/src/yadism/runner.py>`_
-
-.. warning:: #205 move to log and make more readable
+.. warning:: #140 how to incorporate args?
 
 
 

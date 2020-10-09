@@ -197,9 +197,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ESF</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">PartonicChannel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span> <span class="o">=</span> <span class="n">ESF</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">constants</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">constants</span>
         <span class="c1"># default coeff functions to 0</span>
         <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;LO&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decorator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LO</span><span class="p">)</span>
         <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;NLO&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decorator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">NLO</span><span class="p">)</span>
@@ -236,13 +235,13 @@
 
 <div class="viewcode-block" id="PartonicChannelLight"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannelLight">[docs]</a><span class="k">class</span> <span class="nc">PartonicChannelLight</span><span class="p">(</span><span class="n">PartonicChannel</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">PartonicChannelLight</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">nf</span></div>
 
 
 <div class="viewcode-block" id="PartonicChannelAsy"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannelAsy">[docs]</a><span class="k">class</span> <span class="nc">PartonicChannelAsy</span><span class="p">(</span><span class="n">PartonicChannel</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">PartonicChannelAsy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">)</span></div>
 </pre></div>
 

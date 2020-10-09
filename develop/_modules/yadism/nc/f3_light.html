@@ -192,6 +192,8 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">from</span> <span class="nn">eko</span> <span class="kn">import</span> <span class="n">constants</span>
+
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">f2_light</span>
 
 
@@ -213,9 +215,9 @@
 <span class="sd">                    coefficient functions</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">CF</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
+        <span class="n">CF</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
 
-        <span class="n">reg_f2</span><span class="p">,</span> <span class="n">sing</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">F3lightQuark</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">NLO</span><span class="p">()</span>
+        <span class="n">reg_f2</span><span class="p">,</span> <span class="n">sing</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">NLO</span><span class="p">()</span>
 
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">CF</span><span class="o">=</span><span class="n">CF</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">reg_f2</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>

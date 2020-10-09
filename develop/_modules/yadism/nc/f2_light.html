@@ -198,6 +198,8 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+<span class="kn">from</span> <span class="nn">eko</span> <span class="kn">import</span> <span class="n">constants</span>
+
 <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">splitting_functions</span> <span class="k">as</span> <span class="n">split</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">partonic_channel</span> <span class="k">as</span> <span class="n">pc</span>
 <span class="kn">from</span> <span class="nn">..esf</span> <span class="kn">import</span> <span class="n">rsl_from_distr_coeffs</span>
@@ -244,7 +246,7 @@
 <span class="sd">                coefficient functions</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">CF</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
+        <span class="n">CF</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
         <span class="n">zeta_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">6</span>
 
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">CF</span><span class="o">=</span><span class="n">CF</span><span class="p">):</span>
@@ -286,12 +288,12 @@
         <span class="n">as_norm</span> <span class="o">=</span> <span class="mf">1.0</span>
 
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
+            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
 
         <span class="k">return</span> <span class="n">rsl_from_distr_coeffs</span><span class="p">(</span>
             <span class="n">reg</span><span class="p">,</span>
-            <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_delta</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="p">),</span>
-            <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_pd</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="p">),</span>
+            <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_delta</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_pd</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
         <span class="p">)</span></div></div>
 
 
@@ -323,14 +325,14 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">,</span> <span class="n">constants</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">):</span>
             <span class="k">return</span> <span class="p">(</span>
                 <span class="mi">2</span>  <span class="c1"># TODO: to be understood</span>
                 <span class="o">*</span> <span class="mi">2</span>
                 <span class="o">*</span> <span class="n">nf</span>
                 <span class="o">*</span> <span class="p">(</span>
-                    <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">constants</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span>
-                    <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">TF</span>
+                    <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">TR</span>
                 <span class="p">)</span>
             <span class="p">)</span>
 
@@ -355,8 +357,8 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">,</span> <span class="n">constants</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="p">):</span>
-            <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">nf</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">constants</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">nf</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">cg</span></div></div>
 </pre></div>

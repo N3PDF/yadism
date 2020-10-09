@@ -195,7 +195,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">PartonicChannelHeavy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
         <span class="c1"># FH - Vogt comparison prefactor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_FHprefactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">)</span>
 

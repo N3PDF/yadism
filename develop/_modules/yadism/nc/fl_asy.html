@@ -192,6 +192,8 @@
 <span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">from</span> <span class="nn">eko</span> <span class="kn">import</span> <span class="n">constants</span>
+
 <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">partonic_channel</span> <span class="k">as</span> <span class="n">pc</span>
 
 
@@ -212,10 +214,9 @@
 <span class="sd">            .. todo::</span>
 <span class="sd">                docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">TF</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">TF</span>
 
-        <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">TF</span><span class="o">=</span><span class="n">TF</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">TF</span> <span class="o">*</span> <span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">))</span>
+        <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">TR</span> <span class="o">*</span> <span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">cg</span></div></div>
 
