@@ -186,15 +186,17 @@
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># read environment</span>
-<span class="n">log_level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YADISM_LOG_LEVEL&quot;</span><span class="p">,</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">))</span>
+<span class="n">log_level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YADISM_LOG_LEVEL&quot;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">))</span>
 <span class="n">log_to_stdout</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YADISM_LOG_STDOUT&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
 <span class="n">log_to_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YADISM_LOG_FILE&quot;</span><span class="p">)</span>
+<span class="n">silent_mode</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;YADISM_SILENT_MODE&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
 
 <span class="n">module_name</span> <span class="o">=</span> <span class="vm">__name__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
 <span class="n">ekologger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;eko&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../modules/yadism.html#yadism.log.setup">[docs]</a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">log_level</span><span class="o">=</span><span class="n">log_level</span><span class="p">,</span><span class="n">log_to_stdout</span><span class="o">=</span><span class="n">log_to_stdout</span><span class="p">,</span><span class="n">log_to_file</span><span class="o">=</span><span class="n">log_to_file</span><span class="p">):</span>
+
+<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../modules/yadism.html#yadism.log.setup">[docs]</a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">log_level</span><span class="o">=</span><span class="n">log_level</span><span class="p">,</span> <span class="n">log_to_stdout</span><span class="o">=</span><span class="n">log_to_stdout</span><span class="p">,</span> <span class="n">log_to_file</span><span class="o">=</span><span class="n">log_to_file</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Init logging</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -202,9 +204,10 @@
     <span class="n">ekologger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
     <span class="c1"># add rich logger</span>
     <span class="k">if</span> <span class="n">log_to_stdout</span><span class="p">:</span>
-        <span class="kn">from</span> <span class="nn">rich.logging</span> <span class="kn">import</span> <span class="n">RichHandler</span> <span class="c1"># pylint: disable=import-outside-toplevel</span>
+        <span class="kn">from</span> <span class="nn">rich.logging</span> <span class="kn">import</span> <span class="n">RichHandler</span>  <span class="c1"># pylint: disable=import-outside-toplevel</span>
+
         <span class="n">rh</span> <span class="o">=</span> <span class="n">RichHandler</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
-        <span class="n">rh</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">datefmt</span><span class="o">=</span><span class="s2">&quot;[</span><span class="si">%X</span><span class="s2">]&quot;</span><span class="p">))</span>
+        <span class="n">rh</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s2">&quot;[</span><span class="si">%X</span><span class="s2">]&quot;</span><span class="p">))</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">rh</span><span class="p">)</span>
         <span class="n">ekologger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">rh</span><span class="p">)</span>
     <span class="c1"># add file logger</span>

@@ -261,11 +261,7 @@
         <span class="k">def</span> <span class="nf">sing</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">b1</span><span class="o">=</span><span class="n">b1</span><span class="p">,</span> <span class="n">b3</span><span class="o">=</span><span class="n">b3</span><span class="p">,</span> <span class="n">CF</span><span class="o">=</span><span class="n">CF</span><span class="p">,</span> <span class="n">pqq_pd</span><span class="o">=</span><span class="n">split</span><span class="o">.</span><span class="n">pqq_pd</span><span class="p">):</span>
             <span class="n">hq_sing</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span> <span class="o">*</span> <span class="n">z</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">))</span>
             <span class="k">return</span> <span class="p">(</span>
-                <span class="p">(</span>
-                    <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span>
-                    <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labda</span><span class="p">)</span>
-                    <span class="o">*</span> <span class="p">(</span><span class="n">pqq_pd</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">))</span>
-                <span class="p">)</span>
+                <span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labda</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">pqq_pd</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)))</span>
                 <span class="o">+</span> <span class="n">CF</span>
                 <span class="o">*</span> <span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span> <span class="o">*</span> <span class="n">hq_sing</span>
@@ -299,10 +295,7 @@
                 <span class="p">(</span>
                     <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span>
                     <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labda</span><span class="p">)</span>
-                    <span class="o">*</span> <span class="p">(</span>
-                        <span class="n">pqq_delta</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-                        <span class="o">-</span> <span class="n">pqq_pd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">b1_int</span>
-                    <span class="p">)</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="n">pqq_delta</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">pqq_pd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">b1_int</span><span class="p">)</span>
                 <span class="p">)</span>
                 <span class="o">+</span> <span class="n">CF</span>
                 <span class="o">*</span> <span class="p">(</span>
@@ -326,9 +319,7 @@
             <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
 
         <span class="k">return</span> <span class="n">rsl_from_distr_coeffs</span><span class="p">(</span>
-            <span class="n">reg</span><span class="p">,</span>
-            <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_delta</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-            <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_pd</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">reg</span><span class="p">,</span> <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_delta</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_pd</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="PartonicChannelHeavy._NLO_fact_g"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.partonic_channel.PartonicChannelHeavy._NLO_fact_g">[docs]</a>    <span class="k">def</span> <span class="nf">_NLO_fact_g</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
