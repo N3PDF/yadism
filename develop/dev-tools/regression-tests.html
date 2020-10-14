@@ -97,7 +97,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
@@ -108,6 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul class="current">
@@ -220,12 +220,11 @@
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>A set of results is produced at a given time and stored separately from the
-package code (currently a <em>GitHub Gist</em> has been chosen for storing the
-<code class="docutils literal notranslate"><span class="pre">json</span></code> file).</p>
+package code. Thus, we can consider the produced as generated from an external
+program at a different point in time.</p>
 <p>The regression runner will run the same calculation with the same settings of
 the previously generated results, fetch these ones and compare the new with the
-stored to ensure that nothing has been changed (if some behavior has been
-modified willfully it will be sufficient to ignore the generated warning).</p>
+stored to ensure that nothing has been changed.</p>
 </div>
 <div class="section" id="slicing-1-hot">
 <h2>Slicing (1-hot)<a class="headerlink" href="#slicing-1-hot" title="Permalink to this headline">¶</a></h2>
@@ -236,9 +235,9 @@ adopted.</p>
 <p class="admonition-title">1-hot</p>
 <p>It means that if multiple features can be toggle a single one is chosen and
 activated, keeping all the others off. Then iterate over all the possible
-selection (we borrowed this name from the well-known <a class="reference external" href="https://en.wikipedia.org/wiki/One-hot">One-hot encoding</a>.</p>
+selection (we borrowed this name from the well-known <a class="reference external" href="https://en.wikipedia.org/wiki/One-hot">One-hot encoding</a>).</p>
 </div>
-<p>This means that <strong>all the features</strong> are controlled by the <em>regression tests</em>,
+<p>This means that all the features are controlled <strong>one at a time</strong> by the <em>regression tests</em>,
 but <strong>not all the combinations</strong>.</p>
 </div>
 </div>

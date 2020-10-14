@@ -97,7 +97,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
@@ -108,12 +107,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Database Test Suite</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#database-infrastructure">Database infrastructure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#i-o-databases-structure">I/O databases’ structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#little-human-readability">(Little) human readability</a></li>
 </ul>
 </li>
@@ -219,10 +220,12 @@ through a proper database (currently implemented on <cite>tinydb</cite>).</p>
 <p>Update with the current structure</p>
 </div>
 <ul class="simple">
-<li><p>some scripts able to fill an <strong>input database</strong> (filling includes creating it,
-if does not exist yet)</p></li>
 <li><p>a <strong>navigator</strong>, able to display the content of both the <em>input database</em>,
 and the output one, to store the data generated during test process itself</p></li>
+<li><p><cite>generate_theories</cite>: create the table <cite>theories</cite> (purging any existing one, if
+already exists)</p></li>
+<li><p><cite>generate_observables</cite>: create the table <cite>observables</cite> (purging any existing one,
+if already exists)</p></li>
 </ul>
 <div class="section" id="database-infrastructure">
 <h2>Database infrastructure<a class="headerlink" href="#database-infrastructure" title="Permalink to this headline">¶</a></h2>
@@ -232,10 +235,42 @@ python-based tests, and also gave us the chance to deploy the whole generation
 ecosystem and navigator in python itself.</p>
 <p>Since <cite>tinydb</cite> is used the databases are <a class="reference external" href="https://en.wikipedia.org/wiki/Document-oriented_database">document-oriented</a>, that also makes
 them more flexible and easier to manage less homogeneous data.</p>
-<p>The databases themselves consist of a single <a class="reference external" href="https://it.wikipedia.org/wiki/JavaScript_Object_Notation">json</a> file per db, and this makes
+<p>The databases themselves consist of a single <a class="reference external" href="https://en.wikipedia.org/wiki/JavaScript_Object_Notation">json</a> file per db, and this makes
 it very easy to store, transfer and manage. No system-wide installation is
 needed to interact with the db, and can be easily sent around since it is a
 bare text file, nothing more than formatted.</p>
+<div class="section" id="i-o-databases-structure">
+<h3>I/O databases’ structure<a class="headerlink" href="#i-o-databases-structure" title="Permalink to this headline">¶</a></h3>
+<p>Input database will consist of the tables:</p>
+<ul class="simple">
+<li><p><strong>theories</strong>: each entry of this table will represent a <em>physical theory</em>,
+i.e. it will specify a set of parameters involved in QFT computations; the
+following entries are expected:</p>
+<ul>
+<li><p><em>PTO</em>: perturbative order</p></li>
+<li><p><em>XIF</em>, <em>XIR</em>:</p></li>
+<li><p><em>mc</em>. <em>Qmc</em>, <em>mb</em>, <em>Qmb</em>, <em>mt</em>, <em>Qmt</em>:</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p><strong>observables</strong>: each entry of this table will represent a <em>set of DIS
+observables</em>, and also some parameters involved in the computation of the
+observables themselves; the following entries are expected:</p>
+<ul>
+<li><p><em>xgrid</em>: the grid on which the interpolation is evaluated</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p><strong>apfel_cache/qcdnum_cache/regression</strong>: to keep a cache of the external output. Since it is stable
+there is no need of rerunning it multiple times to compute the same
+observables (while rerunning is needed for <em>yadism</em> during its development,
+of course…)</p></li>
+</ul>
+<p>Output database will consist of the tables:</p>
+<ul class="simple">
+<li><p><strong>logs</strong>: keep a log of the comparisons between <em>yadism</em> and the external program</p></li>
+</ul>
+</div>
 <div class="section" id="little-human-readability">
 <h3>(Little) human readability<a class="headerlink" href="#little-human-readability" title="Permalink to this headline">¶</a></h3>
 <p>In principle it is always possible to explore
@@ -250,7 +285,7 @@ editors trying to load all at once).</p>
 </div>
 <div class="section" id="git-lfs">
 <h2>Git LFS<a class="headerlink" href="#git-lfs" title="Permalink to this headline">¶</a></h2>
-<p>In order to keep the databases in the projects we decided to use <cite>git-lfs</cite>
+<p>In order to keep the databases in the projects we decided to use <a class="reference external" href="https://git-lfs.github.com">git-lfs</a>
 (<cite>git</cite> Large File Storage), a tool integrating with <cite>git</cite> and designed
 specifically to manage large files inside a <cite>git</cite> repo.</p>
 </div>
