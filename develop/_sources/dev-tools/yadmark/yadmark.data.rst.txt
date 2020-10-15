@@ -9,6 +9,14 @@ yadmark.data package
 Submodules
 ----------
 
+yadmark.data.generate\_pdf module
+---------------------------------
+
+.. automodule:: yadmark.data.generate_pdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadmark.data.observables module
 -------------------------------
 
