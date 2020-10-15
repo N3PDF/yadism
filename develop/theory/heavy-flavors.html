@@ -33,7 +33,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -241,19 +241,29 @@ the CKM matrix) (and analogously for <cite>bottom</cite> and <cite>top</cite>)</
    {\color{blue}V_{cd}} &amp; {\color{blue}V_{cs}} &amp; {\color{green}V_{cb}}\\
    {\color{purple}V_{td}} &amp; {\color{purple}V_{ts}} &amp; {\color{purple}V_{tb}}
 \end{pmatrix}\end{split}\]</div>
-<p>actual definition of coefficient functions weights in <span class="math notranslate nohighlight">\(F_2\)</span>:</p>
+<p>actual definition of coefficient functions weights in <span class="math notranslate nohighlight">\(F_2\)</span> (with an
+initial neutrino, <span class="math notranslate nohighlight">\(\nu\)</span>):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{rcl}
-   F_2^{\nu,p} &amp;=&amp; 2x\Big\{ C_{2,q}\otimes\Big[\left(|V_{ud}|^2+|V_{cd}|^2+|V_{td}|^2\right)d\\
-               &amp;+&amp; \left(|V_{ud}|^2+|V_{us}|^2+|V_{ub}|^2\right)\overline{u}\\
-               &amp;+&amp; \left(|V_{us}|^2+|V_{cs}|^2+|V_{ts}|^2\right)s\\
-               &amp;+&amp; \left(|V_{cd}|^2+|V_{cs}|^2+|V_{cb}|^2\right)\overline{c}\\
-               &amp;+&amp; \left(|V_{ub}|^2+|V_{cb}|^2+|V_{tb}|^2\right)b\\
-               &amp;+&amp; \left(|V_{td}|^2+|V_{ts}|^2+|V_{tb}|^2\right)\overline{t}\\
+   F_2^{\nu,p} &amp;=&amp; 2x\Big\{C_{2,q}\otimes
+               \Big[\left(|{\color{red}V_{ud}}|^2+|{\color{blue}V_{cd}}|^2+|{\color{purple}V_{td}}|^2\right)d\\
+               &amp;+&amp;
+               \left(|{\color{red}V_{ud}}|^2+|{\color{red}V_{us}}|^2+|{\color{green}V_{ub}}|^2\right)\overline{u}\\
+               &amp;+&amp;
+               \left(|{\color{red}V_{us}}|^2+|{\color{blue}V_{cs}}|^2+|{\color{purple}V_{ts}}|^2\right)s\\
+               &amp;+&amp;
+               \left(|{\color{blue}V_{cd}}|^2+|{\color{blue}V_{cs}}|^2+|{\color{green}V_{cb}}|^2\right)\overline{c}\\
+               &amp;+&amp;
+               \left(|{\color{green}V_{ub}}|^2+|{\color{green}V_{cb}}|^2+|{\color{purple}V_{tb}}|^2\right)b\\
+               &amp;+&amp;
+               \left(|{\color{purple}V_{td}}|^2+|{\color{purple}V_{ts}}|^2+|{\color{purple}V_{tb}}|^2\right)\overline{t}\Big]\\
                &amp;+&amp; c^{CC}_g(N_f)C_{2,q}\otimes g\Big\}
 \end{array}\end{split}\]</div>
+<p>and in <span class="math notranslate nohighlight">\(F_2^{charm}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\abs{\phi}\]</div>
+\[\begin{split}{\color{blue} F_{2,c}^{\color{black} \nu,p}} &amp;=&amp; 2x\Big\{C_{2,q}\otimes\Big[|{\color{blue}V_{cd}}|^2(d+\overline{c}) +
+      |{\color{blue}V_{cs}}|^2 (s+\overline{c})\Big]\\
+      &amp;+&amp; 2\left(|{\color{blue}V_{cd}}|^2+|{\color{blue}V_{cs}}|^2\right)C_{2,g}\otimes g\Big\}\\\end{split}\]</div>
 <div class="admonition-todo admonition" id="id3">
 <p class="admonition-title">Todo</p>
 <p>write about normalization in Eq. 2</p>
