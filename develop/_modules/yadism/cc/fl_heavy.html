@@ -233,6 +233,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span>
 
 <div class="viewcode-block" id="FLheavyGluon.NLO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyGluon.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">as_norm</span> <span class="o">=</span> <span class="mf">2.0</span>
+
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
             <span class="n">c1</span> <span class="o">=</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span> <span class="o">+</span> <span class="mf">2.0</span>
             <span class="n">c2</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -241,11 +243,11 @@
             <span class="k">return</span> <span class="p">(</span>
                 <span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span>
-                    <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+                    <span class="o">*</span> <span class="p">(</span><span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
                     <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l_labda</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labda</span><span class="p">))</span>
                 <span class="p">)</span>
                 <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_g</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="p">[</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">c3</span><span class="p">,</span> <span class="n">c4</span><span class="p">])</span>
-            <span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span>
+            <span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
 
         <span class="k">return</span> <span class="n">reg</span></div>
 

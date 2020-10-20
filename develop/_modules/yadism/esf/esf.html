@@ -354,8 +354,7 @@
             <span class="n">a_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">strong_coupling</span><span class="o">.</span><span class="n">a_s</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiR</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
             <span class="n">d_vec</span> <span class="o">+=</span> <span class="n">a_s</span> <span class="o">*</span> <span class="p">(</span>
                 <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">comp</span><span class="p">[</span><span class="s2">&quot;NLO&quot;</span><span class="p">]())</span>
-                <span class="o">+</span> <span class="mi">2</span>  <span class="c1"># TODO: to be understood</span>
-                <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+                <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
                 <span class="o">*</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">comp</span><span class="p">[</span><span class="s2">&quot;NLO_fact&quot;</span><span class="p">]())</span>
             <span class="p">)</span>
 
@@ -474,7 +473,7 @@
             <span class="c1"># F2c in this way)</span>
             <span class="c1"># FONLL-A corresponds to (strict) APFEL</span>
             <span class="c1"># FONLL-A&#39; reduces to the ZM-VFNS scheme if above the next threshold (which would</span>
-            <span class="c1"># numerically happen anyway)</span>
+            <span class="c1"># numerically happen anyway, but only at very large Q2)</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;FONLL-A&quot;</span> <span class="ow">and</span> <span class="n">nf</span> <span class="o">&gt;=</span> <span class="n">nhq</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
                 <span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;FONLL-A&#39;&quot;</span> <span class="ow">and</span> <span class="n">nf</span> <span class="o">==</span> <span class="n">nhq</span>
             <span class="p">):</span>

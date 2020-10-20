@@ -212,19 +212,24 @@
 <div class="viewcode-block" id="F2asyQuark.NLO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f2_asy.F2asyQuark.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">CF</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
         <span class="n">as_norm</span> <span class="o">=</span> <span class="mf">2.0</span>
+        <span class="n">zeta_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">6.0</span>
 
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
             <span class="k">return</span> <span class="p">(</span>
-                <span class="o">-</span><span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-                <span class="o">-</span> <span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mf">3.0</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
-            <span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
+                <span class="n">CF</span>
+                <span class="o">*</span> <span class="p">(</span>
+                    <span class="o">-</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+                    <span class="o">-</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="p">(</span><span class="mf">3.0</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="o">*</span> <span class="n">as_norm</span>
+            <span class="p">)</span>
 
-        <span class="n">delta</span> <span class="o">=</span> <span class="o">-</span><span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mf">9.0</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="o">-</span><span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mf">9.0</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">zeta_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
 
         <span class="n">omz_pd</span> <span class="o">=</span> <span class="o">-</span><span class="n">CF</span> <span class="o">*</span> <span class="mf">3.0</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">as_norm</span>
 
-        <span class="n">log_pd</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">CF</span> <span class="o">*</span> <span class="n">as_norm</span>
+        <span class="n">log_pd</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">CF</span> <span class="o">*</span> <span class="n">as_norm</span>
 
         <span class="k">return</span> <span class="n">rsl_from_distr_coeffs</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">omz_pd</span><span class="p">,</span> <span class="n">log_pd</span><span class="p">)</span></div>
 
@@ -232,9 +237,15 @@
         <span class="n">as_norm</span> <span class="o">=</span> <span class="mf">2.0</span>
 
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">split</span><span class="o">.</span><span class="n">pqq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
 
-        <span class="k">return</span> <span class="n">rsl_from_distr_coeffs</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_delta</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_pd</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span></div></div>
+        <span class="k">def</span> <span class="nf">sing</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">split</span><span class="o">.</span><span class="n">pqq_sing</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
+
+        <span class="k">def</span> <span class="nf">local</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">split</span><span class="o">.</span><span class="n">pqq_local</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
+
+        <span class="k">return</span> <span class="n">reg</span><span class="p">,</span> <span class="n">sing</span><span class="p">,</span> <span class="n">local</span></div></div>
 
 
 <div class="viewcode-block" id="F2asyGluon"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f2_asy.F2asyGluon">[docs]</a><span class="k">class</span> <span class="nc">F2asyGluon</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">PartonicChannelAsy</span><span class="p">):</span>
@@ -249,7 +260,7 @@
 
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">L</span><span class="p">):</span>
             <span class="k">return</span> <span class="p">(</span>
-                <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="n">L</span><span class="p">)</span>
+                <span class="p">(</span><span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="n">L</span><span class="p">)</span>
                 <span class="o">+</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
                 <span class="o">-</span> <span class="mf">1.0</span>
             <span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
@@ -260,7 +271,7 @@
         <span class="n">as_norm</span> <span class="o">=</span> <span class="mf">2.0</span>
 
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
+            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">as_norm</span>
 
         <span class="k">return</span> <span class="n">reg</span></div></div>
 </pre></div>

@@ -248,7 +248,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">CF</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
-        <span class="n">zeta_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">6</span>
+        <span class="n">zeta_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">6.0</span>
 
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">CF</span><span class="o">=</span><span class="n">CF</span><span class="p">):</span>
             <span class="c1"># fmt: off</span>
@@ -286,14 +286,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">as_norm</span> <span class="o">=</span> <span class="mf">1.0</span>
-
-        <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
-
-        <span class="k">return</span> <span class="n">rsl_from_distr_coeffs</span><span class="p">(</span>
-            <span class="n">reg</span><span class="p">,</span> <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_delta</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">as_norm</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_pd</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-        <span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_reg</span><span class="p">,</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_sing</span><span class="p">,</span> <span class="n">split</span><span class="o">.</span><span class="n">pqq_local</span></div></div>
 
 
 <div class="viewcode-block" id="F2lightGluon"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.f2_light.F2lightGluon">[docs]</a><span class="k">class</span> <span class="nc">F2lightGluon</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">PartonicChannelLight</span><span class="p">):</span>
@@ -326,10 +319,13 @@
 
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">):</span>
             <span class="k">return</span> <span class="p">(</span>
-                <span class="mi">2</span>  <span class="c1"># TODO: to be understood</span>
-                <span class="o">*</span> <span class="mi">2</span>
-                <span class="o">*</span> <span class="n">nf</span>
-                <span class="o">*</span> <span class="p">(</span><span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">TR</span><span class="p">)</span>
+                <span class="n">nf</span>
+                <span class="o">*</span> <span class="p">(</span>
+                    <span class="p">(</span><span class="mf">2.0</span> <span class="o">-</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span>
+                    <span class="o">-</span> <span class="mf">2.0</span>
+                    <span class="o">+</span> <span class="mf">16.0</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">TR</span><span class="p">)</span>
             <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">reg</span></div>
@@ -354,7 +350,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">):</span>
-            <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">nf</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="k">return</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">nf</span> <span class="o">*</span> <span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">cg</span></div></div>
 </pre></div>

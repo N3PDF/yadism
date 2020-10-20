@@ -223,6 +223,8 @@
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span>
 
 <div class="viewcode-block" id="F2heavyGluon.NLO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f2_heavy.F2heavyGluon.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">as_norm</span> <span class="o">=</span> <span class="mf">2.0</span>
+
         <span class="k">def</span> <span class="nf">reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
             <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="mf">12.0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">18</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span>
@@ -231,9 +233,9 @@
             <span class="n">c3</span> <span class="o">=</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span>
             <span class="n">c4</span> <span class="o">=</span> <span class="o">-</span><span class="mf">12.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span>
             <span class="k">return</span> <span class="p">(</span>
-                <span class="p">(</span><span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l_labda</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labda</span><span class="p">)))</span>
+                <span class="p">(</span><span class="n">split</span><span class="o">.</span><span class="n">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l_labda</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labda</span><span class="p">)))</span>
                 <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_g</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="p">[</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">c3</span><span class="p">,</span> <span class="n">c4</span><span class="p">])</span>
-            <span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+            <span class="p">)</span> <span class="o">*</span> <span class="n">as_norm</span>
 
         <span class="k">return</span> <span class="n">reg</span></div>
 

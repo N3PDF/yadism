@@ -205,89 +205,89 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="kn">from</span> <span class="nn">eko</span> <span class="kn">import</span> <span class="n">constants</span>
 
 
-<div class="viewcode-block" id="pqq_reg"><a class="viewcode-back" href="../../modules/yadism.html#yadism.splitting_functions.pqq_reg">[docs]</a><span class="k">def</span> <span class="nf">pqq_reg</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="pqq_reg"><a class="viewcode-back" href="../../modules/yadism.html#yadism.splitting_functions.pqq_reg">[docs]</a><span class="k">def</span> <span class="nf">pqq_reg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The expression of the regular part of :math:`P_{qq}` splitting function.</span>
+<span class="sd">    The expression of the regular part of :math:`P_{qq}` splitting function.</span>
 
-<span class="sd">        |ref| implements :eqref:`4.94`, :cite:`pink-book`.</span>
+<span class="sd">    |ref| implements :eqref:`4.94`, :cite:`pink-book`.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        x : float</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        z : float</span>
 <span class="sd">            momentum fraction</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
 <span class="sd">        float</span>
-<span class="sd">            the regular bit of pqq splitting function @ :py:`x`</span>
+<span class="sd">            the regular bit of pqq splitting function @ :py:`z`</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="o">-</span><span class="n">constants</span><span class="o">.</span><span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="pqq_delta"><a class="viewcode-back" href="../../modules/yadism.html#yadism.splitting_functions.pqq_delta">[docs]</a><span class="k">def</span> <span class="nf">pqq_delta</span><span class="p">(</span><span class="n">_x</span><span class="p">):</span>
+<div class="viewcode-block" id="pqq_local"><a class="viewcode-back" href="../../modules/yadism.html#yadism.splitting_functions.pqq_local">[docs]</a><span class="k">def</span> <span class="nf">pqq_local</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The coefficient of the Dirac-:math:`\delta(1-x)` part of :math:`P_{qq}`</span>
-<span class="sd">        splitting function.</span>
+<span class="sd">    The expression of the local part of :math:`P_{qq}` splitting function.</span>
 
-<span class="sd">        |ref| implements :eqref:`4.94`, :cite:`pink-book`.</span>
+<span class="sd">    |ref| implements :eqref:`4.94`, :cite:`pink-book`.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
 <span class="sd">        x : float</span>
 <span class="sd">            momentum fraction</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
 <span class="sd">        float</span>
-<span class="sd">            the delta bit of pqq splitting function @ :py:`x`</span>
+<span class="sd">            the locacl bit of pqq splitting function @ :py:`x`</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span></div>
+    <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span> <span class="o">*</span> <span class="p">(</span><span class="mf">3.0</span> <span class="o">+</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="pqq_pd"><a class="viewcode-back" href="../../modules/yadism.html#yadism.splitting_functions.pqq_pd">[docs]</a><span class="k">def</span> <span class="nf">pqq_pd</span><span class="p">(</span><span class="n">_x</span><span class="p">):</span>
+<div class="viewcode-block" id="pqq_sing"><a class="viewcode-back" href="../../modules/yadism.html#yadism.splitting_functions.pqq_sing">[docs]</a><span class="k">def</span> <span class="nf">pqq_sing</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The coefficient of the :math:`1/(1-x)_+` part of :math:`P_{qq}`</span>
-<span class="sd">        splitting function.</span>
+<span class="sd">    The expression of the singular part of :math:`P_{qq}` splitting function.</span>
 
-<span class="sd">        |ref| implements :eqref:`4.94`, :cite:`pink-book`.</span>
+<span class="sd">    |ref| implements :eqref:`4.94`, :cite:`pink-book`.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        x : float</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        z : float</span>
 <span class="sd">            momentum fraction</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
 <span class="sd">        float</span>
-<span class="sd">            the *omx* bit of pqq splitting function @ :py:`x`</span>
+<span class="sd">            the singular bit of pqq splitting function @ :py:`z`</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span></div>
+    <span class="k">return</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="pqg"><a class="viewcode-back" href="../../modules/yadism.html#yadism.splitting_functions.pqg">[docs]</a><span class="k">def</span> <span class="nf">pqg</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="pqg"><a class="viewcode-back" href="../../modules/yadism.html#yadism.splitting_functions.pqg">[docs]</a><span class="k">def</span> <span class="nf">pqg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The expression of :math:`P_{qg}` splitting function.</span>
+<span class="sd">    The expression of :math:`P_{qg}` splitting function.</span>
 
-<span class="sd">        |ref| implements :eqref:`4.94`, :cite:`pink-book`.</span>
+<span class="sd">    |ref| implements :eqref:`4.94`, :cite:`pegasus`.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        x : float</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        z : float</span>
 <span class="sd">            momentum fraction</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
 <span class="sd">        float</span>
-<span class="sd">            the pqg splitting function @ :py:`x`</span>
+<span class="sd">            the pqg splitting function @ :py:`z`</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">TR</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">constants</span><span class="o">.</span><span class="n">TR</span> <span class="o">*</span> <span class="p">(</span><span class="n">z</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

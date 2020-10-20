@@ -1102,15 +1102,15 @@ which see <code class="xref py py-mod docutils literal notranslate"><span class=
 </div>
 <dl class="py function">
 <dt id="yadism.splitting_functions.pqg">
-<code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqg" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqg" title="Permalink to this definition">¶</a></dt>
 <dd><p>The expression of <span class="math notranslate nohighlight">\(P_{qg}\)</span> splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id15">[ESW11]</a>.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <span class="bibtex" id="id15">[pegasus]</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
+<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the pqg splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
+<dd class="field-even"><p>the pqg splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">z</span></span></code></p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
@@ -1119,36 +1119,16 @@ which see <code class="xref py py-mod docutils literal notranslate"><span class=
 </dd></dl>
 
 <dl class="py function">
-<dt id="yadism.splitting_functions.pqq_delta">
-<code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqq_delta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqq_delta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqq_delta" title="Permalink to this definition">¶</a></dt>
-<dd><p>The coefficient of the Dirac-<span class="math notranslate nohighlight">\(\delta(1-x)\)</span> part of <span class="math notranslate nohighlight">\(P_{qq}\)</span>
-splitting function.</p>
+<dt id="yadism.splitting_functions.pqq_local">
+<code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqq_local</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqq_local"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqq_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>The expression of the local part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
 <p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id16">[ESW11]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the delta bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="yadism.splitting_functions.pqq_pd">
-<code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqq_pd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqq_pd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqq_pd" title="Permalink to this definition">¶</a></dt>
-<dd><p>The coefficient of the <span class="math notranslate nohighlight">\(1/(1-x)_+\)</span> part of <span class="math notranslate nohighlight">\(P_{qq}\)</span>
-splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id17">[ESW11]</a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the <em>omx</em> bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
+<dd class="field-even"><p>the locacl bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
@@ -1158,15 +1138,33 @@ splitting function.</p>
 
 <dl class="py function">
 <dt id="yadism.splitting_functions.pqq_reg">
-<code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqq_reg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqq_reg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqq_reg" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqq_reg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqq_reg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqq_reg" title="Permalink to this definition">¶</a></dt>
 <dd><p>The expression of the regular part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id17">[ESW11]</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the regular bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">z</span></span></code></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="yadism.splitting_functions.pqq_sing">
+<code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqq_sing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqq_sing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqq_sing" title="Permalink to this definition">¶</a></dt>
+<dd><p>The expression of the singular part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
 <p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id18">[ESW11]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
+<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the regular bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
+<dd class="field-even"><p>the singular bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">z</span></span></code></p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
