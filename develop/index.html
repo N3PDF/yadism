@@ -207,6 +207,40 @@
 <hr class="docutils" />
 <p><cite>yadism</cite> is a wonderful package for computing <abbr title="Deep Inelastic Scattering">DIS</abbr> observables replacing the
 corresponding one inside <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a>.</p>
+<div class="section" id="design-goals">
+<h2>Design Goals<a class="headerlink" href="#design-goals" title="Permalink to this headline">¶</a></h2>
+<p><cite>yadism</cite> present some real advantages with respect to analogous codes
+available. They are mainly related to the choice of developing this project
+applying a modern methodology.</p>
+<p>In particular:</p>
+<ul>
+<li><p>the project is open source, freely available from an early stage of
+development, open for requests and contributions</p></li>
+<li><p>the project has been developed using <em>python</em>, because even if it would make
+harder to improve the runtime performances, it will improve enormously
+readability</p>
+<ul>
+<li><p>the performances issues are delegated to the use of external compiled
+extensions (like <a class="reference external" href="https://scipy.org/">scipy</a>), relying on very well tested libraries, or even
+using JIT compiled code (or in general python defined compiled code), e.g.
+using <a class="reference external" href="http://numba.pydata.org/">numba</a></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install yadism
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>another great benefit of the previous point is the delivering and
+portability: the project is deployed on <a class="reference external" href="https://pypi.org/project/yadism/">PyPI</a> and you can simply download it
+using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>, simply running:</p></li>
+<li><p>the project is managed applying CI/CD patterns, in this way is continuously
+benchmarked at any update, against other tools, itself and preserving
+invariants exploiting a unit-test suite (for a full description see
+<a class="reference internal" href="dev-tools/tests.html"><span class="doc">Tests</span></a>)</p></li>
+<li><p>a lot of attention has been paid in writing a helpful and detailed
+documentation, to help users and future maintainers</p></li>
+</ul>
+</div>
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong> already implemented include:</p>
