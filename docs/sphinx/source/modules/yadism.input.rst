@@ -1,0 +1,42 @@
+yadism.input package
+====================
+
+.. automodule:: yadism.input
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+yadism.input.constraints module
+-------------------------------
+
+.. automodule:: yadism.input.constraints
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.input.defaults module
+----------------------------
+
+.. automodule:: yadism.input.defaults
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.input.errors module
+--------------------------
+
+.. automodule:: yadism.input.errors
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.input.inspector module
+-----------------------------
+
+.. automodule:: yadism.input.inspector
+   :members:
+   :undoc-members:
+   :show-inheritance:

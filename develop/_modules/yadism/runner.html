@@ -215,6 +215,7 @@
 <span class="kn">from</span> <span class="nn">eko</span> <span class="kn">import</span> <span class="n">thresholds</span>
 <span class="kn">from</span> <span class="nn">eko</span> <span class="kn">import</span> <span class="n">strong_coupling</span>
 
+<span class="kn">from</span> <span class="nn">.input</span> <span class="kn">import</span> <span class="n">inspector</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">observable_name</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">log</span>
 <span class="kn">from</span> <span class="nn">.output</span> <span class="kn">import</span> <span class="n">Output</span>
@@ -227,25 +228,25 @@
 
 <div class="viewcode-block" id="Runner"><a class="viewcode-back" href="../../modules/yadism.html#yadism.runner.Runner">[docs]</a><span class="k">class</span> <span class="nc">Runner</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Wrapper to compute a process</span>
+<span class="sd">    Wrapper to compute a process</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        theory : dict</span>
-<span class="sd">            Dictionary with the theory parameters for the evolution (currently</span>
-<span class="sd">            including PDFSet and DIS process indication).</span>
-<span class="sd">        observables : dict</span>
-<span class="sd">            DIS parameters: process description, kinematic specification for the</span>
-<span class="sd">            requested output.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    theory : dict</span>
+<span class="sd">        Dictionary with the theory parameters for the evolution (currently</span>
+<span class="sd">        including PDFSet and DIS process indication).</span>
+<span class="sd">    observables : dict</span>
+<span class="sd">        DIS parameters: process description, kinematic specification for the</span>
+<span class="sd">        requested output.</span>
 
-<span class="sd">        Notes</span>
-<span class="sd">        -----</span>
-<span class="sd">        For a full description of the content of `theory` and `dis_observables`</span>
-<span class="sd">        dictionaries read ??.</span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    For a full description of the content of `theory` and `dis_observables`</span>
+<span class="sd">    dictionaries read ??.</span>
 
-<span class="sd">        .. todo::</span>
-<span class="sd">            * reference on theory template</span>
-<span class="sd">            * detailed description of dis_observables entries</span>
+<span class="sd">    .. todo::</span>
+<span class="sd">        * reference on theory template</span>
+<span class="sd">        * detailed description of dis_observables entries</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -268,19 +269,26 @@
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">theory</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">observables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="c1"># ============</span>
+        <span class="c1"># ==============================</span>
+        <span class="c1"># Validate inputs</span>
+        <span class="c1"># ==============================</span>
+        <span class="n">insp</span> <span class="o">=</span> <span class="n">inspector</span><span class="o">.</span><span class="n">Inspector</span><span class="p">(</span><span class="n">theory</span><span class="p">,</span> <span class="n">observables</span><span class="p">)</span>
+        <span class="n">insp</span><span class="o">.</span><span class="n">perform_all_checks</span><span class="p">()</span>
+
+        <span class="c1"># ==============================</span>
         <span class="c1"># Store inputs</span>
-        <span class="c1"># ============</span>
+        <span class="c1"># ==============================</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_theory</span> <span class="o">=</span> <span class="n">theory</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_observables</span> <span class="o">=</span> <span class="n">observables</span>
 
-        <span class="c1"># ===========================</span>
-        <span class="c1"># Setup eko stuff</span>
-        <span class="c1"># ===========================</span>
+        <span class="c1"># ==============================</span>
+        <span class="c1"># Setup eko stuffs</span>
+        <span class="c1"># ==============================</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span> <span class="o">=</span> <span class="n">InterpolatorDispatcher</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">observables</span><span class="p">,</span> <span class="n">mode_N</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">thresholds</span><span class="o">.</span><span class="n">ThresholdsConfig</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">theory</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">strong_coupling</span> <span class="o">=</span> <span class="n">strong_coupling</span><span class="o">.</span><span class="n">StrongCoupling</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
-            <span class="n">theory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span>
+            <span class="n">theory</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># Non-eko theory</span>
@@ -345,34 +353,34 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">file</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">console</span> <span class="o">=</span> <span class="n">rich</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">Console</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
-        <span class="c1"># =================</span>
+        <span class="c1"># ==============================</span>
         <span class="c1"># Initialize output</span>
-        <span class="c1"># =================</span>
+        <span class="c1"># ==============================</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span> <span class="o">=</span> <span class="n">Output</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="s2">&quot;xgrid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="p">[</span><span class="s2">&quot;xiF&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xiF</span>
 
 <div class="viewcode-block" id="Runner.get_output"><a class="viewcode-back" href="../../modules/yadism.html#yadism.runner.Runner.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Output</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Compute coefficient functions grid for requested kinematic points.</span>
+<span class="sd">        Compute coefficient functions grid for requested kinematic points.</span>
 
 
-<span class="sd">            .. admonition:: Implementation Note</span>
+<span class="sd">        .. admonition:: Implementation Note</span>
 
-<span class="sd">                get_output pipeline</span>
+<span class="sd">            get_output pipeline</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">            :obj:`Output`</span>
-<span class="sd">                output object, it will store the coefficient functions grid</span>
-<span class="sd">                (flavour, interpolation-index) for each requested kinematic</span>
-<span class="sd">                point (x, Q2)</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :obj:`Output`</span>
+<span class="sd">            output object, it will store the coefficient functions grid</span>
+<span class="sd">            (flavour, interpolation-index) for each requested kinematic</span>
+<span class="sd">            point (x, Q2)</span>
 
 
-<span class="sd">            .. todo::</span>
+<span class="sd">        .. todo::</span>
 
-<span class="sd">                * docs</span>
-<span class="sd">                * get_output pipeline</span>
+<span class="sd">            * docs</span>
+<span class="sd">            * get_output pipeline</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">banner</span><span class="p">)</span>
 
