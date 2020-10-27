@@ -450,12 +450,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">nhq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">hqnumber</span>
         <span class="c1"># get our local active number of flavors</span>
+        <span class="n">scheme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">scheme</span>
         <span class="n">nf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">get_areas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">nf</span>
         <span class="c1"># use local only? i.e. by force or because we (Q2) are below our threshold (name)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_force_local</span> <span class="ow">or</span> <span class="n">nf</span> <span class="o">&lt;</span> <span class="n">nhq</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_compute_local</span><span class="p">()</span>
+            <span class="c1"># skip for ZM-VFNS -&gt; return 0</span>
+            <span class="k">if</span> <span class="n">scheme</span> <span class="o">!=</span> <span class="s2">&quot;ZM-VFNS&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_compute_local</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">scheme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">scheme</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Apply &#39;</span><span class="si">%s</span><span class="s2">&#39; to </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">scheme</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
             <span class="c1"># compute zero-mass part</span>
             <span class="n">obs_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span>

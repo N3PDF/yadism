@@ -287,8 +287,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span> <span class="o">=</span> <span class="n">InterpolatorDispatcher</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">observables</span><span class="p">,</span> <span class="n">mode_N</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">thresholds</span><span class="o">.</span><span class="n">ThresholdsConfig</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">theory</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">strong_coupling</span> <span class="o">=</span> <span class="n">strong_coupling</span><span class="o">.</span><span class="n">StrongCoupling</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
-            <span class="n">theory</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span>
+            <span class="n">theory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># Non-eko theory</span>
