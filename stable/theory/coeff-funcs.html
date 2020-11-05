@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Coefficient Functions &mdash; yadism 0.3.3 documentation</title>
+  <title>Coefficient Functions Calculation &mdash; yadism 0.4.0-develop documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
   
   
   
@@ -31,14 +33,15 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Heavy Flavors" href="heavy-flavors.html" />
+    <link rel="next" title="Light Flavors" href="light-flavors.html" />
     <link rel="prev" title="DIS introduction" href="DIS-intro.html" /> 
 </head>
 
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -95,27 +98,34 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Coefficient Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#regular-singular-local">Regular - Singular - Local</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#convolution-integral">Convolution Integral</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Coefficient Functions Calculation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#convolution-integral">Convolution Integral</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#convolution-to-integration">Convolution to Integration</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#regular-singular-local-rsl">Regular - Singular - Local (RSL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integral-details">Integral Details</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/extras.html">Extras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -162,7 +172,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Coefficient Functions</li>
+      <li>Coefficient Functions Calculation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,17 +211,82 @@
   span.eqref:after {
     content: ")";
   }
-</style><div class="section" id="coefficient-functions">
-<h1>Coefficient Functions<a class="headerlink" href="#coefficient-functions" title="Permalink to this headline">¶</a></h1>
-<p>Look <a class="bibtex reference internal" href="../zzz-refs.html#vogt" id="id1">[VVM05]</a>.</p>
-<div class="section" id="regular-singular-local">
-<h2>Regular - Singular - Local<a class="headerlink" href="#regular-singular-local" title="Permalink to this headline">¶</a></h2>
-<p>Define the split in three bits.</p>
-</div>
+</style><div class="section" id="coefficient-functions-calculation">
+<h1>Coefficient Functions Calculation<a class="headerlink" href="#coefficient-functions-calculation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="convolution-integral">
 <h2>Convolution Integral<a class="headerlink" href="#convolution-integral" title="Permalink to this headline">¶</a></h2>
 <p>How we recast convolution in an integration in [0,1] (where plus distributions
 are properly defined) plus some addends.</p>
+<div class="section" id="convolution-to-integration">
+<h3>Convolution to Integration<a class="headerlink" href="#convolution-to-integration" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\int_x^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ &amp;=
+\int_0^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ - \int_0^x \frac{\text{d}
+z}{z} f(z) \cdot \left[ h(z) \right]_+\\
+&amp;= \int_0^1 \text{d} z \left(\frac{f(z)}{z} - f(1)\right) \cdot h(z) - \int_0^x \text{d}
+z \frac{ f(z)}{z} \cdot h(z)\\
+&amp;= \int_x^1 \text{d} z \left(\frac{f(z)}{z} - f(1)\right) \cdot h(z) - f(1) \int_0^x
+\text{d} z~ h(z)
+\end{align}\end{split}\]</div>
+<p>And explicitly for a product of distributions:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+ &amp; \int_x^1 \frac{\text{d} z}{z} f(z) g(z) \cdot \left[ h(z) \right]_+\\
+ &amp;=
+\int_0^1 \frac{\text{d} z}{z} f(z) g(z) \cdot \left[ h(z) \right]_+ - \int_0^x \frac{\text{d}
+z}{z} f(z) g(z) \cdot \left[ h(z) \right]_+\\
+&amp;= \int_0^1 \text{d} z \left(\frac{f(z)g(z)}{z} - f(1)g(1)\right) \cdot h(z) - \int_0^x \text{d}
+z \frac{ f(z) g(z)}{z} \cdot h(z)\\
+&amp;= \int_x^1 \text{d} z \left(\frac{f(z)g(z)}{z} - f(1)g(1)\right) \cdot h(z) - f(1) g(1) \int_0^x\text{d} z~ h(z)\\
+&amp;= \int_x^1 \text{d} z \left(\frac{f(z)(g(z)+g(1)-g(1))}{z} - f(1)g(1)\right) \cdot h(z) - f(1) g(1) \int_0^x\text{d} z~ h(z)\\
+&amp;= \int_x^1 \text{d} z \left(\frac{f(z)}{z} - f(1)\right)  g(1)\cdot h(z) + \int_x^1 \text{d} z \frac{f(z)(g(z)-g(1)))}{z} h(z)  - f(1) g(1) \int_0^x\text{d} z~ h(z)\\
+&amp;= \int_x^1  \frac{\text{d} z}{ z} f(z)  g(1)\cdot \left[h(z)\right]_+ + \int_x^1 \text{d} z \frac{f(z)(g(z)-g(1)))}{z} h(z)
+\end{align}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="regular-singular-local-rsl">
+<h2>Regular - Singular - Local (RSL)<a class="headerlink" href="#regular-singular-local-rsl" title="Permalink to this headline">¶</a></h2>
+<p>A generic coefficient function will allow for three ingredients:</p>
+<ul class="simple">
+<li><p>regular functions</p></li>
+<li><p><span class="math notranslate nohighlight">\(delta(1-x)\)</span> distributions</p></li>
+<li><p><span class="math notranslate nohighlight">\(\left[f(x)\right]_+\)</span> distributions (where the function inside can be a
+generic function, but it will always be <span class="math notranslate nohighlight">\(\log^k(1-x)/(1-x)\)</span> in practice)</p></li>
+</ul>
+<p>The first one can be integrated by ordinary methods, but the other two will
+deserve special care:</p>
+<ul class="simple">
+<li><p>the <span class="math notranslate nohighlight">\(delta\)</span> part it becomes a simple evaluation of anything multiplied,
+but since this is not going to be numerically integrated this contributions
+are split in the code and directly evaluated; this <em>not-integrated</em> part is
+called the <strong>local (L)</strong> part, and <span class="math notranslate nohighlight">\(delta\)</span> contributions will go
+completely into it</p></li>
+<li><p>the plus distributions instead will contribute to two different parts: the
+<em>local</em> and the <strong>singular (S)</strong> one, that it will involve an integration
+with not just the plain function multiplied to it, but a little bit more
+complicate prescription, i.e.:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\int_x^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ = \int_x^1
+\text{d} z \left(\frac{f(z)}{z} - f(1)\right) \cdot h(z) - f(1) \int_0^x
+\text{d} z~ h(z)\]</div>
+<dl class="simple">
+<dt>.</dt><dd><p>as it is derived in the previous section; the first bit will be the plus
+distribution contribution to the <em>singular</em>, while the second to the <em>local</em>
+part of the integration</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="integral-details">
+<h2>Integral Details<a class="headerlink" href="#integral-details" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>if area does not overlap it’s set to 0 and integral skip</p></li>
+<li><p>we are using <cite>scipy.quad</cite></p></li>
+<li><p>precision can be set</p></li>
+<li><p>some areas specification are passed to quad</p></li>
+<li><p>the extremes are cut a little, to regulate integration behavior</p></li>
+</ul>
 </div>
 </div>
 
@@ -223,7 +298,7 @@ are properly defined) plus some addends.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="heavy-flavors.html" class="btn btn-neutral float-right" title="Heavy Flavors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="light-flavors.html" class="btn btn-neutral float-right" title="Light Flavors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="DIS-intro.html" class="btn btn-neutral float-left" title="DIS introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -241,7 +316,7 @@ are properly defined) plus some addends.</p>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -270,7 +345,7 @@ are properly defined) plus some addends.</p>
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Runner &mdash; yadism 0.3.3 documentation</title>
+  <title>Runner &mdash; yadism 0.4.0-develop documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
   
   
   
@@ -31,14 +33,15 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Structure Function interface" href="SF.html" />
+    <link rel="next" title="Input layer" href="input.html" />
     <link rel="prev" title="Code Structure" href="index.html" /> 
 </head>
 
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -100,6 +103,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#handlers-objects">Handlers objects</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="input.html">Input layer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SF.html">Structure Function interface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ESF.html">Evaluated Structure Function</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
@@ -114,23 +118,26 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/extras.html">Extras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -226,15 +233,15 @@
 functionalities.</p>
 <p>In order to compute any kind of observable a <cite>Runner</cite> instance should be
 created, and fed with the proper theory (in the shape of a python
-<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) and the observables runcard (also as a python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>).</p>
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) and the observables runcard (also as a python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>).</p>
 <div class="admonition-i-o admonition">
 <p class="admonition-title">I/O</p>
 <p>Dealing with runcards as files is not a goal of <cite>Runner</cite>, so you can just load
 yourself whatever kind of file format you prefer (<cite>json</cite>, <cite>yaml</cite>, any type of
-db), you just need to manage the conversion step from/into a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>.</p>
+db), you just need to manage the conversion step from/into a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>.</p>
 <p>Almost in the same way you can/must manage the output as well (an <a class="reference internal" href="#output">output
-object</a> is provided, but you can ask instead for a bare <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>,
-or ask the object itself for the equivalent <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>).</p>
+object</a> is provided, but you can ask instead for a bare <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>,
+or ask the object itself for the equivalent <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>).</p>
 </div>
 <div class="section" id="getting-the-results">
 <h2>Getting the results<a class="headerlink" href="#getting-the-results" title="Permalink to this headline">¶</a></h2>
@@ -333,7 +340,7 @@ representation of each particle), but not the running couplings like
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="SF.html" class="btn btn-neutral float-right" title="Structure Function interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="input.html" class="btn btn-neutral float-right" title="Input layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Code Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -351,7 +358,7 @@ representation of each particle), but not the running couplings like
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -380,7 +387,7 @@ representation of each particle), but not the running couplings like
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

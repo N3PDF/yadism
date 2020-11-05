@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Regression Tests &mdash; yadism 0.3.3 documentation</title>
+  <title>Regression Tests &mdash; yadism 0.4.0-develop documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
   
   
   
@@ -31,7 +33,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -95,31 +98,35 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="db-suite.html">Database Test Suite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="tests.html">Tests</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="unit-tests.html">Unit Tests</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Regression Tests</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#strategy">Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slicing-1-hot">Slicing (1-hot)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="benchmarks.html">Benchmarks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras.html">Extras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -211,19 +218,27 @@
 <h1>Regression Tests<a class="headerlink" href="#regression-tests" title="Permalink to this headline">¶</a></h1>
 <p>This tests are implemented to guarantee the historical consistency of
 <a class="reference internal" href="../modules/yadism.html#module-yadism" title="yadism"><code class="xref py py-mod docutils literal notranslate"><span class="pre">yadism</span></code></a> results.</p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>A set of results is produced at a given time and stored separately from the
-package code (currently a <em>GitHub Gist</em> has been chosen for storing the
-<code class="docutils literal notranslate"><span class="pre">json</span></code> file).</p>
+package code. Thus, we can consider the produced as generated from an external
+program at a different point in time.</p>
 <p>The regression runner will run the same calculation with the same settings of
 the previously generated results, fetch these ones and compare the new with the
-stored to ensure that nothing has been changed (if some behavior has been
-modified willfully it will be sufficient to ignore the generated warning).</p>
-<div class="section" id="strategy">
-<h2>Strategy<a class="headerlink" href="#strategy" title="Permalink to this headline">¶</a></h2>
+stored to ensure that nothing has been changed.</p>
+</div>
+<div class="section" id="slicing-1-hot">
+<h2>Slicing (1-hot)<a class="headerlink" href="#slicing-1-hot" title="Permalink to this headline">¶</a></h2>
 <p>Since it is not possible to test the full matrix of combinations, because of
 its exponential complexity in the features number, a one-hot strategy has been
 adopted.</p>
-<p>This means that <strong>all the features</strong> are controlled by the <em>regression tests</em>,
+<div class="admonition-hot admonition">
+<p class="admonition-title">1-hot</p>
+<p>It means that if multiple features can be toggle a single one is chosen and
+activated, keeping all the others off. Then iterate over all the possible
+selection (we borrowed this name from the well-known <a class="reference external" href="https://en.wikipedia.org/wiki/One-hot">One-hot encoding</a>).</p>
+</div>
+<p>This means that all the features are controlled <strong>one at a time</strong> by the <em>regression tests</em>,
 but <strong>not all the combinations</strong>.</p>
 </div>
 </div>
@@ -254,7 +269,7 @@ but <strong>not all the combinations</strong>.</p>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -283,7 +298,7 @@ but <strong>not all the combinations</strong>.</p>
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

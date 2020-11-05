@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Target Mass Corrections &mdash; yadism 0.3.3 documentation</title>
+  <title>Target Mass Corrections &mdash; yadism 0.4.0-develop documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
   
   
   
@@ -31,14 +33,15 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Database Test Suite" href="../dev-tools/db-suite.html" />
+    <link rel="next" title="References" href="../zzz-refs.html" />
     <link rel="prev" title="Scale Variations" href="scale-variations.html" /> 
 </head>
 
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -95,28 +98,32 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#work-in-progress-notes">Work in Progress notes</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Target Mass Corrections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#work-in-progress-notes">Work in Progress notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#note-1">Note 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#note-2-caching">Note 2 (caching)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#note-3-physics">Note 3 (physics)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev-tools/benchmark-runner.html">Benchmark Runner</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/extras.html">Extras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -205,10 +212,9 @@
 </style><div class="section" id="target-mass-corrections">
 <span id="tmc-page"></span><h1>Target Mass Corrections<a class="headerlink" href="#target-mass-corrections" title="Permalink to this headline">¶</a></h1>
 <p><a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id1">[S+08]</a>, <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id2">[GR20]</a></p>
-</div>
 <hr class="docutils" />
 <div class="section" id="work-in-progress-notes">
-<h1>Work in Progress notes<a class="headerlink" href="#work-in-progress-notes" title="Permalink to this headline">¶</a></h1>
+<h2>Work in Progress notes<a class="headerlink" href="#work-in-progress-notes" title="Permalink to this headline">¶</a></h2>
 <p>Runner: holds a list of structure functions instances, that will act as our
 “soft singletons”
 StructureFunction: holds a reference to his parent runner, in this way its also
@@ -217,6 +223,7 @@ compute TMCs, e.g.)</p>
 <p>Caching: it is managed at the level of StructureFunction, while the values are
 kept at the level of ESF (so the StructureFunction is just routing the caller to
 the correct instance of ESF to ask for values)</p>
+</div>
 <div class="section" id="note-1">
 <h2>Note 1<a class="headerlink" href="#note-1" title="Permalink to this headline">¶</a></h2>
 <p>Here is the third time that we are proliferating the SF classes to all the
@@ -275,7 +282,7 @@ the review (Schienbein et al.) set to 0</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../dev-tools/db-suite.html" class="btn btn-neutral float-right" title="Database Test Suite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../zzz-refs.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="scale-variations.html" class="btn btn-neutral float-left" title="Scale Variations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -293,7 +300,7 @@ the review (Schienbein et al.) set to 0</p></li>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -322,7 +329,7 @@ the review (Schienbein et al.) set to 0</p></li>
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

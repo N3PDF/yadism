@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Benchmark Runner &mdash; yadism 0.3.3 documentation</title>
+  <title>Benchmark Runner &mdash; yadism 0.4.0-develop documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
   
   
   
@@ -31,15 +33,16 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tests" href="tests.html" />
-    <link rel="prev" title="Database Test Suite" href="db-suite.html" /> 
+    <link rel="next" title="Navigator" href="navigator.html" />
+    <link rel="prev" title="Yadmark" href="yadmark.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                0.3
+                develop
               </div>
             
           
@@ -95,31 +98,40 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html#work-in-progress-notes">Work in Progress notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="db-suite.html">Database Test Suite</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Benchmark Runner</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#dbinterface">DBinterface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#external-utils">External Utils</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#apfel-utils">APFEL Utils</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#qcdnum-utils">QCDNUM Utils</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="yadmark.html">Yadmark</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Benchmark Runner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dbinterface">DBinterface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-utils">External Utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#apfel-utils">APFEL Utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qcdnum-utils">QCDNUM Utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="navigator.html">Navigator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark/yadmark.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadmark.html#runners">Runners</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extras.html">Extras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-todos.html">TODOs</a></li>
 </ul>
 
             
@@ -166,6 +178,8 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="yadmark.html">Yadmark</a> &raquo;</li>
+        
       <li>Benchmark Runner</li>
     
     
@@ -207,6 +221,17 @@
   }
 </style><div class="section" id="benchmark-runner">
 <h1>Benchmark Runner<a class="headerlink" href="#benchmark-runner" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>It is not anymore an ecosystem of scripts but a proper object-oriented
+python subpackage.</p>
+<ul class="simple">
+<li><p>update the status</p></li>
+<li><p>describe the description of the API (how the user can interact with the
+runner itself)</p></li>
+<li><p>describe the current design</p></li>
+</ul>
+</div>
 <div class="section" id="dbinterface">
 <h2>DBinterface<a class="headerlink" href="#dbinterface" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -246,10 +271,10 @@ one output)</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tests.html" class="btn btn-neutral float-right" title="Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="navigator.html" class="btn btn-neutral float-right" title="Navigator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="db-suite.html" class="btn btn-neutral float-left" title="Database Test Suite" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="yadmark.html" class="btn btn-neutral float-left" title="Yadmark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -264,7 +289,7 @@ one output)</p></li>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
 
 
 </footer>
@@ -293,7 +318,7 @@ one output)</p></li>
   n3pdf_link.href = "http://n3pdf.mi.infn.it/";
   image_container.appendChild(n3pdf_link);
   var image = document.createElement("IMG");
-  image.src = "/yadism/_static/n3pdf_logo.png";
+  image.src = "/yadism/_assets/n3pdf_badge.png";
   image.alt = "N3PDF-logo";
   image.className = "logo";
   image.style.width = "70%";

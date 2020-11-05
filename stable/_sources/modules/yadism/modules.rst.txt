@@ -1,7 +1,0 @@
-yadism
-======
-
-.. toctree::
-   :maxdepth: 4
-
-   yadism
