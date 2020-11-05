@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DIS introduction &mdash; yadism 0.4.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coefficient Functions Calculation" href="coeff-funcs.html" />
+    <link rel="prev" title="Tutorials" href="../tutorials/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DIS introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-coefficient-functions-structure">Overview of coefficient functions structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>DIS introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/theory/DIS-intro.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="dis-introduction">
+<h1>DIS introduction<a class="headerlink" href="#dis-introduction" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Short historical overview “DIS is the process involving [bla bla]”</p></li>
+<li><p>“it has been historically relevant in QCD and [bla bla bla]”</p></li>
+<li><p>“and it is one of the core element in PDF determination [bla bla bla bla] …”</p></li>
+</ul>
+<div class="section" id="overview-of-coefficient-functions-structure">
+<h2>Overview of coefficient functions structure<a class="headerlink" href="#overview-of-coefficient-functions-structure" title="Permalink to this headline">¶</a></h2>
+<p>The main categories for coefficients functions are of course:</p>
+<ul class="simple">
+<li><p>the <strong>process</strong> (EM/NC/CC)</p></li>
+<li><p>the <strong>structure function</strong> (F2/L/3)</p></li>
+<li><p>the <strong>flavor</strong> involved (light/charm/bottom/top)</p></li>
+</ul>
+<p>These options set the overall structure of the coefficient functions, and it is
+reported in the following tables, just considering that all the heavy flavors
+(charm/bottom/top) share the same functional form for the coefficient and a
+further category (the massless limit of the heavy) is needed for variable
+flavor scheme like FONLL.</p>
+<table class="docutils align-center" id="id15">
+<caption><span class="caption-text">NC coefficients</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>.</p></th>
+<th class="head"><p><a class="reference internal" href="light-flavors.html#light-nc"><span class="std std-ref">light</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="heavy-flavors.html#heavy-nc"><span class="std std-ref">heavy</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="heavy-flavors.html#asymptotic"><span class="std std-ref">asymptotic</span></a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>F2</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f2nc" id="id1">[VVM05]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id2">[Hek19]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#forte-fonll" id="id3">[FLNR10]</a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>FL</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-flnc" id="id4">[MVV05]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id5">[Hek19]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#forte-fonll" id="id6">[FLNR10]</a></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>F3</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#moch-f3nc" id="id7">[MV00]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id8">[Hek19]</a></p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id16">
+<caption><span class="caption-text">CC coefficients</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>.</p></th>
+<th class="head"><p><a class="reference internal" href="light-flavors.html#light-cc"><span class="std std-ref">light</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="heavy-flavors.html#heavy-cc"><span class="std std-ref">heavy</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="heavy-flavors.html#asymptotic"><span class="std std-ref">asymptotic</span></a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>F2</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f2lcc" id="id9">[MRV08]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id10">[GKR96]</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>FL</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f2lcc" id="id11">[MRV08]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id12">[GKR96]</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>F3</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f3cc" id="id13">[MVV09]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id14">[GKR96]</a></p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are two further categories in which the coefficient functions are
+organized:</p>
+<ul class="simple">
+<li><p>the <strong>incoming flavor</strong>: this will specify the input PDF to which the
+coefficient applies; usually a single expression applies to multiple PDFs,
+but the actual structure depends on the flavor</p></li>
+<li><p>the <strong>parity structure</strong> (vectorial-vectorial/axial-axial/vectorial-axial),
+it is relevant only for the NC</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="coeff-funcs.html" class="btn btn-neutral float-right" title="Coefficient Functions Calculation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorials/index.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

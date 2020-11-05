@@ -1,0 +1,35 @@
+TODOs
+=====
+
+From Docstrings
+---------------
+
+.. todolist ::
+
+From Source Code
+----------------
+
+`coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
+
+.. warning:: #303 raise warning in log if inconsitent
+
+.. warning:: #344 maybe raise warning if non-unitarian
+
+
+
+`sf.py <file:///home/runner/work/yadism/yadism/src/yadism/sf.py>`_
+
+.. warning:: #48 wrap managers and parameters as single attributes
+
+.. warning:: #141 how to incorporate args?
+
+
+
+`generate_code_todos.py <file:///home/runner/work/yadism/yadism/docs/sphinx/generate_code_todos.py>`_
+
+.. warning:: #42 grep sourdings?
+
+.. warning:: #71 use something better then file://? but this should never appear in production
+
+
+

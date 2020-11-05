@@ -1,0 +1,639 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>yadism.input package &mdash; yadism 0.4.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="yadism.nc package" href="yadism.nc.html" />
+    <link rel="prev" title="yadism.esf package" href="yadism.esf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../yadism.html">yadism</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../package-structure/index.html">Structure</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="yadism.html">API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="yadism.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="yadism.cc.html">yadism.cc package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadism.esf.html">yadism.esf package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">yadism.input package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="yadism.nc.html">yadism.nc package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.coupling_constants">yadism.coupling_constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.log">yadism.log module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.observable_name">yadism.observable_name module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.output">yadism.output module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.partonic_channel">yadism.partonic_channel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.runner">yadism.runner module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.sf">yadism.sf module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.splitting_functions">yadism.splitting_functions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.tmc">yadism.tmc module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/index.html">Miscellanea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yadism.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yadism.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yadism.html#description">Description</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../yadism.html">yadism</a> &raquo;</li>
+        
+          <li><a href="yadism.html">yadism package</a> &raquo;</li>
+        
+      <li>yadism.input package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/modules/yadism.input.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="module-yadism.input">
+<span id="yadism-input-package"></span><h1>yadism.input package<a class="headerlink" href="#module-yadism.input" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>These subpackage has the main goal of parsing and validate user input, in
+particular the following three operations are performed:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>constraints</strong>: constraints on single fields are enforced, raising an error</dt><dd><p>for each violation</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>cross-constraints</strong>: constraints involving multiple fields are enforced,</dt><dd><p>raising an error for each violation</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>defaults</strong>: defaults are applied</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We currently chose not to use any default, in order to force the user to provide a
+fully explicit input.
+Even if in this way it will be a little bit more difficult to learn how to use
+<cite>yadism</cite> it is not intended to be used by people not aware of its inputs.</p>
+<p>Instead we are going to provide one or more example inputs in the project (or
+project docs) and each field is fully described inside this subpackage in
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">domains.yaml</span></code>.</p>
+<p>The presence of <cite>defaults.yaml</cite> file is only to explicit our defaults’ absence
+and make the comparison with APFEL’s ones.</p>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-yadism.input.constraints">
+<span id="yadism-input-constraints-module"></span><h2>yadism.input.constraints module<a class="headerlink" href="#module-yadism.input.constraints" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="yadism.input.constraints.Argument">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.input.constraints.</code><code class="sig-name descname">Argument</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#Argument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.Argument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Base Class for input variables’ domains semantics definition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – Domain specification, with the syntax defined in <code class="docutils literal notranslate"><span class="pre">domains.yaml</span></code>.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="yadism.input.constraints.Argument._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#yadism.input.constraints.Argument._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.constraints.Argument._raise_error">
+<em class="property">abstract </em><code class="sig-name descname">_raise_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#Argument._raise_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.Argument._raise_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raise the error, preprocessing the message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.constraints.Argument.check_value">
+<em class="property">abstract </em><code class="sig-name descname">check_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#Argument.check_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.Argument.check_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if <code class="docutils literal notranslate"><span class="pre">value</span></code> belongs to the domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><em>type</em></a>) – Description of parameter <cite>value</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.input.constraints.CrossConstraint">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.input.constraints.</code><code class="sig-name descname">CrossConstraint</code><a class="reference internal" href="../_modules/yadism/input/constraints.html#CrossConstraint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.CrossConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<dl class="py attribute">
+<dt id="yadism.input.constraints.CrossConstraint._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#yadism.input.constraints.CrossConstraint._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.input.constraints.EnumArgument">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.input.constraints.</code><code class="sig-name descname">EnumArgument</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#EnumArgument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.EnumArgument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.input.constraints.Argument" title="yadism.input.constraints.Argument"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.input.constraints.Argument</span></code></a></p>
+<p>Argument definition for <code class="docutils literal notranslate"><span class="pre">enum</span></code> type.</p>
+<p><code class="docutils literal notranslate"><span class="pre">enum</span></code> type is just a domain defined by enumerating all the possible
+values.
+There is no hard-coded restrictions in having in the same enum domain values
+from different default types (e.g. integers and strings may be mixed).</p>
+<dl class="py attribute">
+<dt id="yadism.input.constraints.EnumArgument._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#yadism.input.constraints.EnumArgument._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.constraints.EnumArgument._raise_error">
+<code class="sig-name descname">_raise_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#EnumArgument._raise_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.EnumArgument._raise_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for DomainError, pretty print <cite>domain</cite>.</p>
+<p>The domain is formatted as a dashed list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.constraints.EnumArgument.check_value">
+<code class="sig-name descname">check_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#EnumArgument.check_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.EnumArgument.check_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if <cite>value</cite> belongs to the domain.</p>
+<p>It checks if <cite>value</cite> is in the list of the enumerated values available
+for the <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#yadism.input.errors.DomainError" title="yadism.input.errors.DomainError"><strong>DomainError</strong></a> – If <cite>value</cite> is not in the domain of the <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.input.constraints.IntegerArgument">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.input.constraints.</code><code class="sig-name descname">IntegerArgument</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#IntegerArgument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.IntegerArgument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.input.constraints.RealArgument" title="yadism.input.constraints.RealArgument"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.input.constraints.RealArgument</span></code></a></p>
+<p>Short summary.</p>
+<dl class="py attribute">
+<dt id="yadism.input.constraints.IntegerArgument._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#yadism.input.constraints.IntegerArgument._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.constraints.IntegerArgument.check_value">
+<code class="sig-name descname">check_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#IntegerArgument.check_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.IntegerArgument.check_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if <cite>value</cite> belongs to the domain.</p>
+<p>It checks if <cite>value</cite> belongs to any interval available for the domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#yadism.input.errors.DomainError" title="yadism.input.errors.DomainError"><strong>DomainError</strong></a> – If <cite>value</cite> is not in the domain of the <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.input.constraints.RealArgument">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.input.constraints.</code><code class="sig-name descname">RealArgument</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#RealArgument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.RealArgument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.input.constraints.Argument" title="yadism.input.constraints.Argument"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.input.constraints.Argument</span></code></a></p>
+<p>Argument definition for <code class="docutils literal notranslate"><span class="pre">real</span></code> type.</p>
+<p>Actually just a real with restrictions on the domain, so an interval or the
+union of more disconnected intervals.</p>
+<dl class="py attribute">
+<dt id="yadism.input.constraints.RealArgument._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#yadism.input.constraints.RealArgument._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.constraints.RealArgument._raise_error">
+<code class="sig-name descname">_raise_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#RealArgument._raise_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.RealArgument._raise_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for DomainError, pretty print <cite>domain</cite>.</p>
+<p>The domain is formatted as a dashed list of rules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.constraints.RealArgument.check_value">
+<code class="sig-name descname">check_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#RealArgument.check_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.RealArgument.check_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if <cite>value</cite> belongs to the domain.</p>
+<p>It checks if <cite>value</cite> belongs to any interval available for the domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#yadism.input.errors.DomainError" title="yadism.input.errors.DomainError"><strong>DomainError</strong></a> – If <cite>value</cite> is not in the domain of the <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.input.constraints.StringArgument">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.input.constraints.</code><code class="sig-name descname">StringArgument</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#StringArgument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.StringArgument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.input.constraints.Argument" title="yadism.input.constraints.Argument"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.input.constraints.Argument</span></code></a></p>
+<p>Argument definition for <code class="docutils literal notranslate"><span class="pre">string</span></code> type.</p>
+<p><code class="docutils literal notranslate"><span class="pre">string</span></code> is the argument type for a generic string, and no other check is
+performed other than verifying that it is loaded just as a plain string and
+not any other kind, that should be managed by a more specific <cite>Argument</cite>
+checker.</p>
+<dl class="py attribute">
+<dt id="yadism.input.constraints.StringArgument._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#yadism.input.constraints.StringArgument._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.constraints.StringArgument._raise_error">
+<code class="sig-name descname">_raise_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#StringArgument._raise_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.StringArgument._raise_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for DomainError, pretty print <cite>domain</cite>.</p>
+<p>No domain rule supported, if needed please choose a more specific
+argument type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.constraints.StringArgument.check_value">
+<code class="sig-name descname">check_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/constraints.html#StringArgument.check_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.constraints.StringArgument.check_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if <cite>value</cite> is actually a bare string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#yadism.input.errors.DomainError" title="yadism.input.errors.DomainError"><strong>DomainError</strong></a> – If <cite>value</cite> is not in the domain of the <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-yadism.input.defaults">
+<span id="yadism-input-defaults-module"></span><h2>yadism.input.defaults module<a class="headerlink" href="#module-yadism.input.defaults" title="Permalink to this headline">¶</a></h2>
+<p>Define the default manager, in order to:</p>
+<ul class="simple">
+<li><p>check if all fields are provided</p></li>
+<li><p>apply default for missing fields, warning immediately the user that a default
+is being applied</p></li>
+</ul>
+<dl class="py class">
+<dt id="yadism.input.defaults.DefaultManager">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.input.defaults.</code><code class="sig-name descname">DefaultManager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default_rule</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/defaults.html#DefaultManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.defaults.DefaultManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="yadism.input.defaults.DefaultManager.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_inputs</span></em>, <em class="sig-param"><span class="n">missing_yields_error</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/defaults.html#DefaultManager.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.defaults.DefaultManager.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call self as a function.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-yadism.input.errors">
+<span id="yadism-input-errors-module"></span><h2>yadism.input.errors module<a class="headerlink" href="#module-yadism.input.errors" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt id="yadism.input.errors.CrossConstraintError">
+<em class="property">exception </em><code class="sig-prename descclassname">yadism.input.errors.</code><code class="sig-name descname">CrossConstraintError</code><a class="reference internal" href="../_modules/yadism/input/errors.html#CrossConstraintError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.errors.CrossConstraintError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a></p>
+<p>Error raised while checking inputs (more arguments involved).</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="yadism.input.errors.DefaultError">
+<em class="property">exception </em><code class="sig-prename descclassname">yadism.input.errors.</code><code class="sig-name descname">DefaultError</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/errors.html#DefaultError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.errors.DefaultError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a></p>
+<p>Missing argument for field without default</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="yadism.input.errors.DefaultWarning">
+<em class="property">exception </em><code class="sig-prename descclassname">yadism.input.errors.</code><code class="sig-name descname">DefaultWarning</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/errors.html#DefaultWarning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.errors.DefaultWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeWarning" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeWarning</span></code></a></p>
+<p>Warn the user that a default is being applied</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="yadism.input.errors.DomainError">
+<em class="property">exception </em><code class="sig-prename descclassname">yadism.input.errors.</code><code class="sig-name descname">DomainError</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span></em>, <em class="sig-param"><span class="n">type</span></em>, <em class="sig-param"><span class="n">known_as</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">domain_</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/errors.html#DomainError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.errors.DomainError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a></p>
+<p>Error raised while checking inputs (single argument violation).</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>format domain properly according the type, this should be done by
+error Argument subclasses before raising.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Name of the input variable.</p></li>
+<li><p><strong>description</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Domain description provided.</p></li>
+<li><p><strong>domain</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – The set of rules used to provide .</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-yadism.input.inspector">
+<span id="yadism-input-inspector-module"></span><h2>yadism.input.inspector module<a class="headerlink" href="#module-yadism.input.inspector" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of this module is to provide a runner that implements the semantics
+for the input restrictions defined in the following files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">domains.yaml</span></code>: in which all the domains restrictions are defined</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">cross_constraints.yaml</span></code>: in which further restrictions are defined,</dt><dd><p>each one involving more than one input field</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py class">
+<dt id="yadism.input.inspector.Inspector">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.input.inspector.</code><code class="sig-name descname">Inspector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory_runcard</span></em>, <em class="sig-param"><span class="n">observables_runcard</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/inspector.html#Inspector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.inspector.Inspector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Instantiate the runner that goes through all constraints.</p>
+<p>Use <a class="reference internal" href="#yadism.input.inspector.Inspector.check_domains" title="yadism.input.inspector.Inspector.check_domains"><code class="xref py py-func docutils literal notranslate"><span class="pre">check_domains()</span></code></a> and <a class="reference internal" href="#yadism.input.inspector.Inspector.check_cross_constraints" title="yadism.input.inspector.Inspector.check_cross_constraints"><code class="xref py py-func docutils literal notranslate"><span class="pre">check_cross_constraints()</span></code></a> to run the
+check defined respectively in <code class="docutils literal notranslate"><span class="pre">domains.yaml</span></code> and
+<code class="docutils literal notranslate"><span class="pre">cross_constraints.yaml</span></code>.</p>
+<p>Each <strong>default</strong> applied will issue a specific warning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>theory_runcard</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – theory inputs from user to inspect and validate</p></li>
+<li><p><strong>observables_runcard</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – observables inputs from user to inspect and validate</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="yadism.input.inspector.Inspector.check_cross_constraints">
+<code class="sig-name descname">check_cross_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/inspector.html#Inspector.check_cross_constraints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.inspector.Inspector.check_cross_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over multiple fields constraints (i.e. cross-constraints) and
+immediately raise an error if any input is found outside the boundaries.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.inspector.Inspector.check_domains">
+<code class="sig-name descname">check_domains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/inspector.html#Inspector.check_domains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.inspector.Inspector.check_domains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over single field constraints (i.e. domains’ definitions) and
+immediately raise an error if any input is found outside the boundaries.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.input.inspector.Inspector.perform_all_checks">
+<code class="sig-name descname">perform_all_checks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/input/inspector.html#Inspector.perform_all_checks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.input.inspector.Inspector.perform_all_checks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="yadism.nc.html" class="btn btn-neutral float-right" title="yadism.nc package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="yadism.esf.html" class="btn btn-neutral float-left" title="yadism.esf package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

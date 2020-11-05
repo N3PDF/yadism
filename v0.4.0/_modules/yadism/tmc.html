@@ -1,0 +1,800 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>yadism.tmc &mdash; yadism 0.4.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-favicon-32x32.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../yadism.html">yadism</a> &raquo;</li>
+        
+      <li>yadism.tmc</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for yadism.tmc</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module contain the implementation of target mass corrections (TMC). For an</span>
+<span class="sd">introduction about TMC and also implementation details see :ref:`tmc-page`.</span>
+
+<span class="sd">Three classes are here defined:</span>
+
+<span class="sd">    - :py:class:`EvaluatedStructureFunctionTMC` is the abstract class defining</span>
+<span class="sd">      the machinery for TMC calculation</span>
+<span class="sd">    - :py:class:`ESFTMC_F2` and :py:class:`ESFTMC_FL` implements the previous</span>
+<span class="sd">      one, making use of its machinery as building blocks for the actual</span>
+<span class="sd">      expressions for TMC</span>
+
+<span class="sd">The three structures presented play together the role of an intermediate block</span>
+<span class="sd">between the :py:class:`StructureFunction` interface (used to manage user request</span>
+<span class="sd">for DIS observables) the actual calculator</span>
+<span class="sd">:py:class:`EvaluatedStructureFunction`, or even better they can be seen as a</span>
+<span class="sd">replacement for the latter, that makes use of that one under the hood.</span>
+
+<span class="sd">Indeed TMC corrected structure functions are defined on top of the &quot;bare&quot; ones,</span>
+<span class="sd">and one of their main features is that their expression is a functione of the</span>
+<span class="sd">&quot;bare&quot; themselves, but evaluated to a shifted kinematics (w.r.t. to the one</span>
+<span class="sd">asked by the user, that is the physical kinematic point at which one would like</span>
+<span class="sd">to evaluate the physical structure function).</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">eko.interpolation</span> <span class="kn">import</span> <span class="n">InterpolatorDispatcher</span>
+
+<span class="kn">from</span> <span class="nn">.esf.distribution_vec</span> <span class="kn">import</span> <span class="n">DistributionVec</span>
+<span class="kn">from</span> <span class="nn">.esf.esf_result</span> <span class="kn">import</span> <span class="n">ESFResult</span>
+
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionTMC</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This is an abstract class, made to serve the machinery to the inheriting</span>
+<span class="sd">        classes. In particular here are defined:</span>
+
+<span class="sd">            - shifted kinematics :math:`\xi` and other aux variables</span>
+<span class="sd">              (:math:`\mu` and :math:`\rho`, see :cite:`tmc-iranian`)</span>
+<span class="sd">            - integration layout and two common integrals of structure</span>
+<span class="sd">              functions, :math:`h_2` and :math:`g_2` (see :cite:`tmc-review`)</span>
+<span class="sd">            - an interface for picking up the chosen formulas between:</span>
+
+<span class="sd">                1. *APFEL*</span>
+<span class="sd">                2. *approximate*</span>
+<span class="sd">                3. *exact*</span>
+
+<span class="sd">              (see :cite:`tmc-iranian`)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        SF : StructureFunction</span>
+<span class="sd">            the interface object representing the structure function kind he</span>
+<span class="sd">            belongs to</span>
+<span class="sd">        kinematics : dict</span>
+<span class="sd">            requested kinematic point</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Just store the input and compute some auxiliary variables, no</span>
+<span class="sd">            integration performed here.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span> <span class="o">=</span> <span class="n">SF</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span>
+        <span class="c1"># compute variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2target</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span><span class="p">)</span>  <span class="c1"># = r = sqrt(tau)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span><span class="p">)</span>
+        <span class="c1"># TMC are mostly determined by shifted kinematics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">}</span>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC._get_result_APFEL"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC._get_result_APFEL">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_get_result_APFEL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This method is defined by subclasses to provide the implementation</span>
+<span class="sd">            of TMC calculation according to the same formula used by APFEL, see</span>
+<span class="sd">            :cite:`nnpdf-1.0`</span>
+
+<span class="sd">            .. todo::</span>
+
+<span class="sd">                - APFEL TMC reference missing</span>
+
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC._get_result_approx"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC._get_result_approx">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_get_result_approx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This method is defined by subclasses to provide the implementation</span>
+<span class="sd">            of TMC calculation according to the approximate formula defined in</span>
+<span class="sd">            :eqref:`4` in :cite:`tmc-iranian`, and already presented in</span>
+<span class="sd">            :cite:`tmc-review`.</span>
+
+<span class="sd">            The convenience of this formula is that the integration is</span>
+<span class="sd">            approximate by a simple evaluation of the integrand in a suitable</span>
+<span class="sd">            point, so the evaluation of the full expression is much faster</span>
+<span class="sd">            (because integration yields an array of evaluations, ranging from 1</span>
+<span class="sd">            to the `xgrid` length).</span>
+<span class="sd">            Despite the approximation the formula is quite in a good agreement</span>
+<span class="sd">            with the exact one (for comparison see :cite:`tmc-review`).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC._get_result_exact"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC._get_result_exact">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_get_result_exact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This method is defined by subclasses to provide the implementation</span>
+<span class="sd">            of TMC calculation according to the exact formula defined in</span>
+<span class="sd">            :eqref:`2` in :cite:`tmc-iranian`, and already presented in</span>
+<span class="sd">            :cite:`tmc-review` and older literature like :cite:`tmc-georgi`.</span>
+
+<span class="sd">            Note</span>
+<span class="sd">            ----</span>
+<span class="sd">            This method will always involve an integration (and more than one</span>
+<span class="sd">            according to the structure function). If this is to expensive check</span>
+<span class="sd">            :py:meth:`_get_result_approx`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC.get_result"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This is the interfaces provided to get the evaluation of the TMC</span>
+<span class="sd">            corrected structure function.</span>
+
+<span class="sd">            The kinematics is set to be the requested one, as it should (and not</span>
+<span class="sd">            the shifted one used in evaluation of expression terms).</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            out : ESFResult</span>
+<span class="sd">                an object that stores the details and result of the calculation</span>
+
+<span class="sd">            Note</span>
+<span class="sd">            ----</span>
+<span class="sd">            Another interfaces is provided, :py:meth:`get_output`, that makes</span>
+<span class="sd">            use of this one, so results of the two are consistent, but simply</span>
+<span class="sd">            output in a different format (see :py:class:`ESFResult`, and its</span>
+<span class="sd">            :py:meth:`ESFResult.get_raw` method).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">TMC</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># no TMC</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s2">&quot;EvaluatedStructureFunctionTMC shouldn&#39;t have been created as TMC is disabled.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">TMC</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># APFEL</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_result_APFEL</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">TMC</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># approx</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_result_approx</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">TMC</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># exact</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_result_exact</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown TMC value </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">TMC</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># ensure the correct kinematics is used after the calculations</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">Q2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span>
+
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC.get_output"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This is the interfaces provided to get the evaluation of the TMC</span>
+<span class="sd">            corrected structure function.</span>
+
+<span class="sd">            The kinematics is set to be the requested one, as it should (and not</span>
+<span class="sd">            the shifted one used in evaluation of expression terms).</span>
+
+<span class="sd">            This method is the sibling of :py:meth:`get_result`, providing a</span>
+<span class="sd">            :py:class:`dict` as output, instead of an object.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            out : dict</span>
+<span class="sd">                an dictionary that stores the details and result of the calculation</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span><span class="o">.</span><span class="n">get_raw</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC._convolute_FX"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC._convolute_FX">[docs]</a>    <span class="k">def</span> <span class="nf">_convolute_FX</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">ker</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Implement generic structure to convolute any function `ker` with `F2`.</span>
+
+<span class="sd">            This method is provided for internal use, in order to factorize the</span>
+<span class="sd">            machinery for TMC integrals.</span>
+<span class="sd">            The implementation is flavor transparent, in the sense that takes</span>
+<span class="sd">            any flavor from up and it&#39;s passing it down in the call for a</span>
+<span class="sd">            proper F2 instance (done by using :py:meth:`self._SF.get_ESF`).</span>
+
+<span class="sd">            The integration is made over the interpolation basis, postponing the</span>
+<span class="sd">            once more the the contraction with the PDF.</span>
+
+<span class="sd">            .. math::</span>
+<span class="sd">                :nowrap:</span>
+
+<span class="sd">                \begin{align*}</span>
+<span class="sd">                \tilde{F}_X \otimes f &amp;= \sum_i (\tilde{F}_X \otimes w_i) f_i =</span>
+<span class="sd">                        \left[ a + \sum_{i} ((F_X \otimes k) \otimes w_i)</span>
+<span class="sd">                        \right] f_i \\</span>
+<span class="sd">                    &amp; = \left[ a + \sum_{i,j} \underbrace{{F_X}_j ((w_j \otimes</span>
+<span class="sd">                        k)}_{\texttt{_convolute_FX}} \otimes w_i) \right] f_i</span>
+<span class="sd">                \end{align*}</span>
+
+<span class="sd">            where :math:`\tilde{F}_X` is the target mass corrected structure</span>
+<span class="sd">            function, :math:`F_X` is the bare structure function, :math:`k` is</span>
+<span class="sd">            the kernel function `ker`, and :math:`a` is representing all the</span>
+<span class="sd">            other terms not described here.</span>
+
+<span class="sd">            Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">                kind : str</span>
+<span class="sd">                    observable kind</span>
+<span class="sd">                ker : callable</span>
+<span class="sd">                    the kernel function to be convoluted with structure functions</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check domain</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;xi outside xgrid - cannot convolute starting from xi=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="c1"># iterate grid</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">DistributionVec</span><span class="p">(</span><span class="n">ker</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">xj</span><span class="p">,</span> <span class="n">pj</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="p">):</span>
+            <span class="c1"># basis function does not contribute?</span>
+            <span class="k">if</span> <span class="n">pj</span><span class="o">.</span><span class="n">is_below_x</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="c1"># compute FX matrix (j,k) (where k is wrapped inside get_result)</span>
+            <span class="n">FXj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">apply_kind</span><span class="p">(</span><span class="n">kind</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">xj</span><span class="p">}</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+            <span class="c1"># compute interpolated h integral (j)</span>
+            <span class="n">h2j</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">,</span> <span class="n">pj</span><span class="p">)</span>
+            <span class="c1"># sum along j</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">h2j</span> <span class="o">*</span> <span class="n">FXj</span>
+
+        <span class="k">return</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC._h2"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC._h2">[docs]</a>    <span class="k">def</span> <span class="nf">_h2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Compute raw integral over `F2`, making use of :py:meth:`_convolute_FX`.</span>
+
+<span class="sd">            .. math::</span>
+<span class="sd">                :nowrap:</span>
+
+<span class="sd">                \begin{align*}</span>
+<span class="sd">                h_2(\xi,Q^2) &amp;= \int_\xi^1 du \frac{F_2(u,Q^2)}{u^2}\\</span>
+<span class="sd">                             &amp;= \int_\xi^1 \frac{du}{u} \frac{1}{\xi}</span>
+<span class="sd">                             \frac{\xi}{u} F_2(u,Q^2)\\</span>
+<span class="sd">                             &amp;= ((z\to z/\xi) \otimes F_2(z))(\xi)</span>
+<span class="sd">                \end{align*}</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">                h2 : dict</span>
+<span class="sd">                    ESF output for the integral</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># convolution is given by dz/z f(xi/z) * g(z) z=xi..1</span>
+        <span class="c1"># so to achieve a total 1/z^2 we need to convolute with z/xi</span>
+        <span class="c1"># as we get a 1/z by the measure and an evaluation of 1/xi*xi/z</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convolute_FX</span><span class="p">(</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">,</span> <span class="n">xi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">xi</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="EvaluatedStructureFunctionTMC._g2"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC._g2">[docs]</a>    <span class="k">def</span> <span class="nf">_g2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Compute nested integral over `F2`, making use of :py:meth:`_convolute_FX`.</span>
+
+<span class="sd">            .. math::</span>
+<span class="sd">                :nowrap:</span>
+
+<span class="sd">                \begin{align*}</span>
+<span class="sd">                    g_2(\xi,Q^2) &amp;= \int_\xi^1 du (u-\xi)</span>
+<span class="sd">                                     \frac{F_2(u,Q^2)}{u^2}\\</span>
+<span class="sd">                                 &amp;= \int_\xi^1 \frac{du}{u} \left(1 -</span>
+<span class="sd">                                     \frac{\xi}{u}\right) F_2(u,Q^2)\\</span>
+<span class="sd">                                 &amp;= ((z\to 1-z) \otimes F_2(z))(\xi)</span>
+<span class="sd">                \end{align*}</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">                g2 : dict</span>
+<span class="sd">                    ESF output for the integral</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># convolution is given by dz/z f(xi/z) * g(z) z=xi..1</span>
+        <span class="c1"># so to achieve a total (z-xi)/z^2 we need to convolute with 1-z</span>
+        <span class="c1"># as we get a 1/z by the measure and an evaluation of 1-xi/z</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convolute_FX</span><span class="p">(</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ESFTMC_F2"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F2">[docs]</a><span class="k">class</span> <span class="nc">ESFTMC_F2</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionTMC</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function implements the actual formula for target mass corrections</span>
+<span class="sd">        of F2, for all the three (+1) kinds described in the parent class</span>
+<span class="sd">        :py:class:`EvaluatedStructureFunctionTMC`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        SF : StructureFunction</span>
+<span class="sd">            the interface object representing the structure function kind he</span>
+<span class="sd">            belongs to</span>
+<span class="sd">        kinematics : dict</span>
+<span class="sd">            requested kinematic point</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
+        <span class="c1"># shifted prefactor is common</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="c1"># h2 comes with a seperate factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_factor_h2</span> <span class="o">=</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">**</span> <span class="mi">4</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ESFTMC_F2._get_result_approx"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F2._get_result_approx">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_approx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">approx_prefactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="mi">1</span> <span class="o">+</span> <span class="p">((</span><span class="mi">6</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="p">)</span>
+
+        <span class="c1"># collect F2</span>
+        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+        <span class="c1"># join</span>
+        <span class="k">return</span> <span class="n">approx_prefactor</span> <span class="o">*</span> <span class="n">F2out</span></div>
+
+<div class="viewcode-block" id="ESFTMC_F2._get_result_APFEL"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F2._get_result_APFEL">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_APFEL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># return self._get_result_APFEL_strict()</span>
+        <span class="c1"># collect F2</span>
+        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+        <span class="c1"># compute integral</span>
+        <span class="n">h2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h2</span><span class="p">()</span>
+
+        <span class="c1"># join</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="n">F2out</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_h2</span> <span class="o">*</span> <span class="n">h2out</span></div>
+
+<div class="viewcode-block" id="ESFTMC_F2._get_result_exact"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F2._get_result_exact">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_exact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">factor_g2</span> <span class="o">=</span> <span class="mf">12.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">**</span> <span class="mi">5</span>
+        <span class="c1"># collect F2</span>
+        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+        <span class="c1"># compute raw integral</span>
+        <span class="n">h2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h2</span><span class="p">()</span>
+        <span class="c1"># compute nested integral</span>
+        <span class="n">g2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g2</span><span class="p">()</span>
+
+        <span class="c1"># join</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="n">F2out</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_h2</span> <span class="o">*</span> <span class="n">h2out</span> <span class="o">+</span> <span class="n">factor_g2</span> <span class="o">*</span> <span class="n">g2out</span>
+        <span class="p">)</span></div>
+
+    <span class="c1">### ----- APFEL stuffs</span>
+<div class="viewcode-block" id="ESFTMC_F2._get_result_APFEL_strict"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F2._get_result_APFEL_strict">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_APFEL_strict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># interpolate F2(xi)</span>
+        <span class="n">F2list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">:</span>
+            <span class="c1"># collect support points</span>
+            <span class="n">F2list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">xj</span><span class="p">}</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+            <span class="p">)</span>
+
+        <span class="c1"># compute integral</span>
+        <span class="n">smallInterp</span> <span class="o">=</span> <span class="n">InterpolatorDispatcher</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="n">h2list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">xj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">:</span>
+            <span class="n">h2elem</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">F2list</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">bk</span><span class="p">,</span> <span class="n">F2k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">smallInterp</span><span class="p">,</span> <span class="n">F2list</span><span class="p">):</span>
+                <span class="n">xk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">[</span><span class="n">bk</span><span class="o">.</span><span class="n">poly_number</span><span class="p">]</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="n">DistributionVec</span><span class="p">(</span><span class="k">lambda</span> <span class="n">z</span><span class="p">,</span> <span class="n">xj</span><span class="o">=</span><span class="n">xj</span><span class="p">:</span> <span class="n">xj</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span>
+                <span class="n">d</span><span class="o">.</span><span class="n">eps_integration_abs</span> <span class="o">=</span> <span class="mf">1e-5</span>
+                <span class="n">h2elem</span> <span class="o">+=</span> <span class="n">d</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="n">xj</span><span class="p">,</span> <span class="n">bk</span><span class="p">)</span> <span class="o">*</span> <span class="n">F2k</span> <span class="o">/</span> <span class="n">xk</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="n">h2list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h2elem</span><span class="p">)</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">F2list</span><span class="p">),</span> <span class="n">Q2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">bj</span><span class="p">,</span> <span class="n">F2out</span><span class="p">,</span> <span class="n">h2out</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="p">,</span> <span class="n">F2list</span><span class="p">,</span> <span class="n">h2list</span><span class="p">):</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">bj</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="n">F2out</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_h2</span> <span class="o">*</span> <span class="n">h2out</span>
+            <span class="p">)</span>
+        <span class="c1"># join</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+
+    <span class="c1">### ----- /APFEL stuffs</span>
+
+
+<div class="viewcode-block" id="ESFTMC_FL"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_FL">[docs]</a><span class="k">class</span> <span class="nc">ESFTMC_FL</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionTMC</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function implements the actual formula for target mass corrections</span>
+<span class="sd">        of FL, for all the three (+1) kinds described in the parent class</span>
+<span class="sd">        :py:class:`EvaluatedStructureFunctionTMC`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        SF : StructureFunction</span>
+<span class="sd">            the interface object representing the structure function kind he</span>
+<span class="sd">            belongs to</span>
+<span class="sd">        kinematics : dict</span>
+<span class="sd">            requested kinematic point</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
+        <span class="c1"># shifted prefactor is common</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span><span class="p">)</span>
+        <span class="c1"># h2 comes with a seperate factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_factor_h2</span> <span class="o">=</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ESFTMC_FL._get_result_approx"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_FL._get_result_approx">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_approx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># fmt: off</span>
+        <span class="n">approx_prefactor_F2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">)</span>
+            <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+                <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="c1"># fmt: on</span>
+
+        <span class="c1"># collect structure functions at shifted kinematics</span>
+        <span class="n">FLout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+        <span class="n">F2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">apply_kind</span><span class="p">(</span><span class="s2">&quot;F2&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+
+        <span class="c1"># join</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="n">FLout</span> <span class="o">+</span> <span class="n">approx_prefactor_F2</span> <span class="o">*</span> <span class="n">F2out</span></div>
+
+<div class="viewcode-block" id="ESFTMC_FL._get_result_APFEL"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_FL._get_result_APFEL">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_APFEL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># collect F2</span>
+        <span class="n">FLout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+        <span class="c1"># compute integral</span>
+        <span class="n">h2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h2</span><span class="p">()</span>
+
+        <span class="c1"># join</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="n">FLout</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_h2</span> <span class="o">*</span> <span class="n">h2out</span></div>
+
+<div class="viewcode-block" id="ESFTMC_FL._get_result_exact"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_FL._get_result_exact">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_exact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">factor_g2</span> <span class="o">=</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">**</span> <span class="mi">3</span>
+        <span class="c1"># collect F2</span>
+        <span class="n">FLout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+        <span class="c1"># compute raw integral</span>
+        <span class="n">h2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h2</span><span class="p">()</span>
+        <span class="c1"># compute nested integral</span>
+        <span class="n">g2out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g2</span><span class="p">()</span>
+
+        <span class="c1"># join</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="n">FLout</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_h2</span> <span class="o">*</span> <span class="n">h2out</span> <span class="o">+</span> <span class="n">factor_g2</span> <span class="o">*</span> <span class="n">g2out</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ESFTMC_F3"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F3">[docs]</a><span class="k">class</span> <span class="nc">ESFTMC_F3</span><span class="p">(</span><span class="n">EvaluatedStructureFunctionTMC</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function implements the actual formula for target mass corrections</span>
+<span class="sd">        of F3, for all the three (+1) kinds described in the parent class</span>
+<span class="sd">        :py:class:`EvaluatedStructureFunctionTMC`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        SF : StructureFunction</span>
+<span class="sd">            the interface object representing the structure function kind he</span>
+<span class="sd">            belongs to</span>
+<span class="sd">        kinematics : dict</span>
+<span class="sd">            requested kinematic point</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
+        <span class="c1"># shifted prefactor is common</span>
+        <span class="c1"># beware that we are dealing with xF_3(x) and so xiF_3(xi) also on the right</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># h3 comes with a seperate factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_factor_h3</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ESFTMC_F3._get_result_approx"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F3._get_result_approx">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_approx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">approx_prefactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="mi">1</span>
+            <span class="o">-</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_mu</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span><span class="p">)</span>
+            <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">))</span>
+        <span class="p">)</span>
+
+        <span class="c1"># collect F3</span>
+        <span class="n">F3out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+        <span class="c1"># join</span>
+        <span class="k">return</span> <span class="n">approx_prefactor</span> <span class="o">*</span> <span class="n">F3out</span></div>
+
+<div class="viewcode-block" id="ESFTMC_F3._get_result_APFEL"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F3._get_result_APFEL">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_APFEL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># since there is no g3 h3 is already exact and so APFEL</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_result_exact</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ESFTMC_F3._h3"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F3._h3">[docs]</a>    <span class="k">def</span> <span class="nf">_h3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Compute raw integral over `F3`, making use of :py:meth:`_convolute_FX`.</span>
+
+<span class="sd">            .. math::</span>
+<span class="sd">                :nowrap:</span>
+
+<span class="sd">                \begin{align*}</span>
+<span class="sd">                h_3(\xi,Q^2) &amp;= \int_\xi^1 du \frac{F_3(u,Q^2)}{u}\\</span>
+<span class="sd">                             &amp;= \int_\xi^1 \frac{du}{u} F_3(u,Q^2)\\</span>
+<span class="sd">                             &amp;= ((z\to 1) \otimes F_3(z))(\xi)</span>
+<span class="sd">                \end{align*}</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">                h3 : dict</span>
+<span class="sd">                    ESF output for the integral</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># convolution is given by dz/z f(xi/z) * g(z) z=xi..1</span>
+        <span class="c1"># so to achieve a total 1/z we need to convolute with 1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convolute_FX</span><span class="p">(</span><span class="s2">&quot;F3&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">,</span> <span class="n">xi</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_xi</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">xi</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ESFTMC_F3._get_result_exact"><a class="viewcode-back" href="../../modules/yadism.html#yadism.tmc.ESFTMC_F3._get_result_exact">[docs]</a>    <span class="k">def</span> <span class="nf">_get_result_exact</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># collect F3</span>
+        <span class="n">F3out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shifted_kinematics</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
+        <span class="c1"># compute integral</span>
+        <span class="n">h3out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h3</span><span class="p">()</span>
+
+        <span class="c1"># join</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_shifted</span> <span class="o">*</span> <span class="n">F3out</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_factor_h3</span> <span class="o">*</span> <span class="n">h3out</span></div></div>
+
+
+<span class="n">ESFTMCmap</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;F2&quot;</span><span class="p">:</span> <span class="n">ESFTMC_F2</span><span class="p">,</span> <span class="s2">&quot;FL&quot;</span><span class="p">:</span> <span class="n">ESFTMC_FL</span><span class="p">,</span> <span class="s2">&quot;F3&quot;</span><span class="p">:</span> <span class="n">ESFTMC_F3</span><span class="p">}</span>
+<span class="sd">&quot;&quot;&quot;dict: mapping of ESF TMC classes</span>
+
+<span class="sd">This dictionary is used to redirect to the correct class from a string</span>
+<span class="sd">indicating the kind of the required structure function.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>
