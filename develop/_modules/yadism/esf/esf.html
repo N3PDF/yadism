@@ -360,9 +360,9 @@
 
         <span class="c1"># iterate all polynomials</span>
         <span class="k">for</span> <span class="n">polynomial_f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="p">:</span>
-            <span class="n">cv</span><span class="p">,</span> <span class="n">ecv</span> <span class="o">=</span> <span class="n">d_vec</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convolution_point</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">)</span>
-            <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv</span><span class="p">)</span>
-            <span class="n">els</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ecv</span><span class="p">)</span>
+            <span class="n">c</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">d_vec</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convolution_point</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">)</span>
+            <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="n">els</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ls</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">els</span><span class="p">)</span></div>
 
