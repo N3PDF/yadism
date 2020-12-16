@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Scale Variations &mdash; yadism 0.4.0-develop documentation</title>
+  <title>Structure Functions &mdash; yadism 0.4.0-develop documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Target Mass Corrections" href="TMC.html" />
-    <link rel="prev" title="Processes" href="processes.html" /> 
+    <link rel="next" title="Coefficient Functions" href="coeff-funcs.html" />
+    <link rel="prev" title="DIS introduction" href="DIS-intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -102,17 +102,16 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Structure Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#heavyness">Heavyness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mass-corrections">Mass corrections</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="processes.html">Processes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Scale Variations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#renormalization-scale">Renormalization Scale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#factorization-scale">Factorization Scale</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#points-vs-7-points">9-points vs 7-Points</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
 </ul>
@@ -170,14 +169,14 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Scale Variations</li>
+      <li>Structure Functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/theory/scale-variations.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/theory/structure-functions.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -209,17 +208,70 @@
   span.eqref:after {
     content: ")";
   }
-</style><div class="section" id="scale-variations">
-<h1>Scale Variations<a class="headerlink" href="#scale-variations" title="Permalink to this headline">¶</a></h1>
-<p>The main reference is <a class="bibtex reference internal" href="../zzz-refs.html#vogt-sv" id="id1">[vNV00]</a>.</p>
-<div class="section" id="renormalization-scale">
-<h2>Renormalization Scale<a class="headerlink" href="#renormalization-scale" title="Permalink to this headline">¶</a></h2>
+</style><div class="section" id="structure-functions">
+<h1>Structure Functions<a class="headerlink" href="#structure-functions" title="Permalink to this headline">¶</a></h1>
+<p>The <abbr title="Deep Inelastic Scattering">DIS</abbr> structure functions are organized in the following way:</p>
+<ul class="simple">
+<li><p>different <strong>kinds</strong> of structure functions, determined by the process external
+kinematics (and so the classification applies to all perturbative orders):
+- unpolarized: F1, F2, F3
+- polarized: g1, g2, g3, g4, g5 (these are not computed in <cite>yadism</cite>)</p></li>
+<li><p>the <strong>heavyness</strong>: there is always one structure function per <em>kind</em>
+available, i.e. the <em>total</em> one, but based on the <em>kind</em> definition more
+observables may be defined</p></li>
+<li><p>the <strong>process</strong>: the coefficient functions are computed at <abbr title="Leading Order">LO</abbr> <abbr title="ElectroWeak">EW</abbr>, and they are organized</p></li>
+</ul>
+<p>according the <abbr title="ElectroWeak">EW</abbr> boson involved.</p>
+<div class="section" id="heavyness">
+<h2>Heavyness<a class="headerlink" href="#heavyness" title="Permalink to this headline">¶</a></h2>
+<p>There is always a lot of ways to define physical observables, e.g. tagging the
+outgoing state and imposing kinematics cuts.</p>
+<p>We are not going to use any definition based on the outgoing state, since they
+are prone to be theoretically unsafe, if not properly designed.</p>
+<p>The way we are defining new observables it is just considering new theories,
+derived from the <abbr title="Standard Model">SM</abbr> just setting to 0 some of its bare couplings.</p>
+<ul>
+<li><p><strong>Flight</strong>: it is defined as the original structure function (e.g.
+<span class="math notranslate nohighlight">\(F_2\)</span>) for the theory in which all the <em>light</em> quarks are massless, and
+all the <em>heavy</em> ones are infinitely massive, such that they are never
+contributing to the diagrams</p></li>
+<li><p><strong>Fheavy</strong>: it is defined for a given flavor, e.g. <em>Fcharm</em>, just keeping
+all the <em>light</em> quark massless, a finite mass for a single heavy quark (the
+one associated to the structure function chosen) and all the others <em>heavy</em>
+infinitely massive, switching to 0 all the charges that do not involve the
+chosen heavy quark
+- in <abbr title="Neutral Current">NC</abbr> this means that only the <em>charm</em> charge is kept
+- in <abbr title="Charged Current">CC</abbr> this means that <span class="math notranslate nohighlight">\(V_{cd}\)</span> and <span class="math notranslate nohighlight">\(V_{cs}\)</span> are kept, but e.g.</p>
+<blockquote>
+<div><p>there is no contribution by <span class="math notranslate nohighlight">\(V_{cb}\)</span>, because currently bottom is
+considered infinitely massive
+- we could also define by arbitrarily assign CKM matrix elements to a single</p>
+<blockquote>
+<div><p>flavor, choosing always the heaviest, and set to 0 all the things not
+assigned to the chosen flavor, it is just an equivalent way of presenting
+it</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<p>No other observable than <strong>Flight</strong>, <strong>Fheavy</strong>, <strong>Ftotal</strong> (for all the
+unpolarized <em>kinds</em>) and <strong>sigma</strong> is provided by <cite>yadism</cite>.</p>
 </div>
-<div class="section" id="factorization-scale">
-<h2>Factorization Scale<a class="headerlink" href="#factorization-scale" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="points-vs-7-points">
-<h2>9-points vs 7-Points<a class="headerlink" href="#points-vs-7-points" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mass-corrections">
+<h2>Mass corrections<a class="headerlink" href="#mass-corrections" title="Permalink to this headline">¶</a></h2>
+<p>The mass corrections (heavy quark contributions) are available for a single
+mass at a time, so e.g. <cite>yadism</cite> it is not encoding the effect of having finite
+charm and bottom masses at the same time.</p>
+<p>The actual scheme is the following:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_l\)</span> light flavors are active (i.e. massless quarks)</p></li>
+<li><p>a <strong>single</strong> quark with a <strong>finite mass</strong> <em>may be</em> active, according to the
+<abbr title="Flavor Number Scheme">FNS</abbr> (e.g. in ZM-VFNS it will never be such an object)</p></li>
+<li><p>all the remaining flavors are considered infinitely massive, so they will
+never contribute to anything</p></li>
+</ul>
+<p>In a <a href="#id1"><span class="problematic" id="id2">|VFNS|</span></a> this scheme will depend on the specific value of <span class="math notranslate nohighlight">\(Q^2\)</span>
+considered.</p>
 </div>
 </div>
 
@@ -231,10 +283,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="TMC.html" class="btn btn-neutral float-right" title="Target Mass Corrections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="coeff-funcs.html" class="btn btn-neutral float-right" title="Coefficient Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="processes.html" class="btn btn-neutral float-left" title="Processes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="DIS-intro.html" class="btn btn-neutral float-left" title="DIS introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

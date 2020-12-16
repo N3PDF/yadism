@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Coefficient Functions Calculation &mdash; yadism 0.4.0-develop documentation</title>
+  <title>Coefficient Functions &mdash; yadism 0.4.0-develop documentation</title>
   
 
   
@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Light Flavors" href="light-flavors.html" />
-    <link rel="prev" title="DIS introduction" href="DIS-intro.html" /> 
+    <link rel="prev" title="Structure Functions" href="structure-functions.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -102,13 +102,18 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Coefficient Functions Calculation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#convolution-integral">Convolution Integral</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#convolution-to-integration">Convolution to Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Coefficient Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-coefficient-functions-structure">Overview of coefficient functions structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coefficient-functions-calculation">Coefficient Functions Calculation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#convolution-integral">Convolution Integral</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#convolution-to-integration">Convolution to Integration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#regular-singular-local-rsl">Regular - Singular - Local (RSL)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#integral-details">Integral Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regular-singular-local-rsl">Regular - Singular - Local (RSL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integral-details">Integral Details</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
@@ -172,7 +177,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Coefficient Functions Calculation</li>
+      <li>Coefficient Functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -211,14 +216,116 @@
   span.eqref:after {
     content: ")";
   }
-</style><div class="section" id="coefficient-functions-calculation">
-<h1>Coefficient Functions Calculation<a class="headerlink" href="#coefficient-functions-calculation" title="Permalink to this headline">¶</a></h1>
+</style><div class="section" id="coefficient-functions">
+<h1>Coefficient Functions<a class="headerlink" href="#coefficient-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview-of-coefficient-functions-structure">
+<h2>Overview of coefficient functions structure<a class="headerlink" href="#overview-of-coefficient-functions-structure" title="Permalink to this headline">¶</a></h2>
+<p>The main categories for coefficients the same of <a class="reference internal" href="structure-functions.html"><span class="doc">Structure Functions</span></a>, i.e.:</p>
+<ul>
+<li><p>the <strong>process</strong> (EM/NC/CC)</p></li>
+<li><p>the <strong>kind</strong> (F2/L/3)</p></li>
+<li><p>the <strong>heavyness</strong> involved (light/charm/bottom/top/total)</p></li>
+<li><p>but there is a new one: the <strong>channel</strong> (ns/ps/g), and it is related to the
+incoming parton:
+- if the <abbr title="ElectroWeak">EW</abbr> boson it is coupling to a <em>quark</em> line connected to the incoming</p>
+<blockquote>
+<div><p>one, than each PDF it’s contributing proportionally to his charge (e.g.:
+electric charge for the photon); this is called <strong>non-singlet (ns)</strong></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>otherwise the line to which the <abbr title="ElectroWeak">EW</abbr> boson is coupling it will be detached
+from the incoming  by <em>gluonic</em> lines, and the gluon is flavor blind, so
+all the charges are summed and all the PDF are contributing the same way;
+this is called <strong>pure singlet (ps)</strong></p></li>
+<li><p>eventually: if a <em>gluon</em> is entering all the quarks will couple to the <abbr title="ElectroWeak">EW</abbr>
+boson (if no further restrictions are imposed by the observable, e.g.
+F2charm), as in the singlet case, and so the charges are summed over; this
+is called the <strong>gluon (g)</strong> (because <em>it is</em> the gluon…)</p></li>
+<li><p>the <strong>parity structure</strong> (vectorial-vectorial/axial-axial/vectorial-axial),
+it is relevant only for the NC, and should be taken into account</p></li>
+</ul>
+</li>
+</ul>
+<p>These options set the overall structure of the coefficient functions, and it is
+reported in the following tables, just considering that the mass corrections
+for all the  flavors (charm/bottom/top) share the same functional form for the
+coefficient and a further category (the massless limit of the heavy) is needed
+for variable flavor scheme like FONLL.</p>
+<table class="docutils align-center" id="id15">
+<caption><span class="caption-text">NC coefficients</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>.</p></th>
+<th class="head"><p><a class="reference internal" href="light-flavors.html#light-nc"><span class="std std-ref">light</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="heavy-flavors.html#heavy-nc"><span class="std std-ref">heavy</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="heavy-flavors.html#asymptotic"><span class="std std-ref">asymptotic</span></a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>F2</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f2nc" id="id1">[VVM05]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id2">[Hek19]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#forte-fonll" id="id3">[FLNR10]</a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>FL</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-flnc" id="id4">[MVV05]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id5">[Hek19]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#forte-fonll" id="id6">[FLNR10]</a></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>F3</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#moch-f3nc" id="id7">[MV00]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id8">[Hek19]</a></p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id16">
+<caption><span class="caption-text">CC coefficients</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>.</p></th>
+<th class="head"><p><a class="reference internal" href="light-flavors.html#light-cc"><span class="std std-ref">light</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="heavy-flavors.html#heavy-cc"><span class="std std-ref">heavy</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="heavy-flavors.html#asymptotic"><span class="std std-ref">asymptotic</span></a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>F2</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f2lcc" id="id9">[MRV08]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id10">[GKR96]</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>FL</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f2lcc" id="id11">[MRV08]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id12">[GKR96]</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>F3</p></th>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f3cc" id="id13">[MVV09]</a></p></td>
+<td><p><a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id14">[GKR96]</a></p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="coefficient-functions-calculation">
+<h2>Coefficient Functions Calculation<a class="headerlink" href="#coefficient-functions-calculation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="convolution-integral">
-<h2>Convolution Integral<a class="headerlink" href="#convolution-integral" title="Permalink to this headline">¶</a></h2>
+<h3>Convolution Integral<a class="headerlink" href="#convolution-integral" title="Permalink to this headline">¶</a></h3>
 <p>How we recast convolution in an integration in [0,1] (where plus distributions
 are properly defined) plus some addends.</p>
 <div class="section" id="convolution-to-integration">
-<h3>Convolution to Integration<a class="headerlink" href="#convolution-to-integration" title="Permalink to this headline">¶</a></h3>
+<h4>Convolution to Integration<a class="headerlink" href="#convolution-to-integration" title="Permalink to this headline">¶</a></h4>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \int_x^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ &amp;=
@@ -246,7 +353,7 @@ z \frac{ f(z) g(z)}{z} \cdot h(z)\\
 </div>
 </div>
 <div class="section" id="regular-singular-local-rsl">
-<h2>Regular - Singular - Local (RSL)<a class="headerlink" href="#regular-singular-local-rsl" title="Permalink to this headline">¶</a></h2>
+<h3>Regular - Singular - Local (RSL)<a class="headerlink" href="#regular-singular-local-rsl" title="Permalink to this headline">¶</a></h3>
 <p>A generic coefficient function will allow for three ingredients:</p>
 <ul class="simple">
 <li><p>regular functions</p></li>
@@ -279,7 +386,7 @@ part of the integration</p>
 </dl>
 </div>
 <div class="section" id="integral-details">
-<h2>Integral Details<a class="headerlink" href="#integral-details" title="Permalink to this headline">¶</a></h2>
+<h3>Integral Details<a class="headerlink" href="#integral-details" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>if area does not overlap it’s set to 0 and integral skip</p></li>
 <li><p>we are using <cite>scipy.quad</cite></p></li>
@@ -287,6 +394,7 @@ part of the integration</p>
 <li><p>some areas specification are passed to quad</p></li>
 <li><p>the extremes are cut a little, to regulate integration behavior</p></li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -301,7 +409,7 @@ part of the integration</p>
         <a href="light-flavors.html" class="btn btn-neutral float-right" title="Light Flavors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="DIS-intro.html" class="btn btn-neutral float-left" title="DIS introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="structure-functions.html" class="btn btn-neutral float-left" title="Structure Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

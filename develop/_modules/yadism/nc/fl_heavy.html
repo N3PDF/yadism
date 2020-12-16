@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
@@ -166,8 +167,6 @@
         
           <li><a href="../../yadism.html">yadism</a> &raquo;</li>
         
-          <li><a href="../nc.html">yadism.nc</a> &raquo;</li>
-        
       <li>yadism.nc.fl_heavy</li>
     
     
@@ -202,22 +201,22 @@
 
 <div class="viewcode-block" id="FLheavyGluonVV"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.fl_heavy.FLheavyGluonVV">[docs]</a><span class="k">class</span> <span class="nc">FLheavyGluonVV</span><span class="p">(</span><span class="n">pcnc</span><span class="o">.</span><span class="n">PartonicChannelHeavy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the gluon channel of FLheavy.</span>
+<span class="sd">    Computes the gluon channel of FLheavy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;gVV&quot;</span>
 
 <div class="viewcode-block" id="FLheavyGluonVV.NLO"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.fl_heavy.FLheavyGluonVV.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Computes the gluon part of the next to leading order FL structure</span>
-<span class="sd">            function.</span>
+<span class="sd">        Computes the gluon part of the next to leading order FL structure</span>
+<span class="sd">        function.</span>
 
-<span class="sd">            |ref| implements :eqref:`D.2`, :cite:`felix-thesis`.</span>
+<span class="sd">        |ref| implements :eqref:`D.2`, :cite:`felix-thesis`.</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                sequence of callables</span>
-<span class="sd">                    coefficient functions</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">                coefficient functions</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">CF</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
 
@@ -237,22 +236,22 @@
 
 <div class="viewcode-block" id="FLheavyGluonAA"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.fl_heavy.FLheavyGluonAA">[docs]</a><span class="k">class</span> <span class="nc">FLheavyGluonAA</span><span class="p">(</span><span class="n">FLheavyGluonVV</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the gluon channel of FLheavy.</span>
+<span class="sd">    Computes the gluon channel of FLheavy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;gAA&quot;</span>
 
 <div class="viewcode-block" id="FLheavyGluonAA.NLO"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.fl_heavy.FLheavyGluonAA.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Computes the gluon part of the next to leading order F2 structure</span>
-<span class="sd">            function.</span>
+<span class="sd">        Computes the gluon part of the next to leading order F2 structure</span>
+<span class="sd">        function.</span>
 
-<span class="sd">            |ref| implements :eqref:`D.5`, :cite:`felix-thesis`.</span>
+<span class="sd">        |ref| implements :eqref:`D.5`, :cite:`felix-thesis`.</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                sequence of callables</span>
-<span class="sd">                    coefficient functions</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">                coefficient functions</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">VV</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">NLO</span><span class="p">()</span>

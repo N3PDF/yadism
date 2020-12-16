@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/processes.html">Processes</a></li>
@@ -189,12 +190,12 @@
 
 <div class="viewcode-block" id="PartonicChannel"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannel">[docs]</a><span class="k">class</span> <span class="nc">PartonicChannel</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Container of partonic coefficient functions</span>
+<span class="sd">    Container of partonic coefficient functions</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">            ESF : yadism.structure_function.esf.EvaluatedStructureFunction</span>
-<span class="sd">                parent ESF</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        ESF : yadism.structure_function.esf.EvaluatedStructureFunction</span>
+<span class="sd">            parent ESF</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ESF</span><span class="p">):</span>
@@ -205,19 +206,25 @@
         <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;NLO&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decorator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">NLO</span><span class="p">)</span>
         <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;NLO_fact&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decorator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">NLO_fact</span><span class="p">)</span>
 
+<div class="viewcode-block" id="PartonicChannel.convolution_point"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannel.convolution_point">[docs]</a>    <span class="k">def</span> <span class="nf">convolution_point</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convolution point</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">x</span>  <span class="c1"># pylint: disable=protected-access</span></div>
+
 <div class="viewcode-block" id="PartonicChannel.decorator"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannel.decorator">[docs]</a>    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Deactivate preprocessing</span>
+<span class="sd">        Deactivate preprocessing</span>
 
-<span class="sd">            Parameters</span>
-<span class="sd">            ----------</span>
-<span class="sd">                f : callable</span>
-<span class="sd">                    input</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            f : callable</span>
+<span class="sd">                input</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                f : callable</span>
-<span class="sd">                    output</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            f : callable</span>
+<span class="sd">                output</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">f</span></div>
 
@@ -234,16 +241,47 @@
         <span class="k">return</span> <span class="mi">0</span></div></div>
 
 
+<div class="viewcode-block" id="EmptyPartonicChannel"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.EmptyPartonicChannel">[docs]</a><span class="k">class</span> <span class="nc">EmptyPartonicChannel</span><span class="p">(</span><span class="n">PartonicChannel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="PartonicChannelLight"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannelLight">[docs]</a><span class="k">class</span> <span class="nc">PartonicChannelLight</span><span class="p">(</span><span class="n">PartonicChannel</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">nf</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">nf</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nf</span> <span class="o">=</span> <span class="n">nf</span></div>
 
 
 <div class="viewcode-block" id="PartonicChannelAsy"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannelAsy">[docs]</a><span class="k">class</span> <span class="nc">PartonicChannelAsy</span><span class="p">(</span><span class="n">PartonicChannel</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">esf</span><span class="p">,</span> <span class="n">m2hq</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">esf</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">esf</span><span class="o">.</span><span class="n">Q2</span> <span class="o">/</span> <span class="n">m2hq</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PartonicChannelAsyIntrinsic"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannelAsyIntrinsic">[docs]</a><span class="k">class</span> <span class="nc">PartonicChannelAsyIntrinsic</span><span class="p">(</span><span class="n">PartonicChannel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ESF</span><span class="p">,</span> <span class="n">m1sq</span><span class="p">,</span> <span class="n">m2sq</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ESF</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">Q2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m1sq</span> <span class="o">=</span> <span class="n">m1sq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m2sq</span> <span class="o">=</span> <span class="n">m2sq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigma_pm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">m2sq</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">m1sq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kinematic_delta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m1sq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">m2sq</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PartonicChannelAsyIntrinsic.kinematic_delta"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannelAsyIntrinsic.kinematic_delta">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">kinematic_delta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">c</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">a</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="PartonicChannelAsyIntrinsic.convolution_point"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannelAsyIntrinsic.convolution_point">[docs]</a>    <span class="k">def</span> <span class="nf">convolution_point</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">x</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_pm</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span>
+        <span class="p">)</span>  <span class="c1"># pylint: disable=protected-access</span></div></div>
+
+
+<div class="viewcode-block" id="PartonicChannelHeavyIntrinsic"><a class="viewcode-back" href="../../modules/yadism.html#yadism.partonic_channel.PartonicChannelHeavyIntrinsic">[docs]</a><span class="k">class</span> <span class="nc">PartonicChannelHeavyIntrinsic</span><span class="p">(</span><span class="n">PartonicChannelAsyIntrinsic</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ESF</span><span class="p">,</span> <span class="n">m1sq</span><span class="p">,</span> <span class="n">m2sq</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ESF</span><span class="p">,</span> <span class="n">m1sq</span><span class="p">,</span> <span class="n">m2sq</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigma_pp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">m2sq</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">m1sq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigma_mp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">m2sq</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">m1sq</span></div>
 </pre></div>
 
            </div>

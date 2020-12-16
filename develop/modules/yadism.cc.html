@@ -107,7 +107,9 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.cf_combiner">yadism.cf_combiner module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.coupling_constants">yadism.coupling_constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.kernels">yadism.kernels module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.log">yadism.log module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.observable_name">yadism.observable_name module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yadism.html#module-yadism.output">yadism.output module</a></li>
@@ -129,7 +131,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
@@ -248,7 +251,7 @@
 </div>
 <dl class="py class">
 <dt id="yadism.cc.f2_asy.F2asyGluon">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_asy.</code><code class="sig-name descname">F2asyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_asy.html#F2asyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_asy.F2asyGluon" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_asy.</code><code class="sig-name descname">F2asyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_asy.html#F2asyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_asy.F2asyGluon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="yadism.html#yadism.partonic_channel.PartonicChannelAsy" title="yadism.partonic_channel.PartonicChannelAsy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannelAsy</span></code></a></p>
 <p>Computes the gluon channel of the asymptotic limit of F2heavy.</p>
 <dl class="py method">
@@ -270,7 +273,7 @@
 
 <dl class="py class">
 <dt id="yadism.cc.f2_asy.F2asyQuark">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_asy.</code><code class="sig-name descname">F2asyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_asy.html#F2asyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_asy.F2asyQuark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_asy.</code><code class="sig-name descname">F2asyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_asy.html#F2asyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_asy.F2asyQuark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="yadism.html#yadism.partonic_channel.PartonicChannelAsy" title="yadism.partonic_channel.PartonicChannelAsy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannelAsy</span></code></a></p>
 <p>Computes the quark channel of the asymptotic limit of F2heavy.</p>
 <dl class="py method">
@@ -302,7 +305,7 @@
 heavy quarks</p>
 <dl class="py class">
 <dt id="yadism.cc.f2_heavy.F2heavyGluon">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_heavy.</code><code class="sig-name descname">F2heavyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_heavy.html#F2heavyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_heavy.F2heavyGluon" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_heavy.</code><code class="sig-name descname">F2heavyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_heavy.html#F2heavyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_heavy.F2heavyGluon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.cc.partonic_channel.PartonicChannelHeavy" title="yadism.cc.partonic_channel.PartonicChannelHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.cc.partonic_channel.PartonicChannelHeavy</span></code></a></p>
 <p>Computes the gluon heavy quark channel of F2heavy</p>
 <dl class="py method">
@@ -324,7 +327,7 @@ heavy quarks</p>
 
 <dl class="py class">
 <dt id="yadism.cc.f2_heavy.F2heavyQuark">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_heavy.</code><code class="sig-name descname">F2heavyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_heavy.html#F2heavyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_heavy.F2heavyQuark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_heavy.</code><code class="sig-name descname">F2heavyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_heavy.html#F2heavyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_heavy.F2heavyQuark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.cc.partonic_channel.PartonicChannelHeavy" title="yadism.cc.partonic_channel.PartonicChannelHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.cc.partonic_channel.PartonicChannelHeavy</span></code></a></p>
 <p>Computes the quark heavy quark channel of F2heavy</p>
 <dl class="py method">
@@ -356,15 +359,15 @@ heavy quarks</p>
 light quark flavours.</p>
 <dl class="py class">
 <dt id="yadism.cc.f2_light.F2lightGluon">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_light.</code><code class="sig-name descname">F2lightGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_light.html#F2lightGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_light.F2lightGluon" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_light.</code><code class="sig-name descname">F2lightGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">nf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_light.html#F2lightGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_light.F2lightGluon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="yadism.nc.html#yadism.nc.f2_light.F2lightGluon" title="yadism.nc.f2_light.F2lightGluon"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.nc.f2_light.F2lightGluon</span></code></a></p>
 <p>Computes the light quark channel of  F2light</p>
 </dd></dl>
 
 <dl class="py class">
 <dt id="yadism.cc.f2_light.F2lightQuark">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_light.</code><code class="sig-name descname">F2lightQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_light.html#F2lightQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_light.F2lightQuark" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="yadism.nc.html#yadism.nc.f2_light.F2lightQuark" title="yadism.nc.f2_light.F2lightQuark"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.nc.f2_light.F2lightQuark</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f2_light.</code><code class="sig-name descname">F2lightQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">nf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f2_light.html#F2lightQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f2_light.F2lightQuark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="yadism.nc.html#yadism.nc.f2_light.F2lightNonSinglet" title="yadism.nc.f2_light.F2lightNonSinglet"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.nc.f2_light.F2lightNonSinglet</span></code></a></p>
 <p>Computes the light quark channel of  F2light</p>
 </dd></dl>
 
@@ -379,7 +382,7 @@ heavy quark flavours.</p>
 </div>
 <dl class="py class">
 <dt id="yadism.cc.f3_asy.F3asyGluon">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_asy.</code><code class="sig-name descname">F3asyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_asy.html#F3asyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_asy.F3asyGluon" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_asy.</code><code class="sig-name descname">F3asyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_asy.html#F3asyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_asy.F3asyGluon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="yadism.html#yadism.partonic_channel.PartonicChannelAsy" title="yadism.partonic_channel.PartonicChannelAsy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannelAsy</span></code></a></p>
 <p>Computes the gluon channel of the asymptotic limit of F3heavy.</p>
 <dl class="py method">
@@ -401,7 +404,7 @@ heavy quark flavours.</p>
 
 <dl class="py class">
 <dt id="yadism.cc.f3_asy.F3asyQuark">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_asy.</code><code class="sig-name descname">F3asyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_asy.html#F3asyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_asy.F3asyQuark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_asy.</code><code class="sig-name descname">F3asyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_asy.html#F3asyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_asy.F3asyQuark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="yadism.html#yadism.partonic_channel.PartonicChannelAsy" title="yadism.partonic_channel.PartonicChannelAsy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannelAsy</span></code></a></p>
 <p>Computes the gluon channel of the asymptotic limit of F3heavy.</p>
 <dl class="py method">
@@ -434,7 +437,7 @@ heavy quark flavors.</p>
 <p>The main reference used is: <a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id3">[GKR96]</a>.</p>
 <dl class="py class">
 <dt id="yadism.cc.f3_heavy.F3heavyGluon">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_heavy.</code><code class="sig-name descname">F3heavyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_heavy.html#F3heavyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_heavy.F3heavyGluon" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_heavy.</code><code class="sig-name descname">F3heavyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_heavy.html#F3heavyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_heavy.F3heavyGluon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.cc.partonic_channel.PartonicChannelHeavy" title="yadism.cc.partonic_channel.PartonicChannelHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.cc.partonic_channel.PartonicChannelHeavy</span></code></a></p>
 <p>Computes the gluon channel of F3heavy</p>
 <p><span class="eqref">A5</span> of <a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id4">[GKR96]</a></p>
@@ -457,7 +460,7 @@ heavy quark flavors.</p>
 
 <dl class="py class">
 <dt id="yadism.cc.f3_heavy.F3heavyQuark">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_heavy.</code><code class="sig-name descname">F3heavyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_heavy.html#F3heavyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_heavy.F3heavyQuark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_heavy.</code><code class="sig-name descname">F3heavyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_heavy.html#F3heavyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_heavy.F3heavyQuark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.cc.partonic_channel.PartonicChannelHeavy" title="yadism.cc.partonic_channel.PartonicChannelHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.cc.partonic_channel.PartonicChannelHeavy</span></code></a></p>
 <p>Computes the light quark channel of F3heavy.</p>
 <p><span class="eqref">2</span> of <a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id5">[GKR96]</a></p>
@@ -491,7 +494,7 @@ light quark flavours.</p>
 <p>Scale varitions main reference is <a class="bibtex reference internal" href="../zzz-refs.html#moch-f3nc" id="id6">[MV00]</a>.</p>
 <dl class="py class">
 <dt id="yadism.cc.f3_light.F3lightQuark">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_light.</code><code class="sig-name descname">F3lightQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_light.html#F3lightQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_light.F3lightQuark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.f3_light.</code><code class="sig-name descname">F3lightQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">nf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/f3_light.html#F3lightQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.f3_light.F3lightQuark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.cc.f2_light.F2lightQuark" title="yadism.cc.f2_light.F2lightQuark"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.cc.f2_light.F2lightQuark</span></code></a></p>
 <p>Computes light quark channel of FLlight</p>
 <dl class="py method">
@@ -522,7 +525,7 @@ structure function.</p>
 </div>
 <dl class="py class">
 <dt id="yadism.cc.fl_asy.FLasyGluon">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_asy.</code><code class="sig-name descname">FLasyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_asy.html#FLasyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_asy.FLasyGluon" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_asy.</code><code class="sig-name descname">FLasyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_asy.html#FLasyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_asy.FLasyGluon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="yadism.html#yadism.partonic_channel.PartonicChannelAsy" title="yadism.partonic_channel.PartonicChannelAsy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannelAsy</span></code></a></p>
 <p>Computes the gluon channel of the asymptotic limit of FLheavy.</p>
 <dl class="py method">
@@ -539,7 +542,7 @@ structure function.</p>
 
 <dl class="py class">
 <dt id="yadism.cc.fl_asy.FLasyQuark">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_asy.</code><code class="sig-name descname">FLasyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_asy.html#FLasyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_asy.FLasyQuark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_asy.</code><code class="sig-name descname">FLasyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_asy.html#FLasyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_asy.FLasyQuark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="yadism.html#yadism.partonic_channel.PartonicChannelAsy" title="yadism.partonic_channel.PartonicChannelAsy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannelAsy</span></code></a></p>
 <p>Computes the quark channel of the asymptotic limit of FLheavy.</p>
 <dl class="py method">
@@ -561,7 +564,7 @@ structure function.</p>
 heavy quarks</p>
 <dl class="py class">
 <dt id="yadism.cc.fl_heavy.FLheavyGluon">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_heavy.</code><code class="sig-name descname">FLheavyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_heavy.html#FLheavyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_heavy.FLheavyGluon" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_heavy.</code><code class="sig-name descname">FLheavyGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_heavy.html#FLheavyGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_heavy.FLheavyGluon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.cc.partonic_channel.PartonicChannelHeavy" title="yadism.cc.partonic_channel.PartonicChannelHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.cc.partonic_channel.PartonicChannelHeavy</span></code></a></p>
 <p>Computes the gluon heavy quark channel of F2heavy</p>
 <dl class="py method">
@@ -583,7 +586,7 @@ heavy quarks</p>
 
 <dl class="py class">
 <dt id="yadism.cc.fl_heavy.FLheavyQuark">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_heavy.</code><code class="sig-name descname">FLheavyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_heavy.html#FLheavyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_heavy.FLheavyQuark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_heavy.</code><code class="sig-name descname">FLheavyQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_heavy.html#FLheavyQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_heavy.FLheavyQuark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.cc.partonic_channel.PartonicChannelHeavy" title="yadism.cc.partonic_channel.PartonicChannelHeavy"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.cc.partonic_channel.PartonicChannelHeavy</span></code></a></p>
 <p>Computes the quark heavy quark channel of F2heavy</p>
 <dl class="py method">
@@ -615,16 +618,129 @@ heavy quarks</p>
 light quark flavours.</p>
 <dl class="py class">
 <dt id="yadism.cc.fl_light.FLlightGluon">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_light.</code><code class="sig-name descname">FLlightGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_light.html#FLlightGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_light.FLlightGluon" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_light.</code><code class="sig-name descname">FLlightGluon</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">nf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_light.html#FLlightGluon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_light.FLlightGluon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="yadism.nc.html#yadism.nc.fl_light.FLlightGluon" title="yadism.nc.fl_light.FLlightGluon"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.nc.fl_light.FLlightGluon</span></code></a></p>
 <p>Computes the gluon channel of  FLlight</p>
 </dd></dl>
 
 <dl class="py class">
 <dt id="yadism.cc.fl_light.FLlightQuark">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_light.</code><code class="sig-name descname">FLlightQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_light.html#FLlightQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_light.FLlightQuark" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="yadism.nc.html#yadism.nc.fl_light.FLlightQuark" title="yadism.nc.fl_light.FLlightQuark"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.nc.fl_light.FLlightQuark</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.fl_light.</code><code class="sig-name descname">FLlightQuark</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">nf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/fl_light.html#FLlightQuark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.fl_light.FLlightQuark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="yadism.nc.html#yadism.nc.fl_light.FLlightNonSinglet" title="yadism.nc.fl_light.FLlightNonSinglet"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.nc.fl_light.FLlightNonSinglet</span></code></a></p>
 <p>Computes the light quark channel of  FLlight</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-yadism.cc.kernels">
+<span id="yadism-cc-kernels-module"></span><h2>yadism.cc.kernels module<a class="headerlink" href="#module-yadism.cc.kernels" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Brief proof of &#64;F3-sign&#64; for singlet and non-singlet combinations</p>
+<ul class="simple">
+<li><p>sf = F3</p></li>
+<li><p>q = 2 (i.e. u-quark)</p></li>
+<li><p>q%2 = 2%2 = 0</p></li>
+</ul>
+<p>projectile = e+ -&gt; rest = 1
+- sign = -1
+- weight[2] is not set (i.e. 0)
+- weight[-2] = -w</p>
+<p>projectile = e- -&gt; rest = 0
+- sign = 1
+- weight[2] = w
+- weight[-2] is not set</p>
+<p>together
+- weight[2] + weight[-2] changes sign
+- weight[2] - weight[-2] does NOT change sign</p>
+</div>
+<dl class="py function">
+<dt id="yadism.cc.kernels.generate_heavy">
+<code class="sig-prename descclassname">yadism.cc.kernels.</code><code class="sig-name descname">generate_heavy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">nf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/kernels.html#generate_heavy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.kernels.generate_heavy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect the heavy coefficient functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>esf</strong> (<a class="reference internal" href="yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction" title="yadism.esf.esf.EvaluatedStructureFunction"><em>EvaluatedStructureFunction</em></a>) – kinematic point</p></li>
+<li><p><strong>nf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – number of light flavors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>elems</strong> – list of elements</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference internal" href="yadism.html#yadism.kernels.Kernel" title="yadism.kernels.Kernel">yadism.kernels.Kernel</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="yadism.cc.kernels.generate_heavy_fonll_diff">
+<code class="sig-prename descclassname">yadism.cc.kernels.</code><code class="sig-name descname">generate_heavy_fonll_diff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">nl</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/kernels.html#generate_heavy_fonll_diff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.kernels.generate_heavy_fonll_diff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.cc.kernels.generate_light">
+<code class="sig-prename descclassname">yadism.cc.kernels.</code><code class="sig-name descname">generate_light</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">nf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/kernels.html#generate_light"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.kernels.generate_light" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect the light coefficient functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>esf</strong> (<a class="reference internal" href="yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction" title="yadism.esf.esf.EvaluatedStructureFunction"><em>EvaluatedStructureFunction</em></a>) – kinematic point</p></li>
+<li><p><strong>nf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – number of light flavors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>elems</strong> – list of elements</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference internal" href="yadism.html#yadism.kernels.Kernel" title="yadism.kernels.Kernel">yadism.kernels.Kernel</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="yadism.cc.kernels.generate_light_fonll_diff">
+<code class="sig-prename descclassname">yadism.cc.kernels.</code><code class="sig-name descname">generate_light_fonll_diff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_esf</span></em>, <em class="sig-param"><span class="n">_nl</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/kernels.html#generate_light_fonll_diff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.kernels.generate_light_fonll_diff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect the light diff coefficient functions for FONLL.</p>
+<p>See <a class="reference internal" href="yadism.nc.html#yadism.nc.kernels.generate_light_fonll_diff" title="yadism.nc.kernels.generate_light_fonll_diff"><code class="xref py py-meth docutils literal notranslate"><span class="pre">yadism.nc.kernels.generate_light_fonll_diff()</span></code></a> on
+why we need the singlet part (which here is 0 up to <abbr title="Next to Leading Order">NLO</abbr>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>esf</strong> (<a class="reference internal" href="yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction" title="yadism.esf.esf.EvaluatedStructureFunction"><em>EvaluatedStructureFunction</em></a>) – kinematic point</p></li>
+<li><p><strong>nf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – number of light flavors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>elems</strong> – list of elements</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference internal" href="yadism.html#yadism.kernels.Kernel" title="yadism.kernels.Kernel">yadism.kernels.Kernel</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="yadism.cc.kernels.weights">
+<code class="sig-prename descclassname">yadism.cc.kernels.</code><code class="sig-name descname">weights</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coupling_constants</span></em>, <em class="sig-param"><span class="n">Q2</span></em>, <em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">cc_mask</span></em>, <em class="sig-param"><span class="n">nf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/kernels.html#weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.kernels.weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect the weights of the partons.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coupling_constants</strong> (<a class="reference internal" href="yadism.html#yadism.coupling_constants.CouplingConstants" title="yadism.coupling_constants.CouplingConstants"><em>CouplingConstants</em></a>) – manager for coupling constants</p></li>
+<li><p><strong>Q2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – W virtuality</p></li>
+<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – structure function kind</p></li>
+<li><p><strong>cc_mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – participating flavors on the CKM matrix</p></li>
+<li><p><strong>nf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – number of light flavors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>weights</strong> – mapping pid -&gt; weight for q and g channel</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -632,7 +748,7 @@ light quark flavours.</p>
 <span id="yadism-cc-partonic-channel-module"></span><h2>yadism.cc.partonic_channel module<a class="headerlink" href="#module-yadism.cc.partonic_channel" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="yadism.cc.partonic_channel.PartonicChannelHeavy">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.partonic_channel.</code><code class="sig-name descname">PartonicChannelHeavy</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/partonic_channel.html#PartonicChannelHeavy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.partonic_channel.PartonicChannelHeavy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cc.partonic_channel.</code><code class="sig-name descname">PartonicChannelHeavy</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/partonic_channel.html#PartonicChannelHeavy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.partonic_channel.PartonicChannelHeavy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="yadism.html#yadism.partonic_channel.PartonicChannel" title="yadism.partonic_channel.PartonicChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannel</span></code></a></p>
 <p>Heavy partonic coefficient functions that respect hadronic and partonic
 thresholds.</p>
@@ -660,6 +776,12 @@ For all the other the factors have to be applied explicitly: e.g.
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="yadism.cc.partonic_channel.PartonicChannelHeavy.convolution_point">
+<code class="sig-name descname">convolution_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/partonic_channel.html#PartonicChannelHeavy.convolution_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.partonic_channel.PartonicChannelHeavy.convolution_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convolution point</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="yadism.cc.partonic_channel.PartonicChannelHeavy.h_g">
 <code class="sig-name descname">h_g</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">cs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/partonic_channel.html#PartonicChannelHeavy.h_g"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.partonic_channel.PartonicChannelHeavy.h_g" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -679,34 +801,6 @@ x*[Lambda]),2)/2.</p>
 </dd></dl>
 
 </dd></dl>
-
-</div>
-<div class="section" id="module-yadism.cc.weights">
-<span id="yadism-cc-weights-module"></span><h2>yadism.cc.weights module<a class="headerlink" href="#module-yadism.cc.weights" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Brief proof of &#64;F3-sign&#64; for singlet and non-singlet combinations</p>
-<ul class="simple">
-<li><p>sf = F3</p></li>
-<li><p>q = 2 (i.e. u-quark)</p></li>
-<li><p>q%2 = 2%2 = 0</p></li>
-</ul>
-<p>projectile = e+ -&gt; rest = 1
-- sign = -1
-- weight[2] is not set (i.e. 0)
-- weight[-2] = -w</p>
-<p>projectile = e- -&gt; rest = 0
-- sign = 1
-- weight[2] = w
-- weight[-2] is not set</p>
-<p>together
-- weight[2] + weight[-2] changes sign
-- weight[2] - weight[-2] does NOT change sign</p>
-</div>
-<dl class="py function">
-<dt id="yadism.cc.weights.weights">
-<code class="sig-prename descclassname">yadism.cc.weights.</code><code class="sig-name descname">weights</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obs_name</span></em>, <em class="sig-param"><span class="n">coupling_constants</span></em>, <em class="sig-param"><span class="n">Q2</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cc/weights.html#weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cc.weights.weights" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </div>
 </div>

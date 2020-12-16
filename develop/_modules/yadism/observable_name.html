@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/processes.html">Processes</a></li>
@@ -198,12 +199,12 @@
 
 <div class="viewcode-block" id="ObservableName"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName">[docs]</a><span class="k">class</span> <span class="nc">ObservableName</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Wrapper to observable names to easy split them into two parts.</span>
+<span class="sd">    Wrapper to observable names to easy split them into two parts.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">            name : str</span>
-<span class="sd">                full observable name</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            full observable name</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -225,28 +226,28 @@
 
 <div class="viewcode-block" id="ObservableName.apply_kind"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.apply_kind">[docs]</a>    <span class="k">def</span> <span class="nf">apply_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Create new object with given kind and our flavor</span>
+<span class="sd">        Create new object with given kind and our flavor</span>
 
-<span class="sd">            Parameters</span>
-<span class="sd">            ----------</span>
-<span class="sd">                kind : str</span>
-<span class="sd">                    new kind</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            kind : str</span>
+<span class="sd">                new kind</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                apply_kind : type(self)</span>
-<span class="sd">                    new kind and our flavor</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            apply_kind : type(self)</span>
+<span class="sd">                new kind and our flavor</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="n">kind</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ObservableName.apply_asy"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.apply_asy">[docs]</a>    <span class="k">def</span> <span class="nf">apply_asy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Computes the asymptotic heavy correspondend.</span>
+<span class="sd">        Computes the asymptotic heavy correspondend.</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                apply_asy : type(self)</span>
-<span class="sd">                    asymptotic heavy correspondend</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            apply_asy : type(self)</span>
+<span class="sd">                asymptotic heavy correspondend</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">heavys</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;observable is not heavy! [</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
@@ -258,29 +259,29 @@
 
 <div class="viewcode-block" id="ObservableName.apply_flavor"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.apply_flavor">[docs]</a>    <span class="k">def</span> <span class="nf">apply_flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flavor</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Create new object with given flavor and our kind</span>
+<span class="sd">        Create new object with given flavor and our kind</span>
 
-<span class="sd">            Parameters</span>
-<span class="sd">            ----------</span>
-<span class="sd">                flavor : str</span>
-<span class="sd">                    new flavor</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            flavor : str</span>
+<span class="sd">                new flavor</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                apply_flavor : type(self)</span>
-<span class="sd">                    our kind and new flavor</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            apply_flavor : type(self)</span>
+<span class="sd">                our kind and new flavor</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">+</span> <span class="n">flavor</span><span class="p">)</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">is_heavy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Is it a heavy flavor?</span>
+<span class="sd">        Is it a heavy flavor?</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                is_heavy : bool</span>
-<span class="sd">                    is a heavy flavor?</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            is_heavy : bool</span>
+<span class="sd">                is a heavy flavor?</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">flavor</span> <span class="o">==</span> <span class="s2">&quot;light&quot;</span>
 
@@ -317,12 +318,12 @@
 
 <div class="viewcode-block" id="ObservableName.apply_flavor_family"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.apply_flavor_family">[docs]</a>    <span class="k">def</span> <span class="nf">apply_flavor_family</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Return name with abstract flavor family name</span>
+<span class="sd">        Return name with abstract flavor family name</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                apply_flavor_family : type(self)</span>
-<span class="sd">                    new ObservableName</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            apply_flavor_family : type(self)</span>
+<span class="sd">                new ObservableName</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_flavor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flavor_family</span><span class="p">)</span></div>
 
@@ -347,17 +348,17 @@
 <div class="viewcode-block" id="ObservableName.has_heavies"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.has_heavies">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">has_heavies</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Are there any heavy objects in names?</span>
+<span class="sd">        Are there any heavy objects in names?</span>
 
-<span class="sd">            Parameters</span>
-<span class="sd">            ----------</span>
-<span class="sd">                names : list(str)</span>
-<span class="sd">                    names to check</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            names : list(str)</span>
+<span class="sd">                names to check</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                has_heavies : bool</span>
-<span class="sd">                    are there heavy obs in names?</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            has_heavies : bool</span>
+<span class="sd">                are there heavy obs in names?</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -370,17 +371,17 @@
 <div class="viewcode-block" id="ObservableName.has_lights"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.has_lights">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">has_lights</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Are there any light objects in names?</span>
+<span class="sd">        Are there any light objects in names?</span>
 
-<span class="sd">            Parameters</span>
-<span class="sd">            ----------</span>
-<span class="sd">                names : list(str)</span>
-<span class="sd">                    names to check</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            names : list(str)</span>
+<span class="sd">                names to check</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                has_lights : bool</span>
-<span class="sd">                    are there light obs in names?</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            has_lights : bool</span>
+<span class="sd">                are there light obs in names?</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -401,12 +402,12 @@
 <div class="viewcode-block" id="ObservableName.is_valid"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.is_valid">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">is_valid</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Tests whether the name is a valid observable name</span>
+<span class="sd">        Tests whether the name is a valid observable name</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                is_valid : bool</span>
-<span class="sd">                    is valid name?</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            is_valid : bool</span>
+<span class="sd">                is valid name?</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">cls</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -417,12 +418,12 @@
 <div class="viewcode-block" id="ObservableName.all"><a class="viewcode-back" href="../../modules/yadism.html#yadism.observable_name.ObservableName.all">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Iterates all valid (external) names.</span>
+<span class="sd">        Iterates all valid (external) names.</span>
 
-<span class="sd">            Yields</span>
-<span class="sd">            ------</span>
-<span class="sd">                all : cls</span>
-<span class="sd">                    ObservableName</span>
+<span class="sd">        Yields</span>
+<span class="sd">        ------</span>
+<span class="sd">            all : cls</span>
+<span class="sd">                ObservableName</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="n">kinds</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="n">fake_kind</span><span class="p">:</span>

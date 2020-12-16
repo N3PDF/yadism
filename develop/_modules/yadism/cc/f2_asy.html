@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
@@ -196,12 +197,12 @@
 
 <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">partonic_channel</span> <span class="k">as</span> <span class="n">pc</span>
 <span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">splitting_functions</span> <span class="k">as</span> <span class="n">split</span>
-<span class="kn">from</span> <span class="nn">..esf</span> <span class="kn">import</span> <span class="n">rsl_from_distr_coeffs</span>
+<span class="kn">from</span> <span class="nn">..esf.distribution_vec</span> <span class="kn">import</span> <span class="n">rsl_from_distr_coeffs</span>
 
 
 <div class="viewcode-block" id="F2asyQuark"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f2_asy.F2asyQuark">[docs]</a><span class="k">class</span> <span class="nc">F2asyQuark</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">PartonicChannelAsy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the quark channel of the asymptotic limit of F2heavy.</span>
+<span class="sd">    Computes the quark channel of the asymptotic limit of F2heavy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;q&quot;</span>
@@ -250,7 +251,7 @@
 
 <div class="viewcode-block" id="F2asyGluon"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f2_asy.F2asyGluon">[docs]</a><span class="k">class</span> <span class="nc">F2asyGluon</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">PartonicChannelAsy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the gluon channel of the asymptotic limit of F2heavy.</span>
+<span class="sd">    Computes the gluon channel of the asymptotic limit of F2heavy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span>

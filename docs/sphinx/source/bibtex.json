@@ -1,0 +1,52 @@
+{
+    "cited": {
+        "modules/yadism": [
+            "pink-book",
+            "pegasus",
+            "nnpdf-1.0",
+            "tmc-iranian",
+            "tmc-review",
+            "tmc-georgi"
+        ],
+        "modules/yadism.cc": [
+            "gluck-ccheavy",
+            "moch-f3nc"
+        ],
+        "modules/yadism.nc": [
+            "felix-thesis",
+            "vogt-f2nc",
+            "vogt-sv",
+            "moch-f3nc",
+            "vogt-flnc",
+            "forte-fonll"
+        ],
+        "theory/TMC": [
+            "tmc-review",
+            "tmc-iranian"
+        ],
+        "theory/coeff-funcs": [
+            "vogt-f2nc",
+            "felix-thesis",
+            "forte-fonll",
+            "vogt-flnc",
+            "moch-f3nc",
+            "vogt-f2lcc",
+            "gluck-ccheavy",
+            "vogt-f3cc"
+        ],
+        "theory/heavy-flavors": [
+            "felix-thesis",
+            "gluck-ccheavy"
+        ],
+        "theory/light-flavors": [
+            "vogt-f2nc",
+            "vogt-flnc",
+            "moch-f3nc",
+            "vogt-f2lcc",
+            "vogt-f3cc"
+        ],
+        "theory/scale-variations": [
+            "vogt-sv"
+        ]
+    }
+}

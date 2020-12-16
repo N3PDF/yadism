@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
@@ -166,8 +167,6 @@
         
           <li><a href="../../yadism.html">yadism</a> &raquo;</li>
         
-          <li><a href="../nc.html">yadism.nc</a> &raquo;</li>
-        
       <li>yadism.nc.fl_asy</li>
     
     
@@ -200,20 +199,20 @@
 
 <div class="viewcode-block" id="FLasyGluonVV"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.fl_asy.FLasyGluonVV">[docs]</a><span class="k">class</span> <span class="nc">FLasyGluonVV</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">PartonicChannelAsy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the gluon channel of the asymptotic limit of FLheavy.</span>
+<span class="sd">    Computes the gluon channel of the asymptotic limit of FLheavy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;gVV&quot;</span>
 
 <div class="viewcode-block" id="FLasyGluonVV.NLO"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.fl_asy.FLasyGluonVV.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                sequence of callables</span>
-<span class="sd">                    coefficient functions</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">                coefficient functions</span>
 
-<span class="sd">            .. todo::</span>
-<span class="sd">                docs</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            docs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
@@ -224,7 +223,7 @@
 
 <div class="viewcode-block" id="FLasyGluonAA"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.fl_asy.FLasyGluonAA">[docs]</a><span class="k">class</span> <span class="nc">FLasyGluonAA</span><span class="p">(</span><span class="n">FLasyGluonVV</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the gluon channel of the asymptotic limit of FLheavy.</span>
+<span class="sd">    Computes the gluon channel of the asymptotic limit of FLheavy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;gAA&quot;</span></div>

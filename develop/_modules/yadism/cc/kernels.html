@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>yadism.cc.kernels &mdash; yadism 0.4.0-develop documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo-favicon-32x32.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                develop
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/TMC.html">Target Mass Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../yadism.html">yadism</a> &raquo;</li>
+        
+      <li>yadism.cc.kernels</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for yadism.cc.kernels</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Note</span>
+<span class="sd">----</span>
+<span class="sd">Brief proof of @F3-sign@ for singlet and non-singlet combinations</span>
+
+<span class="sd">- sf = F3</span>
+<span class="sd">- q = 2 (i.e. u-quark)</span>
+<span class="sd">- q%2 = 2%2 = 0</span>
+
+<span class="sd">projectile = e+ -&gt; rest = 1</span>
+<span class="sd">- sign = -1</span>
+<span class="sd">- weight[2] is not set (i.e. 0)</span>
+<span class="sd">- weight[-2] = -w</span>
+
+<span class="sd">projectile = e- -&gt; rest = 0</span>
+<span class="sd">- sign = 1</span>
+<span class="sd">- weight[2] = w</span>
+<span class="sd">- weight[-2] is not set</span>
+
+<span class="sd">together</span>
+<span class="sd">- weight[2] + weight[-2] changes sign</span>
+<span class="sd">- weight[2] - weight[-2] does NOT change sign</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">partonic_channel</span> <span class="k">as</span> <span class="n">pc</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">kernels</span>
+
+<span class="kn">from</span> <span class="nn">.f2_light</span> <span class="kn">import</span> <span class="n">F2lightQuark</span><span class="p">,</span> <span class="n">F2lightGluon</span>
+<span class="kn">from</span> <span class="nn">.fl_light</span> <span class="kn">import</span> <span class="n">FLlightQuark</span><span class="p">,</span> <span class="n">FLlightGluon</span>
+<span class="kn">from</span> <span class="nn">.f3_light</span> <span class="kn">import</span> <span class="n">F3lightQuark</span>
+<span class="kn">from</span> <span class="nn">.f2_heavy</span> <span class="kn">import</span> <span class="n">F2heavyQuark</span><span class="p">,</span> <span class="n">F2heavyGluon</span>
+<span class="kn">from</span> <span class="nn">.fl_heavy</span> <span class="kn">import</span> <span class="n">FLheavyQuark</span><span class="p">,</span> <span class="n">FLheavyGluon</span>
+<span class="kn">from</span> <span class="nn">.f3_heavy</span> <span class="kn">import</span> <span class="n">F3heavyQuark</span><span class="p">,</span> <span class="n">F3heavyGluon</span>
+<span class="kn">from</span> <span class="nn">.f2_asy</span> <span class="kn">import</span> <span class="n">F2asyQuark</span><span class="p">,</span> <span class="n">F2asyGluon</span>
+<span class="kn">from</span> <span class="nn">.fl_asy</span> <span class="kn">import</span> <span class="n">FLasyQuark</span><span class="p">,</span> <span class="n">FLasyGluon</span>
+<span class="kn">from</span> <span class="nn">.f3_asy</span> <span class="kn">import</span> <span class="n">F3asyQuark</span><span class="p">,</span> <span class="n">F3asyGluon</span>
+
+<span class="n">coefficient_functions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;F2&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;light&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">F2lightQuark</span><span class="p">,</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">F2lightGluon</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;heavy&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">F2heavyQuark</span><span class="p">,</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">F2heavyGluon</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;asy&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">F2asyQuark</span><span class="p">,</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">F2asyGluon</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;FL&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;light&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">FLlightQuark</span><span class="p">,</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">FLlightGluon</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;heavy&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">FLheavyQuark</span><span class="p">,</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">FLheavyGluon</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;asy&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">FLasyQuark</span><span class="p">,</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">FLasyGluon</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;F3&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;light&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">F3lightQuark</span><span class="p">,</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">pc</span><span class="o">.</span><span class="n">EmptyPartonicChannel</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;heavy&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">F3heavyQuark</span><span class="p">,</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">F3heavyGluon</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;asy&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">F3asyQuark</span><span class="p">,</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">F3asyGluon</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">flavors</span> <span class="o">=</span> <span class="s2">&quot;duscbt&quot;</span>
+
+
+<div class="viewcode-block" id="generate_light"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.kernels.generate_light">[docs]</a><span class="k">def</span> <span class="nf">generate_light</span><span class="p">(</span><span class="n">esf</span><span class="p">,</span> <span class="n">nf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collect the light coefficient functions</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        esf : EvaluatedStructureFunction</span>
+<span class="sd">            kinematic point</span>
+<span class="sd">        nf : int</span>
+<span class="sd">            number of light flavors</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        elems : list(yadism.kernels.Kernel)</span>
+<span class="sd">            list of elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">kind</span>
+    <span class="n">cfs</span> <span class="o">=</span> <span class="n">coefficient_functions</span><span class="p">[</span><span class="n">kind</span><span class="p">]</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">weights</span><span class="p">(</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">coupling_constants</span><span class="p">,</span> <span class="n">esf</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">flavors</span><span class="p">[:</span><span class="n">nf</span><span class="p">],</span> <span class="n">nf</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">kernels</span><span class="o">.</span><span class="n">Kernel</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">],</span> <span class="n">cfs</span><span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">][</span><span class="s2">&quot;q&quot;</span><span class="p">](</span><span class="n">esf</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="n">nf</span><span class="p">)),</span>
+        <span class="n">kernels</span><span class="o">.</span><span class="n">Kernel</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">cfs</span><span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">][</span><span class="s2">&quot;g&quot;</span><span class="p">](</span><span class="n">esf</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="n">nf</span><span class="p">)),</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="generate_heavy"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.kernels.generate_heavy">[docs]</a><span class="k">def</span> <span class="nf">generate_heavy</span><span class="p">(</span><span class="n">esf</span><span class="p">,</span> <span class="n">nf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collect the heavy coefficient functions</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        esf : EvaluatedStructureFunction</span>
+<span class="sd">            kinematic point</span>
+<span class="sd">        nf : int</span>
+<span class="sd">            number of light flavors</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        elems : list(yadism.kernels.Kernel)</span>
+<span class="sd">            list of elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">kind</span>
+    <span class="n">cfs</span> <span class="o">=</span> <span class="n">coefficient_functions</span><span class="p">[</span><span class="n">kind</span><span class="p">]</span>
+    <span class="n">nhq</span> <span class="o">=</span> <span class="n">nf</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">m2hq</span> <span class="o">=</span> <span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">m2hq</span><span class="p">[</span><span class="n">nhq</span> <span class="o">-</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">weights</span><span class="p">(</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">coupling_constants</span><span class="p">,</span> <span class="n">esf</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">flavors</span><span class="p">[</span><span class="n">nf</span><span class="p">],</span> <span class="n">nf</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">kernels</span><span class="o">.</span><span class="n">Kernel</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">],</span> <span class="n">cfs</span><span class="p">[</span><span class="s2">&quot;heavy&quot;</span><span class="p">][</span><span class="s2">&quot;q&quot;</span><span class="p">](</span><span class="n">esf</span><span class="p">,</span> <span class="n">m2hq</span><span class="o">=</span><span class="n">m2hq</span><span class="p">)),</span>
+        <span class="n">kernels</span><span class="o">.</span><span class="n">Kernel</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">cfs</span><span class="p">[</span><span class="s2">&quot;heavy&quot;</span><span class="p">][</span><span class="s2">&quot;g&quot;</span><span class="p">](</span><span class="n">esf</span><span class="p">,</span> <span class="n">m2hq</span><span class="o">=</span><span class="n">m2hq</span><span class="p">)),</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="weights"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.kernels.weights">[docs]</a><span class="k">def</span> <span class="nf">weights</span><span class="p">(</span><span class="n">coupling_constants</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">cc_mask</span><span class="p">,</span> <span class="n">nf</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collect the weights of the partons.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        coupling_constants : CouplingConstants</span>
+<span class="sd">            manager for coupling constants</span>
+<span class="sd">        Q2 : float</span>
+<span class="sd">            W virtuality</span>
+<span class="sd">        kind : str</span>
+<span class="sd">            structure function kind</span>
+<span class="sd">        cc_mask : str</span>
+<span class="sd">            participating flavors on the CKM matrix</span>
+<span class="sd">        nf : int</span>
+<span class="sd">            number of light flavors</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        weights : dict</span>
+<span class="sd">            mapping pid -&gt; weight for q and g channel</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="p">{},</span> <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+    <span class="c1"># determine couplings</span>
+    <span class="n">projectile_pid</span> <span class="o">=</span> <span class="n">coupling_constants</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s2">&quot;projectilePID&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">projectile_pid</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]:</span>
+        <span class="n">rest</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">rest</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># quark couplings</span>
+    <span class="n">tot_ch_sq</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cc_mask</span><span class="p">)</span>
+    <span class="c1"># iterate: include the heavy quark itself, since it can run in the singlet sector diagrams</span>
+    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">nf</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">q</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="n">rest</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">coupling_constants</span><span class="o">.</span><span class="n">get_weight</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">cc_mask</span><span class="o">=</span><span class="n">cc_mask</span><span class="p">)</span>
+        <span class="c1"># the heavy quark can *NOT* be in the input</span>
+        <span class="k">if</span> <span class="n">q</span> <span class="o">&lt;=</span> <span class="n">nf</span><span class="p">:</span>
+            <span class="c1"># @F3-sign@</span>
+            <span class="n">weights</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">][</span><span class="n">sign</span> <span class="o">*</span> <span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="k">if</span> <span class="n">kind</span> <span class="o">!=</span> <span class="s2">&quot;F3&quot;</span> <span class="k">else</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">w</span>
+        <span class="c1"># but it contributes to the average</span>
+        <span class="n">tot_ch_sq</span> <span class="o">+=</span> <span class="n">w</span>
+    <span class="c1"># gluon coupling = charge sum</span>
+    <span class="k">if</span> <span class="n">rest</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;F3&quot;</span><span class="p">:</span>
+        <span class="n">tot_ch_sq</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">weights</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">][</span><span class="mi">21</span><span class="p">]</span> <span class="o">=</span> <span class="n">tot_ch_sq</span> <span class="o">/</span> <span class="n">norm</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">weights</span></div>
+
+
+<div class="viewcode-block" id="generate_light_fonll_diff"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.kernels.generate_light_fonll_diff">[docs]</a><span class="k">def</span> <span class="nf">generate_light_fonll_diff</span><span class="p">(</span><span class="n">_esf</span><span class="p">,</span> <span class="n">_nl</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collect the light diff coefficient functions for FONLL.</span>
+
+<span class="sd">    See :meth:`yadism.nc.kernels.generate_light_fonll_diff` on</span>
+<span class="sd">    why we need the singlet part (which here is 0 up to |NLO|).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        esf : EvaluatedStructureFunction</span>
+<span class="sd">            kinematic point</span>
+<span class="sd">        nf : int</span>
+<span class="sd">            number of light flavors</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        elems : list(yadism.kernels.Kernel)</span>
+<span class="sd">            list of elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="generate_heavy_fonll_diff"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.kernels.generate_heavy_fonll_diff">[docs]</a><span class="k">def</span> <span class="nf">generate_heavy_fonll_diff</span><span class="p">(</span><span class="n">esf</span><span class="p">,</span> <span class="n">nl</span><span class="p">):</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">kind</span>
+    <span class="n">cfs</span> <span class="o">=</span> <span class="n">coefficient_functions</span><span class="p">[</span><span class="n">kind</span><span class="p">]</span>
+    <span class="n">nhq</span> <span class="o">=</span> <span class="n">nl</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">m2hq</span> <span class="o">=</span> <span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">m2hq</span><span class="p">[</span><span class="n">nhq</span> <span class="o">-</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="c1"># add light contributions</span>
+    <span class="n">wl</span> <span class="o">=</span> <span class="n">weights</span><span class="p">(</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">coupling_constants</span><span class="p">,</span> <span class="n">esf</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">flavors</span><span class="p">[</span><span class="n">nhq</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">nl</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">elems</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">kernels</span><span class="o">.</span><span class="n">Kernel</span><span class="p">(</span><span class="n">wl</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">],</span> <span class="n">cfs</span><span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">][</span><span class="s2">&quot;q&quot;</span><span class="p">](</span><span class="n">esf</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="n">nl</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="n">kernels</span><span class="o">.</span><span class="n">Kernel</span><span class="p">(</span>
+            <span class="p">{</span><span class="mi">21</span><span class="p">:</span> <span class="n">wl</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">][</span><span class="mi">21</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">nl</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)},</span> <span class="n">cfs</span><span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">][</span><span class="s2">&quot;g&quot;</span><span class="p">](</span><span class="n">esf</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="n">nl</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="c1"># add asymptotic contributions</span>
+    <span class="n">wa</span> <span class="o">=</span> <span class="n">weights</span><span class="p">(</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">coupling_constants</span><span class="p">,</span> <span class="n">esf</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">flavors</span><span class="p">[</span><span class="n">nhq</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">nl</span><span class="p">)</span>
+    <span class="n">asy_q</span> <span class="o">=</span> <span class="o">-</span><span class="n">kernels</span><span class="o">.</span><span class="n">Kernel</span><span class="p">(</span><span class="n">wa</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">],</span> <span class="n">cfs</span><span class="p">[</span><span class="s2">&quot;asy&quot;</span><span class="p">][</span><span class="s2">&quot;q&quot;</span><span class="p">](</span><span class="n">esf</span><span class="p">,</span> <span class="n">m2hq</span><span class="o">=</span><span class="n">m2hq</span><span class="p">))</span>
+    <span class="n">asy_g</span> <span class="o">=</span> <span class="o">-</span><span class="n">kernels</span><span class="o">.</span><span class="n">Kernel</span><span class="p">(</span><span class="n">wa</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">cfs</span><span class="p">[</span><span class="s2">&quot;asy&quot;</span><span class="p">][</span><span class="s2">&quot;g&quot;</span><span class="p">](</span><span class="n">esf</span><span class="p">,</span> <span class="n">m2hq</span><span class="o">=</span><span class="n">m2hq</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="n">elems</span><span class="p">,</span> <span class="n">asy_q</span><span class="p">,</span> <span class="n">asy_g</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

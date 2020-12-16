@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
@@ -186,9 +187,10 @@
 <span class="sd">    docs</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">.runner</span> <span class="kn">import</span> <span class="n">Runner</span>
+<span class="kn">from</span> <span class="nn">.output</span> <span class="kn">import</span> <span class="n">Output</span>
 
 
-<div class="viewcode-block" id="run_yadism"><a class="viewcode-back" href="../modules/yadism.html#yadism.run_yadism">[docs]</a><span class="k">def</span> <span class="nf">run_yadism</span><span class="p">(</span><span class="n">theory</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">observables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Runner</span><span class="p">:</span>
+<div class="viewcode-block" id="run_yadism"><a class="viewcode-back" href="../modules/yadism.html#yadism.run_yadism">[docs]</a><span class="k">def</span> <span class="nf">run_yadism</span><span class="p">(</span><span class="n">theory</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">observables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    .. todo::</span>
 <span class="sd">        - decide the purpose</span>
@@ -196,7 +198,7 @@
 <span class="sd">        - docs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">runner</span> <span class="o">=</span> <span class="n">Runner</span><span class="p">(</span><span class="n">theory</span><span class="p">,</span> <span class="n">observables</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">runner</span><span class="o">.</span><span class="n">get_output</span><span class="p">()</span></div>
+    <span class="k">return</span> <span class="n">runner</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span></div>
 </pre></div>
 
            </div>

@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
@@ -196,13 +197,13 @@
 
 <div class="viewcode-block" id="FLheavyQuark"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyQuark">[docs]</a><span class="k">class</span> <span class="nc">FLheavyQuark</span><span class="p">(</span><span class="n">pccc</span><span class="o">.</span><span class="n">PartonicChannelHeavy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the quark heavy quark channel of F2heavy</span>
+<span class="sd">    Computes the quark heavy quark channel of F2heavy</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;q&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span>
 
 <div class="viewcode-block" id="FLheavyQuark.LO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyQuark.LO">[docs]</a>    <span class="k">def</span> <span class="nf">LO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -223,13 +224,13 @@
 
 <div class="viewcode-block" id="FLheavyGluon"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyGluon">[docs]</a><span class="k">class</span> <span class="nc">FLheavyGluon</span><span class="p">(</span><span class="n">pccc</span><span class="o">.</span><span class="n">PartonicChannelHeavy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the gluon heavy quark channel of F2heavy</span>
+<span class="sd">    Computes the gluon heavy quark channel of F2heavy</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sf_prefactor</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">labda</span>
 
 <div class="viewcode-block" id="FLheavyGluon.NLO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyGluon.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

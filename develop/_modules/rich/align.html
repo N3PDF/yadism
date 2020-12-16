@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/processes.html">Processes</a></li>
@@ -194,6 +195,7 @@
     <span class="kn">from</span> <span class="nn">.console</span> <span class="kn">import</span> <span class="n">Console</span><span class="p">,</span> <span class="n">ConsoleOptions</span><span class="p">,</span> <span class="n">RenderResult</span><span class="p">,</span> <span class="n">RenderableType</span>
 
 <span class="n">AlignValues</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">]</span>
+<span class="n">AlignMethod</span> <span class="o">=</span> <span class="n">AlignValues</span>  <span class="c1"># TODO: deprecate AlignValues</span>
 
 
 <span class="k">class</span> <span class="nc">Align</span><span class="p">(</span><span class="n">JupyterMixin</span><span class="p">):</span>
@@ -201,7 +203,7 @@
 
 <span class="sd">    Args:</span>
 <span class="sd">        renderable (RenderableType): A console renderable.</span>
-<span class="sd">        align (AlignValues): One of &quot;left&quot;, &quot;center&quot;, or &quot;right&quot;&quot;</span>
+<span class="sd">        align (AlignMethod): One of &quot;left&quot;, &quot;center&quot;, or &quot;right&quot;&quot;</span>
 <span class="sd">        style (StyleType, optional): An optional style to apply to the renderable.</span>
 <span class="sd">        pad (bool, optional): Pad the right with spaces. Defaults to True.</span>
 <span class="sd">        width (int, optional): Restrict contents to given width, or None to use default width. Defaults to None.</span>
@@ -213,7 +215,7 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">renderable</span><span class="p">:</span> <span class="s2">&quot;RenderableType&quot;</span><span class="p">,</span>
-        <span class="n">align</span><span class="p">:</span> <span class="n">AlignValues</span><span class="p">,</span>
+        <span class="n">align</span><span class="p">:</span> <span class="n">AlignMethod</span><span class="p">,</span>
         <span class="n">style</span><span class="p">:</span> <span class="n">StyleType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
         <span class="n">pad</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>

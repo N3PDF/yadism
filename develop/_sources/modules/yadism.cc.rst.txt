@@ -81,18 +81,18 @@ yadism.cc.fl\_light module
    :undoc-members:
    :show-inheritance:
 
-yadism.cc.partonic\_channel module
-----------------------------------
+yadism.cc.kernels module
+------------------------
 
-.. automodule:: yadism.cc.partonic_channel
+.. automodule:: yadism.cc.kernels
    :members:
    :undoc-members:
    :show-inheritance:
 
-yadism.cc.weights module
-------------------------
+yadism.cc.partonic\_channel module
+----------------------------------
 
-.. automodule:: yadism.cc.weights
+.. automodule:: yadism.cc.partonic_channel
    :members:
    :undoc-members:
    :show-inheritance:

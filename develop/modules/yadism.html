@@ -107,7 +107,9 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-yadism.cf_combiner">yadism.cf_combiner module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yadism.coupling_constants">yadism.coupling_constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-yadism.kernels">yadism.kernels module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yadism.log">yadism.log module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yadism.observable_name">yadism.observable_name module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yadism.output">yadism.output module</a><ul>
@@ -132,7 +134,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
@@ -243,7 +246,7 @@
 </div>
 <dl class="py function">
 <dt id="yadism.run_yadism">
-<code class="sig-prename descclassname">yadism.</code><code class="sig-name descname">run_yadism</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em>, <em class="sig-param"><span class="n">observables</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#yadism.runner.Runner" title="yadism.runner.Runner">yadism.runner.Runner</a><a class="reference internal" href="../_modules/yadism.html#run_yadism"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.run_yadism" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">yadism.</code><code class="sig-name descname">run_yadism</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em>, <em class="sig-param"><span class="n">observables</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism.html#run_yadism"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.run_yadism" title="Permalink to this definition">¶</a></dt>
 <dd><div class="admonition-todo admonition" id="id2">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
@@ -269,8 +272,8 @@
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.fl_asy">yadism.cc.fl_asy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.fl_heavy">yadism.cc.fl_heavy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.fl_light">yadism.cc.fl_light module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.kernels">yadism.cc.kernels module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.partonic_channel">yadism.cc.partonic_channel module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.weights">yadism.cc.weights module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="yadism.esf.html">yadism.esf package</a><ul>
@@ -278,12 +281,12 @@
 <li class="toctree-l2"><a class="reference internal" href="yadism.esf.html#module-yadism.esf.distribution_vec">yadism.esf.distribution_vec module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.esf.html#module-yadism.esf.esf">yadism.esf.esf module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.esf.html#module-yadism.esf.esf_result">yadism.esf.esf_result module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.esf.html#module-yadism.esf.f_total">yadism.esf.f_total module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="yadism.input.html">yadism.input package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="yadism.input.html#goal">Goal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.input.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.input.html#module-yadism.input.compatibility">yadism.input.compatibility module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.input.html#module-yadism.input.constraints">yadism.input.constraints module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.input.html#module-yadism.input.defaults">yadism.input.defaults module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.input.html#module-yadism.input.errors">yadism.input.errors module</a></li>
@@ -295,14 +298,15 @@
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f2_asy">yadism.nc.f2_asy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f2_heavy">yadism.nc.f2_heavy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f2_light">yadism.nc.f2_light module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f3_asy">yadism.nc.f3_asy module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f3_heavy">yadism.nc.f3_heavy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f3_light">yadism.nc.f3_light module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.fl_asy">yadism.nc.fl_asy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.fl_heavy">yadism.nc.fl_heavy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.fl_light">yadism.nc.fl_light module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.kernels">yadism.nc.kernels module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yadism.nc.html#id27">}</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.partonic_channel">yadism.nc.partonic_channel module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.weights">yadism.nc.weights module</a></li>
 </ul>
 </li>
 </ul>
@@ -310,6 +314,98 @@
 </div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-yadism.cf_combiner">
+<span id="yadism-cf-combiner-module"></span><h2>yadism.cf_combiner module<a class="headerlink" href="#module-yadism.cf_combiner" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="yadism.cf_combiner.CoefficientFunctionsCombiner">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.cf_combiner.</code><code class="sig-name descname">CoefficientFunctionsCombiner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cf_combiner.html#CoefficientFunctionsCombiner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cf_combiner.CoefficientFunctionsCombiner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Does the matching between coefficient functions and partons with their approptiate coupling
+strength.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>esf</strong> (<em>EvaluateStructureFunction</em>) – current ESF</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="yadism.cf_combiner.CoefficientFunctionsCombiner.collect_elems">
+<code class="sig-name descname">collect_elems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cf_combiner.html#CoefficientFunctionsCombiner.collect_elems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_elems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects all kernels according to the <abbr title="Flavor Number Scheme">FNS</abbr>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>elems</strong> – all participants</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference internal" href="#yadism.kernels.Kernel" title="yadism.kernels.Kernel">yadism.kernels.Kernel</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.cf_combiner.CoefficientFunctionsCombiner.collect_ffns">
+<code class="sig-name descname">collect_ffns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cf_combiner.html#CoefficientFunctionsCombiner.collect_ffns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_ffns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects all kernels in the <abbr title="Fixed Flavor Number Scheme">FFNS</abbr>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>elems</strong> – all participants</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference internal" href="#yadism.kernels.Kernel" title="yadism.kernels.Kernel">yadism.kernels.Kernel</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.cf_combiner.CoefficientFunctionsCombiner.collect_fonll">
+<code class="sig-name descname">collect_fonll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cf_combiner.html#CoefficientFunctionsCombiner.collect_fonll"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_fonll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects all kernels for FONLL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>elems</strong> – all participants</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference internal" href="#yadism.kernels.Kernel" title="yadism.kernels.Kernel">yadism.kernels.Kernel</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.cf_combiner.CoefficientFunctionsCombiner.collect_zmvfns">
+<code class="sig-name descname">collect_zmvfns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cf_combiner.html#CoefficientFunctionsCombiner.collect_zmvfns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_zmvfns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects all kernels for <abbr title="Zero Mass - Variable Flavor Number Scheme">ZM-VFNS</abbr>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>elems</strong> – all participants</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference internal" href="#yadism.kernels.Kernel" title="yadism.kernels.Kernel">yadism.kernels.Kernel</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.cf_combiner.CoefficientFunctionsCombiner.damp_elems">
+<code class="sig-name descname">damp_elems</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nl</span></em>, <em class="sig-param"><span class="n">elems</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/cf_combiner.html#CoefficientFunctionsCombiner.damp_elems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.cf_combiner.CoefficientFunctionsCombiner.damp_elems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Damp FONLL difference contributions if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nl</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – number of <em>light</em> flavors</p></li>
+<li><p><strong>elems</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><a class="reference internal" href="#yadism.kernels.Kernel" title="yadism.kernels.Kernel"><em>Kernel</em></a><em>)</em>) – kernels to be modified</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>elems</strong> – modified kernels</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference internal" href="#yadism.kernels.Kernel" title="yadism.kernels.Kernel">Kernel</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-yadism.coupling_constants">
 <span id="yadism-coupling-constants-module"></span><h2>yadism.coupling_constants module<a class="headerlink" href="#module-yadism.coupling_constants" title="Permalink to this headline">¶</a></h2>
@@ -392,11 +488,11 @@
 
 <dl class="py method">
 <dt id="yadism.coupling_constants.CKM2Matrix.masked">
-<code class="sig-name descname">masked</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flavor</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CKM2Matrix.masked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CKM2Matrix.masked" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">masked</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flavors</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CKM2Matrix.masked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CKM2Matrix.masked" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a mask according to the flavor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – flavor type</p>
+<dd class="field-odd"><p><strong>flavors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – participating flavors as single characters</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>matrix</strong> – masked matrix</p>
@@ -446,7 +542,7 @@
 
 <dl class="py method">
 <dt id="yadism.coupling_constants.CouplingConstants.get_weight">
-<code class="sig-name descname">get_weight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pid</span></em>, <em class="sig-param"><span class="n">Q2</span></em>, <em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cc_flavor</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.get_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.get_weight" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_weight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pid</span></em>, <em class="sig-param"><span class="n">Q2</span></em>, <em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cc_mask</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.get_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.get_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the weight for the pid contributions to the structure function.</p>
 <p>Combine the charges, both on the leptonic side and the hadronic side, as well
 as propagator changes and/or corrections.</p>
@@ -458,7 +554,7 @@ as propagator changes and/or corrections.</p>
 <li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
 <li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
 coupling</p></li>
-<li><p><strong>cc_flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
+<li><p><strong>cc_mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -472,7 +568,7 @@ coupling</p></li>
 
 <dl class="py method">
 <dt id="yadism.coupling_constants.CouplingConstants.hadronic_coupling">
-<code class="sig-name descname">hadronic_coupling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">pid</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cc_flavor</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.hadronic_coupling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.hadronic_coupling" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hadronic_coupling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">pid</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cc_mask</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.hadronic_coupling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.hadronic_coupling" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the coupling of the boson to the parton</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -482,7 +578,7 @@ coupling</p></li>
 <li><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – parton identifier</p></li>
 <li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
 coupling</p></li>
-<li><p><strong>cc_flavor</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
+<li><p><strong>cc_mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -545,6 +641,30 @@ coupling</p></li>
 <code class="sig-name descname">vectorial_coupling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pid</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.vectorial_coupling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.vectorial_coupling" title="Permalink to this definition">¶</a></dt>
 <dd><p>Combine the vectorial coupling from electric and weak charges</p>
 </dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-yadism.kernels">
+<span id="yadism-kernels-module"></span><h2>yadism.kernels module<a class="headerlink" href="#module-yadism.kernels" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="yadism.kernels.Kernel">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.kernels.</code><code class="sig-name descname">Kernel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">partons</span></em>, <em class="sig-param"><span class="n">coeff</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/kernels.html#Kernel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.kernels.Kernel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="yadism.kernels.Kernel.__mul__">
+<code class="sig-name descname">__mul__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/kernels.html#Kernel.__mul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.kernels.Kernel.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.kernels.Kernel.__neg__">
+<code class="sig-name descname">__neg__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/kernels.html#Kernel.__neg__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.kernels.Kernel.__neg__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.kernels.Kernel.__rmul__">
+<code class="sig-name descname">__rmul__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/kernels.html#Kernel.__rmul__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.kernels.Kernel.__rmul__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -801,13 +921,135 @@ coupling</p></li>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="yadism.output.Output.dump">
-<code class="sig-name descname">dump</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#Output.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.Output.dump" title="Permalink to this definition">¶</a></dt>
+<dt id="yadism.output.Output.dump_yaml">
+<code class="sig-name descname">dump_yaml</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stream</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#Output.dump_yaml"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.Output.dump_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize result as YAML.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stream</strong> (<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a><em> or </em><em>stream</em>) – if given, dump is written on it</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>dump</strong> – result of dump(output, stream), i.e. a string, if no stream is given or
+Null, if self is written sucessfully to stream</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.output.Output.dump_yaml_to_file">
+<code class="sig-name descname">dump_yaml_to_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#Output.dump_yaml_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.Output.dump_yaml_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes YAML representation to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – target file name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ret</strong> – result of dump(output, stream), i.e. Null if written sucessfully</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.output.Output.get_raw">
+<code class="sig-name descname">get_raw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#Output.get_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.Output.get_raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize result as dict.</p>
+<p>This maps the original numpy matrices to lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>out</strong> – dictionary which will be written on output</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.output.Output.load_yaml">
+<em class="property">classmethod </em><code class="sig-name descname">load_yaml</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stream</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#Output.load_yaml"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.Output.load_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load YAML representation from stream</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stream</strong> (<em>any</em>) – source stream</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>obj</strong> – loaded object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.output.Output.load_yaml_from_file">
+<em class="property">classmethod </em><code class="sig-name descname">load_yaml_from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#Output.load_yaml_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.Output.load_yaml_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load YAML representation from file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – source file name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>obj</strong> – loaded object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.output.PDFOutput">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.output.</code><code class="sig-name descname">PDFOutput</code><a class="reference internal" href="../_modules/yadism/output.html#PDFOutput"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.PDFOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.output.Output" title="yadism.output.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.output.Output</span></code></a></p>
+<dl class="py method">
+<dt id="yadism.output.PDFOutput.dump_tables_to_file">
+<code class="sig-name descname">dump_tables_to_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#PDFOutput.dump_tables_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.PDFOutput.dump_tables_to_file" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="yadism.output.Output.load">
-<code class="sig-name descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#Output.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.Output.load" title="Permalink to this definition">¶</a></dt>
+<dt id="yadism.output.PDFOutput.get_raw">
+<code class="sig-name descname">get_raw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#PDFOutput.get_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.PDFOutput.get_raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize result as dict.</p>
+<p>This maps the original numpy matrices to lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>out</strong> – dictionary which will be written on output</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.output.PDFOutput.load_yaml">
+<em class="property">classmethod </em><code class="sig-name descname">load_yaml</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stream</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/output.html#PDFOutput.load_yaml"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.output.PDFOutput.load_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load YAML representation from stream</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stream</strong> (<em>any</em>) – source stream</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>obj</strong> – loaded object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.output.PDFOutput.tables">
+<em class="property">property </em><code class="sig-name descname">tables</code><a class="headerlink" href="#yadism.output.PDFOutput.tables" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -816,6 +1058,12 @@ coupling</p></li>
 </div>
 <div class="section" id="module-yadism.partonic_channel">
 <span id="yadism-partonic-channel-module"></span><h2>yadism.partonic_channel module<a class="headerlink" href="#module-yadism.partonic_channel" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="yadism.partonic_channel.EmptyPartonicChannel">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">EmptyPartonicChannel</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#EmptyPartonicChannel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.EmptyPartonicChannel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.partonic_channel.PartonicChannel" title="yadism.partonic_channel.PartonicChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannel</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
 <dt id="yadism.partonic_channel.PartonicChannel">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">PartonicChannel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ESF</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannel" title="Permalink to this definition">¶</a></dt>
@@ -842,6 +1090,12 @@ coupling</p></li>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="yadism.partonic_channel.PartonicChannel.convolution_point">
+<code class="sig-name descname">convolution_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannel.convolution_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannel.convolution_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convolution point</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="yadism.partonic_channel.PartonicChannel.decorator">
 <code class="sig-name descname">decorator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannel.decorator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannel.decorator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deactivate preprocessing</p>
@@ -862,13 +1116,36 @@ coupling</p></li>
 
 <dl class="py class">
 <dt id="yadism.partonic_channel.PartonicChannelAsy">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">PartonicChannelAsy</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelAsy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelAsy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">PartonicChannelAsy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">esf</span></em>, <em class="sig-param"><span class="n">m2hq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelAsy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelAsy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.partonic_channel.PartonicChannel" title="yadism.partonic_channel.PartonicChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannel</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
+<dt id="yadism.partonic_channel.PartonicChannelAsyIntrinsic">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">PartonicChannelAsyIntrinsic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ESF</span></em>, <em class="sig-param"><span class="n">m1sq</span></em>, <em class="sig-param"><span class="n">m2sq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelAsyIntrinsic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelAsyIntrinsic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.partonic_channel.PartonicChannel" title="yadism.partonic_channel.PartonicChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannel</span></code></a></p>
+<dl class="py method">
+<dt id="yadism.partonic_channel.PartonicChannelAsyIntrinsic.convolution_point">
+<code class="sig-name descname">convolution_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelAsyIntrinsic.convolution_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelAsyIntrinsic.convolution_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convolution point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.partonic_channel.PartonicChannelAsyIntrinsic.kinematic_delta">
+<em class="property">static </em><code class="sig-name descname">kinematic_delta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">c</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelAsyIntrinsic.kinematic_delta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelAsyIntrinsic.kinematic_delta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="yadism.partonic_channel.PartonicChannelHeavyIntrinsic">
+<em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">PartonicChannelHeavyIntrinsic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ESF</span></em>, <em class="sig-param"><span class="n">m1sq</span></em>, <em class="sig-param"><span class="n">m2sq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelHeavyIntrinsic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelHeavyIntrinsic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#yadism.partonic_channel.PartonicChannelAsyIntrinsic" title="yadism.partonic_channel.PartonicChannelAsyIntrinsic"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannelAsyIntrinsic</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
 <dt id="yadism.partonic_channel.PartonicChannelLight">
-<em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">PartonicChannelLight</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelLight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelLight" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">PartonicChannelLight</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">nf</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelLight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelLight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.partonic_channel.PartonicChannel" title="yadism.partonic_channel.PartonicChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannel</span></code></a></p>
 </dd></dl>
 
@@ -959,7 +1236,12 @@ dictionaries read ??.</p>
 
 <dl class="py method">
 <dt id="yadism.runner.Runner.get_output">
-<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#yadism.output.Output" title="yadism.output.Output">yadism.output.Output</a><a class="reference internal" href="../_modules/yadism/runner.html#Runner.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.get_output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/runner.html#Runner.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.get_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.runner.Runner.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">raw</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/runner.html#Runner.get_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.runner.Runner.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute coefficient functions grid for requested kinematic points.</p>
 <div class="admonition-implementation-note admonition">
 <p class="admonition-title">Implementation Note</p>
@@ -1050,15 +1332,15 @@ in TMC.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="yadism.sf.StructureFunction.get_output">
-<code class="sig-name descname">get_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction.get_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction.get_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collects the output from all childrens.</p>
+<dt id="yadism.sf.StructureFunction.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/sf.html#StructureFunction.get_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.sf.StructureFunction.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects the results from all childrens.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>output</strong> – all children outputs</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a>)</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a>(<a class="reference internal" href="yadism.esf.html#yadism.esf.esf_result.ESFResult" title="yadism.esf.esf_result.ESFResult">ESFResult</a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1480,7 +1762,7 @@ belongs to</p></li>
 machinery for TMC integrals.
 The implementation is flavor transparent, in the sense that takes
 any flavor from up and it’s passing it down in the call for a
-proper F2 instance (done by using <code class="xref py py-meth docutils literal notranslate"><span class="pre">self._SF.get_ESF()</span></code>).</p>
+proper F2 instance (done by using <code class="xref py py-meth docutils literal notranslate"><span class="pre">self.sf.get_ESF()</span></code>).</p>
 <p>The integration is made over the interpolation basis, postponing the
 once more the the contraction with the PDF.</p>
 <div class="math notranslate nohighlight">

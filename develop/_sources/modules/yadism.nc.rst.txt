@@ -33,22 +33,6 @@ yadism.nc.f2\_light module
    :undoc-members:
    :show-inheritance:
 
-yadism.nc.f3\_asy module
-------------------------
-
-.. automodule:: yadism.nc.f3_asy
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadism.nc.f3\_heavy module
---------------------------
-
-.. automodule:: yadism.nc.f3_heavy
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 yadism.nc.f3\_light module
 --------------------------
 
@@ -81,18 +65,18 @@ yadism.nc.fl\_light module
    :undoc-members:
    :show-inheritance:
 
-yadism.nc.partonic\_channel module
-----------------------------------
+yadism.nc.kernels module
+------------------------
 
-.. automodule:: yadism.nc.partonic_channel
+.. automodule:: yadism.nc.kernels
    :members:
    :undoc-members:
    :show-inheritance:
 
-yadism.nc.weights module
-------------------------
+yadism.nc.partonic\_channel module
+----------------------------------
 
-.. automodule:: yadism.nc.weights
+.. automodule:: yadism.nc.partonic_channel
    :members:
    :undoc-members:
    :show-inheritance:

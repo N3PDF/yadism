@@ -9,19 +9,31 @@ From Docstrings
 From Source Code
 ----------------
 
+`sf.py <file:///home/runner/work/yadism/yadism/src/yadism/sf.py>`_
+
+.. warning:: #46 wrap managers and parameters as single attributes
+
+.. warning:: #124 how to incorporate args?
+
+
+
+`output.py <file:///home/runner/work/yadism/yadism/src/yadism/output.py>`_
+
+.. warning:: #85 explicitly silence yaml
+
+
+
+`cf_combiner.py <file:///home/runner/work/yadism/yadism/src/yadism/cf_combiner.py>`_
+
+.. warning:: #26 decide whether Q2 or muF2 is the correct thing
+
+
+
 `coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
 
 .. warning:: #303 raise warning in log if inconsitent
 
 .. warning:: #344 maybe raise warning if non-unitarian
-
-
-
-`sf.py <file:///home/runner/work/yadism/yadism/src/yadism/sf.py>`_
-
-.. warning:: #48 wrap managers and parameters as single attributes
-
-.. warning:: #141 how to incorporate args?
 
 
 

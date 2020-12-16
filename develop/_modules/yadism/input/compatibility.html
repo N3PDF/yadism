@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.nc.f3_heavy &mdash; yadism 0.4.0-develop documentation</title>
+  <title>yadism.input.compatibility &mdash; yadism 0.4.0-develop documentation</title>
   
 
   
@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
@@ -166,9 +167,7 @@
         
           <li><a href="../../yadism.html">yadism</a> &raquo;</li>
         
-          <li><a href="../nc.html">yadism.nc</a> &raquo;</li>
-        
-      <li>yadism.nc.f3_heavy</li>
+      <li>yadism.input.compatibility</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -183,29 +182,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for yadism.nc.f3_heavy</h1><div class="highlight"><pre>
+  <h1>Source code for yadism.input.compatibility</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This module contains the implementation of the DIS F3 coefficient functions, for</span>
-<span class="sd">heavy quark flavors.</span>
-
-<span class="sd">The main reference used is: :cite:`felix-thesis`.</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">partonic_channel</span> <span class="k">as</span> <span class="n">pcnc</span>
+<span class="n">hqfl</span> <span class="o">=</span> <span class="s2">&quot;cbt&quot;</span>
 
 
-<div class="viewcode-block" id="F3heavyQuarkVA"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.f3_heavy.F3heavyQuarkVA">[docs]</a><span class="k">class</span> <span class="nc">F3heavyQuarkVA</span><span class="p">(</span><span class="n">pcnc</span><span class="o">.</span><span class="n">PartonicChannelHeavy</span><span class="p">):</span>
+<div class="viewcode-block" id="update"><a class="viewcode-back" href="../../../modules/yadism.input.html#yadism.input.compatibility.update">[docs]</a><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">theory</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the gluon channel of F3heavy.</span>
+<span class="sd">    Upgrade the legacy theory runcards with the new settings.</span>
 
-<span class="sd">        :eqref:`D.7`</span>
+<span class="sd">    Shifts kcThr around and add the kDIScThr parameter (likewise for all heavy quarks).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        theory : dict</span>
+<span class="sd">            theory run card</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        new_theory : dict</span>
+<span class="sd">            upgraded theory run card</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;qVA&quot;</span></div>
+    <span class="n">new_theory</span> <span class="o">=</span> <span class="n">theory</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">fns</span> <span class="o">=</span> <span class="n">theory</span><span class="p">[</span><span class="s2">&quot;FNS&quot;</span><span class="p">]</span>
+    <span class="n">nf</span> <span class="o">=</span> <span class="n">theory</span><span class="p">[</span><span class="s2">&quot;NfFF&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">fns</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;FONLL-A&quot;</span><span class="p">]:</span>
+        <span class="c1"># enforce correct settings moving all thresholds to 0 or oo</span>
+        <span class="k">if</span> <span class="n">fns</span> <span class="o">==</span> <span class="s2">&quot;FFNS&quot;</span><span class="p">:</span>
+            <span class="n">ks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">nf</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">6</span> <span class="o">-</span> <span class="n">nf</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">fl</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">hqfl</span><span class="p">):</span>
+                <span class="n">new_theory</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;k</span><span class="si">{</span><span class="n">fl</span><span class="si">}</span><span class="s2">Thr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
+        <span class="c1"># here there is no difference between DGLAP and DIS</span>
+        <span class="k">for</span> <span class="n">fl</span> <span class="ow">in</span> <span class="n">hqfl</span><span class="p">:</span>
+            <span class="n">new_theory</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;kDIS</span><span class="si">{</span><span class="n">fl</span><span class="si">}</span><span class="s2">Thr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_theory</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;k</span><span class="si">{</span><span class="n">fl</span><span class="si">}</span><span class="s2">Thr&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># keep the old setup for the ZM-VFNS part (above)</span>
+        <span class="k">for</span> <span class="n">fl</span> <span class="ow">in</span> <span class="n">hqfl</span><span class="p">:</span>
+            <span class="n">new_theory</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;kDIS</span><span class="si">{</span><span class="n">fl</span><span class="si">}</span><span class="s2">Thr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_theory</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;k</span><span class="si">{</span><span class="n">fl</span><span class="si">}</span><span class="s2">Thr&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">nf</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">fl</span> <span class="o">=</span> <span class="n">hqfl</span><span class="p">[</span><span class="n">pid</span> <span class="o">-</span> <span class="mi">4</span><span class="p">]</span>
+            <span class="n">new_theory</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;k</span><span class="si">{</span><span class="n">fl</span><span class="si">}</span><span class="s2">Thr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># erase all lower thresholds, meaning lower than the interesting one (NfFF)</span>
+            <span class="k">if</span> <span class="n">pid</span> <span class="o">&lt;</span> <span class="n">nf</span><span class="p">:</span>
+                <span class="n">new_theory</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;kDIS</span><span class="si">{</span><span class="n">fl</span><span class="si">}</span><span class="s2">Thr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">new_theory</span></div>
 </pre></div>
 
            </div>

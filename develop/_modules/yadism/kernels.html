@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>yadism.esf &mdash; yadism 0.4.0-develop documentation</title>
+  <title>yadism.kernels &mdash; yadism 0.4.0-develop documentation</title>
   
 
   
@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/processes.html">Processes</a></li>
@@ -166,7 +167,7 @@
         
           <li><a href="../yadism.html">yadism</a> &raquo;</li>
         
-      <li>yadism.esf</li>
+      <li>yadism.kernels</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -181,53 +182,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for yadism.esf</h1><div class="highlight"><pre>
+  <h1>Source code for yadism.kernels</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This subpackage contains the implementation of the DIS structure functions.</span>
-
-<span class="sd">.. todo::</span>
-<span class="sd">    docs</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">from</span> <span class="nn">.esf</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">EvaluatedStructureFunction</span><span class="p">,</span>
-    <span class="n">EvaluatedStructureFunctionLight</span><span class="p">,</span>
-    <span class="n">EvaluatedStructureFunctionHeavy</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="kn">from</span> <span class="nn">.f_total</span> <span class="kn">import</span> <span class="n">EvaluatedStructureFunctionFtotal</span>
-
-<span class="n">ESFmap</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;light&quot;</span><span class="p">:</span> <span class="n">EvaluatedStructureFunctionLight</span><span class="p">,</span>
-    <span class="s2">&quot;heavy&quot;</span><span class="p">:</span> <span class="n">EvaluatedStructureFunctionHeavy</span><span class="p">,</span>
-    <span class="s2">&quot;asy&quot;</span><span class="p">:</span> <span class="n">EvaluatedStructureFunction</span><span class="p">,</span>
-    <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="n">EvaluatedStructureFunctionFtotal</span><span class="p">,</span>
-<span class="p">}</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
 
 
-<span class="c1"># Coefficient functions distribution structure</span>
-<span class="c1"># implementation convention</span>
-<span class="c1"># -------------------------</span>
+<div class="viewcode-block" id="Kernel"><a class="viewcode-back" href="../../modules/yadism.html#yadism.kernels.Kernel">[docs]</a><span class="k">class</span> <span class="nc">Kernel</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partons</span><span class="p">,</span> <span class="n">coeff</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">partons</span> <span class="o">=</span> <span class="n">partons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coeff</span> <span class="o">=</span> <span class="n">coeff</span>
 
+<div class="viewcode-block" id="Kernel.__neg__"><a class="viewcode-back" href="../../modules/yadism.html#yadism.kernels.Kernel.__neg__">[docs]</a>    <span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__rmul__</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="rsl_from_distr_coeffs"><a class="viewcode-back" href="../../modules/yadism.esf.html#yadism.esf.rsl_from_distr_coeffs">[docs]</a><span class="k">def</span> <span class="nf">rsl_from_distr_coeffs</span><span class="p">(</span><span class="n">regular</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="o">*</span><span class="n">coeffs</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">singular</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">coeffs</span><span class="o">=</span><span class="n">coeffs</span><span class="p">):</span>
-        <span class="n">log_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">coeff</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coeffs</span><span class="p">):</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="n">coeff</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">log_</span> <span class="o">**</span> <span class="n">k</span>
-        <span class="k">return</span> <span class="n">res</span>
+<div class="viewcode-block" id="Kernel.__mul__"><a class="viewcode-back" href="../../modules/yadism.html#yadism.kernels.Kernel.__mul__">[docs]</a>    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__rmul__</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">local</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coeffs</span><span class="o">=</span><span class="n">coeffs</span><span class="p">):</span>
-        <span class="n">log_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">coeff</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coeffs</span><span class="p">):</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="n">coeff</span> <span class="o">*</span> <span class="n">log_</span> <span class="o">**</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">res</span> <span class="o">+</span> <span class="n">delta</span>
-
-    <span class="k">return</span> <span class="n">regular</span><span class="p">,</span> <span class="n">singular</span><span class="p">,</span> <span class="n">local</span></div>
+<div class="viewcode-block" id="Kernel.__rmul__"><a class="viewcode-back" href="../../modules/yadism.html#yadism.kernels.Kernel.__rmul__">[docs]</a>    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can only multiply numbers&quot;</span><span class="p">)</span>
+        <span class="n">partons</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">f</span> <span class="o">*</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">partons</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">partons</span><span class="p">,</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coeff</span><span class="p">))</span></div></div>
 </pre></div>
 
            </div>

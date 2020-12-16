@@ -100,7 +100,8 @@
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
@@ -197,20 +198,20 @@
 
 <div class="viewcode-block" id="F3lightQuark"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f3_light.F3lightQuark">[docs]</a><span class="k">class</span> <span class="nc">F3lightQuark</span><span class="p">(</span><span class="n">f2_light</span><span class="o">.</span><span class="n">F2lightQuark</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes light quark channel of FLlight</span>
+<span class="sd">    Computes light quark channel of FLlight</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="F3lightQuark.NLO"><a class="viewcode-back" href="../../../modules/yadism.cc.html#yadism.cc.f3_light.F3lightQuark.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Computes the quark singlet part of the next to leading order F3</span>
-<span class="sd">            structure function.</span>
+<span class="sd">        Computes the quark singlet part of the next to leading order F3</span>
+<span class="sd">        structure function.</span>
 
-<span class="sd">            |ref| implements :eqref:`155`, :cite:`moch-f3nc`.</span>
+<span class="sd">        |ref| implements :eqref:`155`, :cite:`moch-f3nc`.</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                sequence of callables</span>
-<span class="sd">                    coefficient functions</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">                coefficient functions</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">CF</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">CF</span>
