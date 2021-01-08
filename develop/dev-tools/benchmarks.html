@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Benchmarks &mdash; yadism 0.4.0-develop documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -94,22 +96,25 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/fns.html">Flavor Number Schemes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul class="current">
@@ -171,6 +176,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -184,7 +191,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/dev-tools/benchmarks.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -237,13 +244,10 @@ a restricted number of schemes.</p>
 <h3>Different definition of <abbr title="Structure Function">SF</abbr><a class="headerlink" href="#different-definition-of-sf" title="Permalink to this headline">¶</a></h3>
 <p>Due to a different definition <abbr title="Structure Function">SF</abbr> in <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a> (and so <cite>yadism</cite>) and <a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a> is
 not possible to compare all the structure functions in all the schemes.</p>
-<p>In particular <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a>/<cite>yadism</cite> definition of <abbr title="Structure Function">SF</abbr> is based on the coupling to
-the photon (or <abbr title="Deep Inelastic Scattering">DIS</abbr> boson in general), cf. <a class="reference internal" href="../theory/light-flavors.html"><span class="doc">Light Flavors</span></a> and
-<a class="reference internal" href="../theory/heavy-flavors.html"><span class="doc">Heavy Flavors</span></a>.</p>
 <p>On the other hand <a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a> is using a different definition of the <abbr title="Structure Function">SF</abbr> that is
 not matching the other one and from which it is not possible to recover the
 other results at higher orders (in particular it becomes completely impossible
-since <abbr title="Next to Next to Leading Order">NNLO</abbr>).
+since <abbr title="Next-to-Next-to-Leading Order">NNLO</abbr>).
 The different definition is:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(F_X^{light}\)</span> is defined by having only light quarks in the quark lines</p></li>
@@ -262,16 +266,10 @@ it’s not defined)</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="db-suite.html" class="btn btn-neutral float-right" title="Database Test Suite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="regression-tests.html" class="btn btn-neutral float-left" title="Regression Tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="db-suite.html" class="btn btn-neutral float-right" title="Database Test Suite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="regression-tests.html" class="btn btn-neutral float-left" title="Regression Tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -287,7 +285,6 @@ it’s not defined)</p></li>
 
 
 </footer>
-
         </div>
       </div>
 

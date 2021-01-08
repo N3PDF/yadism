@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>yadism package &mdash; yadism 0.4.0-develop documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -42,7 +44,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="yadism.cc package" href="yadism.cc.html" />
-    <link rel="prev" title="Target Mass Corrections" href="../package-structure/TMC.html" /> 
+    <link rel="prev" title="Interpolation" href="../misc/interpolation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,54 +96,50 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../yadism.html">yadism</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../package-structure/index.html">Structure</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="yadism.cc.html">yadism.cc package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.esf.html">yadism.esf package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.input.html">yadism.input package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="yadism.nc.html">yadism.nc package</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.cf_combiner">yadism.cf_combiner module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.coupling_constants">yadism.coupling_constants module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.kernels">yadism.kernels module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.log">yadism.log module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.observable_name">yadism.observable_name module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.output">yadism.output module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#output">Output</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.partonic_channel">yadism.partonic_channel module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.runner">yadism.runner module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.sf">yadism.sf module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.splitting_functions">yadism.splitting_functions module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-yadism.tmc">yadism.tmc module</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../misc/index.html">Miscellanea</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../yadism.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../yadism.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../yadism.html#description">Description</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/fns.html">Flavor Number Schemes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../yadism.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yadism.cc.html">yadism.cc package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.esf.html">yadism.esf package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.input.html">yadism.input package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yadism.nc.html">yadism.nc package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.cf_combiner">yadism.cf_combiner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.coupling_constants">yadism.coupling_constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.ic">yadism.ic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.kernels">yadism.kernels module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.log">yadism.log module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.observable_name">yadism.observable_name module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.output">yadism.output module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.partonic_channel">yadism.partonic_channel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.runner">yadism.runner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.sf">yadism.sf module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.splitting_functions">yadism.splitting_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-yadism.tmc">yadism.tmc module</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -191,20 +189,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../yadism.html">yadism</a> &raquo;</li>
-        
       <li>yadism package</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/modules/yadism.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -265,12 +263,15 @@
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.f2_asy">yadism.cc.f2_asy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.f2_heavy">yadism.cc.f2_heavy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.f2_intrinsic">yadism.cc.f2_intrinsic module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.f2_light">yadism.cc.f2_light module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.f3_asy">yadism.cc.f3_asy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.f3_heavy">yadism.cc.f3_heavy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.f3_intrinsic">yadism.cc.f3_intrinsic module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.f3_light">yadism.cc.f3_light module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.fl_asy">yadism.cc.fl_asy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.fl_heavy">yadism.cc.fl_heavy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.fl_intrinsic">yadism.cc.fl_intrinsic module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.fl_light">yadism.cc.fl_light module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.kernels">yadism.cc.kernels module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.cc.html#module-yadism.cc.partonic_channel">yadism.cc.partonic_channel module</a></li>
@@ -297,15 +298,15 @@
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f2_asy">yadism.nc.f2_asy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f2_heavy">yadism.nc.f2_heavy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f2_intrinsic">yadism.nc.f2_intrinsic module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f2_light">yadism.nc.f2_light module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f3_intrinsic">yadism.nc.f3_intrinsic module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.f3_light">yadism.nc.f3_light module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.fl_asy">yadism.nc.fl_asy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.fl_heavy">yadism.nc.fl_heavy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.fl_intrinsic">yadism.nc.fl_intrinsic module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.fl_light">yadism.nc.fl_light module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.kernels">yadism.nc.kernels module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="yadism.nc.html#id27">}</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.kernels">yadism.nc.kernels module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yadism.nc.html#module-yadism.nc.partonic_channel">yadism.nc.partonic_channel module</a></li>
 </ul>
 </li>
@@ -542,7 +543,7 @@ strength.</p>
 
 <dl class="py method">
 <dt id="yadism.coupling_constants.CouplingConstants.get_weight">
-<code class="sig-name descname">get_weight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pid</span></em>, <em class="sig-param"><span class="n">Q2</span></em>, <em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cc_mask</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.get_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.get_weight" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_weight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pid</span></em>, <em class="sig-param"><span class="n">Q2</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span></em>, <em class="sig-param"><span class="n">cc_mask</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.get_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.get_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the weight for the pid contributions to the structure function.</p>
 <p>Combine the charges, both on the leptonic side and the hadronic side, as well
 as propagator changes and/or corrections.</p>
@@ -551,7 +552,6 @@ as propagator changes and/or corrections.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – particle identifier</p></li>
 <li><p><strong>Q2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – DIS virtuality</p></li>
-<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
 <li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
 coupling</p></li>
 <li><p><strong>cc_mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
@@ -567,38 +567,14 @@ coupling</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="yadism.coupling_constants.CouplingConstants.hadronic_coupling">
-<code class="sig-name descname">hadronic_coupling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">pid</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cc_mask</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.hadronic_coupling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.hadronic_coupling" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the coupling of the boson to the parton</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – scattered bosons</p></li>
-<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
-<li><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – parton identifier</p></li>
-<li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
-coupling</p></li>
-<li><p><strong>cc_mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>hadronic_coupling</strong> – hadronic coupling</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="yadism.coupling_constants.CouplingConstants.leptonic_coupling">
-<code class="sig-name descname">leptonic_coupling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">kind</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.leptonic_coupling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.leptonic_coupling" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">leptonic_coupling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.leptonic_coupling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.leptonic_coupling" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the coupling of the boson to the lepton</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – scattered bosons</p></li>
-<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable kind to distinguish parity violating and parity conserving couplings</p></li>
+<li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – (axial-)vectorial/(axial-)vectorial coupling</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -614,6 +590,29 @@ coupling</p></li>
 <dt id="yadism.coupling_constants.CouplingConstants.log">
 <code class="sig-name descname">log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write current configuration to log</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="yadism.coupling_constants.CouplingConstants.partonic_coupling">
+<code class="sig-name descname">partonic_coupling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">pid</span></em>, <em class="sig-param"><span class="n">quark_coupling_type</span></em>, <em class="sig-param"><span class="n">cc_mask</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/coupling_constants.html#CouplingConstants.partonic_coupling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.coupling_constants.CouplingConstants.partonic_coupling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the coupling of the boson to the parton</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – scattered bosons</p></li>
+<li><p><strong>pid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – parton identifier</p></li>
+<li><p><strong>quark_coupling_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – flag to distinguish for heavy quarks between vectorial and axial-vectorial
+coupling</p></li>
+<li><p><strong>cc_mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – observable flavor to determine the heavy flavour couplings in F3</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>partonic_coupling</strong> – partonic coupling</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -643,6 +642,164 @@ coupling</p></li>
 </dd></dl>
 
 </dd></dl>
+
+</div>
+<div class="section" id="module-yadism.ic">
+<span id="yadism-ic-module"></span><h2>yadism.ic module<a class="headerlink" href="#module-yadism.ic" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="yadism.ic.C1m">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">C1m</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#C1m"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.C1m" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.C1p">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">C1p</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#C1p"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.C1p" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.CRm">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">CRm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#CRm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.CRm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.Cplus">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">Cplus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#Cplus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.Cplus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.I1">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">I1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#I1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.I1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.S">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">S</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#S"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.S" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f1_sminus_raw">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f1_sminus_raw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f1_sminus_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f1_sminus_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f1_sminus_soft">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f1_sminus_soft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f1_sminus_soft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f1_sminus_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f1_sminus_virt">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f1_sminus_virt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f1_sminus_virt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f1_sminus_virt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f1_splus_raw">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f1_splus_raw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f1_splus_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f1_splus_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f1_splus_soft">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f1_splus_soft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f1_splus_soft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f1_splus_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f1_splus_virt">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f1_splus_virt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f1_splus_virt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f1_splus_virt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f2_sminus_raw">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f2_sminus_raw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f2_sminus_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f2_sminus_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f2_sminus_soft">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f2_sminus_soft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f2_sminus_soft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f2_sminus_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f2_sminus_virt">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f2_sminus_virt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f2_sminus_virt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f2_sminus_virt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f2_splus_raw">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f2_splus_raw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f2_splus_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f2_splus_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f2_splus_soft">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f2_splus_soft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f2_splus_soft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f2_splus_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f2_splus_virt">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f2_splus_virt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f2_splus_virt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f2_splus_virt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f3_rminus_raw">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f3_rminus_raw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f3_rminus_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f3_rminus_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f3_rminus_soft">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f3_rminus_soft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f3_rminus_soft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f3_rminus_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f3_rminus_virt">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f3_rminus_virt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f3_rminus_virt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f3_rminus_virt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f3_rplus_raw">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f3_rplus_raw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f3_rplus_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f3_rplus_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f3_rplus_soft">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f3_rplus_soft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f3_rplus_soft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f3_rplus_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.f3_rplus_virt">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">f3_rplus_virt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#f3_rplus_virt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.f3_rplus_virt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.fl_sminus_raw">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">fl_sminus_raw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#fl_sminus_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.fl_sminus_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.fl_sminus_soft">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">fl_sminus_soft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#fl_sminus_soft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.fl_sminus_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.fl_sminus_virt">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">fl_sminus_virt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#fl_sminus_virt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.fl_sminus_virt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.fl_splus_raw">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">fl_splus_raw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#fl_splus_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.fl_splus_raw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.fl_splus_soft">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">fl_splus_soft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#fl_splus_soft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.fl_splus_soft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.fl_splus_virt">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">fl_splus_virt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#fl_splus_virt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.fl_splus_virt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="yadism.ic.li2">
+<code class="sig-prename descclassname">yadism.ic.</code><code class="sig-name descname">li2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/ic.html#li2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.ic.li2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-yadism.kernels">
@@ -1141,6 +1298,21 @@ Null, if self is written sucessfully to stream</p>
 <dt id="yadism.partonic_channel.PartonicChannelHeavyIntrinsic">
 <em class="property">class </em><code class="sig-prename descclassname">yadism.partonic_channel.</code><code class="sig-name descname">PartonicChannelHeavyIntrinsic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ESF</span></em>, <em class="sig-param"><span class="n">m1sq</span></em>, <em class="sig-param"><span class="n">m2sq</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelHeavyIntrinsic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelHeavyIntrinsic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#yadism.partonic_channel.PartonicChannelAsyIntrinsic" title="yadism.partonic_channel.PartonicChannelAsyIntrinsic"><code class="xref py py-class docutils literal notranslate"><span class="pre">yadism.partonic_channel.PartonicChannelAsyIntrinsic</span></code></a></p>
+<dl class="py method">
+<dt id="yadism.partonic_channel.PartonicChannelHeavyIntrinsic.init_nlo_vars">
+<code class="sig-name descname">init_nlo_vars</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelHeavyIntrinsic.init_nlo_vars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelHeavyIntrinsic.init_nlo_vars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.partonic_channel.PartonicChannelHeavyIntrinsic.init_vars">
+<code class="sig-name descname">init_vars</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelHeavyIntrinsic.init_vars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelHeavyIntrinsic.init_vars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="yadism.partonic_channel.PartonicChannelHeavyIntrinsic.mkNLO">
+<code class="sig-name descname">mkNLO</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kind</span></em>, <em class="sig-param"><span class="n">RS</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/partonic_channel.html#PartonicChannelHeavyIntrinsic.mkNLO"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.partonic_channel.PartonicChannelHeavyIntrinsic.mkNLO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -1361,34 +1533,23 @@ in TMC.</p>
 </div>
 <div class="section" id="module-yadism.splitting_functions">
 <span id="yadism-splitting-functions-module"></span><h2>yadism.splitting_functions module<a class="headerlink" href="#module-yadism.splitting_functions" title="Permalink to this headline">¶</a></h2>
-<p>Provides splitting functions definition for coefficient functions calculation.</p>
-<p>The coefficient functions are defined in <span class="eqref">4.87</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id12">[ESW11]</a>, and
-they are organized in:</p>
-<ul class="simple">
-<li><p>qq</p></li>
-<li><p>qg</p></li>
-<li><p>gq</p></li>
-<li><p>gg</p></li>
-</ul>
-<p>according to the partons (entering the hard process - coming from the proton).</p>
-<p>Furthermore they are organized according to their distribution structure, for
-which see <code class="xref py py-mod docutils literal notranslate"><span class="pre">convolution</span></code>.</p>
-<p>The reference for LO splitting functions is <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id13">[ESW11]</a>.</p>
-<div class="admonition-todo admonition" id="id14">
-<p class="admonition-title">Todo</p>
-<p>rewrite pqq in RSL fashion</p>
-</div>
+<p>Provides the Altarelli-Parisi splitting functions.</p>
+<p>The splitting functions are defined by <span class="eqref">4.90</span>, <span id="id12">[<a class="reference internal" href="../zzz-refs.html#id2"><span>ESW11</span></a>]</span> and
+they are organized by the outgoing and incoming particle.</p>
+<p>Furthermore they are organized according to their
+<a class="reference internal" href="yadism.esf.html#module-yadism.esf.distribution_vec" title="yadism.esf.distribution_vec"><code class="xref py py-mod docutils literal notranslate"><span class="pre">distribution</span> <span class="pre">structure</span></code></a>.</p>
+<p>The reference for LO splitting functions is <span id="id13">[<a class="reference internal" href="../zzz-refs.html#id2"><span>ESW11</span></a>]</span>.</p>
 <dl class="py function">
 <dt id="yadism.splitting_functions.pqg">
 <code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqg" title="Permalink to this definition">¶</a></dt>
-<dd><p>The expression of <span class="math notranslate nohighlight">\(P_{qg}\)</span> splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <span class="bibtex" id="id15">[pegasus]</span>.</p>
+<dd><p>(Regular) <span class="math notranslate nohighlight">\(P_{qg}\)</span> splitting function.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <span id="id14">[<a class="reference internal" href="../zzz-refs.html#id2"><span>ESW11</span></a>]</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
+<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – partonic momentum fraction</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the pqg splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">z</span></span></code></p>
+<dd class="field-even"><p>the quark-gluon splitting function <span class="math notranslate nohighlight">\(P_{qg}(z)\)</span></p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
@@ -1399,14 +1560,14 @@ which see <code class="xref py py-mod docutils literal notranslate"><span class=
 <dl class="py function">
 <dt id="yadism.splitting_functions.pqq_local">
 <code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqq_local</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqq_local"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqq_local" title="Permalink to this definition">¶</a></dt>
-<dd><p>The expression of the local part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id16">[ESW11]</a>.</p>
+<dd><p>Local part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <span id="id15">[<a class="reference internal" href="../zzz-refs.html#id2"><span>ESW11</span></a>]</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
+<dd class="field-odd"><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – hadronic momentum fraction</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the locacl bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">x</span></span></code></p>
+<dd class="field-even"><p>the local bit of quark-quark splitting function <span class="math notranslate nohighlight">\(P_{qq}^L(x)\)</span></p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
@@ -1417,14 +1578,14 @@ which see <code class="xref py py-mod docutils literal notranslate"><span class=
 <dl class="py function">
 <dt id="yadism.splitting_functions.pqq_reg">
 <code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqq_reg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqq_reg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqq_reg" title="Permalink to this definition">¶</a></dt>
-<dd><p>The expression of the regular part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id17">[ESW11]</a>.</p>
+<dd><p>Regular part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <span id="id16">[<a class="reference internal" href="../zzz-refs.html#id2"><span>ESW11</span></a>]</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
+<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – partonic momentum fraction</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the regular bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">z</span></span></code></p>
+<dd class="field-even"><p>the regular bit of quark-quark splitting function <span class="math notranslate nohighlight">\(P_{qq}^R(z)\)</span></p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
@@ -1435,14 +1596,14 @@ which see <code class="xref py py-mod docutils literal notranslate"><span class=
 <dl class="py function">
 <dt id="yadism.splitting_functions.pqq_sing">
 <code class="sig-prename descclassname">yadism.splitting_functions.</code><code class="sig-name descname">pqq_sing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/splitting_functions.html#pqq_sing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.splitting_functions.pqq_sing" title="Permalink to this definition">¶</a></dt>
-<dd><p>The expression of the singular part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
-<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <a class="bibtex reference internal" href="../zzz-refs.html#pink-book" id="id18">[ESW11]</a>.</p>
+<dd><p>Singular part of <span class="math notranslate nohighlight">\(P_{qq}\)</span> splitting function.</p>
+<p><strong>Reference:</strong> implements <span class="eqref">4.94</span>, <span id="id17">[<a class="reference internal" href="../zzz-refs.html#id2"><span>ESW11</span></a>]</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – momentum fraction</p>
+<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – partonic momentum fraction</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the singular bit of pqq splitting function &#64; <code class="code py python docutils literal notranslate"><span class="name"><span class="pre">z</span></span></code></p>
+<dd class="field-even"><p>the singular bit the quark-quark splitting function <span class="math notranslate nohighlight">\(P_{qq}^S(z)\)</span></p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
@@ -1453,8 +1614,7 @@ which see <code class="xref py py-mod docutils literal notranslate"><span class=
 </div>
 <div class="section" id="module-yadism.tmc">
 <span id="yadism-tmc-module"></span><h2>yadism.tmc module<a class="headerlink" href="#module-yadism.tmc" title="Permalink to this headline">¶</a></h2>
-<p>This module contain the implementation of target mass corrections (TMC). For an
-introduction about TMC and also implementation details see <a class="reference internal" href="../theory/TMC.html#tmc-page"><span class="std std-ref">Target Mass Corrections</span></a>.</p>
+<p>This module contain the implementation of target mass corrections (TMC).</p>
 <p>Three classes are here defined:</p>
 <blockquote>
 <div><ul class="simple">
@@ -1501,8 +1661,8 @@ belongs to</p></li>
 <code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F2._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F2._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the same formula used by APFEL, see
-<a class="bibtex reference internal" href="../zzz-refs.html#nnpdf-1-0" id="id19">[BDDF+09]</a></p>
-<div class="admonition-todo admonition" id="id20">
+<span id="id18">[<a class="reference internal" href="../zzz-refs.html#id3"><span>BDDF+09</span></a>]</span></p>
+<div class="admonition-todo admonition" id="id19">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>APFEL TMC reference missing</p></li>
@@ -1520,15 +1680,15 @@ of TMC calculation according to the same formula used by APFEL, see
 <code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F2._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F2._get_result_approx" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the approximate formula defined in
-<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id21">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id22">[S+08]</a>.</p>
+<span class="eqref">4</span> in <span id="id20">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>, and already presented in
+<span id="id21">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>.</p>
 <p>The convenience of this formula is that the integration is
 approximate by a simple evaluation of the integrand in a suitable
 point, so the evaluation of the full expression is much faster
 (because integration yields an array of evaluations, ranging from 1
 to the <cite>xgrid</cite> length).
 Despite the approximation the formula is quite in a good agreement
-with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id23">[S+08]</a>).</p>
+with the exact one (for comparison see <span id="id22">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1536,8 +1696,8 @@ with the exact one (for comparison see <a class="bibtex reference internal" href
 <code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F2._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F2._get_result_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the exact formula defined in
-<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id24">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id25">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id26">[GP76]</a>.</p>
+<span class="eqref">2</span> in <span id="id23">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>, and already presented in
+<span id="id24">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span> and older literature like <span id="id25">[<a class="reference internal" href="../zzz-refs.html#id25"><span>GP76</span></a>]</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will always involve an integration (and more than one
@@ -1574,8 +1734,8 @@ belongs to</p></li>
 <code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F3._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F3._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the same formula used by APFEL, see
-<a class="bibtex reference internal" href="../zzz-refs.html#nnpdf-1-0" id="id27">[BDDF+09]</a></p>
-<div class="admonition-todo admonition" id="id28">
+<span id="id26">[<a class="reference internal" href="../zzz-refs.html#id3"><span>BDDF+09</span></a>]</span></p>
+<div class="admonition-todo admonition" id="id27">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>APFEL TMC reference missing</p></li>
@@ -1588,15 +1748,15 @@ of TMC calculation according to the same formula used by APFEL, see
 <code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F3._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F3._get_result_approx" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the approximate formula defined in
-<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id29">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id30">[S+08]</a>.</p>
+<span class="eqref">4</span> in <span id="id28">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>, and already presented in
+<span id="id29">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>.</p>
 <p>The convenience of this formula is that the integration is
 approximate by a simple evaluation of the integrand in a suitable
 point, so the evaluation of the full expression is much faster
 (because integration yields an array of evaluations, ranging from 1
 to the <cite>xgrid</cite> length).
 Despite the approximation the formula is quite in a good agreement
-with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id31">[S+08]</a>).</p>
+with the exact one (for comparison see <span id="id30">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1604,8 +1764,8 @@ with the exact one (for comparison see <a class="bibtex reference internal" href
 <code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_F3._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_F3._get_result_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the exact formula defined in
-<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id32">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id33">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id34">[GP76]</a>.</p>
+<span class="eqref">2</span> in <span id="id31">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>, and already presented in
+<span id="id32">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span> and older literature like <span id="id33">[<a class="reference internal" href="../zzz-refs.html#id25"><span>GP76</span></a>]</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will always involve an integration (and more than one
@@ -1661,8 +1821,8 @@ belongs to</p></li>
 <code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_FL._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_FL._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the same formula used by APFEL, see
-<a class="bibtex reference internal" href="../zzz-refs.html#nnpdf-1-0" id="id35">[BDDF+09]</a></p>
-<div class="admonition-todo admonition" id="id36">
+<span id="id34">[<a class="reference internal" href="../zzz-refs.html#id3"><span>BDDF+09</span></a>]</span></p>
+<div class="admonition-todo admonition" id="id35">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>APFEL TMC reference missing</p></li>
@@ -1675,15 +1835,15 @@ of TMC calculation according to the same formula used by APFEL, see
 <code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_FL._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_FL._get_result_approx" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the approximate formula defined in
-<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id37">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id38">[S+08]</a>.</p>
+<span class="eqref">4</span> in <span id="id36">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>, and already presented in
+<span id="id37">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>.</p>
 <p>The convenience of this formula is that the integration is
 approximate by a simple evaluation of the integrand in a suitable
 point, so the evaluation of the full expression is much faster
 (because integration yields an array of evaluations, ranging from 1
 to the <cite>xgrid</cite> length).
 Despite the approximation the formula is quite in a good agreement
-with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id39">[S+08]</a>).</p>
+with the exact one (for comparison see <span id="id38">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1691,8 +1851,8 @@ with the exact one (for comparison see <a class="bibtex reference internal" href
 <code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#ESFTMC_FL._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.ESFTMC_FL._get_result_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the exact formula defined in
-<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id40">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id41">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id42">[GP76]</a>.</p>
+<span class="eqref">2</span> in <span id="id39">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>, and already presented in
+<span id="id40">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span> and older literature like <span id="id41">[<a class="reference internal" href="../zzz-refs.html#id25"><span>GP76</span></a>]</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will always involve an integration (and more than one
@@ -1725,9 +1885,9 @@ classes. In particular here are defined:</p>
 <blockquote>
 <div><ul>
 <li><p>shifted kinematics <span class="math notranslate nohighlight">\(\xi\)</span> and other aux variables
-(<span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span>, see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id43">[GR20]</a>)</p></li>
+(<span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span>, see <span id="id42">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>)</p></li>
 <li><p>integration layout and two common integrals of structure
-functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span class="math notranslate nohighlight">\(g_2\)</span> (see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id44">[S+08]</a>)</p></li>
+functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span class="math notranslate nohighlight">\(g_2\)</span> (see <span id="id43">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>)</p></li>
 <li><p>an interface for picking up the chosen formulas between:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -1736,7 +1896,7 @@ functions, <span class="math notranslate nohighlight">\(h_2\)</span> and <span c
 <li><p><em>exact</em></p></li>
 </ol>
 </div></blockquote>
-<p>(see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id45">[GR20]</a>)</p>
+<p>(see <span id="id44">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>)</p>
 </li>
 </ul>
 </div></blockquote>
@@ -1812,8 +1972,8 @@ other terms not described here.</p>
 <em class="property">abstract </em><code class="sig-name descname">_get_result_APFEL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._get_result_APFEL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._get_result_APFEL" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the same formula used by APFEL, see
-<a class="bibtex reference internal" href="../zzz-refs.html#nnpdf-1-0" id="id46">[BDDF+09]</a></p>
-<div class="admonition-todo admonition" id="id47">
+<span id="id45">[<a class="reference internal" href="../zzz-refs.html#id3"><span>BDDF+09</span></a>]</span></p>
+<div class="admonition-todo admonition" id="id46">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>APFEL TMC reference missing</p></li>
@@ -1826,15 +1986,15 @@ of TMC calculation according to the same formula used by APFEL, see
 <em class="property">abstract </em><code class="sig-name descname">_get_result_approx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._get_result_approx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._get_result_approx" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the approximate formula defined in
-<span class="eqref">4</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id48">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id49">[S+08]</a>.</p>
+<span class="eqref">4</span> in <span id="id47">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>, and already presented in
+<span id="id48">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>.</p>
 <p>The convenience of this formula is that the integration is
 approximate by a simple evaluation of the integrand in a suitable
 point, so the evaluation of the full expression is much faster
 (because integration yields an array of evaluations, ranging from 1
 to the <cite>xgrid</cite> length).
 Despite the approximation the formula is quite in a good agreement
-with the exact one (for comparison see <a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id50">[S+08]</a>).</p>
+with the exact one (for comparison see <span id="id49">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1842,8 +2002,8 @@ with the exact one (for comparison see <a class="bibtex reference internal" href
 <em class="property">abstract </em><code class="sig-name descname">_get_result_exact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yadism/tmc.html#EvaluatedStructureFunctionTMC._get_result_exact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yadism.tmc.EvaluatedStructureFunctionTMC._get_result_exact" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method is defined by subclasses to provide the implementation
 of TMC calculation according to the exact formula defined in
-<span class="eqref">2</span> in <a class="bibtex reference internal" href="../zzz-refs.html#tmc-iranian" id="id51">[GR20]</a>, and already presented in
-<a class="bibtex reference internal" href="../zzz-refs.html#tmc-review" id="id52">[S+08]</a> and older literature like <a class="bibtex reference internal" href="../zzz-refs.html#tmc-georgi" id="id53">[GP76]</a>.</p>
+<span class="eqref">2</span> in <span id="id50">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span>, and already presented in
+<span id="id51">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span> and older literature like <span id="id52">[<a class="reference internal" href="../zzz-refs.html#id25"><span>GP76</span></a>]</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will always involve an integration (and more than one
@@ -1925,16 +2085,10 @@ output in a different format (see <code class="xref py py-class docutils literal
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="yadism.cc.html" class="btn btn-neutral float-right" title="yadism.cc package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../package-structure/TMC.html" class="btn btn-neutral float-left" title="Target Mass Corrections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="yadism.cc.html" class="btn btn-neutral float-right" title="yadism.cc package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../misc/interpolation.html" class="btn btn-neutral float-left" title="Interpolation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -1950,7 +2104,6 @@ output in a different format (see <code class="xref py py-class docutils literal
 
 
 </footer>
-
         </div>
       </div>
 

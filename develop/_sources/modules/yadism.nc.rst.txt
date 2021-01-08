@@ -25,10 +25,26 @@ yadism.nc.f2\_heavy module
    :undoc-members:
    :show-inheritance:
 
+yadism.nc.f2\_intrinsic module
+------------------------------
+
+.. automodule:: yadism.nc.f2_intrinsic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadism.nc.f2\_light module
 --------------------------
 
 .. automodule:: yadism.nc.f2_light
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.nc.f3\_intrinsic module
+------------------------------
+
+.. automodule:: yadism.nc.f3_intrinsic
    :members:
    :undoc-members:
    :show-inheritance:
@@ -53,6 +69,14 @@ yadism.nc.fl\_heavy module
 --------------------------
 
 .. automodule:: yadism.nc.fl_heavy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadism.nc.fl\_intrinsic module
+------------------------------
+
+.. automodule:: yadism.nc.fl_intrinsic
    :members:
    :undoc-members:
    :show-inheritance:

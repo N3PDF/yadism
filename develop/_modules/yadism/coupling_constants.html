@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>yadism.coupling_constants &mdash; yadism 0.4.0-develop documentation</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../../_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -92,22 +94,25 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/structure-functions.html">Structure Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/fns.html">Flavor Number Schemes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../theory/TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -142,6 +147,8 @@
         <div class="rst-content">
         
           
+
+
 
 
 
@@ -236,7 +243,7 @@
             <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">theory_config</span><span class="p">[</span><span class="s2">&quot;sin2theta_weak&quot;</span><span class="p">]</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="CouplingConstants.leptonic_coupling"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.leptonic_coupling">[docs]</a>    <span class="k">def</span> <span class="nf">leptonic_coupling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+<div class="viewcode-block" id="CouplingConstants.leptonic_coupling"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.leptonic_coupling">[docs]</a>    <span class="k">def</span> <span class="nf">leptonic_coupling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the coupling of the boson to the lepton</span>
 
@@ -244,8 +251,8 @@
 <span class="sd">        ----------</span>
 <span class="sd">            mode : str</span>
 <span class="sd">                scattered bosons</span>
-<span class="sd">            kind : str</span>
-<span class="sd">                observable kind to distinguish parity violating and parity conserving couplings</span>
+<span class="sd">            quark_coupling_type : str</span>
+<span class="sd">                (axial-)vectorial/(axial-)vectorial coupling</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -271,12 +278,12 @@
             <span class="n">projectile_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">projectile_pid</span><span class="p">)]</span>
         <span class="c1"># switch mode</span>
         <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;phph&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">kind</span> <span class="o">!=</span> <span class="s2">&quot;F3&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">quark_coupling_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;VV&quot;</span><span class="p">,</span> <span class="s2">&quot;AA&quot;</span><span class="p">]:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">projectile_pid</span><span class="p">)]</span> <span class="o">**</span> <span class="mi">2</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="mi">0</span>
         <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;phZ&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">kind</span> <span class="o">!=</span> <span class="s2">&quot;F3&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">quark_coupling_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;VV&quot;</span><span class="p">,</span> <span class="s2">&quot;AA&quot;</span><span class="p">]:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">projectile_pid</span><span class="p">)]</span> <span class="o">*</span> <span class="p">(</span>
                     <span class="n">projectile_v</span> <span class="o">+</span> <span class="n">pol</span> <span class="o">*</span> <span class="n">projectile_a</span>
                 <span class="p">)</span>
@@ -285,7 +292,7 @@
                     <span class="n">projectile_a</span> <span class="o">+</span> <span class="n">pol</span> <span class="o">*</span> <span class="n">projectile_v</span>
                 <span class="p">)</span>
         <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;ZZ&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">kind</span> <span class="o">!=</span> <span class="s2">&quot;F3&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">quark_coupling_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;VV&quot;</span><span class="p">,</span> <span class="s2">&quot;AA&quot;</span><span class="p">]:</span>
                 <span class="k">return</span> <span class="p">(</span>
                     <span class="n">projectile_v</span> <span class="o">**</span> <span class="mi">2</span>
                     <span class="o">+</span> <span class="n">projectile_a</span> <span class="o">**</span> <span class="mi">2</span>
@@ -297,9 +304,7 @@
                 <span class="p">)</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode: </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="CouplingConstants.hadronic_coupling"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.hadronic_coupling">[docs]</a>    <span class="k">def</span> <span class="nf">hadronic_coupling</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cc_mask</span><span class="o">=</span><span class="kc">None</span>
-    <span class="p">):</span>
+<div class="viewcode-block" id="CouplingConstants.partonic_coupling"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.partonic_coupling">[docs]</a>    <span class="k">def</span> <span class="nf">partonic_coupling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">,</span> <span class="n">cc_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the coupling of the boson to the parton</span>
 
@@ -307,8 +312,6 @@
 <span class="sd">        ----------</span>
 <span class="sd">            mode : str</span>
 <span class="sd">                scattered bosons</span>
-<span class="sd">            kind : str</span>
-<span class="sd">                observable kind to distinguish parity violating and parity conserving couplings</span>
 <span class="sd">            pid : int</span>
 <span class="sd">                parton identifier</span>
 <span class="sd">            quark_coupling_type : str</span>
@@ -319,44 +322,28 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">            hadronic_coupling : float</span>
-<span class="sd">                hadronic coupling</span>
+<span class="sd">            partonic_coupling : float</span>
+<span class="sd">                partonic coupling</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># for quarks only the flavor does matter</span>
         <span class="n">pid</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;WW&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theory_config</span><span class="p">[</span><span class="s2">&quot;CKM&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">masked</span><span class="p">(</span><span class="n">cc_mask</span><span class="p">)(</span><span class="n">pid</span><span class="p">))</span>
         <span class="c1"># load couplings</span>
-        <span class="n">eq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span>
-        <span class="c1"># axial coupling of the photon to the quark is not there of course</span>
-        <span class="k">if</span> <span class="n">quark_coupling_type</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
-            <span class="n">eq</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">gqv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorial_coupling</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
-        <span class="n">gqa</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span><span class="p">[</span><span class="n">pid</span><span class="p">]</span>
+        <span class="n">qph</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;V&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">electric_charge</span><span class="p">[</span><span class="n">pid</span><span class="p">],</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># axial coupling of the photon to the quark is not there of course</span>
+        <span class="p">}</span>
+        <span class="n">qZ</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;V&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorial_coupling</span><span class="p">(</span><span class="n">pid</span><span class="p">),</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">weak_isospin_3</span><span class="p">[</span><span class="n">pid</span><span class="p">]}</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="n">quark_coupling_type</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="n">quark_coupling_type</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="c1"># switch mode</span>
         <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;phph&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">kind</span> <span class="o">!=</span> <span class="s2">&quot;F3&quot;</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">eq</span> <span class="o">**</span> <span class="mi">2</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">return</span> <span class="n">qph</span><span class="p">[</span><span class="n">first</span><span class="p">]</span> <span class="o">*</span> <span class="n">qph</span><span class="p">[</span><span class="n">second</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;phZ&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">kind</span> <span class="o">!=</span> <span class="s2">&quot;F3&quot;</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">eq</span> <span class="o">*</span> <span class="n">gqv</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">eq</span> <span class="o">*</span> <span class="n">gqa</span>
+            <span class="k">return</span> <span class="n">qph</span><span class="p">[</span><span class="n">first</span><span class="p">]</span> <span class="o">*</span> <span class="n">qZ</span><span class="p">[</span><span class="n">second</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;ZZ&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">kind</span> <span class="o">!=</span> <span class="s2">&quot;F3&quot;</span><span class="p">:</span>
-                <span class="n">g2q</span> <span class="o">=</span> <span class="n">gqv</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">gqa</span> <span class="o">**</span> <span class="mi">2</span>
-                <span class="c1"># in heavy quark structure functions the two coefficient functions for the</span>
-                <span class="c1"># vectorial and axial-vectorial coupling are NOT the same (unlinke in the massless case)</span>
-                <span class="k">if</span> <span class="n">quark_coupling_type</span> <span class="o">==</span> <span class="s2">&quot;V&quot;</span><span class="p">:</span>
-                    <span class="n">g2q</span> <span class="o">=</span> <span class="n">gqv</span> <span class="o">**</span> <span class="mi">2</span>
-                <span class="k">elif</span> <span class="n">quark_coupling_type</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
-                    <span class="n">g2q</span> <span class="o">=</span> <span class="n">gqa</span> <span class="o">**</span> <span class="mi">2</span>
-                <span class="k">return</span> <span class="n">g2q</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">gqv</span> <span class="o">*</span> <span class="n">gqa</span>
-        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;WW&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">theory_config</span><span class="p">[</span><span class="s2">&quot;CKM&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">masked</span><span class="p">(</span><span class="n">cc_mask</span><span class="p">)(</span><span class="n">pid</span><span class="p">))</span>
-
+            <span class="k">return</span> <span class="n">qZ</span><span class="p">[</span><span class="n">first</span><span class="p">]</span> <span class="o">*</span> <span class="n">qZ</span><span class="p">[</span><span class="n">second</span><span class="p">]</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode: </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="CouplingConstants.propagator_factor"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.propagator_factor">[docs]</a>    <span class="k">def</span> <span class="nf">propagator_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">Q2</span><span class="p">):</span>
@@ -396,7 +383,7 @@
             <span class="k">return</span> <span class="n">eta_W</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown mode: </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="CouplingConstants.get_weight"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.get_weight">[docs]</a>    <span class="k">def</span> <span class="nf">get_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cc_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="CouplingConstants.get_weight"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.get_weight">[docs]</a>    <span class="k">def</span> <span class="nf">get_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">,</span> <span class="n">cc_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the weight for the pid contributions to the structure function.</span>
 
@@ -409,8 +396,6 @@
 <span class="sd">                particle identifier</span>
 <span class="sd">            Q2 : float</span>
 <span class="sd">                DIS virtuality</span>
-<span class="sd">            kind : str</span>
-<span class="sd">                observable kind to distinguish parity violating and parity conserving couplings</span>
 <span class="sd">            quark_coupling_type : str</span>
 <span class="sd">                flag to distinguish for heavy quarks between vectorial and axial-vectorial</span>
 <span class="sd">                coupling</span>
@@ -422,10 +407,15 @@
 <span class="sd">            w : float</span>
 <span class="sd">                weight</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># CC = WW</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s2">&quot;process&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;CC&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">leptonic_coupling</span><span class="p">(</span>
+                <span class="s2">&quot;WW&quot;</span><span class="p">,</span> <span class="n">quark_coupling_type</span>
+            <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">partonic_coupling</span><span class="p">(</span><span class="s2">&quot;WW&quot;</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">,</span> <span class="n">cc_mask</span><span class="o">=</span><span class="n">cc_mask</span><span class="p">)</span>
         <span class="n">w_phph</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">leptonic_coupling</span><span class="p">(</span><span class="s2">&quot;phph&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">leptonic_coupling</span><span class="p">(</span><span class="s2">&quot;phph&quot;</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">)</span>
             <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">propagator_factor</span><span class="p">(</span><span class="s2">&quot;phph&quot;</span><span class="p">,</span> <span class="n">Q2</span><span class="p">)</span>
-            <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hadronic_coupling</span><span class="p">(</span><span class="s2">&quot;phph&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">)</span>
+            <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">partonic_coupling</span><span class="p">(</span><span class="s2">&quot;phph&quot;</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">)</span>
         <span class="p">)</span>
         <span class="c1"># pure photon exchane</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s2">&quot;process&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;EM&quot;</span><span class="p">:</span>
@@ -435,22 +425,17 @@
             <span class="c1"># photon-Z interference</span>
             <span class="n">w_phZ</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="mi">2</span>
-                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">leptonic_coupling</span><span class="p">(</span><span class="s2">&quot;phZ&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">leptonic_coupling</span><span class="p">(</span><span class="s2">&quot;phZ&quot;</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">)</span>
                 <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">propagator_factor</span><span class="p">(</span><span class="s2">&quot;phZ&quot;</span><span class="p">,</span> <span class="n">Q2</span><span class="p">)</span>
-                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hadronic_coupling</span><span class="p">(</span><span class="s2">&quot;phZ&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">)</span>
+                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">partonic_coupling</span><span class="p">(</span><span class="s2">&quot;phZ&quot;</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">)</span>
             <span class="p">)</span>
             <span class="c1"># true Z contributions</span>
             <span class="n">w_ZZ</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">leptonic_coupling</span><span class="p">(</span><span class="s2">&quot;ZZ&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">leptonic_coupling</span><span class="p">(</span><span class="s2">&quot;ZZ&quot;</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">)</span>
                 <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">propagator_factor</span><span class="p">(</span><span class="s2">&quot;ZZ&quot;</span><span class="p">,</span> <span class="n">Q2</span><span class="p">)</span>
-                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hadronic_coupling</span><span class="p">(</span><span class="s2">&quot;ZZ&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">)</span>
+                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">partonic_coupling</span><span class="p">(</span><span class="s2">&quot;ZZ&quot;</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">quark_coupling_type</span><span class="p">)</span>
             <span class="p">)</span>
             <span class="k">return</span> <span class="n">w_phph</span> <span class="o">+</span> <span class="n">w_phZ</span> <span class="o">+</span> <span class="n">w_ZZ</span>
-        <span class="c1"># CC = W</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s2">&quot;process&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;CC&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">leptonic_coupling</span><span class="p">(</span><span class="s2">&quot;WW&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hadronic_coupling</span><span class="p">(</span>
-                <span class="s2">&quot;WW&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">cc_mask</span><span class="o">=</span><span class="n">cc_mask</span>
-            <span class="p">)</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown process: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">obs_config</span><span class="p">[</span><span class="s1">&#39;process&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="CouplingConstants.from_dict"><a class="viewcode-back" href="../../modules/yadism.html#yadism.coupling_constants.CouplingConstants.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
@@ -628,7 +613,6 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
@@ -644,7 +628,6 @@
 
 
 </footer>
-
         </div>
       </div>
 

@@ -36,6 +36,14 @@ yadism.coupling\_constants module
    :undoc-members:
    :show-inheritance:
 
+yadism.ic module
+----------------
+
+.. automodule:: yadism.ic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadism.kernels module
 ---------------------
 

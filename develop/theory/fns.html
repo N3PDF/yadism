@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Flavor Number Schemes &mdash; yadism 0.4.0-develop documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coefficient Functions" href="coeff-funcs.html" />
+    <link rel="prev" title="Factorization" href="fact.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                develop
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/indices.html">Indices and tables</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fact.html">Factorization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flavor Number Schemes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#heavyness">Heavyness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ffns">FFNS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nc">NC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cc">CC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#zm-vfns">ZM-VFNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fonll">FONLL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#asymptotics-for-cc">Asymptotics for CC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/yadism.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Flavor Number Schemes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/theory/fns.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="flavor-number-schemes">
+<h1>Flavor Number Schemes<a class="headerlink" href="#flavor-number-schemes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="heavyness">
+<h2>Heavyness<a class="headerlink" href="#heavyness" title="Permalink to this headline">¶</a></h2>
+<p>There is always a lot of ways to define physical observables, e.g. tagging the
+outgoing state and imposing kinematics cuts.</p>
+<p>We are not going to use any definition based on the outgoing state, since they
+are prone to be theoretically unsafe, if not properly designed.</p>
+<p>The way we are defining new observables it is just considering new theories,
+derived from the <abbr title="Standard Model">SM</abbr> just setting to 0 some of its bare couplings.</p>
+<ul class="simple">
+<li><p><strong>Flight</strong>: it is defined as the original structure function (e.g.
+<span class="math notranslate nohighlight">\(F_2\)</span>) for the theory in which all the <em>light</em> quarks are massless, and
+all the <em>heavy</em> ones are infinitely massive, such that they are never
+contributing to the diagrams</p></li>
+<li><p><strong>Fheavy</strong>: it is defined for a given flavor, e.g. <em>Fcharm</em>, just keeping
+all the <em>light</em> quark massless, a finite mass for a single heavy quark (the
+one associated to the structure function chosen) and all the others <em>heavy</em>
+infinitely massive, switching to 0 all the charges that do not involve the
+chosen heavy quark</p>
+<ul>
+<li><p>in <abbr title="Neutral Current">NC</abbr> this means that only the <em>charm</em> charge is kept</p></li>
+<li><p>in <abbr title="Charged Current">CC</abbr> this means that <span class="math notranslate nohighlight">\(V_{cd}\)</span> and <span class="math notranslate nohighlight">\(V_{cs}\)</span> are kept, but e.g.
+there is no contribution by <span class="math notranslate nohighlight">\(V_{cb}\)</span>, because currently bottom is
+considered infinitely massive</p>
+<ul>
+<li><p>we could also define by arbitrarily assign CKM matrix elements to a single
+flavor, choosing always the heaviest, and set to 0 all the things not
+assigned to the chosen flavor, it is just an equivalent way of presenting
+it</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>No other observable than <strong>Flight</strong>, <strong>Fheavy</strong>, <strong>Ftotal</strong> (for all the
+unpolarized <em>kinds</em>) and <strong>sigma</strong> is provided by <cite>yadism</cite>.</p>
+</div>
+<div class="section" id="ffns">
+<h2>FFNS<a class="headerlink" href="#ffns" title="Permalink to this headline">¶</a></h2>
+<p>The mass corrections (heavy quark contributions) are available for a single
+mass at a time, so e.g. <cite>yadism</cite> it is not encoding the effect of having finite
+charm and bottom masses at the same time.</p>
+<p>The actual scheme is the following:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_l\)</span> light flavors are active (i.e. massless quarks)</p></li>
+<li><p>a <strong>single</strong> quark with a <strong>finite mass</strong> <em>may be</em> active, according to the
+<abbr title="Flavor Number Scheme">FNS</abbr> (e.g. in ZM-VFNS it will never be such an object)</p></li>
+<li><p>all the remaining flavors are considered infinitely massive, so they will
+never contribute to anything</p></li>
+</ul>
+<div class="section" id="nc">
+<h3>NC<a class="headerlink" href="#nc" title="Permalink to this headline">¶</a></h3>
+<p>The main reference is <span id="id1">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span>.</p>
+<ul class="simple">
+<li><p>meanings of <span class="math notranslate nohighlight">\(F_2^{charm}\)</span> (c coupling to <abbr title="ElectroWeak">EW</abbr> boson) (and analogously
+for <cite>bottom</cite> and <cite>top</cite>)</p></li>
+</ul>
+</div>
+<div class="section" id="cc">
+<span id="heavy-cc"></span><h3>CC<a class="headerlink" href="#cc" title="Permalink to this headline">¶</a></h3>
+<p>The main reference is <span id="id2">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.</p>
+<ul class="simple">
+<li><p>meanings of <span class="math notranslate nohighlight">\(F_2^{charm}\)</span> (the weight coming from the suitable line of
+the CKM matrix) (and analogously for <cite>bottom</cite> and <cite>top</cite>)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}V_{CKM} =
+\begin{pmatrix}
+   {\color{red}V_{ud}} &amp; {\color{red}V_{us}} &amp; {\color{green}V_{ub}}\\
+   {\color{blue}V_{cd}} &amp; {\color{blue}V_{cs}} &amp; {\color{green}V_{cb}}\\
+   {\color{purple}V_{td}} &amp; {\color{purple}V_{ts}} &amp; {\color{purple}V_{tb}}
+\end{pmatrix}\end{split}\]</div>
+<p>actual definition of coefficient functions weights in <span class="math notranslate nohighlight">\(F_2\)</span> (with an
+initial neutrino, <span class="math notranslate nohighlight">\(\nu\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rcl}
+   F_2^{\nu,p} &amp;=&amp; 2x\Big\{C_{2,q}\otimes
+               \Big[\left(|{\color{red}V_{ud}}|^2+|{\color{blue}V_{cd}}|^2+|{\color{purple}V_{td}}|^2\right)d\\
+               &amp;+&amp;
+               \left(|{\color{red}V_{ud}}|^2+|{\color{red}V_{us}}|^2+|{\color{green}V_{ub}}|^2\right)\overline{u}\\
+               &amp;+&amp;
+               \left(|{\color{red}V_{us}}|^2+|{\color{blue}V_{cs}}|^2+|{\color{purple}V_{ts}}|^2\right)s\\
+               &amp;+&amp;
+               \left(|{\color{blue}V_{cd}}|^2+|{\color{blue}V_{cs}}|^2+|{\color{green}V_{cb}}|^2\right)\overline{c}\\
+               &amp;+&amp;
+               \left(|{\color{green}V_{ub}}|^2+|{\color{green}V_{cb}}|^2+|{\color{purple}V_{tb}}|^2\right)b\\
+               &amp;+&amp;
+               \left(|{\color{purple}V_{td}}|^2+|{\color{purple}V_{ts}}|^2+|{\color{purple}V_{tb}}|^2\right)\overline{t}\Big]\\
+               &amp;+&amp; c^{CC}_g(N_f)C_{2,q}\otimes g\Big\}
+\end{array}\end{split}\]</div>
+<p>and in <span class="math notranslate nohighlight">\(F_2^{charm}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}{\color{blue} F_{2,c}^{\color{black} \nu,p}} &amp;=&amp; 2x\Big\{C_{2,q}\otimes\Big[|{\color{blue}V_{cd}}|^2(d+\overline{c}) +
+      |{\color{blue}V_{cs}}|^2 (s+\overline{c})\Big]\\
+      &amp;+&amp; 2\left(|{\color{blue}V_{cd}}|^2+|{\color{blue}V_{cs}}|^2\right)C_{2,g}\otimes g\Big\}\\\end{split}\]</div>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>write about normalization in Eq. 2</p>
+</div>
+</div>
+</div>
+<div class="section" id="zm-vfns">
+<h2>ZM-VFNS<a class="headerlink" href="#zm-vfns" title="Permalink to this headline">¶</a></h2>
+<p>In a <abbr title="Variable Flavor Number Scheme">VFNS</abbr> this scheme will depend on the specific value of <span class="math notranslate nohighlight">\(Q^2\)</span>
+considered.</p>
+</div>
+<div class="section" id="fonll">
+<h2>FONLL<a class="headerlink" href="#fonll" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="asymptotics-for-cc">
+<h3>Asymptotics for CC<a class="headerlink" href="#asymptotics-for-cc" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>this is simply light as it should! write it</p>
+</div>
+<p>For FONLL we need the massless limit of the coefficient functions in <span id="id5">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.
+We obtain <span class="math notranslate nohighlight">\(\lambda\to 1, \xi \to x\)</span> and</p>
+<ul class="simple">
+<li><p><strong>light quark</strong> channel:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}H_i^{q,asy} &amp;= P_{qq}(z) \ln (Q^2/\mu_F^2) + h_i^{q,asy}(z)\\
+h_i^{q,asy} &amp;= C_F \left[ -\left(\frac 9 2 + \frac{\pi^2}{3} \right)\delta(1-z) - \frac{1+z^2}{1-z} \ln(z) + (1+z^2)\left( \frac{\ln(1-z)}{1-z}\right)_+ \right.\\
+            &amp;\hspace{40pt} + \left. B^{(i)}\left(\frac 1 {1-z}\right)_+  \right]\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(K_A \to 0\)</span> and the coefficients <span class="math notranslate nohighlight">\(B^{(i)} = B_{1,i} + B_{2,i} + B_{3,i}\)</span> given by</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(B^{(1)}\)</span></p></th>
+<td><p><span class="math notranslate nohighlight">\(\frac 3 2 - 3 z\)</span></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(B^{(2)}\)</span></p></th>
+<td><p><span class="math notranslate nohighlight">\(\frac 3 2 - z - 2z^2\)</span></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(B^{(3)}\)</span></p></th>
+<td><p><span class="math notranslate nohighlight">\(\frac 1 2 - z - z^2\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>For <span class="math notranslate nohighlight">\(F_L = F_2 - 2xF_1\)</span> we obtain:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}H_L^{q,asy} &amp;= H_2^{q,asy} - H_1^{q,asy} \\
+            &amp;= C_F \left(B^{(2)} - B^{(1)}\right)\left(\frac 1 {1-z}\right)_+\\
+            &amp;= C_F \cdot 2z\end{split}\]</div>
+<ul class="simple">
+<li><p><strong>gluon</strong> channel:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}H_{i=1,2/3}^{g,asy} &amp;= P_{qg}(z)\left(\pm\left(\ln((1-z)/z) + \ln(Q^2/m^2)\right) + \ln (Q^2/\mu_F^2)\right) + h_i^{g,asy}(z)\\
+h_i^{g,asy} &amp;= P_{qg}(z) \ln((1-z)/z) + C_{1,i}^{asy} z(1-z) + C_{2,i}^{asy}\end{split}\]</div>
+<p>with the coefficients <span class="math notranslate nohighlight">\(C_{i,j}^{asy}\)</span> given by</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>structure function</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(C_{1,i}^{asy}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(C_{2,i}^{asy}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(F_1\)</span></p></th>
+<td><p><span class="math notranslate nohighlight">\(4\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(F_2\)</span></p></th>
+<td><p><span class="math notranslate nohighlight">\(8\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(F_3\)</span></p></th>
+<td><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>For <span class="math notranslate nohighlight">\(F_L = F_2 - 2xF_1\)</span> we obtain:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}H_L^{g,asy} &amp;= H_2^{g,asy} - H_1^{g,asy} \\
+            &amp;= \left(C_{1,2}^{asy} - C_{1,1}^{asy}\right) z(1-z) + \left(C_{2,2}^{asy} - C_{2,1}^{asy}\right)\\
+            &amp;= 4z(1-z)\end{split}\]</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="coeff-funcs.html" class="btn btn-neutral float-right" title="Coefficient Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fact.html" class="btn btn-neutral float-left" title="Factorization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>
