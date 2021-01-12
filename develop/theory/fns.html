@@ -264,20 +264,30 @@ unpolarized <em>kinds</em>) and <strong>sigma</strong> is provided by <cite>yadi
 </div>
 <div class="section" id="ffns">
 <h2>FFNS<a class="headerlink" href="#ffns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Flight</strong> corresponds to the interaction of purely light partons, i.e. the
+coefficient functions may only be a function of <span class="math notranslate nohighlight">\(z,Q2\)</span> and eventually
+unphysical scales; in especially they may <em>NOT</em> depend on any quark mass.
+This definition is consistent with
+<span id="id1">[<a class="reference internal" href="../zzz-refs.html#id12"><span>VVM05</span></a>,<a class="reference internal" href="../zzz-refs.html#id13"><span>MVV05</span></a>,<a class="reference internal" href="../zzz-refs.html#id14"><span>MV00</span></a>,<a class="reference internal" href="../zzz-refs.html#id15"><span>MRV08</span></a>,<a class="reference internal" href="../zzz-refs.html#id16"><span>MVV09</span></a>]</span>, <a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a>, but is not consistent
+with <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a>. The number of light quarks <span class="math notranslate nohighlight">\(n_l\)</span> is arbitrary but fixed and can
+range between 3 and 5.</p></li>
+<li><p><strong>Ftotal</strong> is <em>NOT</em> the sum of <strong>Flight</strong> and <strong>Fheavy</strong>, but contains additional terms
+<strong>Fmissing</strong> such as the Compton diagrams in <span id="id2">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span>.</p></li>
+</ul>
 <p>The mass corrections (heavy quark contributions) are available for a single
 mass at a time, so e.g. <cite>yadism</cite> it is not encoding the effect of having finite
 charm and bottom masses at the same time.</p>
 <p>The actual scheme is the following:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(n_l\)</span> light flavors are active (i.e. massless quarks)</p></li>
-<li><p>a <strong>single</strong> quark with a <strong>finite mass</strong> <em>may be</em> active, according to the
-<abbr title="Flavor Number Scheme">FNS</abbr> (e.g. in ZM-VFNS it will never be such an object)</p></li>
+<li><p>a <strong>single</strong> quark with a <strong>finite mass</strong> <em>may be</em> active,</p></li>
 <li><p>all the remaining flavors are considered infinitely massive, so they will
 never contribute to anything</p></li>
 </ul>
 <div class="section" id="nc">
 <h3>NC<a class="headerlink" href="#nc" title="Permalink to this headline">¶</a></h3>
-<p>The main reference is <span id="id1">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span>.</p>
+<p>The main reference is <span id="id3">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span>.</p>
 <ul class="simple">
 <li><p>meanings of <span class="math notranslate nohighlight">\(F_2^{charm}\)</span> (c coupling to <abbr title="ElectroWeak">EW</abbr> boson) (and analogously
 for <cite>bottom</cite> and <cite>top</cite>)</p></li>
@@ -285,7 +295,7 @@ for <cite>bottom</cite> and <cite>top</cite>)</p></li>
 </div>
 <div class="section" id="cc">
 <span id="heavy-cc"></span><h3>CC<a class="headerlink" href="#cc" title="Permalink to this headline">¶</a></h3>
-<p>The main reference is <span id="id2">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.</p>
+<p>The main reference is <span id="id4">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.</p>
 <ul class="simple">
 <li><p>meanings of <span class="math notranslate nohighlight">\(F_2^{charm}\)</span> (the weight coming from the suitable line of
 the CKM matrix) (and analogously for <cite>bottom</cite> and <cite>top</cite>)</p></li>
@@ -320,7 +330,7 @@ initial neutrino, <span class="math notranslate nohighlight">\(\nu\)</span>):</p
 \[\begin{split}{\color{blue} F_{2,c}^{\color{black} \nu,p}} &amp;=&amp; 2x\Big\{C_{2,q}\otimes\Big[|{\color{blue}V_{cd}}|^2(d+\overline{c}) +
       |{\color{blue}V_{cs}}|^2 (s+\overline{c})\Big]\\
       &amp;+&amp; 2\left(|{\color{blue}V_{cd}}|^2+|{\color{blue}V_{cs}}|^2\right)C_{2,g}\otimes g\Big\}\\\end{split}\]</div>
-<div class="admonition-todo admonition" id="id3">
+<div class="admonition-todo admonition" id="id5">
 <p class="admonition-title">Todo</p>
 <p>write about normalization in Eq. 2</p>
 </div>
@@ -335,11 +345,11 @@ considered.</p>
 <h2>FONLL<a class="headerlink" href="#fonll" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="asymptotics-for-cc">
 <h3>Asymptotics for CC<a class="headerlink" href="#asymptotics-for-cc" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id4">
+<div class="admonition-todo admonition" id="id6">
 <p class="admonition-title">Todo</p>
 <p>this is simply light as it should! write it</p>
 </div>
-<p>For FONLL we need the massless limit of the coefficient functions in <span id="id5">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.
+<p>For FONLL we need the massless limit of the coefficient functions in <span id="id7">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.
 We obtain <span class="math notranslate nohighlight">\(\lambda\to 1, \xi \to x\)</span> and</p>
 <ul class="simple">
 <li><p><strong>light quark</strong> channel:</p></li>
