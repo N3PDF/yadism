@@ -108,11 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fact.html">Factorization</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Flavor Number Schemes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#heavyness">Heavyness</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ffns">FFNS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#nc">NC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cc">CC</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#ffns">FFNS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#zm-vfns">ZM-VFNS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fonll">FONLL</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#asymptotics-for-cc">Asymptotics for CC</a></li>
@@ -210,12 +206,8 @@
   span.underlined {
     text-decoration: underline;
   }
-</style><style type="text/css">
-  span.eqref:before {
-    content: "Eq. (";
-  }
-  span.eqref:after {
-    content: ")";
+  .red {
+    color:red;
   }
 </style><style type="text/css">
   span.eqref:before {
@@ -274,31 +266,10 @@ with <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">A
 range between 3 and 5.</p></li>
 <li><p><strong>Ftotal</strong> is <em>NOT</em> the sum of <strong>Flight</strong> and <strong>Fheavy</strong>, but contains additional terms
 <strong>Fmissing</strong> such as the Compton diagrams in <span id="id2">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span>.</p></li>
-</ul>
-<p>The mass corrections (heavy quark contributions) are available for a single
-mass at a time, so e.g. <cite>yadism</cite> it is not encoding the effect of having finite
-charm and bottom masses at the same time.</p>
-<p>The actual scheme is the following:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(n_l\)</span> light flavors are active (i.e. massless quarks)</p></li>
-<li><p>a <strong>single</strong> quark with a <strong>finite mass</strong> <em>may be</em> active,</p></li>
-<li><p>all the remaining flavors are considered infinitely massive, so they will
-never contribute to anything</p></li>
-</ul>
-<div class="section" id="nc">
-<h3>NC<a class="headerlink" href="#nc" title="Permalink to this headline">¶</a></h3>
-<p>The main reference is <span id="id3">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span>.</p>
-<ul class="simple">
-<li><p>meanings of <span class="math notranslate nohighlight">\(F_2^{charm}\)</span> (c coupling to <abbr title="ElectroWeak">EW</abbr> boson) (and analogously
-for <cite>bottom</cite> and <cite>top</cite>)</p></li>
-</ul>
-</div>
-<div class="section" id="cc">
-<span id="heavy-cc"></span><h3>CC<a class="headerlink" href="#cc" title="Permalink to this headline">¶</a></h3>
-<p>The main reference is <span id="id4">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.</p>
-<ul class="simple">
-<li><p>meanings of <span class="math notranslate nohighlight">\(F_2^{charm}\)</span> (the weight coming from the suitable line of
-the CKM matrix) (and analogously for <cite>bottom</cite> and <cite>top</cite>)</p></li>
+<li><p><strong>Fheavy</strong> is defined by having in the Lagrangian <em>only</em> the charges that are associated to the
+specific quark active. In <abbr title="Neutral Current">NC</abbr> this corresponds to the electric and weak charges of the quarks
+but in <abbr title="Charged Current">CC</abbr> the situation is bit more envolved: we devide the <abbr title="Cabibbo-Kobayashi-Maskawa">CKM</abbr>-matrix into several
+parts:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}V_{CKM} =
@@ -307,8 +278,7 @@ the CKM matrix) (and analogously for <cite>bottom</cite> and <cite>top</cite>)</
    {\color{blue}V_{cd}} &amp; {\color{blue}V_{cs}} &amp; {\color{green}V_{cb}}\\
    {\color{purple}V_{td}} &amp; {\color{purple}V_{ts}} &amp; {\color{purple}V_{tb}}
 \end{pmatrix}\end{split}\]</div>
-<p>actual definition of coefficient functions weights in <span class="math notranslate nohighlight">\(F_2\)</span> (with an
-initial neutrino, <span class="math notranslate nohighlight">\(\nu\)</span>):</p>
+<p>and associate the <span class="red">red</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{rcl}
    F_2^{\nu,p} &amp;=&amp; 2x\Big\{C_{2,q}\otimes
@@ -330,10 +300,9 @@ initial neutrino, <span class="math notranslate nohighlight">\(\nu\)</span>):</p
 \[\begin{split}{\color{blue} F_{2,c}^{\color{black} \nu,p}} &amp;=&amp; 2x\Big\{C_{2,q}\otimes\Big[|{\color{blue}V_{cd}}|^2(d+\overline{c}) +
       |{\color{blue}V_{cs}}|^2 (s+\overline{c})\Big]\\
       &amp;+&amp; 2\left(|{\color{blue}V_{cd}}|^2+|{\color{blue}V_{cs}}|^2\right)C_{2,g}\otimes g\Big\}\\\end{split}\]</div>
-<div class="admonition-todo admonition" id="id5">
+<div class="admonition-todo admonition" id="id3">
 <p class="admonition-title">Todo</p>
 <p>write about normalization in Eq. 2</p>
-</div>
 </div>
 </div>
 <div class="section" id="zm-vfns">
@@ -345,11 +314,11 @@ considered.</p>
 <h2>FONLL<a class="headerlink" href="#fonll" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="asymptotics-for-cc">
 <h3>Asymptotics for CC<a class="headerlink" href="#asymptotics-for-cc" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id6">
+<div class="admonition-todo admonition" id="id4">
 <p class="admonition-title">Todo</p>
 <p>this is simply light as it should! write it</p>
 </div>
-<p>For FONLL we need the massless limit of the coefficient functions in <span id="id7">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.
+<p>For FONLL we need the massless limit of the coefficient functions in <span id="id5">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.
 We obtain <span class="math notranslate nohighlight">\(\lambda\to 1, \xi \to x\)</span> and</p>
 <ul class="simple">
 <li><p><strong>light quark</strong> channel:</p></li>
