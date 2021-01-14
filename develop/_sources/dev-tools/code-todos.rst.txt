@@ -9,11 +9,11 @@ From Docstrings
 From Source Code
 ----------------
 
-`cf_combiner.py <file:///home/runner/work/yadism/yadism/src/yadism/cf_combiner.py>`_
+`coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
 
-.. warning:: #28 decide whether Q2 or muF2 is the correct thing
+.. warning:: #281 raise warning in log if inconsitent
 
-.. warning:: #151 drop all elements that have 0 weight
+.. warning:: #322 maybe raise warning if non-unitarian
 
 
 
@@ -23,19 +23,19 @@ From Source Code
 
 
 
+`cf_combiner.py <file:///home/runner/work/yadism/yadism/src/yadism/cf_combiner.py>`_
+
+.. warning:: #28 decide whether Q2 or muF2 is the correct thing
+
+.. warning:: #151 drop all elements that have 0 weight
+
+
+
 `sf.py <file:///home/runner/work/yadism/yadism/src/yadism/sf.py>`_
 
 .. warning:: #46 wrap managers and parameters as single attributes
 
 .. warning:: #125 how to incorporate args?
-
-
-
-`coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
-
-.. warning:: #281 raise warning in log if inconsitent
-
-.. warning:: #322 maybe raise warning if non-unitarian
 
 
 
