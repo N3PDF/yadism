@@ -109,10 +109,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Flavor Number Schemes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ffns">FFNS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#zm-vfns">ZM-VFNS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fonll">FONLL</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#asymptotics-for-cc">Asymptotics for CC</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#fonll">FONLL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions</a></li>
@@ -249,9 +246,11 @@ derived from the <abbr title="Standard Model">SM</abbr> by just setting to 0 som
 unpolarized <em>kinds</em>).</p>
 <div class="section" id="ffns">
 <h2>FFNS<a class="headerlink" href="#ffns" title="Permalink to this headline">¶</a></h2>
-<p>As the name suggests we are considering a fixed number of flavors <span class="math notranslate nohighlight">\(n_f=n_l+1\)</span>
-with <span class="math notranslate nohighlight">\(n_l\)</span> light flavors and 1 (and only 1) heavy flavor. The number of light
-quarks <span class="math notranslate nohighlight">\(n_l\)</span> is arbitrary but fixed and can range between 3 and 5.</p>
+<p>As the name <abbr title="Fixed Flavor Number Scheme">FFNS</abbr> suggests we are considering a fixed number of flavors <span class="math notranslate nohighlight">\(n_f=n_l+1\)</span>
+with <span class="math notranslate nohighlight">\(n_l\)</span> light flavors and 1 (and only 1) heavy flavor with a finite mass <span class="math notranslate nohighlight">\(m\)</span>.
+The number of light quarks <span class="math notranslate nohighlight">\(n_l\)</span> is arbitrary but fixed and can range between 3 and 5.
+Except for intrinsic contributions we are <em>NOT</em> allowing the heavy (and the other non-existent)
+<abbr title="Parton Distribution Function(s)">PDF</abbr> to contribute.</p>
 <p>Although this is the most naive scheme, it is <em>NOT</em> consistently implement in
 some of the commonly used tools. This scheme is adequate for <span class="math notranslate nohighlight">\(Q^2\sim m^2\)</span>.</p>
 <ul class="simple">
@@ -284,89 +283,22 @@ parts:</p></li>
 </div>
 <div class="section" id="zm-vfns">
 <h2>ZM-VFNS<a class="headerlink" href="#zm-vfns" title="Permalink to this headline">¶</a></h2>
-<p>In a <abbr title="Variable Flavor Number Scheme">VFNS</abbr> this scheme will depend on the specific value of <span class="math notranslate nohighlight">\(Q^2\)</span>
-considered.</p>
+<p>As the name <abbr title="Zero Mass - Variable Flavor Number Scheme">ZM-VFNS</abbr> suggests we are considering a variable number of <em>light</em> flavors <span class="math notranslate nohighlight">\(n_f\)</span>
+with <span class="math notranslate nohighlight">\(n_f = n_f(Q^2)\)</span>. We associate an “activation” mass <span class="math notranslate nohighlight">\(m\)</span> to the heavy quarks and
+whenever <span class="math notranslate nohighlight">\(Q^2 &gt;= m^2\)</span> we consider this quark massless, otherwise infinitely massive.</p>
+<p>This scheme is adequate for <span class="math notranslate nohighlight">\(Q^2\gg m^2\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Fheavy</strong> is <em>NOT</em> defined, as quark masses are either 0 or <span class="math notranslate nohighlight">\(\infty\)</span></p></li>
+<li><p><strong>Ftotal</strong> thus is equal to <strong>Flight</strong></p></li>
+<li><p><strong>Flight</strong> corresponds to the interaction of the purely light partons, i.e. the
+coefficient functions may only be a function of <span class="math notranslate nohighlight">\(z,Q2\)</span> and eventually
+unphysical scales; in especially they may <em>NOT</em> depend on any quark mass.</p></li>
+</ul>
 </div>
 <div class="section" id="fonll">
 <h2>FONLL<a class="headerlink" href="#fonll" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="asymptotics-for-cc">
-<h3>Asymptotics for CC<a class="headerlink" href="#asymptotics-for-cc" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id3">
-<p class="admonition-title">Todo</p>
-<p>this is simply light as it should! write it</p>
-</div>
-<p>For FONLL we need the massless limit of the coefficient functions in <span id="id4">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span>.
-We obtain <span class="math notranslate nohighlight">\(\lambda\to 1, \xi \to x\)</span> and</p>
-<ul class="simple">
-<li><p><strong>light quark</strong> channel:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}H_i^{q,asy} &amp;= P_{qq}(z) \ln (Q^2/\mu_F^2) + h_i^{q,asy}(z)\\
-h_i^{q,asy} &amp;= C_F \left[ -\left(\frac 9 2 + \frac{\pi^2}{3} \right)\delta(1-z) - \frac{1+z^2}{1-z} \ln(z) + (1+z^2)\left( \frac{\ln(1-z)}{1-z}\right)_+ \right.\\
-            &amp;\hspace{40pt} + \left. B^{(i)}\left(\frac 1 {1-z}\right)_+  \right]\end{split}\]</div>
-<p>with <span class="math notranslate nohighlight">\(K_A \to 0\)</span> and the coefficients <span class="math notranslate nohighlight">\(B^{(i)} = B_{1,i} + B_{2,i} + B_{3,i}\)</span> given by</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(B^{(1)}\)</span></p></th>
-<td><p><span class="math notranslate nohighlight">\(\frac 3 2 - 3 z\)</span></p></td>
-</tr>
-<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(B^{(2)}\)</span></p></th>
-<td><p><span class="math notranslate nohighlight">\(\frac 3 2 - z - 2z^2\)</span></p></td>
-</tr>
-<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(B^{(3)}\)</span></p></th>
-<td><p><span class="math notranslate nohighlight">\(\frac 1 2 - z - z^2\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<p>For <span class="math notranslate nohighlight">\(F_L = F_2 - 2xF_1\)</span> we obtain:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}H_L^{q,asy} &amp;= H_2^{q,asy} - H_1^{q,asy} \\
-            &amp;= C_F \left(B^{(2)} - B^{(1)}\right)\left(\frac 1 {1-z}\right)_+\\
-            &amp;= C_F \cdot 2z\end{split}\]</div>
-<ul class="simple">
-<li><p><strong>gluon</strong> channel:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}H_{i=1,2/3}^{g,asy} &amp;= P_{qg}(z)\left(\pm\left(\ln((1-z)/z) + \ln(Q^2/m^2)\right) + \ln (Q^2/\mu_F^2)\right) + h_i^{g,asy}(z)\\
-h_i^{g,asy} &amp;= P_{qg}(z) \ln((1-z)/z) + C_{1,i}^{asy} z(1-z) + C_{2,i}^{asy}\end{split}\]</div>
-<p>with the coefficients <span class="math notranslate nohighlight">\(C_{i,j}^{asy}\)</span> given by</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head stub"><p>structure function</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(C_{1,i}^{asy}\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(C_{2,i}^{asy}\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(F_1\)</span></p></th>
-<td><p><span class="math notranslate nohighlight">\(4\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
-</tr>
-<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(F_2\)</span></p></th>
-<td><p><span class="math notranslate nohighlight">\(8\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
-</tr>
-<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(F_3\)</span></p></th>
-<td><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<p>For <span class="math notranslate nohighlight">\(F_L = F_2 - 2xF_1\)</span> we obtain:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}H_L^{g,asy} &amp;= H_2^{g,asy} - H_1^{g,asy} \\
-            &amp;= \left(C_{1,2}^{asy} - C_{1,1}^{asy}\right) z(1-z) + \left(C_{2,2}^{asy} - C_{2,1}^{asy}\right)\\
-            &amp;= 4z(1-z)\end{split}\]</div>
-</div>
+<p>FONLL <span id="id3">[<a class="reference internal" href="../zzz-refs.html#id21"><span>FLNR10</span></a>]</span> is a <abbr title="General Mass - Variable Flavor Number Scheme">GM-VFNS</abbr> that includes parts of <abbr title="Dokshitzer-Gribov-Lipatov-Altarelli-Parisi">DGLAP</abbr> equations into the
+matching conditions.</p>
 </div>
 </div>
 
