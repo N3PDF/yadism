@@ -224,7 +224,7 @@
 </style><div class="section" id="flavor-number-schemes">
 <h1>Flavor Number Schemes<a class="headerlink" href="#flavor-number-schemes" title="Permalink to this headline">¶</a></h1>
 <p><abbr title="Flavor Number Scheme">FNS</abbr> or Heavy Quark Matching Schemes are dealing with the ambiguity of including
-massive quark contributions to physical cross sections. There is is not a unique
+massive quark contributions to physical cross sections. There is not a unique
 prescription on how to do this and thus we implement several strategies.
 Unfortunately there is no consistent implementation of the different scheme in the
 commonly used tools and a comparison of the different outputs has to judged on a
@@ -280,6 +280,7 @@ parts:</p></li>
 \[\begin{split}{\color{blue} F_{2,c}^{\color{black} \nu,p}} &amp;=&amp; 2x\Big\{C_{2,q}\otimes\Big[|{\color{blue}V_{cd}}|^2(d+\overline{c}) +
       |{\color{blue}V_{cs}}|^2 (s+\overline{c})\Big]\\
       &amp;+&amp; 2\left(|{\color{blue}V_{cd}}|^2+|{\color{blue}V_{cs}}|^2\right)C_{2,g}\otimes g\Big\}\\\end{split}\]</div>
+<p>Note that even heavier contributions are <em>NOT</em> available.</p>
 </div>
 <div class="section" id="zm-vfns">
 <h2>ZM-VFNS<a class="headerlink" href="#zm-vfns" title="Permalink to this headline">¶</a></h2>
@@ -291,14 +292,20 @@ whenever <span class="math notranslate nohighlight">\(Q^2 &gt;= m^2\)</span> we 
 <li><p><strong>Fheavy</strong> is <em>NOT</em> defined, as quark masses are either 0 or <span class="math notranslate nohighlight">\(\infty\)</span></p></li>
 <li><p><strong>Ftotal</strong> thus is equal to <strong>Flight</strong></p></li>
 <li><p><strong>Flight</strong> corresponds to the interaction of the purely light partons, i.e. the
-coefficient functions may only be a function of <span class="math notranslate nohighlight">\(z,Q2\)</span> and eventually
+coefficient functions may only be a function of <span class="math notranslate nohighlight">\(z,Q^2\)</span> and eventually
 unphysical scales; in especially they may <em>NOT</em> depend on any quark mass.</p></li>
 </ul>
 </div>
 <div class="section" id="fonll">
 <h2>FONLL<a class="headerlink" href="#fonll" title="Permalink to this headline">¶</a></h2>
 <p>FONLL <span id="id3">[<a class="reference internal" href="../zzz-refs.html#id21"><span>FLNR10</span></a>]</span> is a <abbr title="General Mass - Variable Flavor Number Scheme">GM-VFNS</abbr> that includes parts of <abbr title="Dokshitzer-Gribov-Lipatov-Altarelli-Parisi">DGLAP</abbr> equations into the
-matching conditions.</p>
+matching conditions. In the original paper the prescription is only presented for the charm
+contributions, but we extend it here to an arbitrary quark: in especially the <code class="docutils literal notranslate"><span class="pre">NF_FF</span></code>
+configuration variable as to point to the <em>heavy</em> quark, i.e. <code class="docutils literal notranslate"><span class="pre">NF_FF=4</span></code> for the charm
+matching.</p>
+<p>The prescription defines two separate regimes, below and above the <em>next</em> heavy quark mass
+<span class="math notranslate nohighlight">\(m_{n_f+1}\)</span>. For <span class="math notranslate nohighlight">\(Q^2 &gt; m_{n_f+1}^2\)</span> the <abbr title="Zero Mass - Variable Flavor Number Scheme">ZM-VFNS</abbr> is employed and this leads
+to an inconsistency at this <span class="math notranslate nohighlight">\(m_{n_f+1}\)</span> threshold.</p>
 </div>
 </div>
 
@@ -322,7 +329,7 @@ matching conditions.</p>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
 
 
 </footer>
