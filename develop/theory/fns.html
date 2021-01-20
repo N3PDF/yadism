@@ -260,7 +260,7 @@ unphysical scales; in especially they may <em>NOT</em> depend on any quark mass.
 This definition is consistent with
 <span id="id1">[<a class="reference internal" href="../zzz-refs.html#id12"><span>VVM05</span></a>,<a class="reference internal" href="../zzz-refs.html#id13"><span>MVV05</span></a>,<a class="reference internal" href="../zzz-refs.html#id14"><span>MV00</span></a>,<a class="reference internal" href="../zzz-refs.html#id15"><span>MRV08</span></a>,<a class="reference internal" href="../zzz-refs.html#id16"><span>MVV09</span></a>]</span>, <a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a>, but is not consistent
 with <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a>.</p></li>
-<li><p><strong>Ftotal</strong> is <em>NOT</em> the sum of <strong>Flight</strong> and <strong>Fheavy</strong>, but contains additional terms
+<li><p><strong>Ftotal</strong> is <em>NOT</em> the sum of <strong>Flight</strong> and the single <strong>Fheavy</strong>, but contains additional terms
 <strong>Fmissing</strong> such as the Compton diagrams in <span id="id2">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span>.</p></li>
 <li><p><strong>Fheavy</strong> is defined by having in the Lagrangian <em>only</em> the charges that are associated to the
 specific quark active. In <abbr title="Neutral Current">NC</abbr> this corresponds to the electric and weak charges of the quarks
@@ -298,14 +298,18 @@ unphysical scales; in especially they may <em>NOT</em> depend on any quark mass.
 </div>
 <div class="section" id="fonll">
 <h2>FONLL<a class="headerlink" href="#fonll" title="Permalink to this headline">¶</a></h2>
-<p>FONLL <span id="id3">[<a class="reference internal" href="../zzz-refs.html#id21"><span>FLNR10</span></a>]</span> is a <abbr title="General Mass - Variable Flavor Number Scheme">GM-VFNS</abbr> that includes parts of <abbr title="Dokshitzer-Gribov-Lipatov-Altarelli-Parisi">DGLAP</abbr> equations into the
+<p>FONLL <span id="id3">[<a class="reference internal" href="../zzz-refs.html#id21"><span>FLNR10</span></a>]</span> is a <abbr title="General Mass - Variable Flavor Number Scheme">GM-VFNS</abbr> that includes parts of the <abbr title="Dokshitzer-Gribov-Lipatov-Altarelli-Parisi">DGLAP</abbr> equations into the
 matching conditions. In the original paper the prescription is only presented for the charm
 contributions, but we extend it here to an arbitrary quark: in especially the <code class="docutils literal notranslate"><span class="pre">NF_FF</span></code>
-configuration variable as to point to the <em>heavy</em> quark, i.e. <code class="docutils literal notranslate"><span class="pre">NF_FF=4</span></code> for the charm
+configuration variable as to point to the <em>heavy</em> quark, i.e. e.g. <code class="docutils literal notranslate"><span class="pre">NF_FF=4</span></code> for the charm
 matching.</p>
 <p>The prescription defines two separate regimes, below and above the <em>next</em> heavy quark mass
 <span class="math notranslate nohighlight">\(m_{n_f+1}\)</span>. For <span class="math notranslate nohighlight">\(Q^2 &gt; m_{n_f+1}^2\)</span> the <abbr title="Zero Mass - Variable Flavor Number Scheme">ZM-VFNS</abbr> is employed and this leads
-to an inconsistency at this <span class="math notranslate nohighlight">\(m_{n_f+1}\)</span> threshold.</p>
+to an inconsistency at this <span class="math notranslate nohighlight">\(m_{n_f+1}\)</span> threshold. Below this threshold a <abbr title="Flavor Number Scheme">FNS</abbr>
+with <span class="math notranslate nohighlight">\(n_f\)</span> flavors is employed and in especially even below <span class="math notranslate nohighlight">\(m_{n_f}\)</span>. Here
+we include explicitly the scheme change between the schemes with <span class="math notranslate nohighlight">\((n_f-1)\)</span> and <span class="math notranslate nohighlight">\(n_f\)</span>
+flavors. This scheme change is related to the <abbr title="Dokshitzer-Gribov-Lipatov-Altarelli-Parisi">DGLAP</abbr> matching conditions. Up to <abbr title="Next-to-Leading Order">NLO</abbr> this
+scheme change is however continous.</p>
 </div>
 </div>
 
