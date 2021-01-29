@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Coefficient Functions Calculation &mdash; yadism 0.4.0-develop documentation</title>
+  <title>Coefficient Functions &mdash; yadism 0.5.0-develop documentation</title>
   
 
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -41,8 +43,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Light Flavors" href="light-flavors.html" />
-    <link rel="prev" title="DIS introduction" href="DIS-intro.html" /> 
+    <link rel="next" title="Scale Variations" href="scale-variations.html" />
+    <link rel="prev" title="Flavor Number Schemes" href="fns.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,29 +96,29 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Coefficient Functions Calculation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#convolution-integral">Convolution Integral</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#convolution-to-integration">Convolution to Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Coefficient Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-coefficient-functions-structure">Overview of coefficient functions structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distributions">Distributions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#regular-singular-local-rsl">Regular - Singular - Local (RSL)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#integral-details">Integral Details</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="processes.html">Processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -166,18 +168,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Coefficient Functions Calculation</li>
+      <li>Coefficient Functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/theory/coeff-funcs.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -197,6 +201,18 @@
   span.underlined {
     text-decoration: underline;
   }
+  .red {
+    color:red;
+  }
+  .green {
+    color:green;
+  }
+  .blue {
+    color:blue;
+  }
+  .purple {
+    color:purple;
+  }
 </style><style type="text/css">
   span.eqref:before {
     content: "Eq. (";
@@ -204,90 +220,175 @@
   span.eqref:after {
     content: ")";
   }
-</style><style type="text/css">
-  span.eqref:before {
-    content: "Eq. (";
-  }
-  span.eqref:after {
-    content: ")";
-  }
-</style><div class="section" id="coefficient-functions-calculation">
-<h1>Coefficient Functions Calculation<a class="headerlink" href="#coefficient-functions-calculation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="convolution-integral">
-<h2>Convolution Integral<a class="headerlink" href="#convolution-integral" title="Permalink to this headline">¶</a></h2>
-<p>How we recast convolution in an integration in [0,1] (where plus distributions
-are properly defined) plus some addends.</p>
-<div class="section" id="convolution-to-integration">
-<h3>Convolution to Integration<a class="headerlink" href="#convolution-to-integration" title="Permalink to this headline">¶</a></h3>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
-\int_x^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ &amp;=
-\int_0^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ - \int_0^x \frac{\text{d}
-z}{z} f(z) \cdot \left[ h(z) \right]_+\\
-&amp;= \int_0^1 \text{d} z \left(\frac{f(z)}{z} - f(1)\right) \cdot h(z) - \int_0^x \text{d}
-z \frac{ f(z)}{z} \cdot h(z)\\
-&amp;= \int_x^1 \text{d} z \left(\frac{f(z)}{z} - f(1)\right) \cdot h(z) - f(1) \int_0^x
-\text{d} z~ h(z)
-\end{align}\end{split}\]</div>
-<p>And explicitly for a product of distributions:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
- &amp; \int_x^1 \frac{\text{d} z}{z} f(z) g(z) \cdot \left[ h(z) \right]_+\\
- &amp;=
-\int_0^1 \frac{\text{d} z}{z} f(z) g(z) \cdot \left[ h(z) \right]_+ - \int_0^x \frac{\text{d}
-z}{z} f(z) g(z) \cdot \left[ h(z) \right]_+\\
-&amp;= \int_0^1 \text{d} z \left(\frac{f(z)g(z)}{z} - f(1)g(1)\right) \cdot h(z) - \int_0^x \text{d}
-z \frac{ f(z) g(z)}{z} \cdot h(z)\\
-&amp;= \int_x^1 \text{d} z \left(\frac{f(z)g(z)}{z} - f(1)g(1)\right) \cdot h(z) - f(1) g(1) \int_0^x\text{d} z~ h(z)\\
-&amp;= \int_x^1 \text{d} z \left(\frac{f(z)(g(z)+g(1)-g(1))}{z} - f(1)g(1)\right) \cdot h(z) - f(1) g(1) \int_0^x\text{d} z~ h(z)\\
-&amp;= \int_x^1 \text{d} z \left(\frac{f(z)}{z} - f(1)\right)  g(1)\cdot h(z) + \int_x^1 \text{d} z \frac{f(z)(g(z)-g(1)))}{z} h(z)  - f(1) g(1) \int_0^x\text{d} z~ h(z)\\
-&amp;= \int_x^1  \frac{\text{d} z}{ z} f(z)  g(1)\cdot \left[h(z)\right]_+ + \int_x^1 \text{d} z \frac{f(z)(g(z)-g(1)))}{z} h(z)
-\end{align}\end{split}\]</div>
+</style><div class="section" id="coefficient-functions">
+<h1>Coefficient Functions<a class="headerlink" href="#coefficient-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview-of-coefficient-functions-structure">
+<h2>Overview of coefficient functions structure<a class="headerlink" href="#overview-of-coefficient-functions-structure" title="Permalink to this headline">¶</a></h2>
+<p>The main categories for coefficients the same of Structure Functions, i.e.:</p>
+<ul class="simple">
+<li><p>the <strong>process</strong> (EM/NC/CC)</p></li>
+<li><p>the <strong>kind</strong> (F2/L/3)</p></li>
+<li><p>the <strong>heavyness</strong> involved (light/charm/bottom/top/total)</p></li>
+<li><p>but there is a new one: the <strong>channel</strong> (ns/ps/g), and it is related to the
+incoming parton:</p>
+<ul>
+<li><p>if the <abbr title="ElectroWeak">EW</abbr> boson it is coupling to a <em>quark</em> line connected to the incoming
+one, than each PDF it’s contributing proportionally to his charge (e.g.:
+electric charge for the photon); this is called <strong>non-singlet (ns)</strong></p></li>
+<li><p>otherwise the line to which the <abbr title="ElectroWeak">EW</abbr> boson is coupling it will be detached
+from the incoming  by <em>gluonic</em> lines, and the gluon is flavor blind, so
+all the charges are summed and all the PDF are contributing the same way;
+this is called <strong>pure singlet (ps)</strong></p></li>
+<li><p>eventually: if a <em>gluon</em> is entering all the quarks will couple to the <abbr title="ElectroWeak">EW</abbr>
+boson (if no further restrictions are imposed by the observable, e.g.
+F2charm), as in the singlet case, and so the charges are summed over; this
+is called the <strong>gluon (g)</strong> (because <em>it is</em> the gluon…)</p></li>
+<li><p>the <strong>parity structure</strong> (vectorial-vectorial/axial-axial/vectorial-axial),
+it is relevant only for the NC, and should be taken into account</p></li>
+</ul>
+</li>
+</ul>
+<p>These options set the overall structure of the coefficient functions, and it is
+reported in the following tables, just considering that the mass corrections
+for all the  flavors (charm/bottom/top) share the same functional form for the
+coefficient and a further category (the massless limit of the heavy) is needed
+for variable flavor scheme like FONLL.</p>
+<table class="docutils align-center" id="id15">
+<caption><span class="caption-text">NC coefficients</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>.</p></th>
+<th class="head"><p>light</p></th>
+<th class="head"><p>heavy</p></th>
+<th class="head"><p>asymptotic</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>F2</p></th>
+<td><p><span id="id1">[<a class="reference internal" href="../zzz-refs.html#id12"><span>VVM05</span></a>]</span></p></td>
+<td><p><span id="id2">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span></p></td>
+<td><p><span id="id3">[<a class="reference internal" href="../zzz-refs.html#id21"><span>FLNR10</span></a>]</span></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>FL</p></th>
+<td><p><span id="id4">[<a class="reference internal" href="../zzz-refs.html#id13"><span>MVV05</span></a>]</span></p></td>
+<td><p><span id="id5">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span></p></td>
+<td><p><span id="id6">[<a class="reference internal" href="../zzz-refs.html#id21"><span>FLNR10</span></a>]</span></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>F3</p></th>
+<td><p><span id="id7">[<a class="reference internal" href="../zzz-refs.html#id14"><span>MV00</span></a>]</span></p></td>
+<td><p><span id="id8">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span></p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id16">
+<caption><span class="caption-text">CC coefficients</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>.</p></th>
+<th class="head"><p>light</p></th>
+<th class="head"><p>heavy</p></th>
+<th class="head"><p>asymptotic</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>F2</p></th>
+<td><p><span id="id9">[<a class="reference internal" href="../zzz-refs.html#id15"><span>MRV08</span></a>]</span></p></td>
+<td><p><span id="id10">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>FL</p></th>
+<td><p><span id="id11">[<a class="reference internal" href="../zzz-refs.html#id15"><span>MRV08</span></a>]</span></p></td>
+<td><p><span id="id12">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>F3</p></th>
+<td><p><span id="id13">[<a class="reference internal" href="../zzz-refs.html#id16"><span>MVV09</span></a>]</span></p></td>
+<td><p><span id="id14">[<a class="reference internal" href="../zzz-refs.html#id19"><span>GKR96</span></a>]</span></p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div class="section" id="regular-singular-local-rsl">
-<h2>Regular - Singular - Local (RSL)<a class="headerlink" href="#regular-singular-local-rsl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="distributions">
+<h2>Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h2>
+<p>To obtain a physical observable one has to convolute the coefficient functions with the <abbr title="Parton Distribution Function(s)">PDF</abbr></p>
+<div class="math notranslate nohighlight">
+\[\sigma = \sum_j f_j \otimes c_j = \sum_j \int\limits_x^1 \frac {dz}{z} f_j(x/z) c_j(z)\]</div>
 <p>A generic coefficient function will allow for three ingredients:</p>
 <ul class="simple">
-<li><p>regular functions</p></li>
-<li><p><span class="math notranslate nohighlight">\(delta(1-x)\)</span> distributions</p></li>
-<li><p><span class="math notranslate nohighlight">\(\left[f(x)\right]_+\)</span> distributions (where the function inside can be a
-generic function, but it will always be <span class="math notranslate nohighlight">\(\log^k(1-x)/(1-x)\)</span> in practice)</p></li>
-</ul>
-<p>The first one can be integrated by ordinary methods, but the other two will
-deserve special care:</p>
-<ul class="simple">
-<li><p>the <span class="math notranslate nohighlight">\(delta\)</span> part it becomes a simple evaluation of anything multiplied,
-but since this is not going to be numerically integrated this contributions
-are split in the code and directly evaluated; this <em>not-integrated</em> part is
-called the <strong>local (L)</strong> part, and <span class="math notranslate nohighlight">\(delta\)</span> contributions will go
-completely into it</p></li>
-<li><p>the plus distributions instead will contribute to two different parts: the
-<em>local</em> and the <strong>singular (S)</strong> one, that it will involve an integration
-with not just the plain function multiplied to it, but a little bit more
-complicate prescription, i.e.:</p></li>
+<li><p>Regular functions <span class="math notranslate nohighlight">\(r(z)\)</span> that are well behaving, i.e. integrable,
+for all <span class="math notranslate nohighlight">\(z \in (0,1]\)</span>; these typically contain polynomials, logarithms
+and dilogarithms</p></li>
+<li><p>Dirac-delta distributions: <span class="math notranslate nohighlight">\(\delta(1-z)\)</span></p></li>
+<li><p>Plus distributions: <span class="math notranslate nohighlight">\(\left[g(z)\right]_+\)</span> which have a regulated singularity at <span class="math notranslate nohighlight">\(z\to 1\)</span>
+and are defined by</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[\int_x^1 \frac{\text{d} z}{z} f(z) \cdot \left[ h(z) \right]_+ = \int_x^1
-\text{d} z \left(\frac{f(z)}{z} - f(1)\right) \cdot h(z) - f(1) \int_0^x
-\text{d} z~ h(z)\]</div>
-<dl class="simple">
-<dt>.</dt><dd><p>as it is derived in the previous section; the first bit will be the plus
-distribution contribution to the <em>singular</em>, while the second to the <em>local</em>
-part of the integration</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="integral-details">
-<h2>Integral Details<a class="headerlink" href="#integral-details" title="Permalink to this headline">¶</a></h2>
+\[\int\limits_0^1 \!dz\, f(z) \left[g(z)\right]_+ = \int\limits_0^1\!dz\, \left(f(z) - f(1)\right)g(z)\]</div>
+<p>The “plused” function can be a generic function, but in practice will almost always be <span class="math notranslate nohighlight">\(\log^k(1-z)/(1-z)\)</span>.
+The “plused” function has to be regular at <span class="math notranslate nohighlight">\(z=0\)</span>. These contributions are related to soft and/or
+collinear singularities in the physical process.</p>
+<p>In order to do the convolution in a generic way we adopt the <abbr title="Regular - Singular - Local">RSL</abbr> scheme:
+i.e. we categorize them by their behavior under the convolution interal. This is needed because
+of the mismatch in the definitions of the convolution and the plus prescription.
+Any coefficient function <span class="math notranslate nohighlight">\(c(z)\)</span> can be written in the following way:</p>
+<div class="math notranslate nohighlight">
+\[f \otimes c = \int\limits_x^1 \! \frac{dz}{z} \, f(x/z) c^R(z) + \int\limits_x^1 \! dz \, \left(\frac{f(x/z)}{z} - f(x)\right) c^S(z) + f(x) c^L(x)\]</div>
+<p>The remapping of the coefficient function ingredients on to the <abbr title="Regular - Singular - Local">RSL</abbr> elements is done in the
+following way:</p>
 <ul class="simple">
-<li><p>if area does not overlap it’s set to 0 and integral skip</p></li>
-<li><p>we are using <cite>scipy.quad</cite></p></li>
-<li><p>precision can be set</p></li>
-<li><p>some areas specification are passed to quad</p></li>
-<li><p>the extremes are cut a little, to regulate integration behavior</p></li>
+<li><p>Regular functions <span class="math notranslate nohighlight">\(c(z) = r(z)\)</span> contribute only to the regular bit:</p></li>
 </ul>
-</div>
+<div class="math notranslate nohighlight">
+\[c^R(z) = r(z)\,,~ c^S(z) = 0 = c^L(x)\]</div>
+<ul class="simple">
+<li><p>Dirac delta distributions <span class="math notranslate nohighlight">\(c(z) = \delta(1-z)\)</span> only contribute to the local bit:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[c^R(z) = 0 = c^S(z)\,,~ c^L(x) = 1\]</div>
+<ul class="simple">
+<li><p>“Raw” plus distributions <span class="math notranslate nohighlight">\(c(z) = \left[g(z)\right]_+\)</span> contribute to both the singular
+and the local bit:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[c^R(z) = 0\,,~ c^S(z) = g(z)\,,~ c^L(x) = \int_0^x\!dz\, g(z)\]</div>
+<details>
+<summary>
+derivation</summary><div class="math notranslate nohighlight">
+\[\begin{split}f \otimes [g]_+ &amp;= \int_x^1 \frac{dz}{z} f(x/z) \cdot \left[ g(z) \right]_+\\
+&amp;= \int_0^1 \frac{dz}{z} f(x/z) \cdot \left[ g(z) \right]_+ - \int_0^x \frac{dz}{z} f(x/z) \cdot \left[ g(z) \right]_+\\
+&amp;= \int_0^1\!dz\, \left(\frac{f(x/z)}{z} - f(x)\right) \cdot g(z) - \int_0^x\!dz\, \frac{f(x/z)}{z} \cdot g(z)\\
+&amp;= \int_x^1\!dz\, \left(\frac{f(x/z)}{z} - f(x)\right) \cdot g(z) - f(x) \int_0^x\!dz\, g(z)\\
+&amp;\Rightarrow c^R(z) = 0, c^S(z) = g(z), c^L(x) = \int_0^x\!dz\, g(z)\end{split}\]</div>
+</details><ul class="simple">
+<li><p>Finally a product of a regular function and a plus distribution <span class="math notranslate nohighlight">\(c(z) = g(z)\left[h(z)\right]_+\)</span>
+contributes to all three bits:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[c^S(z) = g(1)h(z)\,,~ c^R(z) = (g(z)-g(1))h(z)\,,~  c^L(x) = g(1)\int_0^x\!dz\, h(z)\]</div>
+<details>
+<summary>
+derivation</summary><div class="math notranslate nohighlight">
+\[\begin{split}f\otimes c &amp;= \int_x^1 \frac{dz}{z} f(x/z) g(z) \cdot \left[ h(z) \right]_+\\
+  &amp;= \int_0^1 \frac{dz}{z} f(x/z) g(z) \cdot \left[ h(z) \right]_+ - \int_0^x \frac{dz}{z} f(x/z) g(z) \cdot \left[ h(z) \right]_+\\
+&amp;= \int_0^1 dz \left(\frac{f(x/z)g(z)}{z} - f(x)g(1)\right) \cdot h(z) - \int_0^x\!dz\, \frac{ f(x/z) g(z)}{z} \cdot h(z)\\
+&amp;= \int_x^1 dz \left(\frac{f(x/z)g(z)}{z} - f(x)g(1)\right) \cdot h(z) - f(x) g(1) \int_0^xdz~ h(z)\\
+&amp;= \int_x^1 dz \left(\frac{f(x/z)(g(z)+g(1)-g(1))}{z} - f(x)g(1)\right) \cdot h(z) - f(x) g(1) \int_0^xdz~ h(z)\\
+&amp;= \int_x^1 dz \left(\frac{f(x/z)}{z} - f(x)\right)  g(1)\cdot h(z) + \int_x^1 dz \frac{f(x/z)(g(z)-g(1)))}{z} h(z)  - f(x) g(1) \int_0^xdz~ h(z)\\
+&amp;= \int_x^1  \frac{dz}{ z} f(x/z)  g(1)\cdot \left[h(z)\right]_+ + \int_x^1 dz \frac{f(x/z)(g(z)-g(1)))}{z} h(z)\\
+&amp;\Rightarrow c^S(z) = g(1)h(z), c^R(z) = (g(z)-g(1))h(z),  c^L(x) = g(1)\int_0^x\!dz\, h(z)\end{split}\]</div>
+</details></div>
 </div>
 
 
@@ -295,16 +396,10 @@ part of the integration</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="light-flavors.html" class="btn btn-neutral float-right" title="Light Flavors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="DIS-intro.html" class="btn btn-neutral float-left" title="DIS introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="scale-variations.html" class="btn btn-neutral float-right" title="Scale Variations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fns.html" class="btn btn-neutral float-left" title="Flavor Number Schemes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -316,11 +411,10 @@ part of the integration</p>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
 
 
 </footer>
-
         </div>
       </div>
 

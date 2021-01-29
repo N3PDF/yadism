@@ -24,3 +24,11 @@ yadmark.benchmark.db\_interface module
    :members:
    :undoc-members:
    :show-inheritance:
+
+yadmark.benchmark.runner module
+-------------------------------
+
+.. automodule:: yadmark.benchmark.runner
+   :members:
+   :undoc-members:
+   :show-inheritance:

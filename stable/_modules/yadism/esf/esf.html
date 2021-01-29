@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>yadism.esf.esf &mdash; yadism 0.4.0-develop documentation</title>
+  <title>yadism.esf.esf &mdash; yadism 0.5.0-develop documentation</title>
   
 
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../../../_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -92,21 +94,25 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -156,6 +162,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -165,8 +173,6 @@
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
           <li><a href="../../yadism.html">yadism</a> &raquo;</li>
-        
-          <li><a href="../esf.html">yadism.esf</a> &raquo;</li>
         
       <li>yadism.esf.esf</li>
     
@@ -211,69 +217,72 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+<span class="kn">from</span> <span class="nn">eko</span> <span class="kn">import</span> <span class="n">basis_rotation</span> <span class="k">as</span> <span class="n">br</span>
+
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">distribution_vec</span> <span class="k">as</span> <span class="n">conv</span>
 <span class="kn">from</span> <span class="nn">.esf_result</span> <span class="kn">import</span> <span class="n">ESFResult</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">cf_combiner</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="EvaluatedStructureFunction"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunction</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The actual Structure Function implementation.</span>
+<span class="sd">    The actual Structure Function implementation.</span>
 
-<span class="sd">        This class is the abstract class that implements the structure for all</span>
-<span class="sd">        the coefficient functions&#39; providers, for a single kinematic point (x,</span>
-<span class="sd">        Q2), but all the flavours (singlet, nonsinglet, gluon).</span>
+<span class="sd">    This class is the abstract class that implements the structure for all</span>
+<span class="sd">    the coefficient functions&#39; providers, for a single kinematic point (x,</span>
+<span class="sd">    Q2), but all the flavours (singlet, nonsinglet, gluon).</span>
 
-<span class="sd">        Since the coefficient functions in general are distributions they are</span>
-<span class="sd">        provided with an internal representation, that respects the interface</span>
-<span class="sd">        defined by the class :py:class:`conv.DistributionVec`, and the same</span>
-<span class="sd">        class is used to perform the convolution with the basis functions (see</span>
-<span class="sd">        :py:class:`eko.InterpolatorDispatcher`), so the final result will</span>
-<span class="sd">        consist of an array of dimension 2: one dimension corresponding to the</span>
-<span class="sd">        interpolation grid, the other to the flavour.</span>
+<span class="sd">    Since the coefficient functions in general are distributions they are</span>
+<span class="sd">    provided with an internal representation, that respects the interface</span>
+<span class="sd">    defined by the class :py:class:`conv.DistributionVec`, and the same</span>
+<span class="sd">    class is used to perform the convolution with the basis functions (see</span>
+<span class="sd">    :py:class:`eko.InterpolatorDispatcher`), so the final result will</span>
+<span class="sd">    consist of an array of dimension 2: one dimension corresponding to the</span>
+<span class="sd">    interpolation grid, the other to the flavour.</span>
 
-<span class="sd">        Its subclasses are organized by:</span>
+<span class="sd">    Its subclasses are organized by:</span>
 
-<span class="sd">        - kind: `F2`, `FL`</span>
-<span class="sd">        - flavour: `light`, `charm`, `bottom`, `top`</span>
+<span class="sd">    - kind: `F2`, `FL`</span>
+<span class="sd">    - flavour: `light`, `charm`, `bottom`, `top`</span>
 
-<span class="sd">        and they all implement a :py:meth:`get_output` method that performs the</span>
-<span class="sd">        calculation (convolution included), if needed.</span>
+<span class="sd">    and they all implement a :py:meth:`get_output` method that performs the</span>
+<span class="sd">    calculation (convolution included), if needed.</span>
 
-<span class="sd">        .. _local-caching:</span>
+<span class="sd">    .. _local-caching:</span>
 
-<span class="sd">        .. admonition:: Cache</span>
+<span class="sd">    .. admonition:: Cache</span>
 
-<span class="sd">            A part of the overall caching system is implemented at this level.</span>
+<span class="sd">        A part of the overall caching system is implemented at this level.</span>
 
-<span class="sd">            The one implemented here is only a **local, isolated** caching,</span>
-<span class="sd">            i.e.:</span>
+<span class="sd">        The one implemented here is only a **local, isolated** caching,</span>
+<span class="sd">        i.e.:</span>
 
-<span class="sd">            - the first time the instance is asked for computing the result,</span>
-<span class="sd">              through the :py:meth:`get_output` method, it registers the result;</span>
-<span class="sd">            - any following call to the :py:meth:`get_output` method will make</span>
-<span class="sd">              use of the cached result, and will never recompute it.</span>
+<span class="sd">        - the first time the instance is asked for computing the result,</span>
+<span class="sd">          through the :py:meth:`get_output` method, it registers the result;</span>
+<span class="sd">        - any following call to the :py:meth:`get_output` method will make</span>
+<span class="sd">          use of the cached result, and will never recompute it.</span>
 
-<span class="sd">            If another instance with the same attributes is asked for the result</span>
-<span class="sd">            it will recompute it from scratch, because any instance is isolated</span>
-<span class="sd">            and doesn&#39;t keep any reference to the others.</span>
+<span class="sd">        If another instance with the same attributes is asked for the result</span>
+<span class="sd">        it will recompute it from scratch, because any instance is isolated</span>
+<span class="sd">        and doesn&#39;t keep any reference to the others.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">            SF : StructureFunction</span>
-<span class="sd">                the parent :py:class:`StructureFunction` instance, provides an</span>
-<span class="sd">                interface, holds references to global objects (like managers coming</span>
-<span class="sd">                from :py:mod:`eko`, e.g. :py:class:`InterpolatorDispatcher`) and</span>
-<span class="sd">                implements the global caching</span>
-<span class="sd">            kinematics : dict</span>
-<span class="sd">                the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        SF : StructureFunction</span>
+<span class="sd">            the parent :py:class:`StructureFunction` instance, provides an</span>
+<span class="sd">            interface, holds references to global objects (like managers coming</span>
+<span class="sd">            from :py:mod:`eko`, e.g. :py:class:`InterpolatorDispatcher`) and</span>
+<span class="sd">            implements the global caching</span>
+<span class="sd">        kinematics : dict</span>
+<span class="sd">            the specific kinematic point as a dict with two elements (&#39;x&#39;, &#39;Q2&#39;)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kinematics &#39;x&#39; must be in the range (0,1]&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Kinematics &#39;Q2&#39; must be in the range (0,∞)&quot;</span><span class="p">)</span>
@@ -281,232 +290,105 @@
         <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">(</span><span class="n">SF</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid_raw</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x outside xgrid - cannot convolute starting from x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span> <span class="o">=</span> <span class="n">SF</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="n">Q2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sf</span> <span class="o">=</span> <span class="n">SF</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">br</span><span class="o">.</span><span class="n">flavor_basis_pids</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">xgrid</span><span class="p">)</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_computed</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">is_composed</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">partonic_channels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">partonic_channels</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">weights</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">convolution_point</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">convolution_point</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span>
-            <span class="p">)</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Init </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 
 <div class="viewcode-block" id="EvaluatedStructureFunction.__repr__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction.__repr__">[docs]</a>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(x=</span><span class="si">%f</span><span class="s2">,Q2=</span><span class="si">%f</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(x=</span><span class="si">%f</span><span class="s2">,Q2=</span><span class="si">%f</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction._compute_local"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction._compute_local">[docs]</a>    <span class="k">def</span> <span class="nf">_compute_local</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.compute_local"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction.compute_local">[docs]</a>    <span class="k">def</span> <span class="nf">compute_local</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Here is where the local caching is actually implemented: if the</span>
-<span class="sd">            coefficient functions are already computed don&#39;t do nothing,</span>
-<span class="sd">            otherwise call :py:meth:`_compute_component` (checks are per flavour).</span>
+<span class="sd">        Here is where the local caching is actually implemented: if the</span>
+<span class="sd">        coefficient functions are already computed don&#39;t do nothing,</span>
+<span class="sd">        otherwise call :py:meth:`_compute_component` (checks are per flavour).</span>
 
-<span class="sd">            In any case no output is provided, but the result is stored in</span>
-<span class="sd">            instance&#39;s attributes (this method is for internal use).</span>
+<span class="sd">        In any case no output is provided, but the result is stored in</span>
+<span class="sd">        instance&#39;s attributes (this method is for internal use).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># something to do?</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computed</span><span class="p">:</span>
             <span class="k">return</span>
+        <span class="n">cfc</span> <span class="o">=</span> <span class="n">cf_combiner</span><span class="o">.</span><span class="n">CoefficientFunctionsCombiner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="c1"># run</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Compute </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">comp_cls</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">partonic_channels</span><span class="p">:</span>
-            <span class="n">comp</span> <span class="o">=</span> <span class="n">comp_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-            <span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">label</span><span class="p">],</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="n">comp</span><span class="o">.</span><span class="n">label</span><span class="p">],</span>
-            <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_component</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
-        <span class="c1"># add the factor x from the LHS</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convolution_point</span>
-        <span class="c1"># setup weights</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">coupling_constants</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span>
-        <span class="p">)</span></div>
+        <span class="k">for</span> <span class="n">cfe</span> <span class="ow">in</span> <span class="n">cfc</span><span class="o">.</span><span class="n">collect_elems</span><span class="p">():</span>
+            <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_coefficient_function</span><span class="p">(</span><span class="n">cfe</span><span class="o">.</span><span class="n">coeff</span><span class="p">)</span>
+            <span class="c1"># blow up to flavor space</span>
+            <span class="k">for</span> <span class="n">pid</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">cfe</span><span class="o">.</span><span class="n">partons</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">flavor_basis_pids</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">+=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">res</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">errors</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">+=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">err</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_computed</span> <span class="o">=</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="EvaluatedStructureFunction._compute_component"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction._compute_component">[docs]</a>    <span class="k">def</span> <span class="nf">_compute_component</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp</span><span class="p">):</span>
+<div class="viewcode-block" id="EvaluatedStructureFunction.compute_coefficient_function"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction.compute_coefficient_function">[docs]</a>    <span class="k">def</span> <span class="nf">compute_coefficient_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Perform coefficient function calculation for a single flavour,</span>
-<span class="sd">            combining orders, compute the convolution through</span>
-<span class="sd">            :py:meth:`DistributionVec.convolution` iterating over *basis</span>
-<span class="sd">            functions* and take care of scale variations.</span>
+<span class="sd">        Perform coefficient function calculation for a single stack of</span>
+<span class="sd">        coefficient functions,</span>
+<span class="sd">        combining orders, compute the convolution through</span>
+<span class="sd">        :meth:`DistributionVec.convolution` iterating over *basis</span>
+<span class="sd">        functions* and take care of scale variations.</span>
 
-<span class="sd">            Parameters</span>
-<span class="sd">            ----------</span>
-<span class="sd">            f_LO : callable, or sequence of callables</span>
-<span class="sd">                implements LO coefficient function</span>
-<span class="sd">            f_NLO : callable, or sequence of callables</span>
-<span class="sd">                implements NLO coefficient function</span>
-<span class="sd">            f_NLO_fact : callable, or sequence of callables</span>
-<span class="sd">                implements NLO factorization scheme contribution</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        comp : yadism.partonic_channel.PartonicChannel</span>
+<span class="sd">            Coefficient function to be computed</span>
 
-<span class="sd">            .. todo::</span>
-<span class="sd">                reference needed for factorization scheme</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            ls : list(float)</span>
+<span class="sd">                values</span>
+<span class="sd">            els : list(float)</span>
+<span class="sd">                errors</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">els</span> <span class="o">=</span> <span class="p">[]</span>
 
+        <span class="c1"># compute convolution point</span>
+        <span class="n">convolution_point</span> <span class="o">=</span> <span class="n">comp</span><span class="o">.</span><span class="n">convolution_point</span><span class="p">()</span>
         <span class="c1"># combine orders</span>
         <span class="n">d_vec</span> <span class="o">=</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">comp</span><span class="p">[</span><span class="s2">&quot;LO&quot;</span><span class="p">]())</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">pto</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">a_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">strong_coupling</span><span class="o">.</span><span class="n">a_s</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiR</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">pto</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">a_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">strong_coupling</span><span class="o">.</span><span class="n">a_s</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">xiR</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
             <span class="n">d_vec</span> <span class="o">+=</span> <span class="n">a_s</span> <span class="o">*</span> <span class="p">(</span>
                 <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">comp</span><span class="p">[</span><span class="s2">&quot;NLO&quot;</span><span class="p">]())</span>
-                <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
-                <span class="o">*</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">comp</span><span class="p">[</span><span class="s2">&quot;NLO_fact&quot;</span><span class="p">]())</span>
+                <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">conv</span><span class="o">.</span><span class="n">DistributionVec</span><span class="p">(</span><span class="n">comp</span><span class="p">[</span><span class="s2">&quot;NLO_fact&quot;</span><span class="p">]())</span>
             <span class="p">)</span>
 
         <span class="c1"># iterate all polynomials</span>
-        <span class="k">for</span> <span class="n">polynomial_f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">interpolator</span><span class="p">:</span>
-            <span class="n">cv</span><span class="p">,</span> <span class="n">ecv</span> <span class="o">=</span> <span class="n">d_vec</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convolution_point</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">)</span>
-            <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv</span><span class="p">)</span>
-            <span class="n">els</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ecv</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">polynomial_f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">interpolator</span><span class="p">:</span>
+            <span class="n">c</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">d_vec</span><span class="o">.</span><span class="n">convolution</span><span class="p">(</span><span class="n">convolution_point</span><span class="p">,</span> <span class="n">polynomial_f</span><span class="p">)</span>
+            <span class="c1"># add the factor x from the LHS</span>
+            <span class="n">c</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="n">convolution_point</span><span class="p">,</span> <span class="n">e</span> <span class="o">*</span> <span class="n">convolution_point</span>
+            <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="n">els</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ls</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">els</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="EvaluatedStructureFunction.get_result"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Compute actual result</span>
+<span class="sd">        Compute actual result</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">            res : ESFResult</span>
-<span class="sd">                result</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        res : ESFResult</span>
+<span class="sd">            result</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_compute_local</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compute_local</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="EvaluatedStructureFunction.get_output"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Returns the output for this instance.</span>
-
-<span class="sd">            In particular it returns the convolution of the coefficient function</span>
-<span class="sd">            for the selected observable and the array of basis functions, so the</span>
-<span class="sd">            result will be an array itself, running over the interpolation grid.</span>
-
-<span class="sd">            Caching is provided as explained in the class description (see</span>
-<span class="sd">            :py:class:`EvaluatedStructureFunction`).</span>
-
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">            dict</span>
-<span class="sd">                a collection of the output arrays with the following structure:</span>
-
-<span class="sd">                - `x`: the input momentum fraction</span>
-<span class="sd">                - `Q2`: the input process scale</span>
-<span class="sd">                - `values`: a :py:meth:`numpy.array` for the coefficient functions</span>
-<span class="sd">                - `errors`: a :py:meth:`numpy.array` with the integration errors</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span><span class="o">.</span><span class="n">get_raw</span><span class="p">()</span></div></div>
-
-
-<div class="viewcode-block" id="EvaluatedStructureFunctionLight"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunctionLight">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionLight</span><span class="p">(</span><span class="n">EvaluatedStructureFunction</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Parent class for the light ESF implementations -</span>
-<span class="sd">        really meaning up, down, and strange quark contributions.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>  <span class="c1"># 3 = u+d+s</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
-        <span class="c1"># expose number of flavours</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nf</span> <span class="o">=</span> <span class="n">nf</span></div>
-
-
-<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunctionHeavy">[docs]</a><span class="k">class</span> <span class="nc">EvaluatedStructureFunctionHeavy</span><span class="p">(</span><span class="n">EvaluatedStructureFunction</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Specialize EvaluatedStructureFunction for heavy flavours.</span>
-
-<span class="sd">        This class factorizes some common tasks needed for heavy flavours</span>
-<span class="sd">        (namely: charm, bottom and top quarks), in particular:</span>
-
-<span class="sd">        - apply heavy quark matching scheme</span>
-
-<span class="sd">        .. todo::</span>
-<span class="sd">            - document prefactor: FH page 61 (6.1), 65 (7.2) - Vogt page 21 (4.1)</span>
-<span class="sd">            - a_s expansion factor already included (simplify with alpha_s/4pi)</span>
-<span class="sd">                pay attention to Vogt 1/x in (4.1) in FH appendix are written</span>
-<span class="sd">                the expressions for c&#39;s (6.1), convolution defined in (7.2)</span>
-<span class="sd">                also the charge average 9 / 2 is coming from Vogt (4.1)</span>
-<span class="sd">                definition in the gluon</span>
-<span class="sd">            - remember that is only for the gluon and quark singlet, so it</span>
-<span class="sd">                should be removed from the non-singlet prefactor</span>
-<span class="sd">            - why is it not the pdf but xpdf used? check why Laenen is using</span>
-<span class="sd">                xpdf in the first place</span>
-<span class="sd">            - docs</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">,</span> <span class="n">force_local</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">SF</span><span class="p">,</span> <span class="n">kinematics</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_force_local</span> <span class="o">=</span> <span class="n">force_local</span>
-
-<div class="viewcode-block" id="EvaluatedStructureFunctionHeavy.get_result"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunctionHeavy.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            .. todo::</span>
-<span class="sd">                docs</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">nhq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">hqnumber</span>
-        <span class="c1"># get our local active number of flavors</span>
-        <span class="n">scheme</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">scheme</span>
-        <span class="n">nf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">get_areas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">nf</span>
-        <span class="c1"># use local only? i.e. by force or because we (Q2) are below our threshold (name)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_force_local</span> <span class="ow">or</span> <span class="n">nf</span> <span class="o">&lt;</span> <span class="n">nhq</span><span class="p">:</span>
-            <span class="c1"># skip for ZM-VFNS -&gt; return 0</span>
-            <span class="k">if</span> <span class="n">scheme</span> <span class="o">!=</span> <span class="s2">&quot;ZM-VFNS&quot;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_compute_local</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Apply &#39;</span><span class="si">%s</span><span class="s2">&#39; to </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">scheme</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-            <span class="c1"># compute zero-mass part</span>
-            <span class="n">obs_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">obs_name</span>
-            <span class="c1"># TODO maybe we can cache the heavy light any how - for the moment we can&#39;t because of</span>
-            <span class="c1"># the explicit n_f dependece **inside** the coefficient functions (and not only in the</span>
-            <span class="c1"># weight)</span>
-            <span class="n">res_light</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
-                <span class="n">obs_name</span><span class="o">.</span><span class="n">apply_flavor</span><span class="p">(</span><span class="n">obs_name</span><span class="o">.</span><span class="n">flavor</span> <span class="o">+</span> <span class="s2">&quot;light&quot;</span><span class="p">),</span>
-                <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">},</span>
-                <span class="mi">1</span><span class="p">,</span>
-            <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
-            <span class="c1"># now checkout scheme:</span>
-            <span class="c1"># matching is only needed for FONLL and in there only if we just crossed our threshold</span>
-            <span class="c1"># otherwise we continue with the ZM expressions (in contrast to APFEL which treats only</span>
-            <span class="c1"># F2c in this way)</span>
-            <span class="c1"># FONLL-A corresponds to (strict) APFEL</span>
-            <span class="c1"># FONLL-A&#39; reduces to the ZM-VFNS scheme if above the next threshold (which would</span>
-            <span class="c1"># numerically happen anyway, but only at very large Q2)</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;FONLL-A&quot;</span> <span class="ow">and</span> <span class="n">nf</span> <span class="o">&gt;=</span> <span class="n">nhq</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
-                <span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;FONLL-A&#39;&quot;</span> <span class="ow">and</span> <span class="n">nf</span> <span class="o">==</span> <span class="n">nhq</span>
-            <span class="p">):</span>
-                <span class="c1"># collect all parts</span>
-                <span class="n">res_heavy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
-                    <span class="n">obs_name</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">},</span> <span class="n">force_local</span><span class="o">=</span><span class="kc">True</span>
-                <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
-                <span class="n">res_asy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">get_esf</span><span class="p">(</span>
-                    <span class="n">obs_name</span><span class="o">.</span><span class="n">apply_asy</span><span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">}</span>
-                <span class="p">)</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
-                <span class="c1"># add damping</span>
-                <span class="n">damp</span> <span class="o">=</span> <span class="mi">1</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">FONLL_damping</span><span class="p">:</span>
-                    <span class="n">power</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">damping_powers</span><span class="p">[</span><span class="n">nhq</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span>
-                    <span class="n">damp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Q2</span><span class="p">,</span> <span class="n">power</span><span class="p">)</span>
-                <span class="c1"># join all</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">=</span> <span class="n">res_heavy</span><span class="o">.</span><span class="n">suffix</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">_heavy&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">damp</span> <span class="o">*</span> <span class="p">(</span>
-                    <span class="n">res_light</span><span class="o">.</span><span class="n">suffix</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">_light&quot;</span><span class="p">)</span>
-                    <span class="o">-</span> <span class="n">res_asy</span><span class="o">.</span><span class="n">suffix</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">_asymptotic&quot;</span><span class="p">)</span>
-                <span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_res</span> <span class="o">=</span> <span class="n">res_light</span>
-
-        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_res</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>
            
           </div>
           <footer>
-  
 
   <hr/>
 
@@ -518,11 +400,10 @@
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
 
 
 </footer>
-
         </div>
       </div>
 

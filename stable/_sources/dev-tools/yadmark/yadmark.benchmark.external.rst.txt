@@ -24,3 +24,11 @@ yadmark.benchmark.external.qcdnum\_utils module
    :members:
    :undoc-members:
    :show-inheritance:
+
+yadmark.benchmark.external.xspace\_bench\_utils module
+------------------------------------------------------
+
+.. automodule:: yadmark.benchmark.external.xspace_bench_utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

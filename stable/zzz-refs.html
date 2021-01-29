@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>References &mdash; yadism 0.4.0-develop documentation</title>
+  <title>References &mdash; yadism 0.5.0-develop documentation</title>
   
 
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -41,8 +43,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tests" href="dev-tools/tests.html" />
-    <link rel="prev" title="Target Mass Corrections" href="theory/TMC.html" /> 
+    <link rel="next" title="yadism" href="yadism.html" />
+    <link rel="prev" title="Scale Variations" href="theory/scale-variations.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,20 +96,19 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">References</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#general">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#coefficient-functions">Coefficient functions</a></li>
@@ -115,6 +116,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#tmc">TMC</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -164,6 +170,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -175,7 +183,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/zzz-refs.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -195,12 +203,17 @@
   span.underlined {
     text-decoration: underline;
   }
-</style><style type="text/css">
-  span.eqref:before {
-    content: "Eq. (";
+  .red {
+    color:red;
   }
-  span.eqref:after {
-    content: ")";
+  .green {
+    color:green;
+  }
+  .blue {
+    color:blue;
+  }
+  .purple {
+    color:purple;
   }
 </style><style type="text/css">
   span.eqref:before {
@@ -213,49 +226,64 @@
 <h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="general">
 <h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-zzz-refs-0"><dl class="citation">
-<dt class="bibtex label" id="nnpdf-1-0"><span class="brackets">BDDF+09</span></dt>
+<p id="id1"><dl class="citation">
+<dt class="label" id="id3"><span class="brackets">BDDF+09</span></dt>
 <dd><p>Richard D. Ball, Luigi Del Debbio, Stefano Forte, Alberto Guffanti, Jose I. Latorre, Andrea Piccione, Juan Rojo, and Maria Ubiali. A Determination of parton distributions with faithful uncertainty estimation. <em>Nucl. Phys. B</em>, 809:1–63, 2009. [Erratum: Nucl.Phys.B 816, 293 (2009)]. <a class="reference external" href="https://arxiv.org/abs/0808.1231">arXiv:0808.1231</a>, <a class="reference external" href="https://doi.org/10.1016/j.nuclphysb.2008.09.037">doi:10.1016/j.nuclphysb.2008.09.037</a>.</p>
 </dd>
-<dt class="bibtex label" id="pink-book"><span class="brackets">ESW11</span></dt>
+<dt class="label" id="id5"><span class="brackets">CG69</span></dt>
+<dd><p>Jr. Callan, Curtis G. and David J. Gross. High-energy electroproduction and the constitution of the electric current. <em>Phys. Rev. Lett.</em>, 22:156–159, 1969. <a class="reference external" href="https://doi.org/10.1103/PhysRevLett.22.156">doi:10.1103/PhysRevLett.22.156</a>.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">CSS89</span></dt>
+<dd><p>John C. Collins, Davison E. Soper, and George F. Sterman. Factorization of Hard Processes in QCD. <em>Adv. Ser. Direct. High Energy Phys.</em>, 5:1–91, 1989. <a class="reference external" href="https://arxiv.org/abs/hep-ph/0409313">arXiv:hep-ph/0409313</a>, <a class="reference external" href="https://doi.org/10.1142/9789814503266_0001">doi:10.1142/9789814503266_0001</a>.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">ESW11</span></dt>
 <dd><p>R.Keith Ellis, W.James Stirling, and B.R. Webber. <em>QCD and collider physics</em>. Volume 8. Cambridge University Press, 2 2011. ISBN 978-0-511-82328-2, 978-0-521-54589-1.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">Z+20</span></dt>
+<dd><p>P.A. Zyla and others. Review of Particle Physics. <em>PTEP</em>, 2020(8):083C01, 2020. <a class="reference external" href="https://doi.org/10.1093/ptep/ptaa104">doi:10.1093/ptep/ptaa104</a>.</p>
 </dd>
 </dl>
 </p>
 </div>
 <div class="section" id="coefficient-functions">
 <h2>Coefficient functions<a class="headerlink" href="#coefficient-functions" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-zzz-refs-1"><dl class="citation">
-<dt class="bibtex label" id="vogt-sv"><span class="brackets">vNV00</span></dt>
+<p id="id7"><dl class="citation">
+<dt class="label" id="id10"><span class="brackets">AK+19</span></dt>
+<dd><p>Rabah Abdul Khalek and others. Parton Distributions with Theory Uncertainties: General Formalism and First Phenomenological Studies. <em>Eur. Phys. J. C</em>, 79(11):931, 2019. <a class="reference external" href="https://arxiv.org/abs/1906.10698">arXiv:1906.10698</a>, <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-019-7401-4">doi:10.1140/epjc/s10052-019-7401-4</a>.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">G+17</span></dt>
+<dd><p>C. Gnendiger and others. To $d$, or not to $d$: recent developments and comparisons of regularization schemes. <em>Eur. Phys. J. C</em>, 77(7):471, 2017. <a class="reference external" href="https://arxiv.org/abs/1705.01827">arXiv:1705.01827</a>, <a class="reference external" href="https://doi.org/10.1140/epjc/s10052-017-5023-2">doi:10.1140/epjc/s10052-017-5023-2</a>.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">vNV00</span></dt>
 <dd><p>W.L. van Neerven and A. Vogt. Nnlo evolution of deep-inelastic structure functions: the singlet case. <em>Nuclear Physics B</em>, 588(1-2):345–373, Nov 2000. <a class="reference external" href="https://arxiv.org/abs/hep-ph/0006154">arXiv:hep-ph/0006154</a>, <a class="reference external" href="https://doi.org/10.1016/s0550-3213(00)00480-6">doi:10.1016/s0550-3213(00)00480-6</a>.</p>
 </dd>
 </dl>
 </p>
 <p><strong>Light</strong>:</p>
-<p id="bibtex-bibliography-zzz-refs-2"><dl class="citation">
-<dt class="bibtex label" id="vogt-f2lcc"><span class="brackets">MRV08</span></dt>
+<p id="id11"><dl class="citation">
+<dt class="label" id="id15"><span class="brackets">MRV08</span></dt>
 <dd><p>S. Moch, M. Rogal, and A. Vogt. Differences between charged-current coefficient functions. <em>Nucl. Phys. B</em>, 790:317–335, 2008. <a class="reference external" href="https://arxiv.org/abs/0708.3731">arXiv:0708.3731</a>, <a class="reference external" href="https://doi.org/10.1016/j.nuclphysb.2007.09.022">doi:10.1016/j.nuclphysb.2007.09.022</a>.</p>
 </dd>
-<dt class="bibtex label" id="moch-f3nc"><span class="brackets">MV00</span></dt>
+<dt class="label" id="id14"><span class="brackets">MV00</span></dt>
 <dd><p>S. Moch and J.A.M. Vermaseren. Deep inelastic structure functions at two loops. <em>Nucl. Phys. B</em>, 573:853–907, 2000. <a class="reference external" href="https://arxiv.org/abs/hep-ph/9912355">arXiv:hep-ph/9912355</a>, <a class="reference external" href="https://doi.org/10.1016/S0550-3213(00)00045-6">doi:10.1016/S0550-3213(00)00045-6</a>.</p>
 </dd>
-<dt class="bibtex label" id="vogt-flnc"><span class="brackets">MVV05</span></dt>
+<dt class="label" id="id13"><span class="brackets">MVV05</span></dt>
 <dd><p>S. Moch, J.A.M. Vermaseren, and A. Vogt. The longitudinal structure function at the third order. <em>Physics Letters B</em>, 606(1-2):123–129, Jan 2005. <a class="reference external" href="https://arxiv.org/abs/hep-ph/0411112">arXiv:hep-ph/0411112</a>, <a class="reference external" href="https://doi.org/10.1016/j.physletb.2004.11.063">doi:10.1016/j.physletb.2004.11.063</a>.</p>
 </dd>
-<dt class="bibtex label" id="vogt-f3cc"><span class="brackets">MVV09</span></dt>
+<dt class="label" id="id16"><span class="brackets">MVV09</span></dt>
 <dd><p>S. Moch, J.A.M. Vermaseren, and A. Vogt. Third-order QCD corrections to the charged-current structure function F(3). <em>Nucl. Phys. B</em>, 813:220–258, 2009. <a class="reference external" href="https://arxiv.org/abs/0812.4168">arXiv:0812.4168</a>, <a class="reference external" href="https://doi.org/10.1016/j.nuclphysb.2009.01.001">doi:10.1016/j.nuclphysb.2009.01.001</a>.</p>
 </dd>
-<dt class="bibtex label" id="vogt-f2nc"><span class="brackets">VVM05</span></dt>
+<dt class="label" id="id12"><span class="brackets">VVM05</span></dt>
 <dd><p>J. A. M. Vermaseren, A. Vogt, and S. Moch. The Third-order QCD corrections to deep-inelastic scattering by photon exchange. <em>Nucl. Phys.</em>, B724:3–182, 2005. <a class="reference external" href="https://arxiv.org/abs/hep-ph/0504242">arXiv:hep-ph/0504242</a>, <a class="reference external" href="https://doi.org/10.1016/j.nuclphysb.2005.06.020">doi:10.1016/j.nuclphysb.2005.06.020</a>.</p>
 </dd>
 </dl>
 </p>
 <p><strong>Heavy</strong>:</p>
-<p id="bibtex-bibliography-zzz-refs-3"><dl class="citation">
-<dt class="bibtex label" id="gluck-ccheavy"><span class="brackets">GKR96</span></dt>
+<p id="id17"><dl class="citation">
+<dt class="label" id="id19"><span class="brackets">GKR96</span></dt>
 <dd><p>M. Gluck, S. Kretzer, and E. Reya. The Strange sea density and charm production in deep inelastic charged current processes. <em>Phys. Lett. B</em>, 380:171–176, 1996. [Erratum: Phys.Lett.B 405, 391 (1997)]. <a class="reference external" href="https://arxiv.org/abs/hep-ph/9603304">arXiv:hep-ph/9603304</a>, <a class="reference external" href="https://doi.org/10.1016/0370-2693(96)00456-X">doi:10.1016/0370-2693(96)00456-X</a>.</p>
 </dd>
-<dt class="bibtex label" id="felix-thesis"><span class="brackets">Hek19</span></dt>
+<dt class="label" id="id18"><span class="brackets">Hek19</span></dt>
 <dd><p>Felix Hekhorn. Next-to-leading order qcd corrections to heavy-flavour production in neutral current dis. 2019. <a class="reference external" href="https://arxiv.org/abs/1910.01536">arXiv:1910.01536</a>.</p>
 </dd>
 </dl>
@@ -263,8 +291,8 @@
 </div>
 <div class="section" id="fns">
 <h2>FNS<a class="headerlink" href="#fns" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-zzz-refs-4"><dl class="citation">
-<dt class="bibtex label" id="forte-fonll"><span class="brackets">FLNR10</span></dt>
+<p id="id20"><dl class="citation">
+<dt class="label" id="id21"><span class="brackets">FLNR10</span></dt>
 <dd><p>Stefano Forte, Eric Laenen, Paolo Nason, and Juan Rojo. Heavy quarks in deep-inelastic scattering. <em>Nucl. Phys. B</em>, 834:116–162, 2010. <a class="reference external" href="https://arxiv.org/abs/1001.2312">arXiv:1001.2312</a>, <a class="reference external" href="https://doi.org/10.1016/j.nuclphysb.2010.03.014">doi:10.1016/j.nuclphysb.2010.03.014</a>.</p>
 </dd>
 </dl>
@@ -272,14 +300,14 @@
 </div>
 <div class="section" id="tmc">
 <h2>TMC<a class="headerlink" href="#tmc" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-zzz-refs-5"><dl class="citation">
-<dt class="bibtex label" id="tmc-georgi"><span class="brackets">GP76</span></dt>
+<p id="id22"><dl class="citation">
+<dt class="label" id="id25"><span class="brackets">GP76</span></dt>
 <dd><p>Howard Georgi and H.David Politzer. Freedom at Moderate Energies: Masses in Color Dynamics. <em>Phys. Rev. D</em>, 14:1829, 1976. <a class="reference external" href="https://doi.org/10.1103/PhysRevD.14.1829">doi:10.1103/PhysRevD.14.1829</a>.</p>
 </dd>
-<dt class="bibtex label" id="tmc-iranian"><span class="brackets">GR20</span></dt>
+<dt class="label" id="id24"><span class="brackets">GR20</span></dt>
 <dd><p>Muhammad Goharipour and S. Rostami. Implementation of target mass corrections and higher-twist effects in the xFitter framework. <em>Phys. Rev. D</em>, 101(7):074015, 2020. <a class="reference external" href="https://arxiv.org/abs/2004.03403">arXiv:2004.03403</a>, <a class="reference external" href="https://doi.org/10.1103/PhysRevD.101.074015">doi:10.1103/PhysRevD.101.074015</a>.</p>
 </dd>
-<dt class="bibtex label" id="tmc-review"><span class="brackets">S+08</span></dt>
+<dt class="label" id="id23"><span class="brackets">S+08</span></dt>
 <dd><p>Ingo Schienbein and others. A Review of Target Mass Corrections. <em>J. Phys. G</em>, 35:053101, 2008. <a class="reference external" href="https://arxiv.org/abs/0709.1775">arXiv:0709.1775</a>, <a class="reference external" href="https://doi.org/10.1088/0954-3899/35/5/053101">doi:10.1088/0954-3899/35/5/053101</a>.</p>
 </dd>
 </dl>
@@ -292,16 +320,10 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="dev-tools/tests.html" class="btn btn-neutral float-right" title="Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="theory/TMC.html" class="btn btn-neutral float-left" title="Target Mass Corrections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="yadism.html" class="btn btn-neutral float-right" title="yadism" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="theory/scale-variations.html" class="btn btn-neutral float-left" title="Scale Variations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -313,11 +335,10 @@
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
 
 
 </footer>
-
         </div>
       </div>
 

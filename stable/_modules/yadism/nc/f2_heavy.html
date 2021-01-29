@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>yadism.nc.f2_heavy &mdash; yadism 0.4.0-develop documentation</title>
+  <title>yadism.nc.f2_heavy &mdash; yadism 0.5.0-develop documentation</title>
   
 
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../../../_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -92,21 +94,25 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -156,6 +162,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -165,8 +173,6 @@
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
           <li><a href="../../yadism.html">yadism</a> &raquo;</li>
-        
-          <li><a href="../nc.html">yadism.nc</a> &raquo;</li>
         
       <li>yadism.nc.f2_heavy</li>
     
@@ -200,22 +206,22 @@
 
 <div class="viewcode-block" id="F2heavyGluonVV"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.f2_heavy.F2heavyGluonVV">[docs]</a><span class="k">class</span> <span class="nc">F2heavyGluonVV</span><span class="p">(</span><span class="n">pcnc</span><span class="o">.</span><span class="n">PartonicChannelHeavy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the gluon channel of F2heavy.</span>
+<span class="sd">    Computes the gluon channel of F2heavy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;gVV&quot;</span>
 
 <div class="viewcode-block" id="F2heavyGluonVV.NLO"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.f2_heavy.F2heavyGluonVV.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Computes the gluon part of the next to leading order F2 structure</span>
-<span class="sd">            function.</span>
+<span class="sd">        Computes the gluon part of the next to leading order F2 structure</span>
+<span class="sd">        function.</span>
 
-<span class="sd">            |ref| implements :eqref:`D.1`, :cite:`felix-thesis`.</span>
+<span class="sd">        |ref| implements :eqref:`D.1`, :cite:`felix-thesis`.</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                sequence of callables</span>
-<span class="sd">                    coefficient functions</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">                coefficient functions</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="nf">cg</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
@@ -244,22 +250,22 @@
 
 <div class="viewcode-block" id="F2heavyGluonAA"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.f2_heavy.F2heavyGluonAA">[docs]</a><span class="k">class</span> <span class="nc">F2heavyGluonAA</span><span class="p">(</span><span class="n">F2heavyGluonVV</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the gluon channel of F2heavy.</span>
+<span class="sd">    Computes the gluon channel of F2heavy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;gAA&quot;</span>
 
 <div class="viewcode-block" id="F2heavyGluonAA.NLO"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.f2_heavy.F2heavyGluonAA.NLO">[docs]</a>    <span class="k">def</span> <span class="nf">NLO</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Computes the gluon part of the next to leading order F2 structure</span>
-<span class="sd">            function.</span>
+<span class="sd">        Computes the gluon part of the next to leading order F2 structure</span>
+<span class="sd">        function.</span>
 
-<span class="sd">            |ref| implements :eqref:`D.4`, :cite:`felix-thesis`.</span>
+<span class="sd">        |ref| implements :eqref:`D.4`, :cite:`felix-thesis`.</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                sequence of callables</span>
-<span class="sd">                    coefficient functions</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            sequence of callables</span>
+<span class="sd">                coefficient functions</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">VV</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">NLO</span><span class="p">()</span>
@@ -278,7 +284,6 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
@@ -290,11 +295,10 @@
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
 
 
 </footer>
-
         </div>
       </div>
 

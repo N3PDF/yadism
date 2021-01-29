@@ -32,11 +32,3 @@ yadism.esf.esf\_result module
    :members:
    :undoc-members:
    :show-inheritance:
-
-yadism.esf.f\_total module
---------------------------
-
-.. automodule:: yadism.esf.f_total
-   :members:
-   :undoc-members:
-   :show-inheritance:

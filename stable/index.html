@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Yadism documentation &mdash; yadism 0.4.0-develop documentation</title>
+  <title>Yadism documentation &mdash; yadism 0.5.0-develop documentation</title>
   
 
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -41,7 +43,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="yadism" href="yadism.html" /> 
+    <link rel="next" title="Features" href="overview/features.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,21 +95,25 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -157,6 +163,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -168,7 +176,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/index.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -188,12 +196,17 @@
   span.underlined {
     text-decoration: underline;
   }
-</style><style type="text/css">
-  span.eqref:before {
-    content: "Eq. (";
+  .red {
+    color:red;
   }
-  span.eqref:after {
-    content: ")";
+  .green {
+    color:green;
+  }
+  .blue {
+    color:blue;
+  }
+  .purple {
+    color:purple;
   }
 </style><style type="text/css">
   span.eqref:before {
@@ -204,8 +217,7 @@
   }
 </style><div class="section" id="yadism-documentation">
 <h1>Yadism documentation<a class="headerlink" href="#yadism-documentation" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
-<p><cite>yadism</cite> is a wonderful package for computing <abbr title="Deep Inelastic Scattering">DIS</abbr> observables replacing the
+<p><cite>yadism</cite> is a wonderful package for computing <abbr title="Deep-Inelastic Scattering">DIS</abbr> observables replacing the
 corresponding one inside <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a>.</p>
 <div class="section" id="design-goals">
 <h2>Design Goals<a class="headerlink" href="#design-goals" title="Permalink to this headline">¶</a></h2>
@@ -240,72 +252,13 @@ invariants exploiting a unit-test suite (for a full description see
 <li><p>a lot of attention has been paid in writing a helpful and detailed
 documentation, to help users and future maintainers</p></li>
 </ul>
-</div>
-<div class="section" id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
-<p><strong>Features</strong> already implemented include:</p>
-<ul class="simple">
-<li><p><abbr title="Leading Order">LO</abbr> structure functions</p></li>
-<li><p><abbr title="Next to Leading Order">NLO</abbr> structure functions</p>
-<ol class="arabic simple">
-<li><p>scale variations</p></li>
-<li><p>target mass corrections</p></li>
-<li><p>flavor number schemes</p></li>
-</ol>
-</li>
-</ul>
-<p>The implemented structure functions are <span class="math notranslate nohighlight">\(F_2,~F_L,~F_3\)</span> for the following
-<abbr title="Deep Inelastic Scattering">DIS</abbr> processes:</p>
-<ul class="simple">
-<li><p><abbr title="Electromagnetic Current">EM</abbr></p></li>
-<li><p><abbr title="Neutral Current">NC</abbr></p></li>
-<li><p><abbr title="Charged Current">CC</abbr></p></li>
-</ul>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Package Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
-</ul>
 </div>
-<p>In these <span class="underlined">documents</span> you can find the reference for all <em>yadism</em> API and internals.</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Theory</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/processes.html">Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html">Target Mass Corrections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zzz-refs.html">References</a></li>
-</ul>
 </div>
-<p>And here there is some <em>physics documentation</em>.</p>
-<p>Some of these are trivial and will be replaced, they are here just to create a
-structure.</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Dev Tools</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dev-tools/tests.html">Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev-tools/db-suite.html">Database Test Suite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev-tools/yadmark.html">Yadmark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev-tools/extras.html">Extras</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev-tools/third-party.html">Third Party Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev-tools/code-todos.html">TODOs</a></li>
-</ul>
 </div>
-<p>These tools have been developed alongside <cite>yadism</cite>, in order to automatize tests
-and improve the quality of code (less bugs, more readable… hopefully…).</p>
-<hr class="docutils" />
-<div class="section" id="indices-and-tables">
-<h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 </div>
@@ -315,14 +268,9 @@ and improve the quality of code (less bugs, more readable… hopefully…).</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="yadism.html" class="btn btn-neutral float-right" title="yadism" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
+        <a href="overview/features.html" class="btn btn-neutral float-right" title="Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
@@ -334,11 +282,10 @@ and improve the quality of code (less bugs, more readable… hopefully…).</p>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
 
 
 </footer>
-
         </div>
       </div>
 

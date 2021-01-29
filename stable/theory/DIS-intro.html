@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>DIS introduction &mdash; yadism 0.4.0-develop documentation</title>
+  <title>Introduction to DIS &mdash; yadism 0.5.0-develop documentation</title>
   
 
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -41,8 +43,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Coefficient Functions Calculation" href="coeff-funcs.html" />
-    <link rel="prev" title="Tutorials" href="../tutorials/index.html" /> 
+    <link rel="next" title="Factorization" href="fact.html" />
+    <link rel="prev" title="Indices and tables" href="../overview/indices.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,24 +96,35 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DIS introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview-of-coefficient-functions-structure">Overview of coefficient functions structure</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to DIS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notations">Notations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#process-currents">Process / Currents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-function-kind">Structure Function Kind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#target-mass-corrections">Target Mass Corrections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#f-l-definition"><span class="math notranslate nohighlight">\(F_L\)</span> definition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions Calculation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="processes.html">Processes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -161,18 +174,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>DIS introduction</li>
+      <li>Introduction to DIS</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/theory/DIS-intro.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -192,6 +207,18 @@
   span.underlined {
     text-decoration: underline;
   }
+  .red {
+    color:red;
+  }
+  .green {
+    color:green;
+  }
+  .blue {
+    color:blue;
+  }
+  .purple {
+    color:purple;
+  }
 </style><style type="text/css">
   span.eqref:before {
     content: "Eq. (";
@@ -199,108 +226,83 @@
   span.eqref:after {
     content: ")";
   }
-</style><style type="text/css">
-  span.eqref:before {
-    content: "Eq. (";
-  }
-  span.eqref:after {
-    content: ")";
-  }
-</style><div class="section" id="dis-introduction">
-<h1>DIS introduction<a class="headerlink" href="#dis-introduction" title="Permalink to this headline">¶</a></h1>
+</style><div class="section" id="introduction-to-dis">
+<h1>Introduction to DIS<a class="headerlink" href="#introduction-to-dis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Short historical overview “DIS is the process involving [bla bla]”</p></li>
 <li><p>“it has been historically relevant in QCD and [bla bla bla]”</p></li>
 <li><p>“and it is one of the core element in PDF determination [bla bla bla bla] …”</p></li>
 </ul>
-<div class="section" id="overview-of-coefficient-functions-structure">
-<h2>Overview of coefficient functions structure<a class="headerlink" href="#overview-of-coefficient-functions-structure" title="Permalink to this headline">¶</a></h2>
-<p>The main categories for coefficients functions are of course:</p>
+</div>
+<div class="section" id="notations">
+<h2>Notations<a class="headerlink" href="#notations" title="Permalink to this headline">¶</a></h2>
+<p>We are following the notations in <span id="id1">[<a class="reference internal" href="../zzz-refs.html#id4"><span>Z+20</span></a>]</span>, i.e. we’re using their
+normalization and definitions. So the hadronic tensor is given by</p>
+<div class="math notranslate nohighlight">
+\[W_{\mu\nu} = \left(-g_{\mu\nu} + \frac{q_\mu q_\nu}{q^2}\right) F_1(x,Q^2)
+            + \frac{\hat P_\mu \hat P_\nu}{P \cdot q} F_2(x,Q^2)
+            - i \varepsilon_{\mu\nu\alpha\beta} \frac{q^\alpha P^\beta}{2 P\cdot q} F_3(x,Q^2)\]</div>
+<p>with <span class="math notranslate nohighlight">\(\hat P_\mu = P_\mu - (P\cdot q / q^2) q_\mu\)</span>, <span class="math notranslate nohighlight">\(P\)</span> the 4-momentum
+of the hadron and <span class="math notranslate nohighlight">\(q\)</span> the 4-momentum of the scattered boson.</p>
+</div>
+<div class="section" id="process-currents">
+<h2>Process / Currents<a class="headerlink" href="#process-currents" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">yadism</span></code> allows to compute three different type of <strong>processes</strong>, which correspond to a
+given set of scattering bosons:</p>
 <ul class="simple">
-<li><p>the <strong>process</strong> (EM/NC/CC)</p></li>
-<li><p>the <strong>structure function</strong> (F2/L/3)</p></li>
-<li><p>the <strong>flavor</strong> involved (light/charm/bottom/top)</p></li>
+<li><p>Electromagnetic Current (<abbr title="Electromagnetic Current">EM</abbr>): we only allow the photon to be exchanged. This is the
+most basic setup and in many cases the only allowed option.</p></li>
+<li><p>Neutral Current (<abbr title="Neutral Current">NC</abbr>): in addition to the photon we also allow for the <span class="math notranslate nohighlight">\(Z\)</span>
+boson to be exchanged, so this is a superset of <abbr title="Electromagnetic Current">EM</abbr>.
+Since now two bosons are allowed also interference terms appear.
+The <span class="math notranslate nohighlight">\(Z\)</span> boson has an axial coupling to the leptons and thus it introduces the problems
+related to <span class="math notranslate nohighlight">\(\gamma_5\)</span> <span id="id2">[<a class="reference internal" href="../zzz-refs.html#id9"><span>G+17</span></a>]</span>.
+Note that there are no Flavor Changing Neutral Currents (FCNC) in the <abbr title="Standard Model">SM</abbr>, but they are an
+active field of research.</p></li>
+<li><p>Charged Current (<abbr title="Charged Current">CC</abbr>): we only allow the <span class="math notranslate nohighlight">\(W^+\)</span> <em>or</em> <span class="math notranslate nohighlight">\(W^-\)</span> to be exchanged.
+The actual boson is determined by the incoming scattering lepton and charge conservation.
+As the <span class="math notranslate nohighlight">\(W^\pm\)</span> are flavor changing additional care is needed in the calculation.</p></li>
 </ul>
-<p>These options set the overall structure of the coefficient functions, and it is
-reported in the following tables, just considering that all the heavy flavors
-(charm/bottom/top) share the same functional form for the coefficient and a
-further category (the massless limit of the heavy) is needed for variable
-flavor scheme like FONLL.</p>
-<table class="docutils align-center" id="id15">
-<caption><span class="caption-text">NC coefficients</span><a class="headerlink" href="#id15" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head stub"><p>.</p></th>
-<th class="head"><p><a class="reference internal" href="light-flavors.html#light-nc"><span class="std std-ref">light</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="heavy-flavors.html#heavy-nc"><span class="std std-ref">heavy</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="heavy-flavors.html#asymptotic"><span class="std std-ref">asymptotic</span></a></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><th class="stub"><p>F2</p></th>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f2nc" id="id1">[VVM05]</a></p></td>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id2">[Hek19]</a></p></td>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#forte-fonll" id="id3">[FLNR10]</a></p></td>
-</tr>
-<tr class="row-odd"><th class="stub"><p>FL</p></th>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-flnc" id="id4">[MVV05]</a></p></td>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id5">[Hek19]</a></p></td>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#forte-fonll" id="id6">[FLNR10]</a></p></td>
-</tr>
-<tr class="row-even"><th class="stub"><p>F3</p></th>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#moch-f3nc" id="id7">[MV00]</a></p></td>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#felix-thesis" id="id8">[Hek19]</a></p></td>
-<td><p>.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-center" id="id16">
-<caption><span class="caption-text">CC coefficients</span><a class="headerlink" href="#id16" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head stub"><p>.</p></th>
-<th class="head"><p><a class="reference internal" href="light-flavors.html#light-cc"><span class="std std-ref">light</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="heavy-flavors.html#heavy-cc"><span class="std std-ref">heavy</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="heavy-flavors.html#asymptotic"><span class="std std-ref">asymptotic</span></a></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><th class="stub"><p>F2</p></th>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f2lcc" id="id9">[MRV08]</a></p></td>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id10">[GKR96]</a></p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="row-odd"><th class="stub"><p>FL</p></th>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f2lcc" id="id11">[MRV08]</a></p></td>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id12">[GKR96]</a></p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="row-even"><th class="stub"><p>F3</p></th>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#vogt-f3cc" id="id13">[MVV09]</a></p></td>
-<td><p><a class="bibtex reference internal" href="../zzz-refs.html#gluck-ccheavy" id="id14">[GKR96]</a></p></td>
-<td><p>.</p></td>
-</tr>
-</tbody>
-</table>
-<p>There are two further categories in which the coefficient functions are
-organized:</p>
+</div>
+<div class="section" id="structure-function-kind">
+<span id="kinds-def"></span><h2>Structure Function Kind<a class="headerlink" href="#structure-function-kind" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">yadism</span></code> allows to compute three different structure functions, to which we refer to as <strong>kind</strong>:</p>
+<div class="math notranslate nohighlight">
+\[F_2,~ F_L = F_2 - 2xF_1,~ xF_3\]</div>
 <ul class="simple">
-<li><p>the <strong>incoming flavor</strong>: this will specify the input PDF to which the
-coefficient applies; usually a single expression applies to multiple PDFs,
-but the actual structure depends on the flavor</p></li>
-<li><p>the <strong>parity structure</strong> (vectorial-vectorial/axial-axial/vectorial-axial),
-it is relevant only for the NC</p></li>
+<li><p>to compute <span class="math notranslate nohighlight">\(F_L\)</span> instead of <span class="math notranslate nohighlight">\(F_1\)</span> is adventagous due to the Callan-Gross relation
+<span id="id3">[<a class="reference internal" href="../zzz-refs.html#id5"><span>CG69</span></a>]</span> <span class="math notranslate nohighlight">\(F_L=0\)</span> in the naive parton model</p>
+<ul>
+<li><p>notice that the <span class="math notranslate nohighlight">\(F_L\)</span> definition it’s not exactly the one above, but
+it may be corrected (actually <span class="math notranslate nohighlight">\(F_L\)</span> it’s the object involved in
+Callan-Gross relation, for more information see <a class="reference internal" href="#fl-corrections"><span class="std std-ref">F_L definition</span></a>)</p></li>
 </ul>
+</li>
+<li><p>Note that we compute <span class="math notranslate nohighlight">\(xF_3\)</span> instead of the bare structure function to respect the native
+scaling in the full cross section</p></li>
+</ul>
+</div>
+<div class="section" id="target-mass-corrections">
+<h2>Target Mass Corrections<a class="headerlink" href="#target-mass-corrections" title="Permalink to this headline">¶</a></h2>
+<p>Following <span id="id4">[<a class="reference internal" href="../zzz-refs.html#id23"><span>S+08</span></a>]</span>, <span id="id5">[<a class="reference internal" href="../zzz-refs.html#id24"><span>GR20</span></a>]</span> we provide three options:</p>
+<ul class="simple">
+<li><p><strong>exact</strong>: is the full and involves integration</p></li>
+<li><p><strong>approximate</strong>: is stemming from the exact, but the strcture functions in
+the integrand are evaluated at the bottom end</p></li>
+<li><p><strong>APFEL</strong>: the one used in APFEL, similar to the exact but with g2 in
+the review (Schienbein et al.) set to 0</p></li>
+</ul>
+<div class="section" id="f-l-definition">
+<span id="fl-corrections"></span><h3><span class="math notranslate nohighlight">\(F_L\)</span> definition<a class="headerlink" href="#f-l-definition" title="Permalink to this headline">¶</a></h3>
+<p>Also the definition of <span class="math notranslate nohighlight">\(F_L\)</span> may be corrected by the presence of a proton
+mass.</p>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>complete</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -309,16 +311,10 @@ it is relevant only for the NC</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="coeff-funcs.html" class="btn btn-neutral float-right" title="Coefficient Functions Calculation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../tutorials/index.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="fact.html" class="btn btn-neutral float-right" title="Factorization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../overview/indices.html" class="btn btn-neutral float-left" title="Indices and tables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -330,11 +326,10 @@ it is relevant only for the NC</p></li>
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
 
 
 </footer>
-
         </div>
       </div>
 

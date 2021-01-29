@@ -11,17 +11,31 @@ From Source Code
 
 `coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
 
-.. warning:: #303 raise warning in log if inconsitent
+.. warning:: #281 raise warning in log if inconsitent
 
-.. warning:: #344 maybe raise warning if non-unitarian
+.. warning:: #322 maybe raise warning if non-unitarian
+
+
+
+`output.py <file:///home/runner/work/yadism/yadism/src/yadism/output.py>`_
+
+.. warning:: #85 explicitly silence yaml
 
 
 
 `sf.py <file:///home/runner/work/yadism/yadism/src/yadism/sf.py>`_
 
-.. warning:: #48 wrap managers and parameters as single attributes
+.. warning:: #46 wrap managers and parameters as single attributes
 
-.. warning:: #141 how to incorporate args?
+.. warning:: #125 how to incorporate args?
+
+
+
+`cf_combiner.py <file:///home/runner/work/yadism/yadism/src/yadism/cf_combiner.py>`_
+
+.. warning:: #28 decide whether Q2 or muF2 is the correct thing
+
+.. warning:: #151 drop all elements that have 0 weight
 
 
 

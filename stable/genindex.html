@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; yadism 0.4.0-develop documentation</title>
+  <title>Index &mdash; yadism 0.5.0-develop documentation</title>
   
 
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -92,21 +94,25 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="theory/TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -156,6 +162,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -167,7 +175,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/genindex.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -197,6 +205,7 @@
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
@@ -204,6 +213,8 @@
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
  | <a href="#Y"><strong>Y</strong></a>
@@ -223,8 +234,6 @@
       <ul>
         <li><a href="modules/yadism.input.html#yadism.input.defaults.DefaultManager.__call__">(yadism.input.defaults.DefaultManager method)</a>
 </li>
-        <li><a href="modules/yadism.html#yadism.runner.Runner.__call__">(yadism.runner.Runner method)</a>
-</li>
       </ul></li>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.__eq__">__eq__() (yadism.observable_name.ObservableName method)</a>
 </li>
@@ -233,30 +242,20 @@
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.__hash__">__hash__ (yadism.observable_name.ObservableName attribute)</a>
 </li>
       <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__iadd__">__iadd__() (yadism.esf.distribution_vec.DistributionVec method)</a>
-
-      <ul>
-        <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__iadd__">(yadism.esf.esf_result.ESFResult method)</a>
 </li>
-      </ul></li>
       <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__imul__">__imul__() (yadism.esf.distribution_vec.DistributionVec method)</a>
-
-      <ul>
-        <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__imul__">(yadism.esf.esf_result.ESFResult method)</a>
-</li>
-      </ul></li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__isub__">__isub__() (yadism.esf.esf_result.ESFResult method)</a>
 </li>
       <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__iter__">__iter__() (yadism.esf.distribution_vec.DistributionVec method)</a>
-</li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__itruediv__">__itruediv__() (yadism.esf.esf_result.ESFResult method)</a>
 </li>
       <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__mul__">__mul__() (yadism.esf.distribution_vec.DistributionVec method)</a>
 
       <ul>
         <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__mul__">(yadism.esf.esf_result.ESFResult method)</a>
 </li>
+        <li><a href="modules/yadism.html#yadism.kernels.Kernel.__mul__">(yadism.kernels.Kernel method)</a>
+</li>
       </ul></li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__neg__">__neg__() (yadism.esf.esf_result.ESFResult method)</a>
+      <li><a href="modules/yadism.html#yadism.kernels.Kernel.__neg__">__neg__() (yadism.kernels.Kernel method)</a>
 </li>
       <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__radd__">__radd__() (yadism.esf.distribution_vec.DistributionVec method)</a>
 </li>
@@ -275,11 +274,9 @@
       <ul>
         <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__rmul__">(yadism.esf.esf_result.ESFResult method)</a>
 </li>
+        <li><a href="modules/yadism.html#yadism.kernels.Kernel.__rmul__">(yadism.kernels.Kernel method)</a>
+</li>
       </ul></li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__sub__">__sub__() (yadism.esf.esf_result.ESFResult method)</a>
-</li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__truediv__">__truediv__() (yadism.esf.esf_result.ESFResult method)</a>
-</li>
       <li><a href="modules/yadism.input.html#yadism.input.constraints.Argument._abc_impl">_abc_impl (yadism.input.constraints.Argument attribute)</a>
 
       <ul>
@@ -304,12 +301,6 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction._compute_component">_compute_component() (yadism.esf.esf.EvaluatedStructureFunction method)</a>
-</li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction._compute_local">_compute_local() (yadism.esf.esf.EvaluatedStructureFunction method)</a>
-</li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.f_total.EvaluatedStructureFunctionFtotal._compute_weights">_compute_weights() (yadism.esf.f_total.EvaluatedStructureFunctionFtotal method)</a>
-</li>
       <li><a href="modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC._convolute_FX">_convolute_FX() (yadism.tmc.EvaluatedStructureFunctionTMC method)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC._g2">_g2() (yadism.tmc.EvaluatedStructureFunctionTMC method)</a>
@@ -374,22 +365,22 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.all">all() (yadism.observable_name.ObservableName class method)</a>
 </li>
-      <li><a href="modules/yadism.html#yadism.runner.Runner.apply">apply() (yadism.runner.Runner method)</a>
-</li>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.apply_asy">apply_asy() (yadism.observable_name.ObservableName method)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.apply_flavor">apply_flavor() (yadism.observable_name.ObservableName method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.apply_flavor_family">apply_flavor_family() (yadism.observable_name.ObservableName method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.apply_kind">apply_kind() (yadism.observable_name.ObservableName method)</a>
 </li>
       <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.apply_pdf">apply_pdf() (yadism.esf.esf_result.ESFResult method)</a>
 
       <ul>
         <li><a href="modules/yadism.html#yadism.output.Output.apply_pdf">(yadism.output.Output method)</a>
+</li>
+        <li><a href="modules/yadism.html#yadism.runner.Runner.apply_pdf">(yadism.runner.Runner method)</a>
 </li>
       </ul></li>
       <li><a href="modules/yadism.input.html#yadism.input.constraints.Argument">Argument (class in yadism.input.constraints)</a>
@@ -408,6 +399,10 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.ic.C1m">C1m() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.C1p">C1p() (in module yadism.ic)</a>
+</li>
       <li><a href="modules/yadism.input.html#yadism.input.inspector.Inspector.check_cross_constraints">check_cross_constraints() (yadism.input.inspector.Inspector method)</a>
 </li>
       <li><a href="modules/yadism.input.html#yadism.input.inspector.Inspector.check_domains">check_domains() (yadism.input.inspector.Inspector method)</a>
@@ -424,19 +419,43 @@
         <li><a href="modules/yadism.input.html#yadism.input.constraints.StringArgument.check_value">(yadism.input.constraints.StringArgument method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.coupling_constants.CKM2Matrix">CKM2Matrix (class in yadism.coupling_constants)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.runner.Runner.clear">clear() (yadism.runner.Runner method)</a>
 </li>
+      <li><a href="modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner">CoefficientFunctionsCombiner (class in yadism.cf_combiner)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_elems">collect_elems() (yadism.cf_combiner.CoefficientFunctionsCombiner method)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_ffns">collect_ffns() (yadism.cf_combiner.CoefficientFunctionsCombiner method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_fonll">collect_fonll() (yadism.cf_combiner.CoefficientFunctionsCombiner method)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_zmvfns">collect_zmvfns() (yadism.cf_combiner.CoefficientFunctionsCombiner method)</a>
+</li>
       <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.compare">compare() (yadism.esf.distribution_vec.DistributionVec method)</a>
 </li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.f_total.EvaluatedStructureFunctionFtotal.components">components() (yadism.esf.f_total.EvaluatedStructureFunctionFtotal property)</a>
+      <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction.compute_coefficient_function">compute_coefficient_function() (yadism.esf.esf.EvaluatedStructureFunction method)</a>
+</li>
+      <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction.compute_local">compute_local() (yadism.esf.esf.EvaluatedStructureFunction method)</a>
 </li>
       <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.convolution">convolution() (yadism.esf.distribution_vec.DistributionVec method)</a>
 </li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.partonic_channel.PartonicChannelHeavy.convolution_point">convolution_point() (yadism.cc.partonic_channel.PartonicChannelHeavy method)</a>
+
+      <ul>
+        <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannel.convolution_point">(yadism.partonic_channel.PartonicChannel method)</a>
+</li>
+        <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelAsyIntrinsic.convolution_point">(yadism.partonic_channel.PartonicChannelAsyIntrinsic method)</a>
+</li>
+      </ul></li>
       <li><a href="modules/yadism.html#yadism.coupling_constants.CouplingConstants">CouplingConstants (class in yadism.coupling_constants)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.Cplus">Cplus() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.CRm">CRm() (in module yadism.ic)</a>
 </li>
       <li><a href="modules/yadism.input.html#yadism.input.constraints.CrossConstraint">CrossConstraint (class in yadism.input.constraints)</a>
 </li>
@@ -448,6 +467,8 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.damp_elems">damp_elems() (yadism.cf_combiner.CoefficientFunctionsCombiner method)</a>
+</li>
       <li><a href="modules/yadism.nc.html#yadism.nc.partonic_channel.PartonicChannelHeavy.decorator">decorator() (yadism.nc.partonic_channel.PartonicChannelHeavy method)</a>
 
       <ul>
@@ -458,26 +479,30 @@
 </li>
       <li><a href="modules/yadism.input.html#yadism.input.defaults.DefaultManager">DefaultManager (class in yadism.input.defaults)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.input.html#yadism.input.errors.DefaultWarning">DefaultWarning</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec">DistributionVec (class in yadism.esf.distribution_vec)</a>
 </li>
       <li><a href="modules/yadism.input.html#yadism.input.errors.DomainError">DomainError</a>
 </li>
-      <li><a href="modules/yadism.html#yadism.output.Output.dump">dump() (yadism.output.Output method)</a>
-
-      <ul>
-        <li><a href="modules/yadism.html#yadism.runner.Runner.dump">(yadism.runner.Runner method)</a>
+      <li><a href="modules/yadism.html#yadism.runner.Runner.dump">dump() (yadism.runner.Runner method)</a>
 </li>
-      </ul></li>
+      <li><a href="modules/yadism.html#yadism.output.PDFOutput.dump_tables_to_file">dump_tables_to_file() (yadism.output.PDFOutput method)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.output.Output.dump_yaml">dump_yaml() (yadism.output.Output method)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.output.Output.dump_yaml_to_file">dump_yaml_to_file() (yadism.output.Output method)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.partonic_channel.EmptyPartonicChannel">EmptyPartonicChannel (class in yadism.partonic_channel)</a>
+</li>
       <li><a href="modules/yadism.input.html#yadism.input.constraints.EnumArgument">EnumArgument (class in yadism.input.constraints)</a>
 </li>
       <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.eps_integration_abs">eps_integration_abs (yadism.esf.distribution_vec.DistributionVec attribute)</a>
@@ -486,23 +511,17 @@
 </li>
       <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult">ESFResult (class in yadism.esf.esf_result)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.tmc.ESFTMC_F2">ESFTMC_F2 (class in yadism.tmc)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.tmc.ESFTMC_F3">ESFTMC_F3 (class in yadism.tmc)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.tmc.ESFTMC_FL">ESFTMC_FL (class in yadism.tmc)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.tmc.ESFTMCmap">ESFTMCmap (in module yadism.tmc)</a>
 </li>
       <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction">EvaluatedStructureFunction (class in yadism.esf.esf)</a>
-</li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.f_total.EvaluatedStructureFunctionFtotal">EvaluatedStructureFunctionFtotal (class in yadism.esf.f_total)</a>
-</li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunctionHeavy">EvaluatedStructureFunctionHeavy (class in yadism.esf.esf)</a>
-</li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunctionLight">EvaluatedStructureFunctionLight (class in yadism.esf.esf)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC">EvaluatedStructureFunctionTMC (class in yadism.tmc)</a>
 </li>
@@ -512,6 +531,30 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.ic.f1_sminus_raw">f1_sminus_raw() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f1_sminus_soft">f1_sminus_soft() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f1_sminus_virt">f1_sminus_virt() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f1_splus_raw">f1_splus_raw() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f1_splus_soft">f1_splus_soft() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f1_splus_virt">f1_splus_virt() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f2_sminus_raw">f2_sminus_raw() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f2_sminus_soft">f2_sminus_soft() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f2_sminus_virt">f2_sminus_virt() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f2_splus_raw">f2_splus_raw() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f2_splus_soft">f2_splus_soft() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f2_splus_virt">f2_splus_virt() (in module yadism.ic)</a>
+</li>
       <li><a href="modules/yadism.cc.html#yadism.cc.f2_asy.F2asyGluon">F2asyGluon (class in yadism.cc.f2_asy)</a>
 </li>
       <li><a href="modules/yadism.nc.html#yadism.nc.f2_asy.F2asyGluonAA">F2asyGluonAA (class in yadism.nc.f2_asy)</a>
@@ -528,38 +571,72 @@
 </li>
       <li><a href="modules/yadism.cc.html#yadism.cc.f2_heavy.F2heavyQuark">F2heavyQuark (class in yadism.cc.f2_heavy)</a>
 </li>
+      <li><a href="modules/yadism.nc.html#yadism.nc.f2_intrinsic.F2IntrinsicSm">F2IntrinsicSm (class in yadism.nc.f2_intrinsic)</a>
+</li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.f2_intrinsic.F2IntrinsicSp">F2IntrinsicSp (class in yadism.cc.f2_intrinsic)</a>
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f2_intrinsic.F2IntrinsicSp">(class in yadism.nc.f2_intrinsic)</a>
+</li>
+      </ul></li>
       <li><a href="modules/yadism.cc.html#yadism.cc.f2_light.F2lightGluon">F2lightGluon (class in yadism.cc.f2_light)</a>
 
       <ul>
         <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightGluon">(class in yadism.nc.f2_light)</a>
 </li>
       </ul></li>
-      <li><a href="modules/yadism.cc.html#yadism.cc.f2_light.F2lightQuark">F2lightQuark (class in yadism.cc.f2_light)</a>
-
-      <ul>
-        <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightQuark">(class in yadism.nc.f2_light)</a>
+      <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightNonSinglet">F2lightNonSinglet (class in yadism.nc.f2_light)</a>
 </li>
-      </ul></li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.f2_light.F2lightQuark">F2lightQuark (class in yadism.cc.f2_light)</a>
+</li>
+      <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightSinglet">F2lightSinglet (class in yadism.nc.f2_light)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f3_rminus_raw">f3_rminus_raw() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f3_rminus_soft">f3_rminus_soft() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f3_rminus_virt">f3_rminus_virt() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f3_rplus_raw">f3_rplus_raw() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f3_rplus_soft">f3_rplus_soft() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.f3_rplus_virt">f3_rplus_virt() (in module yadism.ic)</a>
+</li>
       <li><a href="modules/yadism.cc.html#yadism.cc.f3_asy.F3asyGluon">F3asyGluon (class in yadism.cc.f3_asy)</a>
 </li>
       <li><a href="modules/yadism.cc.html#yadism.cc.f3_asy.F3asyQuark">F3asyQuark (class in yadism.cc.f3_asy)</a>
 </li>
-      <li><a href="modules/yadism.nc.html#yadism.nc.f3_asy.F3asyQuarkVA">F3asyQuarkVA (class in yadism.nc.f3_asy)</a>
-</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.cc.html#yadism.cc.f3_heavy.F3heavyGluon">F3heavyGluon (class in yadism.cc.f3_heavy)</a>
 </li>
       <li><a href="modules/yadism.cc.html#yadism.cc.f3_heavy.F3heavyQuark">F3heavyQuark (class in yadism.cc.f3_heavy)</a>
 </li>
-      <li><a href="modules/yadism.nc.html#yadism.nc.f3_heavy.F3heavyQuarkVA">F3heavyQuarkVA (class in yadism.nc.f3_heavy)</a>
+      <li><a href="modules/yadism.nc.html#yadism.nc.f3_intrinsic.F3IntrinsicRm">F3IntrinsicRm (class in yadism.nc.f3_intrinsic)</a>
 </li>
-      <li><a href="modules/yadism.cc.html#yadism.cc.f3_light.F3lightQuark">F3lightQuark (class in yadism.cc.f3_light)</a>
+      <li><a href="modules/yadism.cc.html#yadism.cc.f3_intrinsic.F3IntrinsicRp">F3IntrinsicRp (class in yadism.cc.f3_intrinsic)</a>
 
       <ul>
-        <li><a href="modules/yadism.nc.html#yadism.nc.f3_light.F3lightQuark">(class in yadism.nc.f3_light)</a>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f3_intrinsic.F3IntrinsicRp">(class in yadism.nc.f3_intrinsic)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.nc.html#yadism.nc.f3_light.F3lightNonSinglet">F3lightNonSinglet (class in yadism.nc.f3_light)</a>
+</li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.f3_light.F3lightQuark">F3lightQuark (class in yadism.cc.f3_light)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.fl_sminus_raw">fl_sminus_raw() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.fl_sminus_soft">fl_sminus_soft() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.fl_sminus_virt">fl_sminus_virt() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.fl_splus_raw">fl_splus_raw() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.fl_splus_soft">fl_splus_soft() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.fl_splus_virt">fl_splus_virt() (in module yadism.ic)</a>
+</li>
       <li><a href="modules/yadism.cc.html#yadism.cc.fl_asy.FLasyGluon">FLasyGluon (class in yadism.cc.fl_asy)</a>
 </li>
       <li><a href="modules/yadism.nc.html#yadism.nc.fl_asy.FLasyGluonAA">FLasyGluonAA (class in yadism.nc.fl_asy)</a>
@@ -582,18 +659,30 @@
 </li>
       <li><a href="modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyQuark">FLheavyQuark (class in yadism.cc.fl_heavy)</a>
 </li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.fl_intrinsic.FLIntrinsicSm">FLIntrinsicSm (class in yadism.cc.fl_intrinsic)</a>
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#yadism.nc.fl_intrinsic.FLIntrinsicSm">(class in yadism.nc.fl_intrinsic)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.fl_intrinsic.FLIntrinsicSp">FLIntrinsicSp (class in yadism.cc.fl_intrinsic)</a>
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#yadism.nc.fl_intrinsic.FLIntrinsicSp">(class in yadism.nc.fl_intrinsic)</a>
+</li>
+      </ul></li>
       <li><a href="modules/yadism.cc.html#yadism.cc.fl_light.FLlightGluon">FLlightGluon (class in yadism.cc.fl_light)</a>
 
       <ul>
         <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightGluon">(class in yadism.nc.fl_light)</a>
 </li>
       </ul></li>
-      <li><a href="modules/yadism.cc.html#yadism.cc.fl_light.FLlightQuark">FLlightQuark (class in yadism.cc.fl_light)</a>
-
-      <ul>
-        <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightQuark">(class in yadism.nc.fl_light)</a>
+      <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightNonSinglet">FLlightNonSinglet (class in yadism.nc.fl_light)</a>
 </li>
-      </ul></li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.fl_light.FLlightQuark">FLlightQuark (class in yadism.cc.fl_light)</a>
+</li>
+      <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightSinglet">FLlightSinglet (class in yadism.nc.fl_light)</a>
+</li>
       <li><a href="modules/yadism.html#yadism.coupling_constants.CouplingConstants.from_dict">from_dict() (yadism.coupling_constants.CouplingConstants class method)</a>
 
       <ul>
@@ -608,28 +697,60 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/yadism.html#yadism.sf.StructureFunction.get_esf">get_esf() (yadism.sf.StructureFunction method)</a>
-</li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction.get_output">get_output() (yadism.esf.esf.EvaluatedStructureFunction method)</a>
+      <li><a href="modules/yadism.cc.html#yadism.cc.kernels.generate_heavy">generate_heavy() (in module yadism.cc.kernels)</a>
 
       <ul>
-        <li><a href="modules/yadism.html#yadism.runner.Runner.get_output">(yadism.runner.Runner method)</a>
+        <li><a href="modules/yadism.nc.html#yadism.nc.kernels.generate_heavy">(in module yadism.nc.kernels)</a>
 </li>
-        <li><a href="modules/yadism.html#yadism.sf.StructureFunction.get_output">(yadism.sf.StructureFunction method)</a>
+      </ul></li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.kernels.generate_heavy_fonll_diff">generate_heavy_fonll_diff() (in module yadism.cc.kernels)</a>
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#yadism.nc.kernels.generate_heavy_fonll_diff">(in module yadism.nc.kernels)</a>
 </li>
-        <li><a href="modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC.get_output">(yadism.tmc.EvaluatedStructureFunctionTMC method)</a>
+      </ul></li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.kernels.generate_intrinsic">generate_intrinsic() (in module yadism.cc.kernels)</a>
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#yadism.nc.kernels.generate_intrinsic">(in module yadism.nc.kernels)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.kernels.generate_light">generate_light() (in module yadism.cc.kernels)</a>
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#yadism.nc.kernels.generate_light">(in module yadism.nc.kernels)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/yadism.cc.html#yadism.cc.kernels.generate_light_fonll_diff">generate_light_fonll_diff() (in module yadism.cc.kernels)</a>
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#yadism.nc.kernels.generate_light_fonll_diff">(in module yadism.nc.kernels)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.get_raw">get_raw() (yadism.esf.esf_result.ESFResult method)</a>
+      <li><a href="modules/yadism.html#yadism.sf.StructureFunction.get_esf">get_esf() (yadism.sf.StructureFunction method)</a>
 </li>
+      <li><a href="modules/yadism.html#yadism.runner.Runner.get_output">get_output() (yadism.runner.Runner method)</a>
+
+      <ul>
+        <li><a href="modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC.get_output">(yadism.tmc.EvaluatedStructureFunctionTMC method)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.get_raw">get_raw() (yadism.esf.esf_result.ESFResult method)</a>
+
+      <ul>
+        <li><a href="modules/yadism.html#yadism.output.Output.get_raw">(yadism.output.Output method)</a>
+</li>
+        <li><a href="modules/yadism.html#yadism.output.PDFOutput.get_raw">(yadism.output.PDFOutput method)</a>
+</li>
+      </ul></li>
       <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunction.get_result">get_result() (yadism.esf.esf.EvaluatedStructureFunction method)</a>
 
       <ul>
-        <li><a href="modules/yadism.esf.html#yadism.esf.esf.EvaluatedStructureFunctionHeavy.get_result">(yadism.esf.esf.EvaluatedStructureFunctionHeavy method)</a>
+        <li><a href="modules/yadism.html#yadism.runner.Runner.get_result">(yadism.runner.Runner method)</a>
 </li>
-        <li><a href="modules/yadism.esf.html#yadism.esf.f_total.EvaluatedStructureFunctionFtotal.get_result">(yadism.esf.f_total.EvaluatedStructureFunctionFtotal method)</a>
+        <li><a href="modules/yadism.html#yadism.sf.StructureFunction.get_result">(yadism.sf.StructureFunction method)</a>
 </li>
         <li><a href="modules/yadism.html#yadism.tmc.EvaluatedStructureFunctionTMC.get_result">(yadism.tmc.EvaluatedStructureFunctionTMC method)</a>
 </li>
@@ -646,8 +767,6 @@
 </li>
       <li><a href="modules/yadism.cc.html#yadism.cc.partonic_channel.PartonicChannelHeavy.h_q">h_q() (yadism.cc.partonic_channel.PartonicChannelHeavy method)</a>
 </li>
-      <li><a href="modules/yadism.html#yadism.coupling_constants.CouplingConstants.hadronic_coupling">hadronic_coupling() (yadism.coupling_constants.CouplingConstants method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.has_heavies">has_heavies() (yadism.observable_name.ObservableName class method)</a>
@@ -662,16 +781,22 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.ic.I1">I1() (in module yadism.ic)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelHeavyIntrinsic.init_nlo_vars">init_nlo_vars() (yadism.partonic_channel.PartonicChannelHeavyIntrinsic method)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelHeavyIntrinsic.init_vars">init_vars() (yadism.partonic_channel.PartonicChannelHeavyIntrinsic method)</a>
+</li>
       <li><a href="modules/yadism.input.html#yadism.input.inspector.Inspector">Inspector (class in yadism.input.inspector)</a>
 </li>
       <li><a href="modules/yadism.input.html#yadism.input.constraints.IntegerArgument">IntegerArgument (class in yadism.input.constraints)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.is_asy">is_asy() (yadism.observable_name.ObservableName property)</a>
 </li>
-      <li><a href="modules/yadism.nc.html#yadism.nc.partonic_channel.PartonicChannelHeavy.is_below_threshold">is_below_threshold() (yadism.nc.partonic_channel.PartonicChannelHeavy method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.nc.html#yadism.nc.partonic_channel.PartonicChannelHeavy.is_below_threshold">is_below_threshold() (yadism.nc.partonic_channel.PartonicChannelHeavy method)</a>
+</li>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.is_composed">is_composed() (yadism.observable_name.ObservableName property)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.is_heavy">is_heavy() (yadism.observable_name.ObservableName property)</a>
@@ -681,6 +806,18 @@
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.is_raw_heavy">is_raw_heavy() (yadism.observable_name.ObservableName property)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.is_valid">is_valid() (yadism.observable_name.ObservableName class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.kernels.Kernel">Kernel (class in yadism.kernels)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelAsyIntrinsic.kinematic_delta">kinematic_delta() (yadism.partonic_channel.PartonicChannelAsyIntrinsic static method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -723,11 +860,7 @@
 </li>
         <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightGluon.label">(yadism.nc.f2_light.F2lightGluon attribute)</a>
 </li>
-        <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightQuark.label">(yadism.nc.f2_light.F2lightQuark attribute)</a>
-</li>
-        <li><a href="modules/yadism.nc.html#yadism.nc.f3_asy.F3asyQuarkVA.label">(yadism.nc.f3_asy.F3asyQuarkVA attribute)</a>
-</li>
-        <li><a href="modules/yadism.nc.html#yadism.nc.f3_heavy.F3heavyQuarkVA.label">(yadism.nc.f3_heavy.F3heavyQuarkVA attribute)</a>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightNonSinglet.label">(yadism.nc.f2_light.F2lightNonSinglet attribute)</a>
 </li>
         <li><a href="modules/yadism.nc.html#yadism.nc.fl_asy.FLasyGluonAA.label">(yadism.nc.fl_asy.FLasyGluonAA attribute)</a>
 </li>
@@ -739,12 +872,14 @@
 </li>
         <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightGluon.label">(yadism.nc.fl_light.FLlightGluon attribute)</a>
 </li>
-        <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightQuark.label">(yadism.nc.fl_light.FLlightQuark attribute)</a>
+        <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightNonSinglet.label">(yadism.nc.fl_light.FLlightNonSinglet attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/yadism.html#yadism.coupling_constants.CouplingConstants.leptonic_coupling">leptonic_coupling() (yadism.coupling_constants.CouplingConstants method)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.ic.li2">li2() (in module yadism.ic)</a>
 </li>
       <li><a href="modules/yadism.cc.html#yadism.cc.f2_asy.F2asyQuark.LO">LO() (yadism.cc.f2_asy.F2asyQuark method)</a>
 
@@ -757,17 +892,29 @@
 </li>
         <li><a href="modules/yadism.cc.html#yadism.cc.fl_heavy.FLheavyQuark.LO">(yadism.cc.fl_heavy.FLheavyQuark method)</a>
 </li>
-        <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightQuark.LO">(yadism.nc.f2_light.F2lightQuark static method)</a>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f2_intrinsic.F2IntrinsicSp.LO">(yadism.nc.f2_intrinsic.F2IntrinsicSp method)</a>
+</li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightNonSinglet.LO">(yadism.nc.f2_light.F2lightNonSinglet static method)</a>
+</li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f3_intrinsic.F3IntrinsicRp.LO">(yadism.nc.f3_intrinsic.F3IntrinsicRp method)</a>
+</li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.fl_intrinsic.FLIntrinsicSm.LO">(yadism.nc.fl_intrinsic.FLIntrinsicSm method)</a>
+</li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.fl_intrinsic.FLIntrinsicSp.LO">(yadism.nc.fl_intrinsic.FLIntrinsicSp method)</a>
 </li>
         <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannel.LO">(yadism.partonic_channel.PartonicChannel static method)</a>
 </li>
       </ul></li>
-      <li><a href="modules/yadism.html#yadism.output.Output.load">load() (yadism.output.Output method)</a>
+      <li><a href="modules/yadism.html#yadism.sf.StructureFunction.load">load() (yadism.sf.StructureFunction method)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.output.Output.load_yaml">load_yaml() (yadism.output.Output class method)</a>
 
       <ul>
-        <li><a href="modules/yadism.html#yadism.sf.StructureFunction.load">(yadism.sf.StructureFunction method)</a>
+        <li><a href="modules/yadism.html#yadism.output.PDFOutput.load_yaml">(yadism.output.PDFOutput class method)</a>
 </li>
       </ul></li>
+      <li><a href="modules/yadism.html#yadism.output.Output.load_yaml_from_file">load_yaml_from_file() (yadism.output.Output class method)</a>
+</li>
       <li><a href="modules/yadism.html#yadism.coupling_constants.CouplingConstants.log">log() (yadism.coupling_constants.CouplingConstants method)</a>
 </li>
   </ul></td>
@@ -779,6 +926,8 @@
       <li><a href="modules/yadism.html#yadism.coupling_constants.CKM2Matrix.masked">masked() (yadism.coupling_constants.CKM2Matrix method)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.observable_name.ObservableName.mass_label">mass_label() (yadism.observable_name.ObservableName property)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelHeavyIntrinsic.mkNLO">mkNLO() (yadism.partonic_channel.PartonicChannelHeavyIntrinsic method)</a>
 </li>
       <li>
     module
@@ -792,11 +941,15 @@
 </li>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.f2_heavy">yadism.cc.f2_heavy</a>
 </li>
+        <li><a href="modules/yadism.cc.html#module-yadism.cc.f2_intrinsic">yadism.cc.f2_intrinsic</a>
+</li>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.f2_light">yadism.cc.f2_light</a>
 </li>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.f3_asy">yadism.cc.f3_asy</a>
 </li>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.f3_heavy">yadism.cc.f3_heavy</a>
+</li>
+        <li><a href="modules/yadism.cc.html#module-yadism.cc.f3_intrinsic">yadism.cc.f3_intrinsic</a>
 </li>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.f3_light">yadism.cc.f3_light</a>
 </li>
@@ -804,11 +957,15 @@
 </li>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.fl_heavy">yadism.cc.fl_heavy</a>
 </li>
+        <li><a href="modules/yadism.cc.html#module-yadism.cc.fl_intrinsic">yadism.cc.fl_intrinsic</a>
+</li>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.fl_light">yadism.cc.fl_light</a>
+</li>
+        <li><a href="modules/yadism.cc.html#module-yadism.cc.kernels">yadism.cc.kernels</a>
 </li>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.partonic_channel">yadism.cc.partonic_channel</a>
 </li>
-        <li><a href="modules/yadism.cc.html#module-yadism.cc.weights">yadism.cc.weights</a>
+        <li><a href="modules/yadism.html#module-yadism.cf_combiner">yadism.cf_combiner</a>
 </li>
         <li><a href="modules/yadism.html#module-yadism.coupling_constants">yadism.coupling_constants</a>
 </li>
@@ -820,9 +977,11 @@
 </li>
         <li><a href="modules/yadism.esf.html#module-yadism.esf.esf_result">yadism.esf.esf_result</a>
 </li>
-        <li><a href="modules/yadism.esf.html#module-yadism.esf.f_total">yadism.esf.f_total</a>
+        <li><a href="modules/yadism.html#module-yadism.ic">yadism.ic</a>
 </li>
         <li><a href="modules/yadism.input.html#module-yadism.input">yadism.input</a>
+</li>
+        <li><a href="modules/yadism.input.html#module-yadism.input.compatibility">yadism.input.compatibility</a>
 </li>
         <li><a href="modules/yadism.input.html#module-yadism.input.constraints">yadism.input.constraints</a>
 </li>
@@ -832,6 +991,8 @@
 </li>
         <li><a href="modules/yadism.input.html#module-yadism.input.inspector">yadism.input.inspector</a>
 </li>
+        <li><a href="modules/yadism.html#module-yadism.kernels">yadism.kernels</a>
+</li>
         <li><a href="modules/yadism.html#module-yadism.log">yadism.log</a>
 </li>
         <li><a href="modules/yadism.nc.html#module-yadism.nc">yadism.nc</a>
@@ -840,11 +1001,11 @@
 </li>
         <li><a href="modules/yadism.nc.html#module-yadism.nc.f2_heavy">yadism.nc.f2_heavy</a>
 </li>
+        <li><a href="modules/yadism.nc.html#module-yadism.nc.f2_intrinsic">yadism.nc.f2_intrinsic</a>
+</li>
         <li><a href="modules/yadism.nc.html#module-yadism.nc.f2_light">yadism.nc.f2_light</a>
 </li>
-        <li><a href="modules/yadism.nc.html#module-yadism.nc.f3_asy">yadism.nc.f3_asy</a>
-</li>
-        <li><a href="modules/yadism.nc.html#module-yadism.nc.f3_heavy">yadism.nc.f3_heavy</a>
+        <li><a href="modules/yadism.nc.html#module-yadism.nc.f3_intrinsic">yadism.nc.f3_intrinsic</a>
 </li>
         <li><a href="modules/yadism.nc.html#module-yadism.nc.f3_light">yadism.nc.f3_light</a>
 </li>
@@ -852,11 +1013,13 @@
 </li>
         <li><a href="modules/yadism.nc.html#module-yadism.nc.fl_heavy">yadism.nc.fl_heavy</a>
 </li>
+        <li><a href="modules/yadism.nc.html#module-yadism.nc.fl_intrinsic">yadism.nc.fl_intrinsic</a>
+</li>
         <li><a href="modules/yadism.nc.html#module-yadism.nc.fl_light">yadism.nc.fl_light</a>
 </li>
-        <li><a href="modules/yadism.nc.html#module-yadism.nc.partonic_channel">yadism.nc.partonic_channel</a>
+        <li><a href="modules/yadism.nc.html#module-yadism.nc.kernels">yadism.nc.kernels</a>
 </li>
-        <li><a href="modules/yadism.nc.html#module-yadism.nc.weights">yadism.nc.weights</a>
+        <li><a href="modules/yadism.nc.html#module-yadism.nc.partonic_channel">yadism.nc.partonic_channel</a>
 </li>
         <li><a href="modules/yadism.html#module-yadism.observable_name">yadism.observable_name</a>
 </li>
@@ -914,11 +1077,19 @@
 </li>
         <li><a href="modules/yadism.nc.html#yadism.nc.f2_heavy.F2heavyGluonVV.NLO">(yadism.nc.f2_heavy.F2heavyGluonVV method)</a>
 </li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f2_intrinsic.F2IntrinsicSm.NLO">(yadism.nc.f2_intrinsic.F2IntrinsicSm method)</a>
+</li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f2_intrinsic.F2IntrinsicSp.NLO">(yadism.nc.f2_intrinsic.F2IntrinsicSp method)</a>
+</li>
         <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightGluon.NLO">(yadism.nc.f2_light.F2lightGluon method)</a>
 </li>
-        <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightQuark.NLO">(yadism.nc.f2_light.F2lightQuark method)</a>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightNonSinglet.NLO">(yadism.nc.f2_light.F2lightNonSinglet method)</a>
 </li>
-        <li><a href="modules/yadism.nc.html#yadism.nc.f3_light.F3lightQuark.NLO">(yadism.nc.f3_light.F3lightQuark method)</a>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f3_intrinsic.F3IntrinsicRm.NLO">(yadism.nc.f3_intrinsic.F3IntrinsicRm method)</a>
+</li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f3_intrinsic.F3IntrinsicRp.NLO">(yadism.nc.f3_intrinsic.F3IntrinsicRp method)</a>
+</li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f3_light.F3lightNonSinglet.NLO">(yadism.nc.f3_light.F3lightNonSinglet method)</a>
 </li>
         <li><a href="modules/yadism.nc.html#yadism.nc.fl_asy.FLasyGluonVV.NLO">(yadism.nc.fl_asy.FLasyGluonVV method)</a>
 </li>
@@ -926,9 +1097,13 @@
 </li>
         <li><a href="modules/yadism.nc.html#yadism.nc.fl_heavy.FLheavyGluonVV.NLO">(yadism.nc.fl_heavy.FLheavyGluonVV method)</a>
 </li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.fl_intrinsic.FLIntrinsicSm.NLO">(yadism.nc.fl_intrinsic.FLIntrinsicSm method)</a>
+</li>
+        <li><a href="modules/yadism.nc.html#yadism.nc.fl_intrinsic.FLIntrinsicSp.NLO">(yadism.nc.fl_intrinsic.FLIntrinsicSp method)</a>
+</li>
         <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightGluon.NLO">(yadism.nc.fl_light.FLlightGluon method)</a>
 </li>
-        <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightQuark.NLO">(yadism.nc.fl_light.FLlightQuark method)</a>
+        <li><a href="modules/yadism.nc.html#yadism.nc.fl_light.FLlightNonSinglet.NLO">(yadism.nc.fl_light.FLlightNonSinglet method)</a>
 </li>
         <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannel.NLO">(yadism.partonic_channel.PartonicChannel static method)</a>
 </li>
@@ -958,7 +1133,7 @@
 </li>
         <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightGluon.NLO_fact">(yadism.nc.f2_light.F2lightGluon method)</a>
 </li>
-        <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightQuark.NLO_fact">(yadism.nc.f2_light.F2lightQuark method)</a>
+        <li><a href="modules/yadism.nc.html#yadism.nc.f2_light.F2lightNonSinglet.NLO_fact">(yadism.nc.f2_light.F2lightNonSinglet method)</a>
 </li>
         <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannel.NLO_fact">(yadism.partonic_channel.PartonicChannel static method)</a>
 </li>
@@ -981,9 +1156,13 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.coupling_constants.CouplingConstants.partonic_coupling">partonic_coupling() (yadism.coupling_constants.CouplingConstants method)</a>
+</li>
       <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannel">PartonicChannel (class in yadism.partonic_channel)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelAsy">PartonicChannelAsy (class in yadism.partonic_channel)</a>
+</li>
+      <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelAsyIntrinsic">PartonicChannelAsyIntrinsic (class in yadism.partonic_channel)</a>
 </li>
       <li><a href="modules/yadism.cc.html#yadism.cc.partonic_channel.PartonicChannelHeavy">PartonicChannelHeavy (class in yadism.cc.partonic_channel)</a>
 
@@ -991,12 +1170,16 @@
         <li><a href="modules/yadism.nc.html#yadism.nc.partonic_channel.PartonicChannelHeavy">(class in yadism.nc.partonic_channel)</a>
 </li>
       </ul></li>
-      <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelLight">PartonicChannelLight (class in yadism.partonic_channel)</a>
+      <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelHeavyIntrinsic">PartonicChannelHeavyIntrinsic (class in yadism.partonic_channel)</a>
 </li>
-      <li><a href="modules/yadism.input.html#yadism.input.inspector.Inspector.perform_all_checks">perform_all_checks() (yadism.input.inspector.Inspector method)</a>
+      <li><a href="modules/yadism.html#yadism.partonic_channel.PartonicChannelLight">PartonicChannelLight (class in yadism.partonic_channel)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.output.PDFOutput">PDFOutput (class in yadism.output)</a>
+</li>
+      <li><a href="modules/yadism.input.html#yadism.input.inspector.Inspector.perform_all_checks">perform_all_checks() (yadism.input.inspector.Inspector method)</a>
+</li>
       <li><a href="modules/yadism.html#yadism.coupling_constants.CKM2Matrix.pid_cols">pid_cols (yadism.coupling_constants.CKM2Matrix attribute)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.coupling_constants.CKM2Matrix.pid_rows">pid_rows (yadism.coupling_constants.CKM2Matrix attribute)</a>
@@ -1025,7 +1208,7 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/yadism.esf.html#yadism.esf.rsl_from_distr_coeffs">rsl_from_distr_coeffs() (in module yadism.esf)</a>
+      <li><a href="modules/yadism.esf.html#yadism.esf.distribution_vec.rsl_from_distr_coeffs">rsl_from_distr_coeffs() (in module yadism.esf.distribution_vec)</a>
 </li>
       <li><a href="modules/yadism.html#yadism.run_yadism">run_yadism() (in module yadism)</a>
 </li>
@@ -1037,15 +1220,31 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/yadism.html#yadism.log.setup">setup() (in module yadism.log)</a>
+      <li><a href="modules/yadism.html#yadism.ic.S">S() (in module yadism.ic)</a>
 </li>
-      <li><a href="modules/yadism.input.html#yadism.input.constraints.StringArgument">StringArgument (class in yadism.input.constraints)</a>
+      <li><a href="modules/yadism.html#yadism.log.setup">setup() (in module yadism.log)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.input.html#yadism.input.constraints.StringArgument">StringArgument (class in yadism.input.constraints)</a>
+</li>
       <li><a href="modules/yadism.html#yadism.sf.StructureFunction">StructureFunction (class in yadism.sf)</a>
 </li>
-      <li><a href="modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.suffix">suffix() (yadism.esf.esf_result.ESFResult method)</a>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.html#yadism.output.PDFOutput.tables">tables() (yadism.output.PDFOutput property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/yadism.input.html#yadism.input.compatibility.update">update() (in module yadism.input.compatibility)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1061,15 +1260,13 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/yadism.cc.html#yadism.cc.weights.weights">weights() (in module yadism.cc.weights)</a>
-</li>
-      <li><a href="modules/yadism.nc.html#yadism.nc.weights.weights_heavy">weights_heavy() (in module yadism.nc.weights)</a>
+      <li><a href="modules/yadism.cc.html#yadism.cc.kernels.weights">weights() (in module yadism.cc.kernels)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/yadism.nc.html#yadism.nc.weights.weights_light">weights_light() (in module yadism.nc.weights)</a>
+      <li><a href="modules/yadism.nc.html#yadism.nc.kernels.weights_heavy">weights_heavy() (in module yadism.nc.kernels)</a>
 </li>
-      <li><a href="modules/yadism.nc.html#yadism.nc.weights_nc">weights_nc() (in module yadism.nc)</a>
+      <li><a href="modules/yadism.nc.html#yadism.nc.kernels.weights_light">weights_light() (in module yadism.nc.kernels)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1106,6 +1303,13 @@
 </li>
       </ul></li>
       <li>
+    yadism.cc.f2_intrinsic
+
+      <ul>
+        <li><a href="modules/yadism.cc.html#module-yadism.cc.f2_intrinsic">module</a>
+</li>
+      </ul></li>
+      <li>
     yadism.cc.f2_light
 
       <ul>
@@ -1124,6 +1328,13 @@
 
       <ul>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.f3_heavy">module</a>
+</li>
+      </ul></li>
+      <li>
+    yadism.cc.f3_intrinsic
+
+      <ul>
+        <li><a href="modules/yadism.cc.html#module-yadism.cc.f3_intrinsic">module</a>
 </li>
       </ul></li>
       <li>
@@ -1148,10 +1359,24 @@
 </li>
       </ul></li>
       <li>
+    yadism.cc.fl_intrinsic
+
+      <ul>
+        <li><a href="modules/yadism.cc.html#module-yadism.cc.fl_intrinsic">module</a>
+</li>
+      </ul></li>
+      <li>
     yadism.cc.fl_light
 
       <ul>
         <li><a href="modules/yadism.cc.html#module-yadism.cc.fl_light">module</a>
+</li>
+      </ul></li>
+      <li>
+    yadism.cc.kernels
+
+      <ul>
+        <li><a href="modules/yadism.cc.html#module-yadism.cc.kernels">module</a>
 </li>
       </ul></li>
       <li>
@@ -1162,10 +1387,10 @@
 </li>
       </ul></li>
       <li>
-    yadism.cc.weights
+    yadism.cf_combiner
 
       <ul>
-        <li><a href="modules/yadism.cc.html#module-yadism.cc.weights">module</a>
+        <li><a href="modules/yadism.html#module-yadism.cf_combiner">module</a>
 </li>
       </ul></li>
       <li>
@@ -1204,10 +1429,10 @@
 </li>
       </ul></li>
       <li>
-    yadism.esf.f_total
+    yadism.ic
 
       <ul>
-        <li><a href="modules/yadism.esf.html#module-yadism.esf.f_total">module</a>
+        <li><a href="modules/yadism.html#module-yadism.ic">module</a>
 </li>
       </ul></li>
       <li>
@@ -1218,12 +1443,21 @@
 </li>
       </ul></li>
       <li>
+    yadism.input.compatibility
+
+      <ul>
+        <li><a href="modules/yadism.input.html#module-yadism.input.compatibility">module</a>
+</li>
+      </ul></li>
+      <li>
     yadism.input.constraints
 
       <ul>
         <li><a href="modules/yadism.input.html#module-yadism.input.constraints">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     yadism.input.defaults
 
@@ -1231,8 +1465,6 @@
         <li><a href="modules/yadism.input.html#module-yadism.input.defaults">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     yadism.input.errors
 
@@ -1245,6 +1477,13 @@
 
       <ul>
         <li><a href="modules/yadism.input.html#module-yadism.input.inspector">module</a>
+</li>
+      </ul></li>
+      <li>
+    yadism.kernels
+
+      <ul>
+        <li><a href="modules/yadism.html#module-yadism.kernels">module</a>
 </li>
       </ul></li>
       <li>
@@ -1276,6 +1515,13 @@
 </li>
       </ul></li>
       <li>
+    yadism.nc.f2_intrinsic
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#module-yadism.nc.f2_intrinsic">module</a>
+</li>
+      </ul></li>
+      <li>
     yadism.nc.f2_light
 
       <ul>
@@ -1283,17 +1529,10 @@
 </li>
       </ul></li>
       <li>
-    yadism.nc.f3_asy
+    yadism.nc.f3_intrinsic
 
       <ul>
-        <li><a href="modules/yadism.nc.html#module-yadism.nc.f3_asy">module</a>
-</li>
-      </ul></li>
-      <li>
-    yadism.nc.f3_heavy
-
-      <ul>
-        <li><a href="modules/yadism.nc.html#module-yadism.nc.f3_heavy">module</a>
+        <li><a href="modules/yadism.nc.html#module-yadism.nc.f3_intrinsic">module</a>
 </li>
       </ul></li>
       <li>
@@ -1318,6 +1557,13 @@
 </li>
       </ul></li>
       <li>
+    yadism.nc.fl_intrinsic
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#module-yadism.nc.fl_intrinsic">module</a>
+</li>
+      </ul></li>
+      <li>
     yadism.nc.fl_light
 
       <ul>
@@ -1325,17 +1571,17 @@
 </li>
       </ul></li>
       <li>
+    yadism.nc.kernels
+
+      <ul>
+        <li><a href="modules/yadism.nc.html#module-yadism.nc.kernels">module</a>
+</li>
+      </ul></li>
+      <li>
     yadism.nc.partonic_channel
 
       <ul>
         <li><a href="modules/yadism.nc.html#module-yadism.nc.partonic_channel">module</a>
-</li>
-      </ul></li>
-      <li>
-    yadism.nc.weights
-
-      <ul>
-        <li><a href="modules/yadism.nc.html#module-yadism.nc.weights">module</a>
 </li>
       </ul></li>
       <li>
@@ -1396,7 +1642,6 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
@@ -1408,11 +1653,10 @@
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
 
 
 </footer>
-
         </div>
       </div>
 

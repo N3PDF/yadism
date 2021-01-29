@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>yadism.nc.partonic_channel &mdash; yadism 0.4.0-develop documentation</title>
+  <title>yadism.nc.partonic_channel &mdash; yadism 0.5.0-develop documentation</title>
   
 
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="../../../_static/logo-favicon-32x32.png"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
         <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
     
@@ -92,21 +94,25 @@
               
             
             
-              <p class="caption"><span class="caption-text">Package Reference</span></p>
+              <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">yadism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/indices.html">Indices and tables</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Theory</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">DIS introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions Calculation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/light-flavors.html">Light Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/heavy-flavors.html">Heavy Flavors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/processes.html">Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../theory/TMC.html">Target Mass Corrections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/yadism.html">API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Dev Tools</span></p>
 <ul>
@@ -156,6 +162,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -165,8 +173,6 @@
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
           <li><a href="../../yadism.html">yadism</a> &raquo;</li>
-        
-          <li><a href="../nc.html">yadism.nc</a> &raquo;</li>
         
       <li>yadism.nc.partonic_channel</li>
     
@@ -191,17 +197,18 @@
 
 <div class="viewcode-block" id="PartonicChannelHeavy"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.partonic_channel.PartonicChannelHeavy">[docs]</a><span class="k">class</span> <span class="nc">PartonicChannelHeavy</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">PartonicChannel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Heavy partonic coefficient functions that respect hadronic and partonic</span>
-<span class="sd">        thresholds.</span>
+<span class="sd">    Heavy partonic coefficient functions that respect hadronic and partonic</span>
+<span class="sd">    thresholds.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">m2hq</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m2hq</span> <span class="o">=</span> <span class="n">m2hq</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
         <span class="c1"># FH - Vogt comparison prefactor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_FHprefactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_FHprefactor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">Q2</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">m2hq</span><span class="p">)</span>
 
         <span class="c1"># common variables</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_rho_q</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_Q2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rho_q</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="n">m2hq</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">Q2</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rho</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_rho_q</span> <span class="o">*</span> <span class="n">z</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rho_p</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_rho_q</span> <span class="o">*</span> <span class="n">z</span>
 
@@ -211,51 +218,49 @@
 
 <div class="viewcode-block" id="PartonicChannelHeavy.decorator"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.partonic_channel.PartonicChannelHeavy.decorator">[docs]</a>    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Apply hadronic threshold</span>
+<span class="sd">        Apply hadronic threshold</span>
 
-<span class="sd">            Parameters</span>
-<span class="sd">            ----------</span>
-<span class="sd">                f : callable</span>
-<span class="sd">                    input</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            f : callable</span>
+<span class="sd">                input</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                f : callable</span>
-<span class="sd">                    output</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            f : callable</span>
+<span class="sd">                output</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># s_h = self.ESF._Q2 * (1 - self.ESF._x) / self.ESF._x</span>
-        <span class="c1"># if s_h &lt;= 4 * self.ESF._SF.M2hq:</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_below_threshold</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_x</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_below_threshold</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">x</span><span class="p">):</span>
             <span class="k">return</span> <span class="k">lambda</span><span class="p">:</span> <span class="mi">0</span>
         <span class="k">return</span> <span class="n">f</span></div>
 
 <div class="viewcode-block" id="PartonicChannelHeavy.is_below_threshold"><a class="viewcode-back" href="../../../modules/yadism.nc.html#yadism.nc.partonic_channel.PartonicChannelHeavy.is_below_threshold">[docs]</a>    <span class="k">def</span> <span class="nf">is_below_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Checks if the available energy is below production threshold or not</span>
+<span class="sd">        Checks if the available energy is below production threshold or not</span>
 
-<span class="sd">            Parameters</span>
-<span class="sd">            ----------</span>
-<span class="sd">                z : float</span>
-<span class="sd">                    partonic momentum fraction</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            z : float</span>
+<span class="sd">                partonic momentum fraction</span>
 
-<span class="sd">            Returns</span>
-<span class="sd">            -------</span>
-<span class="sd">                is_below_threshold : bool</span>
-<span class="sd">                    is the partonic energy sufficient to create the heavy quark</span>
-<span class="sd">                    pair?</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            is_below_threshold : bool</span>
+<span class="sd">                is the partonic energy sufficient to create the heavy quark</span>
+<span class="sd">                pair?</span>
 
-<span class="sd">            .. todo::</span>
-<span class="sd">                use threshold on shat or using FH&#39;s zmax?</span>
+<span class="sd">        .. todo::</span>
+<span class="sd">            use threshold on shat or using FH&#39;s zmax?</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">shat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_Q2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span>
-        <span class="k">return</span> <span class="n">shat</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">_SF</span><span class="o">.</span><span class="n">M2hq</span></div></div>
+        <span class="c1"># import pdb; pdb.set_trace()</span>
+        <span class="n">shat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESF</span><span class="o">.</span><span class="n">Q2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span>
+        <span class="k">return</span> <span class="n">shat</span> <span class="o">&lt;=</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">m2hq</span></div></div>
 </pre></div>
 
            </div>
            
           </div>
           <footer>
-  
 
   <hr/>
 
@@ -267,11 +272,10 @@
   <!-- your html code here -->
   <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
     
-    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2020, the N3PDF team</p>
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
 
 
 </footer>
-
         </div>
       </div>
 

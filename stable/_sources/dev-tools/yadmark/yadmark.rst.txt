@@ -19,26 +19,18 @@ Subpackages
 Submodules
 ----------
 
+yadmark.banana\_cfg module
+--------------------------
+
+.. automodule:: yadmark.banana_cfg
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadmark.mode\_selector module
 -----------------------------
 
 .. automodule:: yadmark.mode_selector
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadmark.toyLH module
---------------------
-
-.. automodule:: yadmark.toyLH
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-yadmark.utils module
---------------------
-
-.. automodule:: yadmark.utils
    :members:
    :undoc-members:
    :show-inheritance:

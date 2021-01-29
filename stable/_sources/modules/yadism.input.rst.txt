@@ -9,6 +9,14 @@ yadism.input package
 Submodules
 ----------
 
+yadism.input.compatibility module
+---------------------------------
+
+.. automodule:: yadism.input.compatibility
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yadism.input.constraints module
 -------------------------------
 
