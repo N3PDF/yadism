@@ -9,11 +9,11 @@ From Docstrings
 From Source Code
 ----------------
 
-`cf_combiner.py <file:///home/runner/work/yadism/yadism/src/yadism/cf_combiner.py>`_
+`coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
 
-.. warning:: #28 decide whether Q2 or muF2 is the correct thing
+.. warning:: #281 raise warning in log if inconsitent
 
-.. warning:: #151 drop all elements that have 0 weight
+.. warning:: #322 maybe raise warning if non-unitarian
 
 
 
@@ -31,11 +31,11 @@ From Source Code
 
 
 
-`coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
+`cf_combiner.py <file:///home/runner/work/yadism/yadism/src/yadism/cf_combiner.py>`_
 
-.. warning:: #281 raise warning in log if inconsitent
+.. warning:: #28 decide whether Q2 or muF2 is the correct thing
 
-.. warning:: #322 maybe raise warning if non-unitarian
+.. warning:: #151 drop all elements that have 0 weight
 
 
 
