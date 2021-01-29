@@ -109,7 +109,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#notations">Notations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#process-currents">Process / Currents</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#structure-function-kind">Structure Function Kind</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#target-mass-corrections">Target Mass Corrections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#target-mass-corrections">Target Mass Corrections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#f-l-definition"><span class="math notranslate nohighlight">\(F_L\)</span> definition</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fact.html">Factorization</a></li>
@@ -264,13 +267,19 @@ As the <span class="math notranslate nohighlight">\(W^\pm\)</span> are flavor ch
 </ul>
 </div>
 <div class="section" id="structure-function-kind">
-<h2>Structure Function Kind<a class="headerlink" href="#structure-function-kind" title="Permalink to this headline">¶</a></h2>
+<span id="kinds-def"></span><h2>Structure Function Kind<a class="headerlink" href="#structure-function-kind" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">yadism</span></code> allows to compute three different structure functions, to which we refer to as <strong>kind</strong>:</p>
 <div class="math notranslate nohighlight">
 \[F_2,~ F_L = F_2 - 2xF_1,~ xF_3\]</div>
 <ul class="simple">
 <li><p>to compute <span class="math notranslate nohighlight">\(F_L\)</span> instead of <span class="math notranslate nohighlight">\(F_1\)</span> is adventagous due to the Callan-Gross relation
-<span id="id3">[<a class="reference internal" href="../zzz-refs.html#id5"><span>CG69</span></a>]</span> <span class="math notranslate nohighlight">\(F_L=0\)</span> in the naive parton model</p></li>
+<span id="id3">[<a class="reference internal" href="../zzz-refs.html#id5"><span>CG69</span></a>]</span> <span class="math notranslate nohighlight">\(F_L=0\)</span> in the naive parton model</p>
+<ul>
+<li><p>notice that the <span class="math notranslate nohighlight">\(F_L\)</span> definition it’s not exactly the one above, but
+it may be corrected (actually <span class="math notranslate nohighlight">\(F_L\)</span> it’s the object involved in
+Callan-Gross relation, for more information see <a class="reference internal" href="#fl-corrections"><span class="std std-ref">F_L definition</span></a>)</p></li>
+</ul>
+</li>
 <li><p>Note that we compute <span class="math notranslate nohighlight">\(xF_3\)</span> instead of the bare structure function to respect the native
 scaling in the full cross section</p></li>
 </ul>
@@ -285,6 +294,15 @@ the integrand are evaluated at the bottom end</p></li>
 <li><p><strong>APFEL</strong>: the one used in APFEL, similar to the exact but with g2 in
 the review (Schienbein et al.) set to 0</p></li>
 </ul>
+<div class="section" id="f-l-definition">
+<span id="fl-corrections"></span><h3><span class="math notranslate nohighlight">\(F_L\)</span> definition<a class="headerlink" href="#f-l-definition" title="Permalink to this headline">¶</a></h3>
+<p>Also the definition of <span class="math notranslate nohighlight">\(F_L\)</span> may be corrected by the presence of a proton
+mass.</p>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>complete</p>
+</div>
+</div>
 </div>
 </div>
 
