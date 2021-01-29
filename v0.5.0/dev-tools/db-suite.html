@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Database Test Suite &mdash; yadism 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Yadmark" href="yadmark.html" />
+    <link rel="prev" title="Benchmarks" href="benchmarks.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/indices.html">Indices and tables</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/yadism.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Database Test Suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#database-infrastructure">Database infrastructure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#i-o-databases-structure">I/O databases’ structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#little-human-readability">(Little) human readability</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#git-lfs">Git LFS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Database Test Suite</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/dev-tools/db-suite.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+  .red {
+    color:red;
+  }
+  .green {
+    color:green;
+  }
+  .blue {
+    color:blue;
+  }
+  .purple {
+    color:purple;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="database-test-suite">
+<h1>Database Test Suite<a class="headerlink" href="#database-test-suite" title="Permalink to this headline">¶</a></h1>
+<p>We developed a test suite to manage the several configuration to be tested
+through a proper database (currently implemented on <cite>tinydb</cite>).</p>
+<p>The suite currently consists of:</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Update with the current structure</p>
+</div>
+<ul class="simple">
+<li><p>a <strong>navigator</strong>, able to display the content of both the <em>input database</em>,
+and the output one, to store the data generated during test process itself</p></li>
+<li><p><cite>generate_theories</cite>: create the table <cite>theories</cite> (purging any existing one, if
+already exists)</p></li>
+<li><p><cite>generate_observables</cite>: create the table <cite>observables</cite> (purging any existing one,
+if already exists)</p></li>
+</ul>
+<div class="section" id="database-infrastructure">
+<h2>Database infrastructure<a class="headerlink" href="#database-infrastructure" title="Permalink to this headline">¶</a></h2>
+<p>In the current version databases are managed through <cite>tinydb</cite>, a DBMS
+implemented as a python package, that makes it easier to interface with
+python-based tests, and also gave us the chance to deploy the whole generation
+ecosystem and navigator in python itself.</p>
+<p>Since <cite>tinydb</cite> is used the databases are <a class="reference external" href="https://en.wikipedia.org/wiki/Document-oriented_database">document-oriented</a>, that also makes
+them more flexible and easier to manage less homogeneous data.</p>
+<p>The databases themselves consist of a single <a class="reference external" href="https://en.wikipedia.org/wiki/JavaScript_Object_Notation">json</a> file per db, and this makes
+it very easy to store, transfer and manage. No system-wide installation is
+needed to interact with the db, and can be easily sent around since it is a
+bare text file, nothing more than formatted.</p>
+<div class="section" id="i-o-databases-structure">
+<h3>I/O databases’ structure<a class="headerlink" href="#i-o-databases-structure" title="Permalink to this headline">¶</a></h3>
+<p>Input database will consist of the tables:</p>
+<ul class="simple">
+<li><p><strong>theories</strong>: each entry of this table will represent a <em>physical theory</em>,
+i.e. it will specify a set of parameters involved in QFT computations; the
+following entries are expected:</p>
+<ul>
+<li><p><em>PTO</em>: perturbative order</p></li>
+<li><p><em>XIF</em>, <em>XIR</em>:</p></li>
+<li><p><em>mc</em>. <em>Qmc</em>, <em>mb</em>, <em>Qmb</em>, <em>mt</em>, <em>Qmt</em>:</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p><strong>observables</strong>: each entry of this table will represent a <em>set of DIS
+observables</em>, and also some parameters involved in the computation of the
+observables themselves; the following entries are expected:</p>
+<ul>
+<li><p><em>xgrid</em>: the grid on which the interpolation is evaluated</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p><strong>apfel_cache/qcdnum_cache/regression</strong>: to keep a cache of the external output. Since it is stable
+there is no need of rerunning it multiple times to compute the same
+observables (while rerunning is needed for <em>yadism</em> during its development,
+of course…)</p></li>
+</ul>
+<p>Output database will consist of the tables:</p>
+<ul class="simple">
+<li><p><strong>logs</strong>: keep a log of the comparisons between <em>yadism</em> and the external program</p></li>
+</ul>
+</div>
+<div class="section" id="little-human-readability">
+<h3>(Little) human readability<a class="headerlink" href="#little-human-readability" title="Permalink to this headline">¶</a></h3>
+<p>In principle it is always possible to explore
+the file content through any text editor, but in order to save space (and since
+it is designed to be managed by a proper tool) the readability its reduced
+because of lack of whitespaces, and the presence of internal structures.</p>
+<p>If needed it can be simply reformatted adding automatically whitespaces, but
+when available its always better to interact with it through the proper
+manager (consider also that is a <strong>huge</strong> text file, that can break simple
+editors trying to load all at once).</p>
+</div>
+</div>
+<div class="section" id="git-lfs">
+<h2>Git LFS<a class="headerlink" href="#git-lfs" title="Permalink to this headline">¶</a></h2>
+<p>In order to keep the databases in the projects we decided to use <a class="reference external" href="https://git-lfs.github.com">git-lfs</a>
+(<cite>git</cite> Large File Storage), a tool integrating with <cite>git</cite> and designed
+specifically to manage large files inside a <cite>git</cite> repo.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="yadmark.html" class="btn btn-neutral float-right" title="Yadmark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="benchmarks.html" class="btn btn-neutral float-left" title="Benchmarks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

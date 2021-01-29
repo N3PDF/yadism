@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>yadism.esf.distribution_vec &mdash; yadism 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo-favicon-32x32.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/indices.html">Indices and tables</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/yadism.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../yadism.html">yadism</a> &raquo;</li>
+        
+      <li>yadism.esf.distribution_vec</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for yadism.esf.distribution_vec</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Defines :py:class:`DistributionVec` and its API, that are used to represent</span>
+<span class="sd">distribution objects in the coefficient function definition and calculation.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span>
+
+<span class="kn">from</span> <span class="nn">eko.interpolation</span> <span class="kn">import</span> <span class="n">BasisFunction</span>
+
+
+<div class="viewcode-block" id="rsl_from_distr_coeffs"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.rsl_from_distr_coeffs">[docs]</a><span class="k">def</span> <span class="nf">rsl_from_distr_coeffs</span><span class="p">(</span><span class="n">regular</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="o">*</span><span class="n">coeffs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the RSL structure form the coefficients of the distributions</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        regular : callable</span>
+<span class="sd">            regular piece (passed unchanged)</span>
+<span class="sd">        delta : float</span>
+<span class="sd">            coefficient of the Dirac-delta function</span>
+<span class="sd">        coeffs: list(float)</span>
+<span class="sd">            coefficients of the plus-distributions with increasing power of log</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        regular : callable</span>
+<span class="sd">            regular part</span>
+<span class="sd">        singular : callable</span>
+<span class="sd">            singular part</span>
+<span class="sd">        local : callable</span>
+<span class="sd">            local part</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">singular</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">coeffs</span><span class="o">=</span><span class="n">coeffs</span><span class="p">):</span>
+        <span class="n">log_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">coeff</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coeffs</span><span class="p">):</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">coeff</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">log_</span> <span class="o">**</span> <span class="n">k</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">local</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coeffs</span><span class="o">=</span><span class="n">coeffs</span><span class="p">):</span>
+        <span class="n">log_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">coeff</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coeffs</span><span class="p">):</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">coeff</span> <span class="o">*</span> <span class="n">log_</span> <span class="o">**</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span> <span class="o">+</span> <span class="n">delta</span>
+
+    <span class="k">return</span> <span class="n">regular</span><span class="p">,</span> <span class="n">singular</span><span class="p">,</span> <span class="n">local</span></div>
+
+
+<div class="viewcode-block" id="DistributionVec"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec">[docs]</a><span class="k">class</span> <span class="nc">DistributionVec</span><span class="p">:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encodes the structure of a distribution, as opposed to a regular function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    regular : number or callable</span>
+<span class="sd">        regular part</span>
+<span class="sd">    singular : number or callable</span>
+<span class="sd">        singular part</span>
+<span class="sd">    local : number or callable</span>
+<span class="sd">        local part</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">eps_integration_border</span> <span class="o">=</span> <span class="mf">1e-10</span>
+    <span class="sd">&quot;&quot;&quot;Set the integration domain restriction, see</span>
+<span class="sd">    :ref:`Integration Note&lt;integration-note&gt;`&quot;&quot;&quot;</span>
+
+    <span class="n">eps_integration_abs</span> <span class="o">=</span> <span class="mf">1e-13</span>
+    <span class="sd">&quot;&quot;&quot;Set the integration target absolute error, see</span>
+<span class="sd">    :ref:`Integration Note&lt;integration-note&gt;`&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">regular</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">singular</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A variety of argument is accepted, in order to make the constructor</span>
+<span class="sd">        really flexible:</span>
+
+<span class="sd">        - *single object per argument*: in this case each argument will</span>
+<span class="sd">          represent a function, taken as a coefficient of the correspondent</span>
+<span class="sd">          distribution, the following objects are available to represent the</span>
+<span class="sd">          requested function:</span>
+
+<span class="sd">          - a *callable* object, used directly as a function</span>
+<span class="sd">          - `None`, used to silence that bit (so it represents a 0</span>
+<span class="sd">            coefficient) (default)</span>
+<span class="sd">          - a *number*, used as a constant coefficient (must be a number</span>
+<span class="sd">            format for which a float representation is available)</span>
+<span class="sd">        - *single sequence-like argument*: it&#39;s provided just for</span>
+<span class="sd">          convenience, it is in no way different from the above, and it</span>
+<span class="sd">          behaves like the list has been splatted (i.e. each item of the</span>
+<span class="sd">          sequence will be assigned to an argument);</span>
+<span class="sd">          any length in the range (0, *max*) is available, where *max* it&#39;s</span>
+<span class="sd">          the total number of distributions available; if the length is less</span>
+<span class="sd">          than *max* missing argument are set to `None`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">iter_</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">regular</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">regular</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iter_</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">singular</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iter_</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">local</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iter_</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">regular</span> <span class="o">=</span> <span class="n">regular</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">singular</span> <span class="o">=</span> <span class="n">singular</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">local</span> <span class="o">=</span> <span class="n">local</span>
+
+<div class="viewcode-block" id="DistributionVec.__iter__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__iter__">[docs]</a>    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span>
+        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">singular</span>
+        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span></div>
+
+<div class="viewcode-block" id="DistributionVec.__add__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__add__">[docs]</a>    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Implements addition semantics for :py:class:`DistributionVec`.</span>
+
+<span class="sd">        Supported further addends:</span>
+
+<span class="sd">            - `+ num`: if a number is provided is considered as a constant</span>
+<span class="sd">              regular function, to be summed to the regular bit</span>
+<span class="sd">            - `+ function`: if a callable is provided is considered as a</span>
+<span class="sd">              regular function to be summed to the regular bit</span>
+<span class="sd">            - `+ DistributionVec`: if a :py:class:`DistributionVec` is</span>
+<span class="sd">              provided the coefficients of that one and the current one are</span>
+<span class="sd">              summed element-wise</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        Do not support ``DistributionVec + iterable``, if needed use:</span>
+
+<span class="sd">        .. code-block::</span>
+
+<span class="sd">            d_vec + DistributionVec(*iterable)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: compile a proper comutational graph....</span>
+        <span class="c1"># currently: compute the minimal nesting</span>
+        <span class="n">result_args</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DistributionVec</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">c1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">c2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="n">c1</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">c2</span><span class="p">):</span>
+                        <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">c2</span><span class="p">:</span> <span class="n">c1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">c2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">c2</span><span class="p">:</span> <span class="n">c1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">c2</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">c2</span><span class="p">):</span>
+                        <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">c2</span><span class="p">:</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">):</span>
+                <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">other</span><span class="p">:</span> <span class="n">c1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">c2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">other</span><span class="p">:</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+            <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">singular</span><span class="p">)</span>
+            <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># pretend to be a float</span>
+            <span class="n">other</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">):</span>
+                <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">other</span><span class="p">:</span> <span class="n">c1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">c2</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">)</span>
+            <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">singular</span><span class="p">)</span>
+            <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">DistributionVec</span><span class="p">(</span><span class="o">*</span><span class="n">result_args</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributionVec.__radd__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__radd__">[docs]</a>    <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Implements addition semantics for :py:class:`DistributionVec`, makes</span>
+<span class="sd">        use of :py:meth:`__add__`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributionVec.__iadd__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__iadd__">[docs]</a>    <span class="k">def</span> <span class="fm">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Implements addition semantics for :py:class:`DistributionVec`, makes</span>
+<span class="sd">        use of :py:meth:`__add__`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributionVec.__mul__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__mul__">[docs]</a>    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Implements addition semantics for :py:class:`DistributionVec`.</span>
+
+<span class="sd">        The only supported type for the further factor is a scalar, and it</span>
+<span class="sd">        is considered in a vector sense: multiplying by a scalar yields</span>
+<span class="sd">        multiplying each coefficient by a scalar.</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        Currently multiplication by a function (a callable in the code) is</span>
+<span class="sd">        not supported, because a Distribution can only be multiplied by a</span>
+<span class="sd">        test function (and the TestFunction API is not going to be</span>
+<span class="sd">        implemented).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pretend that other is a float</span>
+        <span class="n">other</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="n">result_args</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">c1</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">c1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="n">c1</span><span class="p">):</span>
+                <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">other</span><span class="p">:</span> <span class="n">c1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">c2</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c1</span> <span class="o">*</span> <span class="n">other</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">DistributionVec</span><span class="p">(</span><span class="o">*</span><span class="n">result_args</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributionVec.__rmul__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__rmul__">[docs]</a>    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Implements addition semantics for :py:class:`DistributionVec`, makes</span>
+<span class="sd">        use of :py:meth:`__mul__`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributionVec.__imul__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.__imul__">[docs]</a>    <span class="k">def</span> <span class="fm">__imul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Implements addition semantics for :py:class:`DistributionVec`, makes</span>
+<span class="sd">        use of :py:meth:`__mul__`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributionVec.compare"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.compare">[docs]</a>    <span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compare two :py:class:`DistributionVec` at a given value of `x`,</span>
+<span class="sd">        checking if all the coefficients compare equal when evaluated at</span>
+<span class="sd">        `x`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other :</span>
+<span class="sd">            the other :py:class:`DistributionVec` to be compareed with the</span>
+<span class="sd">            current one</span>
+<span class="sd">        x :</span>
+<span class="sd">            the kinematics point at which the comparison should be performed</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            The only kind of comparison available is between two</span>
+<span class="sd">            :py:class:`DistributionVec`, so if the first argument provided</span>
+<span class="sd">            does not match the type an error is raised.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: if not used in yadism move in the tests</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DistributionVec</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">c1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="n">c2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                        <span class="k">return</span> <span class="kc">False</span>
+                <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">c1</span> <span class="o">!=</span> <span class="n">c2</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Comparison only available with other DistributionVec&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributionVec.convolution"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.distribution_vec.DistributionVec.convolution">[docs]</a>    <span class="k">def</span> <span class="nf">convolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">pdf_func</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convolute the current :py:class:`DistributionVec` with a function</span>
+<span class="sd">        ``pdf_func``.</span>
+
+<span class="sd">        The definition of the convolution performed is:</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            \int_x^{1} \frac{\text{d}z}{z} dvec(z) f\left(\frac{x}{z}\right)</span>
+
+<span class="sd">        (notice that is symmetryc in :math:`dvec \leftrightarrow f`).</span>
+
+<span class="sd">        .. _integration-note:</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The class level attributes :py:attr:`eps_integration_abs` and</span>
+<span class="sd">        :py:attr:`eps_integration_border` regulate the integration process,</span>
+<span class="sd">        setting respectively the absolute error and restricting the</span>
+<span class="sd">        integration domain in order to avoid singularities.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : scalar</span>
+<span class="sd">            the kinematics point at which the convoution is evaluated</span>
+<span class="sd">        pdf_func : callable</span>
+<span class="sd">            the function to be convoluted with the current</span>
+<span class="sd">            :py:class:`DistributionVec` (usually a PDF, or a PDF</span>
+<span class="sd">            interpolator)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            the result of the convolution</span>
+<span class="sd">        float</span>
+<span class="sd">            the integration error</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The real name of this method is ``convnd``.</span>
+
+<span class="sd">        .. todo::</span>
+<span class="sd">            document how the convolution is performed (that is how it&#39;s</span>
+<span class="sd">            replaced by an integration and some pre-integrated addends)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># empty domain?</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">):</span>
+            <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+        <span class="c1"># eko environment?</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pdf_func</span><span class="p">,</span> <span class="n">BasisFunction</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">pdf_func</span><span class="o">.</span><span class="n">is_below_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+                <span class="c1"># support below x --&gt; trivially 0</span>
+                <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># set breakpoints as relevant points of the integrand</span>
+                <span class="c1"># computed from interpolation areas of `pdf_func`</span>
+                <span class="c1"># and also eventually restrict integration domain</span>
+                <span class="n">area_borders</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">area</span> <span class="ow">in</span> <span class="n">pdf_func</span><span class="o">.</span><span class="n">areas</span><span class="p">:</span>
+                    <span class="n">area_borders</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">area</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">area</span><span class="o">.</span><span class="n">xmax</span><span class="p">])</span>
+                <span class="n">area_borders</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">area_borders</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">pdf_func</span><span class="o">.</span><span class="n">_mode_log</span><span class="p">:</span>  <span class="c1"># pylint: disable=protected-access</span>
+                    <span class="n">area_borders</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">area_borders</span><span class="p">)</span>
+                <span class="n">breakpoints</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">area_borders</span>
+                <span class="n">z_min</span> <span class="o">=</span> <span class="n">x</span>
+                <span class="n">z_max</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># provide default parameters</span>
+            <span class="n">breakpoints</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">z_min</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">z_max</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># providing integrands functions and addends</span>
+        <span class="c1"># ------------------------------------------</span>
+
+        <span class="c1"># cache values</span>
+        <span class="n">pdf_at_x</span> <span class="o">=</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">ker</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+            <span class="c1"># cache again</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">regular_at_z</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">):</span>
+                <span class="n">regular_at_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">regular_at_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">singular</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">singular_at_z</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">singular</span><span class="p">):</span>
+                <span class="n">singular_at_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">singular</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">singular_at_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">singular</span>
+
+            <span class="n">pdf_at_x_ov_z_div_z</span> <span class="o">=</span> <span class="n">pdf_func</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span>
+            <span class="c1"># compute</span>
+            <span class="n">reg_integrand</span> <span class="o">=</span> <span class="n">regular_at_z</span> <span class="o">*</span> <span class="n">pdf_at_x_ov_z_div_z</span>
+            <span class="n">sing_integrand</span> <span class="o">=</span> <span class="n">singular_at_z</span> <span class="o">*</span> <span class="p">(</span><span class="n">pdf_at_x_ov_z_div_z</span> <span class="o">-</span> <span class="n">pdf_at_x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">reg_integrand</span> <span class="o">+</span> <span class="n">sing_integrand</span>
+
+        <span class="c1"># actual convolution</span>
+        <span class="c1"># ------------------</span>
+
+        <span class="c1"># integrate the kernel</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">regular</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">singular</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span>
+                <span class="n">ker</span><span class="p">,</span>
+                <span class="n">z_min</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
+                <span class="n">z_max</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_border</span><span class="p">),</span>
+                <span class="n">epsabs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">eps_integration_abs</span><span class="p">,</span>
+                <span class="n">points</span><span class="o">=</span><span class="n">breakpoints</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># sum the addends</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">local_at_x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">):</span>
+            <span class="n">local_at_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">local_at_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">local</span>
+
+        <span class="n">res</span> <span class="o">+=</span> <span class="n">pdf_at_x</span> <span class="o">*</span> <span class="n">local_at_x</span>
+
+        <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

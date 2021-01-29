@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>yadism.cf_combiner &mdash; yadism 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/logo-favicon-32x32.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/indices.html">Indices and tables</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/yadism.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../yadism.html">yadism</a> &raquo;</li>
+        
+      <li>yadism.cf_combiner</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for yadism.cf_combiner</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">.nc</span> <span class="kn">import</span> <span class="n">kernels</span> <span class="k">as</span> <span class="n">nc_kernels</span>
+<span class="kn">from</span> <span class="nn">.cc</span> <span class="kn">import</span> <span class="n">kernels</span> <span class="k">as</span> <span class="n">cc_kernels</span>
+
+
+<div class="viewcode-block" id="CoefficientFunctionsCombiner"><a class="viewcode-back" href="../../modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner">[docs]</a><span class="k">class</span> <span class="nc">CoefficientFunctionsCombiner</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Does the matching between coefficient functions and partons with their approptiate coupling</span>
+<span class="sd">    strength.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        esf : EvaluateStructureFunction</span>
+<span class="sd">            current ESF</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">esf</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">esf</span> <span class="o">=</span> <span class="n">esf</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span> <span class="o">=</span> <span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">obs_name</span>
+        <span class="k">if</span> <span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">obs_params</span><span class="p">[</span><span class="s2">&quot;process&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;CC&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kernels</span> <span class="o">=</span> <span class="n">cc_kernels</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kernels</span> <span class="o">=</span> <span class="n">nc_kernels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nf</span> <span class="o">=</span> <span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">threshold</span><span class="o">.</span><span class="n">nf</span><span class="p">(</span>
+            <span class="n">esf</span><span class="o">.</span><span class="n">Q2</span> <span class="o">*</span> <span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="p">)</span>  <span class="c1"># TODO decide whether Q2 or muF2 is the correct thing</span>
+
+<div class="viewcode-block" id="CoefficientFunctionsCombiner.collect_ffns"><a class="viewcode-back" href="../../modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_ffns">[docs]</a>    <span class="k">def</span> <span class="nf">collect_ffns</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collects all kernels in the |FFNS|.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            elems : list(yadism.kernels.Kernel)</span>
+<span class="sd">                all participants</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">elems</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># light is *everything* up to nf and not only u+d+s</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">flavor</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">]:</span>
+            <span class="n">elems</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">generate_light</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">flavor_family</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;heavy&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">]:</span>
+            <span class="c1"># there is only *one* finite mass available, i.e. the next one</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">flavor_family</span> <span class="o">==</span> <span class="s2">&quot;heavy&quot;</span>
+                <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">hqnumber</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nf</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="si">}</span><span class="s2"> is not available in FFNS with nl=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="n">elems</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">generate_heavy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">))</span>
+            <span class="n">ihq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nf</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">ihq</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">intrinsic_range</span><span class="p">:</span>
+                <span class="n">elems</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">generate_intrinsic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="p">,</span> <span class="n">ihq</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">elems</span></div>
+
+<div class="viewcode-block" id="CoefficientFunctionsCombiner.collect_zmvfns"><a class="viewcode-back" href="../../modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_zmvfns">[docs]</a>    <span class="k">def</span> <span class="nf">collect_zmvfns</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collects all kernels for |ZM-VFNS|.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            elems : list(yadism.kernels.Kernel)</span>
+<span class="sd">                all participants</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">elems</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># light is *everything* up to nf and not only u+d+s</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">flavor</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">]:</span>
+            <span class="n">elems</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">generate_light</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">))</span>
+        <span class="c1"># heavy is not allowed</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">flavor_family</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;heavy&quot;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="si">}</span><span class="s2"> is not available in ZM-VFNS&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">elems</span></div>
+
+<div class="viewcode-block" id="CoefficientFunctionsCombiner.collect_fonll"><a class="viewcode-back" href="../../modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_fonll">[docs]</a>    <span class="k">def</span> <span class="nf">collect_fonll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collects all kernels for FONLL.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            elems : list(yadism.kernels.Kernel)</span>
+<span class="sd">                all participants</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">elems</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># above the *next* threshold use ZM-VFNS</span>
+        <span class="n">nl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">nf_ff</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">nl</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_zmvfns</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">flavor</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">]:</span>
+            <span class="n">elems</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">generate_light</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="p">,</span> <span class="n">nl</span><span class="p">))</span>
+            <span class="c1"># add F^d</span>
+            <span class="n">elems</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">damp_elems</span><span class="p">(</span>
+                    <span class="n">nl</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">generate_light_fonll_diff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="p">,</span> <span class="n">nl</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">obs_name</span><span class="o">.</span><span class="n">flavor_family</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;heavy&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">]:</span>
+            <span class="n">elems</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">generate_heavy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="p">,</span> <span class="n">nl</span><span class="p">))</span>
+            <span class="c1"># add F^d</span>
+            <span class="n">elems</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">damp_elems</span><span class="p">(</span>
+                    <span class="n">nl</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">generate_heavy_fonll_diff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="p">,</span> <span class="n">nl</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">elems</span></div>
+
+<div class="viewcode-block" id="CoefficientFunctionsCombiner.damp_elems"><a class="viewcode-back" href="../../modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.damp_elems">[docs]</a>    <span class="k">def</span> <span class="nf">damp_elems</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nl</span><span class="p">,</span> <span class="n">elems</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Damp FONLL difference contributions if necessary.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            nl : int</span>
+<span class="sd">                number of *light* flavors</span>
+<span class="sd">            elems : list(Kernel)</span>
+<span class="sd">                kernels to be modified</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            elems : list(Kernel)</span>
+<span class="sd">                modified kernels</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">FONLL_damping</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">elems</span>
+        <span class="n">nhq</span> <span class="o">=</span> <span class="n">nl</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">m2hq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">m2hq</span><span class="p">[</span><span class="n">nhq</span> <span class="o">-</span> <span class="mi">4</span><span class="p">]</span>
+        <span class="n">power</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">damping_powers</span><span class="p">[</span><span class="n">nhq</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">Q2</span> <span class="o">&gt;</span> <span class="n">m2hq</span><span class="p">:</span>
+            <span class="n">damp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">m2hq</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="n">power</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">damp</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">damp</span> <span class="o">*</span> <span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">elems</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CoefficientFunctionsCombiner.collect_elems"><a class="viewcode-back" href="../../modules/yadism.html#yadism.cf_combiner.CoefficientFunctionsCombiner.collect_elems">[docs]</a>    <span class="k">def</span> <span class="nf">collect_elems</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collects all kernels according to the |FNS|.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            elems : list(yadism.kernels.Kernel)</span>
+<span class="sd">                all participants</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;FFNS&quot;</span><span class="p">:</span>
+            <span class="n">full</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_ffns</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;ZM-VFNS&quot;</span><span class="p">:</span>
+            <span class="n">full</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_zmvfns</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">esf</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">scheme</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;FONLL-A&quot;</span><span class="p">]:</span>
+            <span class="n">full</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_fonll</span><span class="p">()</span>
+        <span class="c1"># TODO drop all elements that have 0 weight</span>
+        <span class="k">return</span> <span class="n">full</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

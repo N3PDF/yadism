@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>yadism.esf.esf_result &mdash; yadism 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo-favicon-32x32.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/indices.html">Indices and tables</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/yadism.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../yadism.html">yadism</a> &raquo;</li>
+        
+      <li>yadism.esf.esf_result</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for yadism.esf.esf_result</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">numbers</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="ESFResult"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf_result.ESFResult">[docs]</a><span class="k">class</span> <span class="nc">ESFResult</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents the output tensor for a single kinematic point</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">        x : float</span>
+<span class="sd">            Bjorken x</span>
+<span class="sd">        Q2 : float</span>
+<span class="sd">            virtuality of the exchanged boson</span>
+<span class="sd">        len_pids : int</span>
+<span class="sd">            number of partons</span>
+<span class="sd">        len_xgrid : int</span>
+<span class="sd">            size of interpolation grid</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">Q2</span><span class="p">,</span> <span class="n">len_pids</span><span class="p">,</span> <span class="n">len_xgrid</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span> <span class="o">=</span> <span class="n">Q2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">len_pids</span><span class="p">,</span> <span class="n">len_xgrid</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ESFResult.from_dict"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.from_dict">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Recover element from a raw dictionary</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            input_dict : dict</span>
+<span class="sd">                raw dictionary</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            new_output : cls</span>
+<span class="sd">                object representation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_output</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">input_dict</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">input_dict</span><span class="p">[</span><span class="s2">&quot;Q2&quot;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">new_output</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">input_dict</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">])</span>
+        <span class="n">new_output</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">input_dict</span><span class="p">[</span><span class="s2">&quot;errors&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">new_output</span></div>
+
+<div class="viewcode-block" id="ESFResult.apply_pdf"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.apply_pdf">[docs]</a>    <span class="k">def</span> <span class="nf">apply_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lhapdf_like</span><span class="p">,</span> <span class="n">pids</span><span class="p">,</span> <span class="n">xgrid</span><span class="p">,</span> <span class="n">xiF</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the observable for the given PDF.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            lhapdf_like : object</span>
+<span class="sd">                object that provides an xfxQ2 callable (as `lhapdf &lt;https://lhapdf.hepforge.org/&gt;`_</span>
+<span class="sd">                and :class:`ekomark.toyLH.toyPDF` do) (and thus is in flavor basis)</span>
+<span class="sd">            pids : list(int)</span>
+<span class="sd">                list of pids</span>
+<span class="sd">            xgrid : list(float)</span>
+<span class="sd">                interpolation grid</span>
+<span class="sd">            xiF : float</span>
+<span class="sd">                factorization scale ration :math:`\mu_F^2 = Q^2 \xi_F^2` - beware the square!</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            res : dict</span>
+<span class="sd">                output dictionary with x, Q2, result and error</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Q2 is not set!&quot;</span><span class="p">)</span>
+
+        <span class="c1"># factorization scale</span>
+        <span class="n">muF2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span> <span class="o">*</span> <span class="n">xiF</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">pdfs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">pids</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">xgrid</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">pid</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pids</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">lhapdf_like</span><span class="o">.</span><span class="n">hasFlavor</span><span class="p">(</span><span class="n">pid</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">pdfs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lhapdf_like</span><span class="o">.</span><span class="n">xfxQ2</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">muF2</span><span class="p">)</span> <span class="o">/</span> <span class="n">z</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">xgrid</span><span class="p">])</span>
+
+        <span class="c1"># build</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;aj,aj&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">pdfs</span><span class="p">)</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;aj,aj&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">pdfs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">Q2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="n">res</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">err</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ESFResult.get_raw"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.get_raw">[docs]</a>    <span class="k">def</span> <span class="nf">get_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the raw data ready for serialization.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            out : dict</span>
+<span class="sd">                output dictionary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
+            <span class="n">Q2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span>
+            <span class="n">values</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+            <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ESFResult.__add__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__add__">[docs]</a>    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">errors</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="ESFResult.__mul__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__mul__">[docs]</a>    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">ESFResult</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Q2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">other</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="n">other</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">other</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">val</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="n">val</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">+</span> <span class="n">err</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="ESFResult.__rmul__"><a class="viewcode-back" href="../../../modules/yadism.esf.html#yadism.esf.esf_result.ESFResult.__rmul__">[docs]</a>    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

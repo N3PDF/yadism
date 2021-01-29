@@ -1,0 +1,36 @@
+yadmark package
+===============
+
+.. automodule:: yadmark
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   yadmark.benchmark
+   yadmark.data
+   yadmark.navigator
+
+Submodules
+----------
+
+yadmark.banana\_cfg module
+--------------------------
+
+.. automodule:: yadmark.banana_cfg
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yadmark.mode\_selector module
+-----------------------------
+
+.. automodule:: yadmark.mode_selector
+   :members:
+   :undoc-members:
+   :show-inheritance:

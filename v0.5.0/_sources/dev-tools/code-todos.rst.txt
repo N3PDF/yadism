@@ -1,0 +1,49 @@
+TODOs
+=====
+
+From Docstrings
+---------------
+
+.. todolist ::
+
+From Source Code
+----------------
+
+`coupling_constants.py <file:///home/runner/work/yadism/yadism/src/yadism/coupling_constants.py>`_
+
+.. warning:: #281 raise warning in log if inconsitent
+
+.. warning:: #322 maybe raise warning if non-unitarian
+
+
+
+`output.py <file:///home/runner/work/yadism/yadism/src/yadism/output.py>`_
+
+.. warning:: #85 explicitly silence yaml
+
+
+
+`sf.py <file:///home/runner/work/yadism/yadism/src/yadism/sf.py>`_
+
+.. warning:: #46 wrap managers and parameters as single attributes
+
+.. warning:: #125 how to incorporate args?
+
+
+
+`cf_combiner.py <file:///home/runner/work/yadism/yadism/src/yadism/cf_combiner.py>`_
+
+.. warning:: #28 decide whether Q2 or muF2 is the correct thing
+
+.. warning:: #151 drop all elements that have 0 weight
+
+
+
+`generate_code_todos.py <file:///home/runner/work/yadism/yadism/docs/sphinx/generate_code_todos.py>`_
+
+.. warning:: #42 grep sourdings?
+
+.. warning:: #71 use something better then file://? but this should never appear in production
+
+
+

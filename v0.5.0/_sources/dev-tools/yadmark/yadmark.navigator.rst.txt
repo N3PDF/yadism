@@ -1,0 +1,18 @@
+yadmark.navigator package
+=========================
+
+.. automodule:: yadmark.navigator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+yadmark.navigator.navigator module
+----------------------------------
+
+.. automodule:: yadmark.navigator.navigator
+   :members:
+   :undoc-members:
+   :show-inheritance:

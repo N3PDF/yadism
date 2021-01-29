@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>yadism.input.errors &mdash; yadism 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo-favicon-32x32.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/indices.html">Indices and tables</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/yadism.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../yadism.html">yadism</a> &raquo;</li>
+        
+      <li>yadism.input.errors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for yadism.input.errors</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+
+<div class="viewcode-block" id="DomainError"><a class="viewcode-back" href="../../../modules/yadism.input.html#yadism.input.errors.DomainError">[docs]</a><span class="k">class</span> <span class="nc">DomainError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Error raised while checking inputs (single argument violation).</span>
+
+<span class="sd">    .. todo::</span>
+<span class="sd">        format domain properly according the type, this should be done by</span>
+<span class="sd">        error Argument subclasses before raising.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Name of the input variable.</span>
+<span class="sd">    description : str</span>
+<span class="sd">        Domain description provided.</span>
+<span class="sd">    domain : list, optional</span>
+<span class="sd">        The set of rules used to provide .</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">known_as</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">domain_</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generates the error message to be included in the Traceback.</span>
+
+<span class="sd">        It formats the provided fields in a single string, and stores it as</span>
+<span class="sd">        first element of ``args`` attribute.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">known_as</span> <span class="o">=</span> <span class="n">known_as</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;Following argument outside the domain:</span>
+<span class="s2">               name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               known_as: </span><span class="si">{</span><span class="n">known_as</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               description:</span>
+<span class="s2">               DESCRIPTION</span>
+<span class="s2">               type: </span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               domain:</span>
+<span class="s2">               DOMAIN</span>
+<span class="s2">               value provided: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">               &quot;&quot;&quot;</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">domain_</span><span class="p">)</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\t\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">description</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="mi">66</span><span class="p">,</span> <span class="n">break_long_words</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> *&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;DOMAIN&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;DESCRIPTION&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">description</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;   &quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">msg</span><span class="p">,)</span></div>
+        <span class="c1"># raise ValueError</span>
+
+
+<div class="viewcode-block" id="CrossConstraintError"><a class="viewcode-back" href="../../../modules/yadism.input.html#yadism.input.errors.CrossConstraintError">[docs]</a><span class="k">class</span> <span class="nc">CrossConstraintError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Error raised while checking inputs (more arguments involved).&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate the error message to be included in the Traceback.</span>
+
+<span class="sd">        It formats the provided fields in a single string, and stores it as</span>
+<span class="sd">        first element of ``args`` attribute.</span>
+
+<span class="sd">        ..todo::</span>
+<span class="sd">            * define the arguments involved</span>
+<span class="sd">            * define the actual format</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="DefaultError"><a class="viewcode-back" href="../../../modules/yadism.input.html#yadism.input.errors.DefaultError">[docs]</a><span class="k">class</span> <span class="nc">DefaultError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Missing argument for field without default&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate the error message to be reported.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">default</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Missing default for the variable `</span><span class="si">{</span><span class="n">default</span><span class="p">[</span><span class="s1">&#39;involve&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">`&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">msg</span><span class="p">,)</span></div>
+
+
+<div class="viewcode-block" id="DefaultWarning"><a class="viewcode-back" href="../../../modules/yadism.input.html#yadism.input.errors.DefaultWarning">[docs]</a><span class="k">class</span> <span class="nc">DefaultWarning</span><span class="p">(</span><span class="ne">RuntimeWarning</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Warn the user that a default is being applied&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate the error message to be reported.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">msg</span><span class="p">,)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Flavor Number Schemes &mdash; yadism 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coefficient Functions" href="coeff-funcs.html" />
+    <link rel="prev" title="Factorization" href="fact.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/indices.html">Indices and tables</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fact.html">Factorization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flavor Number Schemes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ffns">FFNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zm-vfns">ZM-VFNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fonll">FONLL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/yadism.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev-tools/code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Flavor Number Schemes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/theory/fns.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+  .red {
+    color:red;
+  }
+  .green {
+    color:green;
+  }
+  .blue {
+    color:blue;
+  }
+  .purple {
+    color:purple;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="flavor-number-schemes">
+<h1>Flavor Number Schemes<a class="headerlink" href="#flavor-number-schemes" title="Permalink to this headline">¶</a></h1>
+<p><abbr title="Flavor Number Scheme">FNS</abbr> or Heavy Quark Matching Schemes are dealing with the ambiguity of
+including massive quark contributions to physical cross sections. There is not
+a unique prescription on how to do this and thus we implement several
+strategies. Unfortunately there is no consistent implementation of the
+different schemes in the commonly used tools and a comparison of the different
+outputs has to judged on a case by case basis.</p>
+<p>In general we can consider two different kinematic regimes that require a
+different handling of the massive contributions: For <span class="math notranslate nohighlight">\(Q^2 \lesssim m^2\)</span>
+the heavy quark should be treated with the full mass dependence. For <span class="math notranslate nohighlight">\(Q^2
+\gg m^2\)</span> however the quark should be considered massless, because otherwise a
+resummation of the occurring terms <span class="math notranslate nohighlight">\(\ln(m^2/Q^2)\)</span> would be required.</p>
+<p>We define <em>Heavyness</em> as the split up of the <em>physical total structure
+functions</em> into several subparts that represent the heavy quark contributions.
+Again this is not a unique prescription and there are lots of ways to define
+physical observables, e.g. tagging the outgoing state and imposing kinematics
+cuts. However, we will <strong>not</strong>  use any of these definitions as they are prone
+to be theoretically unsafe, if not properly designed.
+Instead we are defining new observables by considering new theories,
+derived from the <abbr title="Standard Model">SM</abbr> by just setting to <span class="math notranslate nohighlight">\(0\)</span> some of its bare couplings.</p>
+<p>We are thus providing the observables <strong>Flight</strong>, <strong>Fheavy</strong> and <strong>Ftotal</strong> (for all the
+unpolarized <a class="reference internal" href="DIS-intro.html#kinds-def"><span class="std std-ref">kinds</span></a>).</p>
+<div class="section" id="ffns">
+<h2>FFNS<a class="headerlink" href="#ffns" title="Permalink to this headline">¶</a></h2>
+<p>As the name <abbr title="Fixed Flavor Number Scheme">FFNS</abbr> suggests we are considering a fixed number of flavors
+<span class="math notranslate nohighlight">\(n_f=n_l+1\)</span> with <span class="math notranslate nohighlight">\(n_l\)</span> light flavors and <strong>1 (and only 1) heavy
+flavor</strong> with a finite mass <span class="math notranslate nohighlight">\(m\)</span>. The number of light quarks <span class="math notranslate nohighlight">\(n_l\)</span> is
+arbitrary but fixed and can range between 3 and 5. Except for intrinsic
+contributions we are <em>NOT</em> allowing the heavy (and the other non-existent)
+<abbr title="Parton Distribution Function(s)">PDF</abbr> to contribute.</p>
+<p>Although this is the most naïve scheme, it is <em>NOT</em> consistently implement in
+some of the commonly used tools. This scheme is adequate for <span class="math notranslate nohighlight">\(Q^2\sim
+m^2\)</span>.</p>
+<ul>
+<li><p><strong>Flight</strong> corresponds to the interaction of the purely light partons, i.e.
+the coefficient functions may only be a function of <span class="math notranslate nohighlight">\(z,Q2\)</span> and
+eventually unphysical scales; in especially they may <em>NOT</em> depend on any
+quark mass.
+This may be consistently obtained computing contributions for a Lagrangian
+with all masses set to <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<ul class="simple">
+<li><p>This definition is consistent with
+<span id="id1">[<a class="reference internal" href="../zzz-refs.html#id12"><span>VVM05</span></a>,<a class="reference internal" href="../zzz-refs.html#id13"><span>MVV05</span></a>,<a class="reference internal" href="../zzz-refs.html#id14"><span>MV00</span></a>,<a class="reference internal" href="../zzz-refs.html#id15"><span>MRV08</span></a>,<a class="reference internal" href="../zzz-refs.html#id16"><span>MVV09</span></a>]</span>, <a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a></p></li>
+<li><p>but is not consistent with <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a>, which instead it’s calling <strong>Flight</strong>
+the sum of contributions in which a light quark is coupled to the <abbr title="ElectroWeak">EW</abbr>
+boson (but this definition would contain massive corrections, but not
+consistently, and so it’s theoretically unsafe)</p></li>
+</ul>
+</li>
+<li><p><strong>Ftotal</strong> is <em>NOT</em> the sum of <strong>Flight</strong> and the single <strong>Fheavy</strong>, but
+contains additional terms <strong>Fmissing</strong> such as the Compton diagrams in
+<span id="id2">[<a class="reference internal" href="../zzz-refs.html#id18"><span>Hek19</span></a>]</span>.
+This is the proper physical object, accounting for all contributions coming
+from the full Lagrangian.</p></li>
+<li><p><strong>Fheavy</strong> is defined by having in the Lagrangian <em>only</em> the <abbr title="ElectroWeak">EW</abbr> charges
+that are associated to the specific quark active (the only massive one). In
+<abbr title="Neutral Current">NC</abbr> this corresponds to the electric and weak charges of the quarks but in
+<abbr title="Charged Current">CC</abbr> the situation is bit more involved: we divide the <abbr title="Cabibbo-Kobayashi-Maskawa">CKM</abbr>-matrix into
+several parts:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}V_{CKM} =
+\begin{pmatrix}
+   {\color{red}V_{ud}} &amp; {\color{red}V_{us}} &amp; {\color{green}V_{ub}}\\
+   {\color{blue}V_{cd}} &amp; {\color{blue}V_{cs}} &amp; {\color{green}V_{cb}}\\
+   {\color{purple}V_{td}} &amp; {\color{purple}V_{ts}} &amp; {\color{purple}V_{tb}}
+\end{pmatrix}\end{split}\]</div>
+<p>and associate the <span class="blue">blue</span> couplings to the charm structure functions,
+<span class="green">green</span> to bottom and <span class="purple">purple</span> to top. For
+<span class="math notranslate nohighlight">\({\color{blue} F_{2,c}^{\color{black} \nu,p}}\)</span> this in effect amounts
+to</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}{\color{blue} F_{2,c}^{\color{black} \nu,p}} &amp;=&amp;
+2x\Big\{C_{2,q}\otimes\Big[|{\color{blue}V_{cd}}|^2(d+\overline{c}) +
+      |{\color{blue}V_{cs}}|^2 (s+\overline{c})\Big]\\
+      &amp;+&amp;
+      2\left(|{\color{blue}V_{cd}}|^2+|{\color{blue}V_{cs}}|^2\right)C_{2,g}\otimes
+      g\Big\}\\\end{split}\]</div>
+<p>Note that even heavier contributions are <em>NOT</em> available.
+E.g.:</p>
+<ul class="simple">
+<li><p>there is no contributions coming from either <em>bottom</em> or <em>top</em> to
+<span class="math notranslate nohighlight">\(F_{2,c}\)</span></p></li>
+<li><p>while <em>charm</em> would contribute to <span class="math notranslate nohighlight">\(F_{2,b}\)</span>, but only as a massless
+flavor.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="zm-vfns">
+<h2>ZM-VFNS<a class="headerlink" href="#zm-vfns" title="Permalink to this headline">¶</a></h2>
+<p>As the name <abbr title="Zero Mass - Variable Flavor Number Scheme">ZM-VFNS</abbr> suggests we are considering a variable number of <em>light</em>
+flavors <span class="math notranslate nohighlight">\(n_f\)</span> with <span class="math notranslate nohighlight">\(n_f = n_f(Q^2)\)</span>. We associate an <em>activation</em>
+scale <span class="math notranslate nohighlight">\(Q_{thr, i}^2\)</span> to each <em>“heavy”</em> quark and whenever <span class="math notranslate nohighlight">\(Q^2 \ge
+Q_{thr, i}^2\)</span> we consider this quark massless, otherwise infinitely massive.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="math notranslate nohighlight">\(Q_{thr,i}^2\)</span> are not necessarily, but are usually chosen, to be the
+quarks’ masses.</p>
+</div>
+<p>This scheme is adequate for <span class="math notranslate nohighlight">\(Q^2\gg m^2\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Fheavy</strong> is <em>NOT</em> defined, as quark masses are either <span class="math notranslate nohighlight">\(0\)</span> or
+<span class="math notranslate nohighlight">\(\infty\)</span> (so no massive correction is available at all)</p></li>
+<li><p><strong>Ftotal</strong> thus is equal to <strong>Flight</strong></p></li>
+<li><p><strong>Flight</strong> corresponds to the interaction of the purely light partons, i.e. the
+coefficient functions may only be a function of <span class="math notranslate nohighlight">\(z,Q^2\)</span> and eventually
+unphysical scales; in especially they may <em>NOT</em> depend on any quark mass.</p></li>
+</ul>
+</div>
+<div class="section" id="fonll">
+<h2>FONLL<a class="headerlink" href="#fonll" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">FONLL <span id="id3">[<a class="reference internal" href="../zzz-refs.html#id21"><span>FLNR10</span></a>]</span> is a <abbr title="General Mass - Variable Flavor Number Scheme">GM-VFNS</abbr> that includes parts of the <abbr title="Dokshitzer-Gribov-Lipatov-Altarelli-Parisi">DGLAP</abbr> equations into the
+matching conditions.</div>
+<div class="line">That is: two different schemes are considered, and they are matched at a given
+scale, accounting for the resummation of collinear logarithms.</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In the original paper the prescription is only presented for the charm
+contributions, but we extend it here to an arbitrary quark: in especially
+the <code class="docutils literal notranslate"><span class="pre">NfFF</span></code> configuration variable as to point to the <em>heavy</em> quark, i.e.
+e.g. <code class="docutils literal notranslate"><span class="pre">NfFF=4</span></code> for the charm matching.</p>
+</div>
+<p>The prescription defines two separate regimes, below and above the <em>next</em> heavy
+quark threshold: <span class="math notranslate nohighlight">\(Q_{thr,n_f+1}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As in the case of <abbr title="Zero Mass - Variable Flavor Number Scheme">ZM-VFNS</abbr>, the thresholds are not necessarily, but usually
+chosen, to be the quarks’ masses.</p>
+</div>
+<ul>
+<li><p>for <span class="math notranslate nohighlight">\(Q^2 &lt; Q_{thr,n_f+1}^2\)</span>:</p>
+<p>A <abbr title="Flavor Number Scheme">FNS</abbr> with <span class="math notranslate nohighlight">\(n_f\)</span> flavors is employed and in especially even below
+<span class="math notranslate nohighlight">\(Q_{thr,n_f}\)</span>.</p>
+<p>Here we include explicitly the scheme change between the schemes with
+<span class="math notranslate nohighlight">\((n_f-1)\)</span> (i.e. the <abbr title="Fixed Flavor Number Scheme">FFNS</abbr> scheme in which the active flavor is the
+only one considered to be massive) and <span class="math notranslate nohighlight">\(n_f\)</span> flavors (i.e. the <abbr title="Fixed Flavor Number Scheme">FFNS</abbr>
+scheme with only massless quarks, including the formerly active one).</p>
+<p>This scheme change is related to the <abbr title="Dokshitzer-Gribov-Lipatov-Altarelli-Parisi">DGLAP</abbr> matching conditions: in
+particular the massive corrections are only coming from the <span class="math notranslate nohighlight">\((n_f - 1)\)</span>
+scheme, but the collinear contribution is present in both:</p>
+<ul class="simple">
+<li><p>the <span class="math notranslate nohighlight">\((n_f - 1)\)</span> scheme includes the logarithms of the active mass,
+while the <abbr title="Parton Distribution Function(s)">PDF</abbr> of the massive object are scale-independent by definition
+(since the factorization terms are kept in the matrix element)</p></li>
+<li><p>the <span class="math notranslate nohighlight">\(n_f\)</span> scheme does not account for them in them in the coefficient
+function, but instead they are resummed in the <abbr title="Parton Distribution Function(s)">PDF</abbr> evolution through the
+<abbr title="Dokshitzer-Gribov-Lipatov-Altarelli-Parisi">DGLAP</abbr> equation</p></li>
+</ul>
+<p>By matching the two schemes a <abbr title="General Mass - Variable Flavor Number Scheme">GM-VFNS</abbr> is obtained, accounting for both the
+massive corrections and the resummation of collinear logarithms.</p>
+<div class="admonition-continuity-damping admonition">
+<p class="admonition-title">Continuity: damping</p>
+<div class="line-block">
+<div class="line">Up to <abbr title="Next-to-Leading Order">NLO</abbr> this scheme change is however continuous, but in general it
+is not.</div>
+<div class="line">In order to recover the continuous transition a damping procedure may be
+adopted, turning the scheme in the so called <strong>damp FONLL</strong>.</div>
+</div>
+</div>
+</li>
+<li><p>above this threshold:</p>
+<p>The <abbr title="Zero Mass - Variable Flavor Number Scheme">ZM-VFNS</abbr> is employed and this leads to an inconsistency at this
+<span class="math notranslate nohighlight">\(Q_{thr,n_f+1}\)</span> threshold, but a good approximation nevertheless.</p>
+<p>This amounts to simply make an hard cut to the original smooth decay of
+massive contributions, and to add the subsequent thresholds for the following
+massive quarks.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="coeff-funcs.html" class="btn btn-neutral float-right" title="Coefficient Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fact.html" class="btn btn-neutral float-left" title="Factorization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>

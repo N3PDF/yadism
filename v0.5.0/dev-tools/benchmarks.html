@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Benchmarks &mdash; yadism 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/logo-favicon-32x32.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" config="TeX-AMS-MML_HTMLorMML" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"], "loader": {"load": ["[tex]/color", "[tex]/physics"]}, "tex": {"packages": {"[+]": ["base", "color", "physics"]}}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Database Test Suite" href="db-suite.html" />
+    <link rel="prev" title="Regression Tests" href="regression-tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo-docs.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/indices.html">Indices and tables</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Theory</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../theory/DIS-intro.html">Introduction to DIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/fact.html">Factorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/fns.html">Flavor Number Schemes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/coeff-funcs.html">Coefficient Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../theory/scale-variations.html">Scale Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz-refs.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Implementation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../yadism.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/yadism.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dev Tools</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="tests.html">Tests</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="unit-tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regression-tests.html">Regression Tests</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Benchmarks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apfel">APFEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qcdnum">QCDNUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#different-definition-of-sf">Different definition of <abbr title="Structure Function">SF</abbr></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="db-suite.html">Database Test Suite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yadmark.html">Yadmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extras.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third-party.html">Third Party Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-todos.html">TODOs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">yadism</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="tests.html">Tests</a> &raquo;</li>
+        
+      <li>Benchmarks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/N3PDF/yadism/blob/master/docs/sphinx/source/dev-tools/benchmarks.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <style type="text/css">
+  span.underlined {
+    text-decoration: underline;
+  }
+  .red {
+    color:red;
+  }
+  .green {
+    color:green;
+  }
+  .blue {
+    color:blue;
+  }
+  .purple {
+    color:purple;
+  }
+</style><style type="text/css">
+  span.eqref:before {
+    content: "Eq. (";
+  }
+  span.eqref:after {
+    content: ")";
+  }
+</style><div class="section" id="benchmarks">
+<h1>Benchmarks<a class="headerlink" href="#benchmarks" title="Permalink to this headline">¶</a></h1>
+<p>Benchmarks are implemented against external code, where they overlap with this
+package.</p>
+<table class="docutils align-center" id="id2">
+<caption><span class="caption-text">Banchmarks coverage</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>feature \ reference</p></th>
+<th class="head"><p>APFEL</p></th>
+<th class="head"><p>QCDNUM</p></th>
+<th class="head"><p>xspace-bench</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>projectiles</p></th>
+<td><p><span class="green">✓</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>EM</p></th>
+<td><p><span class="green">✓</span></p></td>
+<td><p><span class="green">✓</span></p></td>
+<td><p><span class="green">✓</span></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>NC</p></th>
+<td><p><span class="green">✓</span></p></td>
+<td></td>
+<td><p><span class="green">✓</span></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>CC</p></th>
+<td><p><span class="green">✓</span></p></td>
+<td></td>
+<td><p><span class="green">✓</span></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>scale-variatons</p></th>
+<td><p><span class="green">✓</span></p></td>
+<td><p><span class="green">✓</span></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>target-mass-corrections</p></th>
+<td><p><span class="green">✓</span></p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id3">
+<caption><span class="caption-text">Flavor Number Schemes</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p><abbr title="Flavor Number Scheme">FNS</abbr> \ reference</p></th>
+<th class="head"><p>APFEL</p></th>
+<th class="head"><p>QCDNUM</p></th>
+<th class="head"><p>xspace-bench</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p><abbr title="Fixed Flavor Number Scheme">FFNS</abbr></p></th>
+<td><p><span class="green">✓</span></p></td>
+<td><p><span class="green">✓</span></p></td>
+<td><p><span class="green">✓</span> <a class="footnote-reference brackets" href="#f1" id="id1">1</a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><abbr title="Zero Mass - Variable Flavor Number Scheme">ZM-VFNS</abbr></p></th>
+<td><p><span class="green">✓</span></p></td>
+<td><p><span class="green">✓</span></p></td>
+<td><p><span class="green">✓</span></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>FONLL</p></th>
+<td><p><span class="green">✓</span></p></td>
+<td></td>
+<td><p><span class="green">✓</span></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Only for NfFF=4</p>
+</dd>
+</dl>
+<div class="section" id="apfel">
+<h2>APFEL<a class="headerlink" href="#apfel" title="Permalink to this headline">¶</a></h2>
+<p><a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a> is a tool aimed to the evolution of PDFs and DIS observables’ calculation
+(and FTDY as well).</p>
+<p>It has been used by the NNPDF collaboration up to NNPDF4.0</p>
+</div>
+<div class="section" id="qcdnum">
+<h2>QCDNUM<a class="headerlink" href="#qcdnum" title="Permalink to this headline">¶</a></h2>
+<p><a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a> is a tool aimed to the evolution of PDFs and DIS observables’ calculation in
+a restricted number of schemes.</p>
+<p>It is/has been used by the <cite>xFitter</cite> framework.</p>
+</div>
+<div class="section" id="different-definition-of-sf">
+<h2>Different definition of <abbr title="Structure Function">SF</abbr><a class="headerlink" href="#different-definition-of-sf" title="Permalink to this headline">¶</a></h2>
+<p>Due to a different definition <abbr title="Structure Function">SF</abbr> in <cite>yadism</cite>, <a href="https://apfel.mi.infn.it/"><abbr title="A PDF Evolution Library">APFEL</abbr></a> and <a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a> it is
+not possible to compare all the structure functions in all the schemes.</p>
+<p>On the other hand <a href="https://www.nikhef.nl/~h24/qcdnum/"><abbr title="Quantum ChromoDynamics NUM">QCDNUM</abbr></a> is using a different definition of the <abbr title="Structure Function">SF</abbr> that is
+not matching the other one and from which it is not possible to recover the
+other results at higher orders (in particular it becomes completely impossible
+since <abbr title="Next-to-Next-to-Leading Order">NNLO</abbr>).
+The different definition is:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_X^{light}\)</span> is defined by having only light quarks in the quark lines</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_X^{charm}\)</span> is defined by having light and charm quarks in the
+quark lines (at least one charm), given that charm is not light (otherwise
+it’s not defined)</p></li>
+<li><p>and so on for <span class="math notranslate nohighlight">\(bottom\)</span> (that will include at least one bottom) and
+<span class="math notranslate nohighlight">\(top\)</span> (that will include at least one top)</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="db-suite.html" class="btn btn-neutral float-right" title="Database Test Suite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="regression-tests.html" class="btn btn-neutral float-left" title="Regression Tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  <!-- your html code here -->
+  <p style="text-align: center;">Made with ❤  and ⏲  by N3PDF team.</p>
+    
+    <p style="text-align: center; font-size: 7pt;">&copy; Copyright 2019-2021, the N3PDF team</p>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+<script>
+  var image_container = document.createElement("DIV");
+  var n3pdf_link = document.createElement("A");
+  n3pdf_link.href = "http://n3pdf.mi.infn.it/";
+  image_container.appendChild(n3pdf_link);
+  var image = document.createElement("IMG");
+  image.src = "/yadism/_assets/n3pdf_badge.png";
+  image.alt = "N3PDF-logo";
+  image.className = "logo";
+  image.style.width = "70%";
+  image.style.marginTop = "17%";
+  image.style.display = "block";
+  image.style.marginLeft = "auto";
+  image.style.marginRight = "auto";
+  n3pdf_link.appendChild(image);
+  var sidebar_content = document.getElementsByClassName("wy-side-scroll")[0];
+  sidebar_content.appendChild(image_container);
+
+  console.log(location.hostname);
+</script>
+
+
+</body>
+</html>
